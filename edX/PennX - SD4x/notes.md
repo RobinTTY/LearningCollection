@@ -135,4 +135,77 @@ JavaScript functions can also be declared and used in objects:
 
 - Properties and methods can be added to prototypes by adding them to the prototype property
 
-![prototypeProperties](ressources/prototypeProperties.PNG)
+```Javascript
+var Person = function (name, age, occupation){
+    this.name = name;
+    this.age = age;
+    this.occupation = occupation;
+}
+
+Person.prototype.planet = 'Earth';
+Person.prototype.introduction = function(){
+    return 'I am a ' + this.occupation;
+}
+
+var johnDoe = new Person('John Doe', 32, 'Dentist');
+
+johnDoe.planet;             // Earth
+johnDoe.introduction();     // I am a Dentist
+```
+
+## JavaScript regular expressions
+
+In Javascript strings are immutable!
+
+```Javascript
+var animal = 'cat';
+
+animal[0] = 'r';
+
+console.log(animal); // still cat
+```
+
+Functions that work on strings, like toUpperCase() therefore return a new string.
+
+- A regular expression is a pattern of characters
+- A string matches a regular expression if it adheres to the same pattern
+- Example: "consists of exactly three digits (0-9)"
+  - '123' matches
+  - 'abc' does not match
+  - '12' does not match
+  - '12345' does not match
+
+### Simple regular expressions
+
+- We can pass a regular expression to the string's search function to see if it matches the pattern
+- In general, it is considered a match if any part of the string matches the regular expression
+
+```Javascript
+var status = 'I am working VERY hard';
+
+status.search(/VERY/);  // returns the position -> 13
+
+status.search(/very/);  // not found -> -1
+
+status.search(/very/i); // ignores case -> 13
+```
+
+We can also use the regex test function:
+
+```Javascript
+/script/.test('javascript is so much fun!');    // true
+```
+
+### Ranges of characters
+
+```Javascript
+var numbers = '5 8 2 5 7 6';
+numbers.search(/[012]/);        // 4
+
+var password = 'password4real';
+password.search(/[a-z]/);       // 0
+password.search(/\d/);          // 8 (any digit)
+
+var code = 'abc123d4e5';
+code.search(/[0-9][a-z][0-9]/); // 5
+```
