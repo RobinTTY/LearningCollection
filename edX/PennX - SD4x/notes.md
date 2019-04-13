@@ -65,7 +65,19 @@ Removes and returns an element from the beginning of the array: e.g. var vehicle
 
 Example object declaration and modification:
 
-![object](ressources/objects.PNG)
+```Javascript
+var pet = {
+    name: 'Cooper',
+    type: 'dog'
+}
+
+console.log(pet.age);           // undefined
+pet.age = 11;
+console.log(pet.age);           // 11
+
+pet['status'] = 'good boy';
+console.log(pet.status);        // "good boy"
+```
 
 key-value pair age and status is added since it doesn't exist yet.
 
@@ -77,13 +89,36 @@ Keep in mind difference between comparisons "==" and "===":
 
 Objects are only considered equal if the variables are aliases, i.e. refer to the same object:
 
-![object](ressources/objectComparison.PNG)
+```Javascript
+var cooper = { age: 11 }
+var flanders = { age: 11 }
+
+if (cooper == flanders) { . . . }   // false
+
+var myDog = cooper;
+
+if(myDog == cooper) { . . . }       // true!
+```
 
 ## Functions
 
 Example of a function:
 
-![object](ressources/function.PNG)
+```Javascript
+function factorial(n) {
+    var product = 1;
+    for (var i = 1; i <= n; i++) {
+        product *= i;
+    }
+    return product;
+}
+
+var x = ...
+
+var f = factorial(x);
+
+console.log(f);
+```
 
 Array has predefined functions like:
 
@@ -103,11 +138,27 @@ Therefore functions can take advantage of the benefits of an object, such as hav
 
 Since JavaScript functions are objects, they can be assigned to variables:
 
-![functionAsObject](ressources/functionAsObject.PNG)
+```Javascript
+var add = function (a, b){
+    return a + b;
+};
+
+console.log(add(3,5));      // 8
+```
 
 JavaScript functions can also be declared and used in objects:
 
-![functionInObject](ressources/functionInObject.PNG)
+```Javascript
+var johnDoe = {
+    name: 'John Doe',
+    age: '32',
+    greeting: function(){
+        return ' Hello! Nice Meeting You!';
+    }
+}
+
+console.log(johnDoe.greeting());
+```
 
 ### Object prototypes
 
@@ -281,3 +332,27 @@ chars.search(/[^0-9a-z]/);      // look for characters not in range -> 6
   - $("div") selects all \<div> elements
   - $(".title") selects all elements with class="title"
   - $("#name") selects the element with id="name"
+
+### jQuery DOM Manipulation
+
+- to manipulate DOM contents, the general format is $(selector).action(arguments)
+- Examples:
+
+```Javascript
+$("#name").html("Hello");           // set html of element with id name to Hello
+$("#name").append("World!");        // append World! to element with id name
+$("#name").addClass("greeting");    // add class
+$("#name").hide();                  // hide element
+$("#name").show();                  // unhide element
+```
+
+- to add an event listener to an element, the general format is $(selector).event(callback)
+
+### Selectors
+
+```Javascript
+$(someNodes).find(selector)     // will search someNodes' children for selector
+$("div.book")                   // selects divs with class="book"
+$("div, .book")                 // selects all divs and all elements with class="book"
+$("p:hidden")                   // selects all <p> elements that are visually hidden
+```
