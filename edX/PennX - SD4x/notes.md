@@ -122,14 +122,38 @@ JavaScript functions can also be declared and used in objects:
 - the _this_ keyword refers to the current object
 - the new keyword can be used to create new objects from the same prototype
 
-![Prototypes](ressources/Prototypes.PNG)
+```Javascript
+function Person (name, age){    // prototype
+    this.name = name;
+    this.age = age;
+    this.greeting = function () {
+        return 'Hello! My name is ' + this.name;
+    }
+}
+
+var johnDoe = new Person('John Doe', 32);
+johnDoe.greeting();     // Hello! My name is John Doe
+
+var janeDoe = new Person('Jane Doe', 28);
+janeDoe.greeting();     // Hello! My name is Jane Doe
+```
 
 ### Extending prototypes
 
 - Prototypes can extend another prototype with more functionality
 - To inherit a prototype, set the \_\_ proto__ property of an object to the parent prototype
 
-![extendingPrototypes](ressources/extendingPrototypes.PNG)
+```Javascript
+function Student (name, age, school) {
+    this.__proto__ = new Person(name, age);
+    this.school = school;
+}
+
+var sarahBrown = new Student('Sarah Brown', 17, 'PennX');
+
+sarahBrown.greeting();          // Hello! My name is Sarah Brown
+sarahBrown instanceof Person;   // true
+```
 
 ### Prototype properties
 
@@ -208,4 +232,52 @@ password.search(/\d/);          // 8 (any digit)
 
 var code = 'abc123d4e5';
 code.search(/[0-9][a-z][0-9]/); // 5
+
+var chars = 'abc123K456';
+chars.search(/[^0-9a-z]/);      // look for characters not in range -> 6
 ```
+
+### Quantifiers
+
+```Javascript
+/[a-z][0-9]?[a-z]/.test('a1b');     // matches
+/[a-z][0-9]?[a-z]/.test('abc');     // matches -> number is optional
+/[a-z][0-9]?[a-z]/.test('a123b');   // doesn't match -> ? tests for single occurrence
+
+/[a-z][0-9]*[a-z]/.test('a123b');   // matches -> * tests for multiple occurrence
+```
+
+### startsWith and endsWith Matches
+
+```Javascript
+/^[a-z][0-9]/.test('a1b');          // ^ starts with -> true
+/^[a-z][0-9]/.test('ab12');         // false
+
+/[a-z][a-z]$/.test('123abc');      // $ ends with -> true
+/[a-z][a-z]$/.test('123abc456');   // false
+```
+
+## Event-driven programming
+
+- Event-driven programming can be used to modify HTML based on user input
+- This is done by defining callback functions and associating them with various events by adding event listeners
+  - element.addEventListener(event, function)
+  - Events: 'click', etc.
+
+## jQuery
+
+- simplifies JavaScript usage on webapps
+- more intuitive way of DOM manipulation
+- great cross-browser support (except IE6)
+- additional utilities
+- effects and animations
+- customizable plugins
+
+### Selecting DOM Elements
+
+- in jQuery, $ is used to select DOm elements for manipulation, along with basic CSS element syntax
+  - $("*") selects all elements
+  - $(this) selects the current element
+  - $("div") selects all \<div> elements
+  - $(".title") selects all elements with class="title"
+  - $("#name") selects the element with id="name"
