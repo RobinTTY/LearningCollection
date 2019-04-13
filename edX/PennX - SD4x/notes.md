@@ -356,3 +356,88 @@ $("div.book")                   // selects divs with class="book"
 $("div, .book")                 // selects all divs and all elements with class="book"
 $("p:hidden")                   // selects all <p> elements that are visually hidden
 ```
+
+## ES5 vs ES6
+
+### Arrow functions
+
+ES5 Syntax:
+
+```Javascript
+var square = function (n) {
+    return n*n;
+};
+```
+
+ES6 Syntax:
+
+```Javascript
+let square = n => {
+    return n*n;
+}
+```
+
+### Default Parameter Values
+
+```Javascript
+function pow (base, power = 2) {
+    return Math.pow(base, power);
+};
+
+console.log(pow(3));        // 9
+```
+
+### Template Literals
+
+```Javascript
+var person = { name: "Lydia" };
+
+var msg = `Dear ${person.name},     // This will even create a new line!
+How are you?`
+```
+
+Note: Notice that the backtick character __`__ is used instead of the normal __'__ character!
+
+### Classes
+
+ES5 Syntax:
+
+```Javascript
+var Rectangle = function (height, width) {
+    this.height = height;
+    this.width = width;
+}
+
+Rectangle.prototype.area = function () {
+    return this.height * this.width;
+}
+```
+
+ES6 Syntax:
+
+```Javascript
+class Rectangle {
+    constructor (heightm width){
+        this.height = height;
+        this.width = width;
+    }
+}
+
+area() {
+    return this.height * this.width;
+}
+```
+
+### New Data Structures
+
+ES6 also introduces the Set class
+
+- Collection of Elements
+- Elements are distinct
+- Elements maintain their order
+- Comparable to C# List (which can have duplicates though)
+
+ES6 also introduces the Map class
+
+- Collection of Key - Element pairs
+- Comparable to C# Dictionary
