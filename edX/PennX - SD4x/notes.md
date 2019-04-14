@@ -441,3 +441,9 @@ ES6 also introduces the Map class
 
 - Collection of Key - Element pairs
 - Comparable to C# Dictionary
+
+## D3.js - Data driven documents
+
+- D3.js is a JavaScript library for manipulating HTML documents based on data
+- Data can be bound to DOM elements (HTML, SVG) and then we can programmatically apply data-driven transformations
+- This can be used for generating HTML tables, SVG charts and graphs, etc.
