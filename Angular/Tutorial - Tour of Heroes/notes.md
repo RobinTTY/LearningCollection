@@ -24,7 +24,7 @@ To create a new workspace and an initial app project run the following command:
 ng new angular-tour-of-heroes
 ```
 
-#### What does this command do
+#### What this command does
 
 - Structure: ng **new** \<name> [options]
 - Creates and initializes a new Angular app that is the default project for a new workspace.
@@ -39,7 +39,7 @@ You can start an application by executing the following command:
 ng serve --open
 ```
 
-#### What does this command do
+#### What this command does
 
 Builds and serves your app, rebuilding on file changes.
 The **--open** option indicates the cli to open the url in the default browser.
@@ -82,3 +82,159 @@ This interpolation binding presents the component's title property value inside 
 
 - Most apps strive for a consistent look across the application
 - The CLI generates an empty styles.css for this purpose in the root called **style.css**
+
+## The Hero Editor
+
+### Creating a new component
+
+Using the Angular CLI, we can generate a new component named heroes:
+
+```cli
+ng generate component heroes
+```
+
+#### What this command does
+
+Creates a new generic component definition in the given or default project.
+
+### Structure of a component
+
+Example of a new component:
+
+```Typescript
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-heroes',
+  templateUrl: './heroes.component.html',
+  styleUrls: ['./heroes.component.css']
+})
+export class HeroesComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+```
+
+You always import the Component symbol from the Angular core library and annotate the component class with @Component.
+
+- @Component is a decorator function that specifies the Angular metadata for the component
+- The CLI generates three metadata properties:
+  - **selector**: the component's CSS element selector
+  - **templateUrl**: the location of the component's template file
+  - **styleUrls**: the location of the component's private CSS styles.
+
+The CSS element selector, 'app-heroes', matches the name of the HTML element that identifies this component within a parent component's template.
+
+The ngOnInit is a lifecycle hook. Angular calls ngOnInit shortly after creating a component. It's a good place to put initialization logic.
+
+__Always export the component class so you can import it elsewhere, like in the AppModule.__
+
+### Add a hero property
+
+We can add a property to the HeroesComponent like this:
+
+```Typescript
+hero = 'Windstorm';
+```
+
+then we can display it in the components template file with the following code:
+
+```HTML
+{{hero}}
+```
+
+If we instead create a hero class like this:
+
+```Typescript
+export class Hero {
+  id: number;
+  name: string;
+}
+```
+
+we can display its properties like this:
+
+```HTML
+<h2>{{hero.name}} Details</h2>
+<div><span>id: </span>{{hero.id}}</div>
+<div><span>name: </span>{{hero.name}}</div>
+```
+
+### Adding a component to the shell AppComponent
+
+To display the HeroesComponent, we must add it to the template of the shell AppComponent.
+
+- app-heroes is the element selector for the HeroesComponent as declared in its class code (@Component annotation)
+- So we add an ```<app-heroes>``` element to the AppComponent template file, just below the title
+
+### Pipe Example
+
+Pipes are a good way to format strings, currency amounts, dates and other display data. Angular ships with several built-in pipes and you can create your own.
+
+We can use one to convert the hero name to uppercase:
+
+```HTML
+<h2>{{hero.name | uppercase}} Details</h2>
+```
+
+The word uppercase in the interpolation binding, right after the pipe operator ( | ), activates the built-in UppercasePipe.
+
+### Two-way binding
+
+A two-way data binding is used when we want to have data flow from the component class out to the screen and from the screen back to the class
+
+[(ngModel)] is Angular's two-way data binding syntax.
+
+We can implement two-way data binding in our example template HeroesComponent like this:
+
+```HTML
+<div>
+  <label>name:
+    <input [(ngModel)]="hero.name" placeholder="name"/>
+  </label>
+</div>
+```
+
+This binds the hero.name property to the HTML textbox so that data can flow in both directions: from the hero.name property to the textbox, and from the textbox back to the hero.name.
+
+This means when we change the value in the textbox, it also changes the h2 heading which displays the name property with the two-way binding.
+
+Although ngModel is a valid Angular directive, it isn't available by default.
+It belongs to the optional FormsModule and you must opt-in to using it.
+
+### AppModule
+
+Angular needs to know how the pieces of your application fit together and what other files and libraries the app requires. This information is called metadata.
+
+Some of the metadata is in the @Component decorators that you added to your component classes. Other critical metadata is in @NgModule decorators.
+
+__The most important @NgModule decorator annotates the top-level AppModule class.__ The Angular CLI generated an AppModule class in src/app/app.module.ts when it created the project. This is where you opt-in to the FormsModule.
+
+You opt in by adding:
+
+```Typescript
+import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+```
+
+and
+
+```Typescript
+imports: [
+  BrowserModule,
+  FormsModule
+],
+```
+
+### NgModule
+
+Every component must be declared in exactly one NgModule. When you create a new component, the declaration gets generated automatically by the CLI.
+
+- An NgModule is a class marked by the @NgModule decorator.
+- @NgModule takes a metadata object that describes how to compile a component's template and how to create an injector at runtime.
+- It identifies the module's own components, directives, and pipes, making some of them public, through the exports property, so that external components can use them.
+- @NgModule can also add service providers to the application dependency injectors.
+NgModules configure the injector and the compiler and help organize related things together.
