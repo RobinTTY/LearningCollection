@@ -238,3 +238,123 @@ Every component must be declared in exactly one NgModule. When you create a new 
 - It identifies the module's own components, directives, and pipes, making some of them public, through the exports property, so that external components can use them.
 - @NgModule can also add service providers to the application dependency injectors.
 NgModules configure the injector and the compiler and help organize related things together.
+
+## Displaying a List
+
+If we want to display a list we first need some conent, we can use a list of heroes for example:
+
+```Typescript
+import { Hero } from './hero';
+
+export const HEROES: Hero[] = [
+  { id: 11, name: 'Mr. Nice' },
+  { id: 12, name: 'Narco' },
+  { id: 13, name: 'Bombasto' },
+  { id: 14, name: 'Celeritas' },
+  { id: 15, name: 'Magneta' },
+  { id: 16, name: 'RubberMan' },
+  { id: 17, name: 'Dynama' },
+  { id: 18, name: 'Dr IQ' },
+  { id: 19, name: 'Magma' },
+  { id: 20, name: 'Tornado' }
+];
+```
+
+### Styling a component
+
+Private styles that are only relevant to one component can be declared either inline in the @Component.styles array or as stylesheet file(s) identified in the @Component.styleUrls array.
+
+When the CLI generated the HeroesComponent, it created an empty heroes.component.css stylesheet for the HeroesComponent and pointed to it in @Component.styleUrls like this.
+
+```Typescript
+@Component({
+  selector: 'app-heroes',
+  templateUrl: './heroes.component.html',
+  styleUrls: ['./heroes.component.css']
+})
+```
+
+Note: Styles and stylesheets identified in @Component metadata are scoped to that specific component. The heroes.component.css styles apply only to the HeroesComponent and don't affect the outer HTML or the HTML in any other component.
+
+### Using *ngFor on lists to generate HTML
+
+The *ngFor is Angular's repeater directive. It repeats the host element for each element in a list. To use it with our list of heroes we can do the following:
+
+```HTML
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+```
+
+In this example
+
+- ```<li>``` is the host element
+- heroes is the list from the HeroesComponent class
+- hero holds the current hero object for each iteration through the list.
+
+Note: Don't forget the asterisk (*) in front of ngFor. It's a critical part of the syntax.
+
+For a list of all built in sturctural directives refer to the [Angular reference.](https://angular.io/guide/template-syntax#built-in-structural-directives)
+
+### Using *ngFor to add a click event binding
+
+We can add a click event binding on an list element in our heroes.component like this:
+
+```HTML
+<li *ngFor="let hero of heroes" (click)="onSelect(hero)">
+```
+
+This is an example of Angular's [event binding](https://angular.io/guide/template-syntax#event-binding) syntax.
+
+The parentheses around click tell Angular to listen for the ```<li>``` element's click event. When the user clicks in the ```<li>```, Angular executes the onSelect(hero) expression.
+
+onSelect() must be a method declared in the heroes component class file. Angular calls it with the hero object displayed in the clicked ```<li>```, the same hero defined previously in the *ngFor expression.
+
+### Using *ngIf to hide undefined elements
+
+If we want to show hero details on click we can do this by implementing code like this:
+
+```Typescript
+selectedHero: Hero;
+onSelect(hero: Hero): void {
+  this.selectedHero = hero;
+}
+```
+
+and in our template file:
+
+```HTML
+<div *ngIf="selectedHero">
+
+  <h2>{{selectedHero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedHero.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedHero.name" placeholder="name"/>
+    </label>
+  </div>
+
+</div>
+```
+
+ngIf is a:
+
+- structural directive that conditionally includes a template based on the value of an expression coerced to Boolean (e.g. undefined behaves as false)
+- When the expression evaluates to true, Angular renders the template provided in a then clause, and when false or null, Angular renders the template provided in an optional else clause
+
+We need the *ngIf because the selectedHero property will be undefined by default and only contain a real value upon clicking a hero in the list. If we omit the *ngIf directive our app will not behave as desired!
+
+### Adding CSS classes conditionally
+
+The Angular [class binding](https://angular.io/guide/template-syntax#class-binding) makes it easy to add and remove a CSS class conditionally. Just add ```[class.some-css-class]="some-condition"``` to the element you want to style.
+
+Example:
+
+```HTML
+[class.selected]="hero === selectedHero"
+```
+
+When the current row hero is the same as the selectedHero, Angular adds the selected CSS class. When the two heroes are different, Angular removes the class.
