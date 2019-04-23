@@ -358,3 +358,58 @@ Example:
 ```
 
 When the current row hero is the same as the selectedHero, Angular adds the selected CSS class. When the two heroes are different, Angular removes the class.
+
+## Master/Detail Components
+
+We can separate the list and details in our current heroes.component, which decreases complexity as our app grows. Therefore we will create a new component for the details named "hero-detail".
+
+### @Input properties
+
+To use the @Input decorator we first need to ament the @angular/core import statement to include the Input symbol:
+
+```Typescript
+import { Component, OnInit, Input } from '@angular/core';
+```
+
+then we can add a property like this:
+
+```Typescript
+@Input() hero: Hero;
+```
+
+We can copy the template code from our old implementation:
+
+```HTML
+<div *ngIf="hero">
+
+  <h2>{{hero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="hero.name" placeholder="name"/>
+    </label>
+  </div>
+
+</div>
+```
+
+This new component now receives a hero object through its hero property and displays it. To pass a hero object to the component we simply use the following code in our heroes.component template:
+
+```HTML
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+```
+
+[hero]="selectedHero" is an Angular [property binding](https://angular.io/guide/template-syntax#property-binding).
+
+It's a one way data binding from the selectedHero property of the HeroesComponent to the hero property of the target element, which maps to the hero property of the HeroDetailComponent.
+
+Now when the user clicks a hero in the list, the selectedHero changes. When the selectedHero changes, the property binding updates hero and the HeroDetailComponent displays the new hero.
+
+The two components will have a parent/child relationship. The parent HeroesComponent will control the child HeroDetailComponent by sending it a new hero to display whenever the user selects a hero from the list.
+
+This change has several benefits:
+
+- You simplified the HeroesComponent by reducing its responsibilities.
+- You can evolve the HeroDetailComponent into a rich hero editor without touching the parent HeroesComponent.
+- You can evolve the HeroesComponent without touching the hero detail view.
+- You can re-use the HeroDetailComponent in the template of some future component.
