@@ -577,3 +577,294 @@ This template binds directly to the component's messageService.
 - The *ngIf only displays the messages area if there are messages to show.
 - An *ngFor presents the list of messages in repeated <div> elements.
 - An Angular [event binding](https://angular.io/guide/template-syntax#event-binding) binds the button's click event to MessageService.clear().
+
+## Routing
+
+In this part of the tutorial we will add a Dashboard view, add the ability to navigate between Heroes and Dashboard views and look at deep links.
+
+__In Angular, the best practice is to load and configure the router in a separate, top-level module that is dedicated to routing and imported by the root AppModule.__ By convention, the module class name is AppRoutingModule and it belongs in the app-routing.module.ts in the src/app folder.
+
+### Creating a Router module
+
+```CLI
+ng generate module app-routing --flat --module=app
+```
+
+- --flat puts the file in src/app instead of its own folder
+- --module=app tells the CLI to register it in the imports array of the AppModule
+
+This will create the following code:
+
+```Typescript
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+```
+
+Exporting RouterModule makes router directives available for use in the AppModule components that will need them.
+
+### Adding Routes
+
+Routes tell the router which view to display when a user clicks a link or pastes a URL into the browser address bar.
+
+A typical Angular Route has two properties:
+
+- __path:__ a string that matches the URL in the browser address bar
+- __component:__ the component that the router should create when navigating to this route
+
+In our example we intend to navigate to the HeroesComponent when the URL is something like localhost:4200/heroes.
+
+We Import the HeroesComponent so we can reference it in a Route. Then define a route in the Route Array:
+
+```Typescript
+import { HeroesComponent }      from './heroes/heroes.component';
+
+const routes: Routes = [
+  { path: 'heroes', component: HeroesComponent }
+];
+```
+
+The router will match that URL to path: 'heroes' and display the HeroesComponent.
+
+### RouterModule.forRoot()
+
+You first must initialize the router and start it listening for browser location changes.
+
+- The method is called forRoot() because you configure the router at the application's root level
+- The forRoot() method supplies the service providers and directives needed for routing, and performs the initial navigation based on the current browser URL
+
+### Adding RouterOutlet
+
+We can modify the template of app.component which currently looks like this:
+
+```HTML
+<h1>{{title}}</h1>
+<app-heroes></app-heroes>
+<app-messages></app-messages>
+```
+
+The new version will look like this:
+
+```HTML
+<h1>{{title}}</h1>
+<router-outlet></router-outlet>
+<app-messages></app-messages>
+```
+
+We removed ```<app-heroes>``` because we will only display the HeroesComponent when the user navigates to it.
+
+The ```<router-outlet>``` tells the router where to display routed views.
+
+Note: The RouterOutlet is one of the router directives that became available to the AppComponent because AppModule imports AppRoutingModule which exported RouterModule.
+
+### Adding a routerLink
+
+Users shouldn't have to paste a route URL into the address bar. They should be able to click a link to navigate. Therefore we add a so called routerLink:
+
+```HTML
+<h1>{{title}}</h1>
+<nav>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+<router-outlet></router-outlet>
+<app-messages></app-messages>
+```
+
+- The routerLink attribute is set to "/heroes", the string that the router matches to the route to HeroesComponent.
+- The routerLink is the selector for the RouterLink directive that turns user clicks into router navigations. It's another of the public directives in the RouterModule.
+
+### Adding a dashboard view
+
+In our tutorial we are adding a Dashboard component with the following HTML:
+
+```HTML
+<h3>Top Heroes</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let hero of heroes" class="col-1-4">
+    <div class="module hero">
+      <h4>{{hero.name}}</h4>
+    </div>
+  </a>
+</div>
+```
+
+The template presents a grid of hero name links:
+
+- The *ngFor repeater creates as many links as are in the component's heroes array.
+- The links don't go anywhere yet
+
+We create the class file like this:
+
+```Typescript
+import { Component, OnInit } from '@angular/core';
+import { Hero } from '../hero';
+import { HeroService } from '../hero.service';
+
+@Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: [ './dashboard.component.css' ]
+})
+export class DashboardComponent implements OnInit {
+  heroes: Hero[] = [];
+
+  constructor(private heroService: HeroService) { }
+
+  ngOnInit() {
+    this.getHeroes();
+  }
+
+  getHeroes(): void {
+    this.heroService.getHeroes()
+      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
+  }
+}
+```
+
+The class is similar to the HeroesComponent class:
+
+- It defines a heroes array property
+- The constructor expects Angular to inject the HeroService into a private heroService property
+- The ngOnInit() lifecycle hook calls getHeroes
+
+This getHeroes returns the sliced list of heroes at positions 1 and 5, returning only four of the Top Heroes (2nd, 3rd, 4th, and 5th).
+
+### Adding the dashboard Route
+
+We can add a route to the Dashboard component by adding the following code to out __AppRoutingModule:__
+
+First we need to import the component:
+
+```Typescript
+import { DashboardComponent }   from './dashboard/dashboard.component';
+```
+
+Then we need to add the route to the Routes Array.
+
+```Typescript
+{ path: 'dashboard', component: DashboardComponent }
+```
+
+### Adding a default route
+
+When the app starts, the browsers address bar points to the web site's root. If that doesn't match any existing route the router will navigate nowhere.
+
+To make the app navigate to the dashboard automatically, we need to add the following route to the AppRoutingModule.Routes array:
+
+```Typescript
+{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+```
+
+This route redirects a URL that fully matches the empty path to the route whose path is '/dashboard'.
+
+After the browser refreshes, the router loads the DashboardComponent and the browser address bar shows the /dashboard URL.
+
+### Adding more navigation options
+
+A URL like ~/detail/11 would be a good URL for navigating to the Hero Detail view of the hero whose id is 11.
+
+For that to work we need to add the following code to app-routing.module:
+
+```Typescript
+import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
+
+// in the routes Array
+{ path: 'detail/:id', component: HeroDetailComponent },
+```
+
+The colon (:) in the path indicates that :id is a placeholder for a specific hero id.
+
+### Routable components
+
+Previously, the parent HeroesComponent set the HeroDetailComponent.hero property and the HeroDetailComponent displayed the hero.
+
+HeroesComponent doesn't do that anymore. Now the router creates the HeroDetailComponent in response to a URL such as ~/detail/11.
+
+The HeroDetailComponent needs a new way to obtain the hero-to-display, for that to work we need to add the following imports:
+
+```Typescript
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { HeroService }  from '../hero.service';
+```
+
+We inject the ActivatedRoute, HeroService, and Location services into the constructor, saving their values in private fields:
+
+```Typescript
+constructor(
+  private route: ActivatedRoute,
+  private heroService: HeroService,
+  private location: Location
+) {}
+```
+
+The [ActivatedRoute](https://angular.io/api/router/ActivatedRoute) holds information about the route to this instance of the HeroDetailComponent. This component is interested in the route's bag of parameters extracted from the URL. The "id" parameter is the id of the hero to display.
+
+The HeroService gets hero data from the remote server and this component will use it to get the hero-to-display.
+
+The [location](https://angular.io/api/common/Location) is an Angular service for interacting with the browser. You'll use it later to navigate back to the view that navigated here.
+
+#### Extracting a parameter
+
+We can extract a parameter from our url by modifying our getHero() merhod in the heroDetails component:
+
+```Typescript
+ngOnInit(): void {
+  this.getHero();
+}
+
+getHero(): void {
+  const id = +this.route.snapshot.paramMap.get('id');
+  this.heroService.getHero(id)
+    .subscribe(hero => this.hero = hero);
+}
+```
+
+- The route.snapshot is a static image of the route information shortly after the component was created.
+- The paramMap is a dictionary of route parameter values extracted from the URL. The "id" key returns the id of the hero to fetch.
+- __Route parameters are always strings. The JavaScript (+) operator converts the string to a number, which is what a hero id should be.__
+
+### Adding HeroService.getHero()
+
+For the app to work we need to implement the getHero() method in the HeroService like this:
+
+```Typescript
+getHero(id: number): Observable<Hero> {
+  // TODO: send the message _after_ fetching the hero
+  this.messageService.add(`HeroService: fetched hero id=${id}`);
+  return of(HEROES.find(hero => hero.id === id));
+}
+```
+
+Like getHeroes(), getHero() has an asynchronous signature. It returns a mock hero as an Observable, using the RxJS of() function.
+
+Note: the backticks (`) define a JavaScript [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) for embedding the id.
+
+### Adding a route to the last visited component
+
+It is often nice to have a way to get back to the last visited component, this behaviour can be easily achieved by using this code:
+
+```Typescript
+goBack(): void {
+  this.location.back();
+}
+```
+
+we can call this method for instance trough a button like this:
+
+```HTML
+<button (click)="goBack()">go back</button>
+```
+
+The goBack() method navigates backward one step in the browser's history stack using the Location service that has to be injected into the component that uses this functionality.
+
+Note: The import for this was ```import { Location } from '@angular/common';```
