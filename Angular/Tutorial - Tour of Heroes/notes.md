@@ -1400,10 +1400,10 @@ this.heroes$ = this.searchTerms.pipe(
 
 #### switchMap operator
 
-With the [switchMap operator](https://www.learnrxjs.io/operators/transformation/switchmap.html), every qualifying key event can trigger an HttpClient.get() method call. __Even with a 300ms pause between requests, you could have multiple HTTP requests in flight and they may not return in the order sent.__
+With the [switchMap operator](https://www.learnrxjs.io/operators/transformation/switchmap.html), every qualifying key event can trigger an ```HttpClient.get()``` method call. __Even with a 300ms pause between requests, you could have multiple HTTP requests in flight and they may not return in the order sent.__
 
-__switchMap() preserves the original request order while returning only the observable from the most recent HTTP method call. Results from prior calls are canceled and discarded.__
+__```switchMap()``` preserves the original request order while returning only the observable from the most recent HTTP method call. Results from prior calls are canceled and discarded.__
 
-Note that canceling a previous searchHeroes() Observable doesn't actually abort a pending HTTP request. Unwanted results are simply discarded before they reach your application code.
+Note that canceling a previous ```searchHeroes()``` Observable doesn't actually abort a pending HTTP request. Unwanted results are simply discarded before they reach your application code.
 
 Remember that the component class does not subscribe to the heroes$ observable. That's the job of the AsyncPipe in the template.
