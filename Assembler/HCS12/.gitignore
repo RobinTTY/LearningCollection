@@ -1,0 +1,16 @@
+*.tdt
+*.ini
+*.hwc
+*.hwl
+*.mem
+*.cmd
+*.map
+*.prm
+*.bbl
+*.s19
+*.phy
+*.dbg
+*.abs
+*.o
+*.stg
+*.mcp
