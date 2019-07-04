@@ -62,5 +62,7 @@ Entry:
 		STD v1+2         ; Store D at address of v1 + 2 = v2 -> v2[0] = ba; v2[1] = 01
 		LDX #$D800       ; Load $D800 into X
 		LDX $D800        ; Load value at address $D800
+		
+		LDD #1234		 ; Load decimal value 1234 into D (0x4D2)
 
 
