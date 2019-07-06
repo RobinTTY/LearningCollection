@@ -1,13 +1,3 @@
-;   Serial Interface Demo on Dragon12 (uses polling)
-;
-;   Computerarchitektur 3
-;   (C) 2018-2019 J. Friedrich, W. Zimmermann
-;   Hochschule Esslingen
-;
-;   Author:  W.Zimmermann, Jul 4, 2018
-;
-
-
 ; export symbols
         XDEF Entry, main
 
