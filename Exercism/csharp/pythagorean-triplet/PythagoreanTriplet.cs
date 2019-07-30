@@ -1,54 +1,46 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 
-// This is a simple implementation of Euclid's formula using the additional parameter k
-// to produce all primitive and non primitive triples (https://en.wikipedia.org/wiki/Pythagorean_triple#Generating_a_triple)
-// This code is way more efficient than brute forcing the result
-// good community brute-force samples had computing times of around a second while this code takes ~50ms for the tests
-// This gap only grows greater for larger values of N
-// details about this and other methods can be found here: https://math.stackexchange.com/questions/395543/formulas-for-calculating-pythagorean-triples
+// This code is performance oriented and can calculate the triplets for 30000 in ~0.2ms and for 268430050 in ~600ms
+// This is a simple implementation of Euclid's formula (rearranged to the given task)
 public static class PythagoreanTriplet
 {
     public static IEnumerable<(int a, int b, int c)> TripletsWithSum(int N)
     {
-        var sums = new HashSet<(int, int, int)>();
+        var set = new HashSet<(int, int, int)>();
 
-        // m shall be looped for all natural numbers up to sqrt(N)
-        for (var m = 2; m < (int)Math.Sqrt(N); m++)
-        {
-            // n shall always be smaller than m
-            for (var n = 1; n < m; n++)
+        // If the given sum is odd, return immediately.
+        // No Pythagorean triple will have an odd sum.
+        if (N % 2 == 1)
+            return new List<(int a, int b, int c)>();
+
+        // parallel operation has a certain overhead and won't be effective until N is a certain size
+        // 1 000 000 is just an estimate and might be a bad cutoff to start using parallel execution
+        // the cutoff point where it pays off to use parallel execution also depends on the CPU
+        var aBound = N / 2;
+        if (N < 1_000_000)
+            for (var a = 1; a <= aBound; a++)
+                AddIfTriplet(set, a, N);
+        else
+            Parallel.For(1, aBound + 1, a =>
             {
-                var firstIterationC = 1;
-                // k shall be looped for all natural numbers up to N/c (c at k==1)
-                for (var k = 1; k <= N / firstIterationC; k++)
-                {
-                    var result = ExpandedEuclidsFormula(m, n, k);
-                    if (k == 1)
-                        firstIterationC = result[2];
+                AddIfTriplet(set, a, N);
+            });
 
-                    if (result.Sum() == N)
-                        sums.Add(result[0] > result[1]
-                            ? (result[1], result[0], result[2])
-                            : (result[0], result[1], result[2]));
-                }
-            }
-        }
-
-        return sums.OrderBy(item => item.Item1);
+        return set;
     }
 
-    // given an arbitrary pair of integers m and n with m > n > 0 and a multiplier k
-    private static int[] ExpandedEuclidsFormula(int m, int n, int k)
+    private static void AddIfTriplet(ISet<(int, int, int)> set, int a, int N)
     {
-        if (m < n || n < 1)
-            throw new ArgumentException();
+        // Check whether b would be a whole number
+        if ((int)(a * (long)N % (a - N)) != 0)
+            return;
 
-        var a = k * (m * m - n * n);
-        var b = k * 2 * m * n;
-        var c = k * (m * m + n * n);
+        // rearranged Euclid's formula
+        var b = (int)((long)N * (2 * a - N) / (2 * a - 2 * (long)N));
+        var c = N - a - b;
 
-        return new[] { a, b, c };
+        if (a < b)
+            set.Add((a, b, c));
     }
 }
