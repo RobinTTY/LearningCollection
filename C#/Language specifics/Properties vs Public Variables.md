@@ -1,5 +1,6 @@
 # Properties vs Public variables
 
+```C#
 private int _name;
 
 public int Name
@@ -7,10 +8,13 @@ public int Name
     get { return _name; }
     set { _name = value; }
 }
+```
 
 vs
 
+```C#
 public int Name;
+```
 
 ## Why would you use properties
 
