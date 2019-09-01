@@ -1,6 +1,9 @@
-name: .NET Core CI
+name: Exercism C#
 
-on: [push]
+on:
+  push:
+    paths:
+      - 'Exercism/csharp/**'
 
 jobs:
   build:
