@@ -1,0 +1,6 @@
+F:\Systemarchitekturen mit .NET\Aufgaben\Source 09.11.2018\NSteps\NSteps\bin\Debug\NSteps.exe.config
+F:\Systemarchitekturen mit .NET\Aufgaben\Source 09.11.2018\NSteps\NSteps\bin\Debug\NSteps.exe
+F:\Systemarchitekturen mit .NET\Aufgaben\Source 09.11.2018\NSteps\NSteps\bin\Debug\NSteps.pdb
+F:\Systemarchitekturen mit .NET\Aufgaben\Source 09.11.2018\NSteps\NSteps\obj\Debug\NSteps.csprojAssemblyReference.cache
+F:\Systemarchitekturen mit .NET\Aufgaben\Source 09.11.2018\NSteps\NSteps\obj\Debug\NSteps.exe
+F:\Systemarchitekturen mit .NET\Aufgaben\Source 09.11.2018\NSteps\NSteps\obj\Debug\NSteps.pdb
