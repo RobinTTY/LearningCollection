@@ -1,0 +1,6 @@
+LINKOBJECTSOTHERS = ../lineare_algebra/OBJ_Linux/DoubleArray.o   \
+                    ../lineare_algebra/OBJ_Linux/DoubleMatrix.o   \
+                    ../lineare_algebra/OBJ_Linux/DoubleVector.o  
+
+INCLUDES += -I../lineare_algebra
+

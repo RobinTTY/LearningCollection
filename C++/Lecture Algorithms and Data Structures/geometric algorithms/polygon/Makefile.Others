@@ -1,0 +1,7 @@
+LINKOBJECTSOTHERS = ../geometrie/OBJ_Linux/geometrie.o      \
+                    ../geometrie/OBJ_Linux/punkt.o      \
+                    ../geometrie/OBJ_Linux/punktliste.o      \
+                    ../geometrie/OBJ_Linux/strecke.o      \
+                    ../geometrie/OBJ_Linux/winkelliste.o
+
+

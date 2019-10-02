@@ -1,0 +1,2 @@
+LINKOBJECTSOTHERS = ../basics/OBJ_Linux/edge.o ../basics/OBJ_Linux/edges.o ../basics/OBJ_Linux/graph.o ../basics/OBJ_Linux/graph_utils.o ../basics/OBJ_Linux/vertices.o ../adjacency/OBJ_Linux/adjacency_structure.o
+

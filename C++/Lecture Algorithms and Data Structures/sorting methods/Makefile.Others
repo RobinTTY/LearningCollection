@@ -1,0 +1,2 @@
+LINKOBJECTSOTHERS = 
+CXXFLAGS += -Wno-unused-parameter

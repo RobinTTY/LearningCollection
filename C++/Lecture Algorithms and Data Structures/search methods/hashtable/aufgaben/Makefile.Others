@@ -1,0 +1,1 @@
+LINKOBJECTSOTHERS =   ../basics/OBJ_Linux/HashDataImpl.o  ../basics/OBJ_Linux/SimpleHashTable.o ../basics/OBJ_Linux/ListHashTable.o  \
