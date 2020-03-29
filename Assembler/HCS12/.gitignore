@@ -15,5 +15,5 @@
 *.stg
 *.mcp
 
-/bin
-/Sources/Start12.c
+**/bin
+**/Sources/Start12.c
