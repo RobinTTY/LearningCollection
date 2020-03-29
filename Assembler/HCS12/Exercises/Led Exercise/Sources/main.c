@@ -1,13 +1,3 @@
-/*  Blinking LEDs on Dragon12 - C version
-
-    Computerarchitektur 3
-    (C) 2018-2019 J. Friedrich, W. Zimmermann
-    Hochschule Esslingen
-
-    Author:  W.Zimmermann, July 2018  
-             (based on code provided by J. Friedrich)
-*/
-
 #include <hidef.h>                      //Common defines
 #include <mc9s12dp256.h>                //CPU specific defines
 
