@@ -9,5 +9,5 @@ files:
     print(substring in test_string)
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/8835
-status: Failed
+status: Unchecked
 record: -1
