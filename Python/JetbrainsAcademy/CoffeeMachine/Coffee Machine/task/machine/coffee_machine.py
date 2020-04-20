@@ -1,5 +1,5 @@
 # Write your code here
-water = 1200
+water = 400
 milk = 540
 coffee_beans = 120
 cups = 9
@@ -7,25 +7,40 @@ money = 550
 
 
 def buy():
-    coffee_type = int(input("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:\n> "))
-    global water, milk, coffee_beans, cups, money
+    coffee_type = input("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:\n> ")
+    if coffee_type == "back":
+        return
+    else:
+        coffee_type = int(coffee_type)
+
+    global money
     if coffee_type == 1:
-        water -= 250
-        coffee_beans -= 16
+        try_make_coffee(250, 0, 16)
         money += 4
-        cups -= 1
     elif coffee_type == 2:
-        water -= 350
-        milk -= 75
-        coffee_beans -= 20
+        try_make_coffee(350, 75, 20)
         money += 7
-        cups -= 1
     elif coffee_type == 3:
-        water -= 200
-        milk -= 100
-        coffee_beans -= 12
+        try_make_coffee(200, 100, 12)
         money += 6
+
+
+def try_make_coffee(water_requirement, milk_requirement, beans_requirement):
+    global water, milk, coffee_beans, cups, money
+    if cups - 1 < 0:
+        print_status_msg("cups")
+    if water - water_requirement < 0:
+        print_status_msg("water")
+    elif milk - milk_requirement < 0:
+        print_status_msg("milk")
+    elif coffee_beans - beans_requirement < 0:
+        print_status_msg("coffee beans")
+    else:
+        water -= water_requirement
+        milk -= milk_requirement
+        coffee_beans -= beans_requirement
         cups -= 1
+        print("I have enough resources, making you a coffee!")
 
 
 def fill():
@@ -47,19 +62,24 @@ def take():
 
 
 def state():
-    print(f"The coffee machine has:\n{water} of water\n{milk} of milk\n{coffee_beans} of coffee beans\n{cups} of "
+    print(f"\nThe coffee machine has:\n{water} of water\n{milk} of milk\n{coffee_beans} of coffee beans\n{cups} of "
           f"disposable cups\n{money} of money\n")
 
 
-state()
-option = input("Write action (buy, fill, take):\n> ")
+def print_status_msg(msg):
+    print(f"Sorry, not enough {msg}!")
 
-if option == "buy":
-    buy()
-elif option == "fill":
-    fill()
-elif option == "take":
-    take()
 
-print()
-state()
+while True:
+    option = input("Write action (buy, fill, take, remaining, exit):\n> ")
+
+    if option == "buy":
+        buy()
+    elif option == "fill":
+        fill()
+    elif option == "take":
+        take()
+    elif option == "remaining":
+        state()
+    elif option == "exit":
+        break
