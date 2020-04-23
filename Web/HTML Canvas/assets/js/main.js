@@ -8,7 +8,7 @@ function animate() {
 
     chess();
     movingBall();
-    clock();
+    ticktock();
     window.requestAnimationFrame(animate);
 }
 
@@ -191,7 +191,7 @@ class Clock{
         this.drawHoursOnBase();
         this.drawHand(seconds / 60, 0.925, 3);
         this.drawHand(minutes / 60, 0.9, 8);
-        this.drawHand((hours % 12) / 12, 0.6, 8);
+        this.drawHand((hours % 12) / 12 + minutes / 60 / 12, 0.6, 8);
         this.drawWeekday(weekday);
     }
 }
@@ -199,10 +199,10 @@ class Clock{
 let canvas6 = document.getElementById('canvas6');
 let ctx6 = canvas6.getContext('2d');
 let weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+let clock = new Clock(ctx6, canvas6);
 
-function clock() {
+function ticktock() {
     ctx6.clearRect(0, 0, canvas6.width, canvas6.height);
     let date = new Date();
-    let clock = new Clock(ctx6, canvas6);
     clock.drawComplete(date.getSeconds(), date.getMinutes(), date.getHours(), date.getDay());
 }
