@@ -1,3 +1,6 @@
+import sys
+import os
+
 nytimes_com = '''
 This New Liquid Is Magnetic, and Mesmerizing
 
@@ -32,23 +35,52 @@ Twitter and Square Chief Executive Officer Jack Dorsey
  addressed Apple Inc. employees at the iPhone maker’s headquarters
  Tuesday, a signal of the strong ties between the Silicon Valley giants.
 '''
-webpage = [nytimes_com, bloomberg_com]
 
 
 class Browser:
+    def __init__(self):
+        self.saved_pages = {}
+        self.folder = sys.argv[1]
+
     def browse(self):
         while True:
             url = input()
             if url == "exit":
                 break
-            elif url == "nytimes.com":
-                self.display_page(webpage[0])
-            elif url == "bloomberg.com":
-                self.display_page(webpage[1])
+            elif '.' not in url:
+                saved_page = self.lookup_saved_page(url)
+                if saved_page is None:
+                    self.print_error()
+                else:
+                    self.display_page(saved_page)
+            elif url in webpages:
+                stripped_url = url.split(".")[0]
+                self.save_page(stripped_url, webpages[url])
+                self.display_page(stripped_url)
+            else:
+                self.print_error()
 
-    def display_page(self, content):
-        print(content)
+    def print_error(self):
+        print("Error: couldn't parse the url you entered. Try again :)")
+
+    def display_page(self, url):
+        print(self.saved_pages[url])
+
+    def save_page(self, page_name, page_content):
+        self.saved_pages[page_name] = page_content
+        file_name = f"{self.folder}/{page_name}.txt"
+        os.makedirs(os.path.dirname(file_name), exist_ok=True)
+        with open(file_name, "w") as file:
+            file.write(page_content)
+
+    def lookup_saved_page(self, page_name):
+        if page_name in self.saved_pages:
+            return page_name
+        else:
+            return None
 
 
+# write webpages to files
+webpages = {"nytimes.com": nytimes_com, "bloomberg.com": bloomberg_com}
 browser = Browser()
 browser.browse()
