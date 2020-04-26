@@ -1,3 +1,4 @@
+from collections import deque
 import sys
 import os
 
@@ -14,7 +15,6 @@ Most Wikipedia Profiles Are of Men. This Scientist Is Changing That.
 Jessica Wade has added nearly 700 Wikipedia biographies for
  important female and minority scientists in less than two 
  years.
-
 '''
 
 bloomberg_com = '''
@@ -41,12 +41,17 @@ class Browser:
     def __init__(self):
         self.saved_pages = {}
         self.folder = sys.argv[1]
+        self.page_history = deque()
 
     def browse(self):
         while True:
             url = input()
             if url == "exit":
                 break
+            elif url == "back":
+                if len(self.page_history) > 1:
+                    self.page_history.pop()
+                    self.display_page(self.page_history[len(self.page_history) - 1])
             elif '.' not in url:
                 saved_page = self.lookup_saved_page(url)
                 if saved_page is None:
@@ -64,6 +69,7 @@ class Browser:
         print("Error: couldn't parse the url you entered. Try again :)")
 
     def display_page(self, url):
+        self.page_history.append(url)
         print(self.saved_pages[url])
 
     def save_page(self, page_name, page_content):
