@@ -126,6 +126,12 @@ files:
     \ Tuesday, a signal of the strong ties between the Silicon Valley giants.\n'''\n\
     \n# write your code here\n"
   learner_created: false
+- name: browser/test/bloomberg.txt
+  visible: true
+  learner_created: true
+- name: browser/test/docs.txt
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/79/stages/441/implement
-status: Unchecked
+status: Solved
 record: -1

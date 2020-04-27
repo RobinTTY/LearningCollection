@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+from colorama import init
 import requests
 import sys
 import os
@@ -30,7 +31,6 @@ class Browser:
                 self.display_page(parsed_content)
 
 
-
     def print_error(self):
         print("Error: couldn't parse the url you entered. Try again :)")
 
@@ -46,7 +46,11 @@ class Browser:
         relevant_tags = body.find_all(self.relevant_tags)
         assembled_page = ''
         for tag in relevant_tags:
-            assembled_page += f"{tag.get_text()}\n"
+            print(tag.name)
+            if tag.name == 'a':
+                assembled_page += "\033[34m" + f"{tag.get_text()}\n"
+            else:
+                assembled_page += f"{tag.get_text()}\n"
         return assembled_page
 
     def request_page(self, url):
@@ -76,5 +80,6 @@ class Browser:
 
 
 # write webpages to files
+init()  # init colorama
 browser = Browser()
 browser.browse()
