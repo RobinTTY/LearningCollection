@@ -1,3 +1,4 @@
+from bs4 import BeautifulSoup
 import requests
 import sys
 import os
@@ -7,6 +8,7 @@ class Browser:
     def __init__(self):
         self.folder = sys.argv[1]
         self.page_history = list()
+        self.relevant_tags = ['p', 'a', 'ul', 'ol', 'li', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
 
     def browse(self):
         while True:
@@ -23,8 +25,9 @@ class Browser:
             else:
                 self.page_history.append(url)
                 content = self.request_page(url)
-                self.save_page(url, str(content))
-                self.display_page(content)
+                parsed_content = self.parse_html(content)
+                self.save_page(url, parsed_content)
+                self.display_page(parsed_content)
 
 
 
@@ -36,6 +39,15 @@ class Browser:
             print(content)
         else:
             self.print_error()
+
+    def parse_html(self, html):
+        soup = BeautifulSoup(html, 'html.parser')
+        body = soup.find('body')
+        relevant_tags = body.find_all(self.relevant_tags)
+        assembled_page = ''
+        for tag in relevant_tags:
+            assembled_page += f"{tag.get_text()}\n"
+        return assembled_page
 
     def request_page(self, url):
         response = requests.get(f"https://{url}")
