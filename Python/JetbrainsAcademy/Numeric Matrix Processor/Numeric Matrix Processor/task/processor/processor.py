@@ -17,6 +17,15 @@ class Matrix:
             print(output)
 
     @staticmethod
+    def make_null_matrix(num_rows, num_columns):
+        return [[0 for _ in range(num_columns)] for _ in range(num_rows)]
+
+    @staticmethod
+    def create_null_result_matrix(num_rows, num_columns):
+        null_matrix = Matrix.make_null_matrix(num_rows, num_columns)
+        return Matrix(num_rows, num_columns, null_matrix)
+
+    @staticmethod
     def add_matrices(matrix_a, matrix_b):
         if matrix_a.num_rows != matrix_b.num_rows or matrix_a.num_columns != matrix_b.num_columns:
             return "The operation cannot be performed."
@@ -41,8 +50,7 @@ class Matrix:
     def multiply_matrices(matrix_a, matrix_b):
         if matrix_a.num_columns != matrix_b.num_rows:
             return "The operation cannot be performed."
-        null_matrix = Matrix.make_null_matrix(matrix_a.num_rows, matrix_b.num_columns)
-        result_matrix = Matrix(matrix_a.num_rows, matrix_b.num_columns, null_matrix)
+        result_matrix = Matrix.create_null_result_matrix(matrix_a.num_rows, matrix_b.num_columns)
         for i in range(result_matrix.num_rows):
             for j in range(result_matrix.num_columns):
                 temp_sum = 0
@@ -53,8 +61,33 @@ class Matrix:
         return result_matrix
 
     @staticmethod
-    def make_null_matrix(num_rows, num_columns):
-        return [[0 for _ in range(num_columns)] for _ in range(num_rows)]
+    def transpose_base(matrix, transpose):
+        result_matrix = Matrix.create_null_result_matrix(matrix.num_rows, matrix.num_columns)
+        for i in range(matrix.num_rows):
+            for j in range(matrix.num_columns):
+                result_matrix.arr[i][j] = transpose(i, j)
+
+        return result_matrix
+
+    @staticmethod
+    def transpose_main_diagonal(matrix):
+        def transpose_func(i, j): return matrix.arr[j][i]
+        return Matrix.transpose_base(matrix, transpose_func)
+
+    @staticmethod
+    def transpose_side_diagonal(matrix):
+        def transpose_func(i, j): return matrix.arr[matrix.num_rows - j - 1][matrix.num_columns - i - 1]
+        return Matrix.transpose_base(matrix, transpose_func)
+
+    @staticmethod
+    def transpose_vertical_line(matrix):
+        def transpose_func(i, j): return matrix.arr[i][matrix.num_columns - j - 1]
+        return Matrix.transpose_base(matrix, transpose_func)
+
+    @staticmethod
+    def transpose_horizontal_line(matrix):
+        def transpose_func(i, j): return matrix.arr[matrix.num_rows - i - 1][j]
+        return Matrix.transpose_base(matrix, transpose_func)
 
 
 class NumericMatrixProcessor:
@@ -70,6 +103,7 @@ class NumericMatrixProcessor:
         print("1. Add matrices")
         print("2. Multiply matrix by a constant")
         print("3. Multiply matrices")
+        print("4. Transpose matrix")
         print("0. Exit")
         self.choice = input("Your choice: > ")
 
@@ -80,6 +114,8 @@ class NumericMatrixProcessor:
             result = self.multiply_by_constant()
         elif choice == '3':
             result = self.multiply_matrices()
+        elif choice == '4':
+            result = self.transpose_matrix()
         elif choice == '0':
             self.exit_requested = True
             return
@@ -120,6 +156,24 @@ class NumericMatrixProcessor:
         matrix_a = self.generate_matrix_from_input()
         matrix_b = self.generate_matrix_from_input()
         return Matrix.multiply_matrices(matrix_a, matrix_b)
+
+    def transpose_matrix(self):
+        print("1. Main diagonal")
+        print("2. Side diagonal")
+        print("3. Vertical line")
+        print("4. Horizontal line")
+        choice = input("Your choice: > ")
+        matrix = self.generate_matrix_from_input()
+        if choice == "1":
+            return Matrix.transpose_main_diagonal(matrix)
+        elif choice == "2":
+            return Matrix.transpose_side_diagonal(matrix)
+        elif choice == "3":
+            return Matrix.transpose_vertical_line(matrix)
+        elif choice == "4":
+            return Matrix.transpose_horizontal_line(matrix)
+        else:
+            return "The operation cannot be performed.\n"
 
 
 processor = NumericMatrixProcessor()
