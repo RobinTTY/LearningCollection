@@ -30,6 +30,15 @@ class NumericMatrixProcessor:
 
             return result_matrix
 
+    @staticmethod
+    def multiply_matrix_by_scalar(scalar, matrix):
+        result_matrix = Matrix(matrix.num_rows, matrix.num_columns, matrix.arr)
+        for i in range(matrix.num_rows):
+            for j in range(matrix.num_columns):
+                result_matrix.arr[i][j] *= scalar
+
+        return result_matrix
+
 
 def generate_matrix_from_input():
     rows, columns = [int(x) for x in input().split()]
@@ -42,9 +51,9 @@ def generate_matrix_from_input():
 
 
 A = generate_matrix_from_input()
-B = generate_matrix_from_input()
+scalar_num = int(input())
 
-result = NumericMatrixProcessor.add_matrices(A, B)
+result = NumericMatrixProcessor.multiply_matrix_by_scalar(scalar_num, A)
 if type(result) is str:
     print(result)
 else:
