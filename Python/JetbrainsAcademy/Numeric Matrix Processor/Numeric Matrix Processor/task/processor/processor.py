@@ -4,17 +4,18 @@ class Matrix:
             arr = []
         self.num_rows = num_rows
         self.num_columns = num_columns
-        self.arr = arr
+        self.arr = list(arr)
+
+    def __str__(self):
+        output = ""
+        for row in self.arr:
+            output += '\n'
+            for num in row:
+                output += str(num) + ' '
+        return output
 
     def add_row_from_list(self, val_list):
         self.arr.append([float(x) for x in val_list.split()])
-
-    def print_pretty(self):
-        for row in self.arr:
-            output = ""
-            for num in row:
-                output += str(num) + ' '
-            print(output)
 
     @staticmethod
     def make_null_matrix(num_rows, num_columns):
@@ -89,6 +90,24 @@ class Matrix:
         def transpose_func(i, j): return matrix.arr[matrix.num_rows - i - 1][j]
         return Matrix.transpose_base(matrix, transpose_func)
 
+    @staticmethod
+    def calculate_determinant(matrix):
+        if matrix.num_rows != matrix.num_columns:
+            return "The operation cannot be performed."
+        elif matrix.num_rows == matrix.num_columns == 1:
+            return matrix.arr[0][0]
+        elif matrix.num_rows == matrix.num_columns == 2:
+            return matrix.arr[0][0] * matrix.arr[1][1] - matrix.arr[0][1] * matrix.arr[1][0]
+        else:
+            det = 0
+            for i in range(matrix.num_columns):
+                matrix_copy = list(matrix.arr[1:])                                          # slice off first row
+                for row in range(len(matrix_copy)):
+                    matrix_copy[row] = matrix_copy[row][0:i] + matrix_copy[row][i + 1:]     # slice off current column
+                det += (-1) ** i * matrix.arr[0][i] *\
+                    float(Matrix.calculate_determinant(Matrix(matrix.num_rows - 1, matrix.num_columns - 1, matrix_copy)))
+            return det
+
 
 class NumericMatrixProcessor:
     def __init__(self):
@@ -104,6 +123,7 @@ class NumericMatrixProcessor:
         print("2. Multiply matrix by a constant")
         print("3. Multiply matrices")
         print("4. Transpose matrix")
+        print("5. Calculate a determinant")
         print("0. Exit")
         self.choice = input("Your choice: > ")
 
@@ -116,6 +136,8 @@ class NumericMatrixProcessor:
             result = self.multiply_matrices()
         elif choice == '4':
             result = self.transpose_matrix()
+        elif choice == '5':
+            result = self.calculate_determinant()
         elif choice == '0':
             self.exit_requested = True
             return
@@ -129,7 +151,8 @@ class NumericMatrixProcessor:
             print(result)
         else:
             print("The result is:")
-            result.print_pretty()
+            print(result)
+            print()
 
     @staticmethod
     def generate_matrix_from_input():
@@ -174,6 +197,10 @@ class NumericMatrixProcessor:
             return Matrix.transpose_horizontal_line(matrix)
         else:
             return "The operation cannot be performed.\n"
+
+    def calculate_determinant(self):
+        matrix = self.generate_matrix_from_input()
+        return Matrix.calculate_determinant(matrix)
 
 
 processor = NumericMatrixProcessor()
