@@ -80,13 +80,6 @@ function chess() {
 
 // Ball Assignment
 
-class Point{
-    constructor(posX, posY) {
-        this.posX = posX;
-        this.posY = posY;
-    }
-}
-
 class Velocity{
     constructor(dirX, dirY){
         this.dirX = dirX;
