@@ -38,13 +38,15 @@ class ManagedCanvas {
         });
 
         this.canvas.addEventListener("touchstart", (event) => {
-            this.managedObjects.forEach((object) => {
-                // TODO: translate mouseclick coordinates
-                if(this.ctx.isPointInPath(object.path, event.changedTouches[0].clientX, event.changedTouches[0].clientY - this.verticalOffset)){
-                    object.toggleColor();
-                    this.activeObject = object;
+            // make only one object clickable at a time
+            if(this.activeObject == null)
+                for(let object of this.managedObjects){
+                    if(this.ctx.isPointInPath(object.path, event.changedTouches[0].clientX, event.changedTouches[0].clientY - this.verticalOffset)){
+                        object.toggleColor();
+                        this.activeObject = object;
+                        break;
+                    }
                 }
-            });
 
             this.lineArray.push({
                 x: event.changedTouches[0].clientX,
