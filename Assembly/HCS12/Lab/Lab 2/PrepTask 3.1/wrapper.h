@@ -4,7 +4,7 @@
     (C) 2020 J. Friedrich, W. Zimmermann
     Hochschule Esslingen
 
-    Author:  W.Zimmermann, Apr 15, 2020
+    Author:  W.Zimmermann, Jan 30, 2020
 */
 
 
@@ -19,11 +19,11 @@ void decToASCII_Wrapper(char *txt, int val)
 {   
     asm
     {
-
-// ToDo: Add your inline assembler code here to pass parameters
-//       and call assembler function decToASCII
-
+        LDX txt
+        LDD val
     }
+
+    decToASCII();
 }
 
 // Prototypes and wrapper functions for LCD driver (from lab 1)
@@ -34,11 +34,11 @@ void writeLine(void);
 void WriteLine_Wrapper(char *text, char line)
 {   asm
     {	
-
-// ToDo: Add your inline assembler code here to pass parameters
-//       and call assembler function writeLine
-
+        LDX text
+        LDAB line
     }
+
+    writeLine();
 }
 
 
