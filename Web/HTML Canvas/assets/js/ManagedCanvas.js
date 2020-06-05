@@ -10,7 +10,12 @@ class ManagedCanvas {
         this.activeColor = "red";
         this.latestTap = new Date();
         this.verticalOffset = canvas.getBoundingClientRect().top + window.scrollY;
+        
+        // needed for starship game
+        this.activeTouchActions = [];
+        this.lastCycleTouchActions = [];
 
+        // setup
         this.registerEventHandlers();
     }
 
@@ -37,9 +42,9 @@ class ManagedCanvas {
             this.latestTap = new Date().getTime();
         });
 
-        this.canvas.addEventListener("touchstart", (event) => {
-            // make only one object clickable at a time
+        this.canvas.addEventListener("touchstart", (event) => {            
             if(this.activeObject == null)
+                // make only one object clickable at a time
                 for(let object of this.managedObjects){
                     if(this.ctx.isPointInPath(object.path, event.changedTouches[0].clientX, event.changedTouches[0].clientY - this.verticalOffset)){
                         object.toggleColor();
@@ -47,6 +52,8 @@ class ManagedCanvas {
                         break;
                     }
                 }
+
+            this.activeTouchActions.push(event.changedTouches[0]);
 
             this.lineArray.push({
                 x: event.changedTouches[0].clientX,
@@ -59,17 +66,20 @@ class ManagedCanvas {
         this.canvas.addEventListener("touchmove", (event) => {
             event.preventDefault();
             if(this.activeObject != null){
-                let newX = event.changedTouches[0].clientX;
-                let newY = event.changedTouches[0].clientY - this.verticalOffset;
+                let newX = event.targetTouches[0].clientX;
+                let newY = event.targetTouches[0].clientY - this.verticalOffset;
                 this.activeObject.updatePath(newX, newY);
             }
 
             this.lineArray.push({
-                x: event.changedTouches[0].clientX,
-                y: event.changedTouches[0].clientY,
+                x: event.targetTouches[0].clientX,
+                y: event.targetTouches[0].clientY,
                 color: this.ctx.strokeStyle,
                 draw: true // lineto
             });
+            
+            this.lastCycleTouchActions = event.targetTouches;
+
         }, true);
 
         this.canvas.addEventListener("touchend", () => {
@@ -77,6 +87,8 @@ class ManagedCanvas {
                     this.activeObject.toggleColor();
                     this.activeObject = null
                 }
+
+                this.activeTouchActions.pop();
         });
     }
 

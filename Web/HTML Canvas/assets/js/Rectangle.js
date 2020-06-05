@@ -30,14 +30,16 @@ class Rectangle extends CanvasObject{
             this.rotationDegree = angle;
         }
 
-        this.updateRotation(this.rotationDegree, this.center);
-        this.path.rect(this.startPoint.posX, this.startPoint.posY, this.width, this.height);
+        this.updateRotation(this.rotationDegree, this.center);        
     }
 
     updateRotation(degree, center=this.center){
+        this.translateActive = true;
         this.translateCenter.posX = center.posX;
         this.translateCenter.posY = center.posY;
         this.rotationDegree = degree;
+
+        this.path.rect(this.startPoint.posX, this.startPoint.posY, this.width, this.height);
     }
 
     rotateInReferenceToLine(line){

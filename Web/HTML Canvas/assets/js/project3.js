@@ -3,8 +3,8 @@ let canvasContainer = document.getElementById('canvas-container');
 let managedCanvas = new ManagedCanvas(canvas);
 
 // create the objects to draw
-let rectA = new Rectangle(new Point(20, 50), 100, 100, 0, "black", "orange", "red");
-let rectB = new Rectangle(new Point(150, 180), 100, 100, 0, "black", "orange", "red");
+let rectA = new Rectangle(new Point(20, 50), 150, 100, 0, "black", "orange", "red");
+let rectB = new Rectangle(new Point(150, 180), 100, 200, 0, "black", "orange", "red");
 let line = new Line(rectA.center, rectB.center, 1, "black", "white");
 
 // create relations between objects
