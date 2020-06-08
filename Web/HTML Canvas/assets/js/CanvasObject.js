@@ -10,6 +10,7 @@ class CanvasObject{
         
         this.translateActive = false;
         this.rotationReference = null;
+        this.draggable = true;
     }
 
     addRotation(){

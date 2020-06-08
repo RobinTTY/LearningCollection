@@ -1,3 +1,5 @@
+let debug = false;
+
 class ManagedCanvas {
     constructor(canvas) {
         this.canvas = canvas;
@@ -12,8 +14,9 @@ class ManagedCanvas {
         this.verticalOffset = canvas.getBoundingClientRect().top + window.scrollY;
         
         // needed for starship game
-        this.activeTouchActions = [];
         this.lastCycleTouchActions = [];
+        this.activeTouches = 0;
+        this.image = null;
 
         // setup
         this.registerEventHandlers();
@@ -45,15 +48,15 @@ class ManagedCanvas {
         this.canvas.addEventListener("touchstart", (event) => {            
             if(this.activeObject == null)
                 // make only one object clickable at a time
-                for(let object of this.managedObjects){
-                    if(this.ctx.isPointInPath(object.path, event.changedTouches[0].clientX, event.changedTouches[0].clientY - this.verticalOffset)){
+                for(let object of this.managedObjects.filter(obj => obj instanceof Texture)){
+                    if(this.ctx.isPointInPath(object.path, event.changedTouches[0].clientX, event.changedTouches[0].clientY - this.verticalOffset)
+                       && object.draggable)
+                    {
                         object.toggleColor();
                         this.activeObject = object;
                         break;
                     }
                 }
-
-            this.activeTouchActions.push(event.changedTouches[0]);
 
             this.lineArray.push({
                 x: event.changedTouches[0].clientX,
@@ -61,6 +64,8 @@ class ManagedCanvas {
                 color: this.ctx.strokeStyle,
                 draw: false // moveto
             });
+
+            this.activeTouches++;
         }, true);
 
         this.canvas.addEventListener("touchmove", (event) => {
@@ -78,17 +83,23 @@ class ManagedCanvas {
                 draw: true // lineto
             });
             
-            this.lastCycleTouchActions = event.targetTouches;
+            if(this.activeTouches == 2){
+                if(this.lastCycleTouchActions.length > 1)
+                this.lastCycleTouchActions.shift();
+
+                this.lastCycleTouchActions.push(event.targetTouches);
+            }
 
         }, true);
 
         this.canvas.addEventListener("touchend", () => {
-                if(this.activeObject != null){
-                    this.activeObject.toggleColor();
-                    this.activeObject = null
-                }
+            if(this.activeObject != null){
+                this.activeObject.toggleColor();
+                this.activeObject = null
+            }
 
-                this.activeTouchActions.pop();
+            this.activeTouches--;
+            this.lastCycleTouchActions = [];
         });
     }
 
@@ -103,8 +114,25 @@ class ManagedCanvas {
         this.ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
+    setBackground(backgroundPath){
+        this.image = new Image();
+        this.image.src = backgroundPath;
+    }
+
     addButton(posX, posY, radius, color) {
         this.buttons.push(new Button(posX, posY, radius, color));
+    }
+
+    drawBackground(){
+        if(this.image == null || this.image.width == 0) return;
+        let repeatX = 1 + Math.floor(this.canvas.width / this.image.width);
+        let repeatY = 1 + Math.floor(this.canvas.height / this.image.height);
+
+        for(let rX = 0; rX < repeatX; rX++){
+            for(let rY = 0; rY < repeatY; rY++){
+                this.ctx.drawImage(this.image, this.image.width * rX, this.image.height * rY, this.image.width, this.image.height);
+            }
+        }        
     }
 
     drawManagedButtons() {
@@ -144,13 +172,28 @@ class ManagedCanvas {
             layerObjects.forEach(object => {
                 this.ctx.strokeStyle = object.strokeColor;
                 this.ctx.fillStyle = object.fillColor;
-                if(object.translateActive)
+                
+                if(object instanceof CanvasText)
+                    object.printToCanvas(this.ctx);
+                else if(object.translateActive)
                     this.drawTranslatedObject(object);
-                else{
-                    this.ctx.stroke(object.path);
-                    this.ctx.fill(object.path);
-                }                
+                else
+                    this.drawStandardObject(object);
             });
+        }
+    }
+
+    drawStandardObject(object){
+        if(object instanceof Texture){
+            if(debug){
+                this.ctx.stroke(object.path);
+                this.ctx.fill(object.path);
+            }
+            this.ctx.drawImage(object.image, object.startPoint.posX, object.startPoint.posY, object.width, object.height);
+        }
+        else{
+            this.ctx.stroke(object.path);
+            this.ctx.fill(object.path);
         }
     }
 
@@ -165,8 +208,17 @@ class ManagedCanvas {
         this.ctx.rotate(object.rotationDegree);
         this.ctx.translate(-object.translateCenter.posX, -object.translateCenter.posY);
        
-        this.ctx.stroke(object.path);
-        this.ctx.fill(object.path);
+        if(object instanceof Texture){
+            if(debug){
+                this.ctx.stroke(object.path);
+                this.ctx.fill(object.path);
+            }
+            this.ctx.drawImage(object.image, object.startPoint.posX, object.startPoint.posY, object.width, object.height);            
+        }            
+        else{
+            this.ctx.stroke(object.path);
+            this.ctx.fill(object.path);
+        }
 
         this.ctx.restore();
     }
