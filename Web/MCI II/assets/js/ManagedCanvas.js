@@ -48,7 +48,7 @@ class ManagedCanvas {
         this.canvas.addEventListener("touchstart", (event) => {            
             if(this.activeObject == null)
                 // make only one object clickable at a time
-                for(let object of this.managedObjects.filter(obj => obj instanceof Texture)){
+                for(let object of this.managedObjects.filter(obj => obj instanceof CanvasObject)){
                     if(this.ctx.isPointInPath(object.path, event.changedTouches[0].clientX, event.changedTouches[0].clientY - this.verticalOffset)
                        && object.draggable)
                     {

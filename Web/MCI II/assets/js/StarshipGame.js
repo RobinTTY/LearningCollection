@@ -82,7 +82,7 @@ class Starship {
     constructor(managedCanvas) {
         this.multiplier = Math.min(managedCanvas.canvas.width / 1000, 1);
         this.managedCanvas = managedCanvas;        
-        this.texture = new Texture(new Point(managedCanvas.canvas.offsetWidth / 2 - this.multiplier * 100, managedCanvas.canvas.offsetHeight / 2 - this.multiplier * 100), 200 * this.multiplier, 200 * this.multiplier, 1, "assets/images/spaceship.png");
+        this.texture = new Texture(new Point(managedCanvas.canvas.offsetWidth / 2 - this.multiplier * 100, managedCanvas.canvas.offsetHeight / 2 - this.multiplier * 100), 200 * this.multiplier, 200 * this.multiplier, 1, "/~romuit02/assets/images/spaceship.png");
         this.currentAngle = 0;
         this.shotProjectiles = [];
 
@@ -134,7 +134,7 @@ class Projectile {
         this.heightOffset = sizeMultiplier * -90;
         this.speed = speed;
         this.angle = angle;
-        this.texture = new Texture(new Point(startPoint.posX - this.width / 2, startPoint.posY + this.heightOffset), this.width, this.height, 2, "assets/images/long-ray.png");
+        this.texture = new Texture(new Point(startPoint.posX - this.width / 2, startPoint.posY + this.heightOffset), this.width, this.height, 2, "/~romuit02/assets/images/long-ray.png");
         this.hitBox = new Point(startPoint.posX - this.width / 2, startPoint.posY + this.heightOffset);
         this.texture.draggable = false;
         this.texture.updateRotation(angle);
@@ -151,7 +151,7 @@ class Asteroid{
     constructor(startPoint, angle, sizeMultiplier){
         this.width = sizeMultiplier * 128;
         this.height = sizeMultiplier * 128;
-        this.texture = new Texture(new Point(startPoint.posX - this.width / 2, startPoint.posY - this.height / 2), this.width, this.height, 1, "assets/images/asteroid.png");
+        this.texture = new Texture(new Point(startPoint.posX - this.width / 2, startPoint.posY - this.height / 2), this.width, this.height, 1, "/~romuit02/assets/images/asteroid.png");
         this.texture.draggable = false;
         this.destroySprites = [ "asteroid_destroyed1", "asteroid_destroyed2", "asteroid_destroyed3", "asteroid_destroyed4", "asteroid_destroyed5" ];
         this.state = 0;
@@ -164,7 +164,7 @@ class Asteroid{
             this.intervalHandler = setInterval(this.destroy.bind(this), 200);
         }
         if(this.state < 5){
-            this.texture.image.src = "assets/images/" + this.destroySprites[this.state];
+            this.texture.image.src = "/~romuit02/assets/images/" + this.destroySprites[this.state];
         }
         if(this.state == 5){
             clearInterval(this.intervalHandler);
