@@ -1,5 +1,4 @@
-import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.114/examples/jsm/controls/OrbitControls.js";
-import { DragControls } from "https://cdn.jsdelivr.net/npm/three@0.114/examples/jsm/controls/DragControls.js";
+import * as THREE from './three.module.js';
 
 export class Environment{
     constructor(canvasContainer){
@@ -9,12 +8,7 @@ export class Environment{
         this.camera = new THREE.PerspectiveCamera(70, canvasContainer.offsetWidth / canvasContainer.offsetHeight, 0.1, 100);
         this.renderer = new THREE.WebGLRenderer({ antialias: true });
 
-        // some controls
-        this.orbitCtrl = new OrbitControls( this.camera, this.renderer.domElement );
-        this.dragCtrl = null;
-        this.draggableObjects = [];
-        this.init();
-        
+        this.init();        
     }
 
     init(){
@@ -40,11 +34,7 @@ export class Environment{
         this.scene.background = texture;
     }
 
-    addDraggableObjects(...objects){
+    addObjects(...objects){
         objects.forEach(obj => this.scene.add(obj));
-        this.draggableObjects = this.draggableObjects.concat(objects);
-        this.dragCtrl = new DragControls(objects, this.camera, this.renderer.domElement);
-        this.dragCtrl.addEventListener( 'dragstart', function () { this.orbitCtrl.enabled = false; }.bind(this) );
-        this.dragCtrl.addEventListener( 'dragend', function () { this.orbitCtrl.enabled = true; }.bind(this) );
     }
 }

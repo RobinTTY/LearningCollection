@@ -38,6 +38,12 @@ h1{
     font-size: 1.3rem;
 }
 
+#info {
+    color: white;
+    text-align: center;
+    user-select: none;
+}
+
 #heading{
     margin: 0;
 }
