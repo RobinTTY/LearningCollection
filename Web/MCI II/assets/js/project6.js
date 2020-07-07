@@ -141,14 +141,14 @@ canvasContainer.addEventListener('mousemove', event => {
     // check selection of cursor
     let cursorIntersects = cursorRay.intersectObjects(cursorDraggableObjects);
     if(cursorIntersects.length != 0 && cursorIntersects[0].distance < 1){
-        if(!activeCursorSelection){
+        if(!activeCursorSelection && pointerLine.children.length == 0){
             activeCursorSelection = cursorIntersects[0].object;
             activeCursorSelection.material.color.setHex(0xff0000);
             pointerLine.material.color.setHex(0xff0000);
         }        
     }
-    // reset color
-    else if(activeCursorSelection != null){
+    // reset color if intesections are back to 0
+    else if(activeCursorSelection != null && pointerLine.children.length == 0){
         activeCursorSelection.material.color.setHex(0xffffff)
         pointerLine.material.color.setHex(0x00afff);
         activeCursorSelection = null;
@@ -156,7 +156,7 @@ canvasContainer.addEventListener('mousemove', event => {
 
     // attach object to pointer line
     if(activeCursorSelection != null){
-        if( cursorGrabActive && pointerLine.children.length == 0){
+        if(cursorGrabActive){
             pointerLine.attach(activeCursorSelection);
         }
         // detach object from pointer line
