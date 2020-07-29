@@ -187,6 +187,8 @@ function handleIntersections(){
             pointerLine.material.color.setHex(0x00afff);
             activeCursorSelection = null;
     }
+
+    
 }
 
 document.addEventListener('mouseup', event => {
@@ -208,3 +210,4 @@ function render() {
 window.onload = function(){
     environment.renderer.setAnimationLoop(render);
 }
+

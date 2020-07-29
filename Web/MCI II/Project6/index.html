@@ -15,7 +15,7 @@
 <body>
     <div class="d-flex flex-column h-100">
         <header id="nav" class="navbar navbar-expand-sm navbar-light bg-light">
-            <a class="navbar-brand" href="/~romuit02">
+            <a class="navbar-brand" href="">
                 <img src="/~romuit02/assets/images/favicon-96x96.png" width="36" height="36"
                     alt="Robin Mueller Brand Image">
             </a>
@@ -31,14 +31,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/~romuit02/Project6">
-                            Project 6                          
+                        <a class="nav-link active" href="/~romuit02/Project6">
+                            Project 6
+                            <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/~romuit02/Project5">
-                            Project 5                            
-                        </a>                        
+                            Project 5
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/~romuit02/Project4">
@@ -46,9 +47,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/~romuit02/Project3">
+                        <a class="nav-link" href="/~romuit02/Project3">
                             Project 3
-                            <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -83,9 +83,14 @@
         </header>
 
         <!-- Begin content -->
-        <h1 id="heading" class="p-2">Assignment</h1>
-        <div id="canvas-container" class="d-flex flex-column flex-grow-1">            
-            <canvas id="canvas" ></canvas>
+        <div id="canvas-container" class="d-flex flex-column flex-grow-1 position-relative">
+            <div id="info" class="position-absolute container-fluid p-3">
+                <h2>Controls</h2>
+				<div>Camera Movement: Left Mouse Click + Drag</div>
+                <div>X/Y/Z-Axis Object Movement: Left Mouse Click on object + Drag</div>
+                <div>Object Rotation: Alt + Left Mouse Click on object + Drag</div>
+                <div>Activate Grab: Space</div>
+            </div>
         </div>
         <!-- End content -->
 
@@ -112,16 +117,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script src="/~romuit02/assets/js/MathHelper.js"></script>
-    <script src="/~romuit02/assets/js/Point.js"></script>
-    <script src="/~romuit02/assets/js/Button.js"></script>
-    <script src="/~romuit02/assets/js/CanvasObject.js"></script>
-    <script src="/~romuit02/assets/js/Line.js"></script>
-    <script src="/~romuit02/assets/js/Rectangle.js"></script>
-    <script src="/~romuit02/assets/js/Texture.js"></script>
-    <script src="/~romuit02/assets/js/CanvasText.js"></script>
-    <script src="/~romuit02/assets/js/ManagedCanvas.js"></script>
-    <script src="/~romuit02/assets/js/project3.js"></script>
+    <script type="module" src="/~romuit02/assets/js/project6.js"></script>
 </body>
 
 </html>
