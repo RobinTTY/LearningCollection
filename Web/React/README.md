@@ -295,3 +295,43 @@ function Square(props) {
 ```
 
 We have changed ```this.props``` to ```props``` both times it appears and ```onClick={() => this.props.onClick()}``` to a shorter ```onClick={props.onClick}```.
+
+### Adding Time Travel
+
+- If we mutated the squares array, implementing time travel would be very difficult.
+- However, we used ```slice()``` to create a new copy of the squares array after every move, and treated it as immutable.
+- This will allow us to store every past version of the squares array, and navigate between the turns that have already happened.
+
+Storing the array in the history array (nested array):
+
+```Js
+history = [
+  // Before first move
+  {
+    squares: [
+      null, null, null,
+      null, null, null,
+      null, null, null,
+    ]
+  },
+  // After first move
+  {
+    squares: [
+      null, null, null,
+      null, 'X', null,
+      null, null, null,
+    ]
+  },
+  // After second move
+  {
+    squares: [
+      null, null, null,
+      null, 'X', null,
+      null, null, 'O',
+    ]
+  },
+  // ...
+]
+```
+
+Because of this we lift up the game state from the Board component to the game component.
