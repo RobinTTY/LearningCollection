@@ -1,9 +1,15 @@
 # React Tutorial
 
 Another small tutorial I followed to get started with React.  
-Source: [Programming with Mosh](https://www.youtube.com/watch?v=Ke90Tje7VS0)
+Source: [Traversy Media](https://www.youtube.com/watch?v=sBws8MSXN7A)
 
 ## Notes
+
+## What is React
+
+- Javascript library created by facebook
+- used for building UIs (front-end applications)
+- uses self contained, independent components with their own state
 
 ### Components
 
@@ -12,6 +18,8 @@ Source: [Programming with Mosh](https://www.youtube.com/watch?v=Ke90Tje7VS0)
 - comparable with Angular
 - comprise the UI
 - implemented as class with a state and a render method
+- the state is an object which contains various properties, these determine how the component renders and behaves
+- there can also be an application level state by using a state manager like _Redux_
 
 ### Render Method
 
