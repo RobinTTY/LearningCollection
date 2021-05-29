@@ -24,6 +24,7 @@ let mouseDraggableObjects = [];
 let intersects = [];
 let selection = null;
 let cursorGrabActive = false;
+let grabbedObject = false;
 let activeCursorSelection = null;
 
 // setup objects
@@ -87,8 +88,15 @@ window.addEventListener('mousedown', event => {
 });
 
 window.addEventListener('keydown', (event) => {
-    if(event.code == "Space")
+    if(event.code == "Space"){
         cursorGrabActive = !cursorGrabActive;
+        if(!cursorGrabActive){
+            // handle edge case of unselect while multiple objects are intersected and the previously
+            // grabbed object has a larger distance than the other intersected object; update would
+            // only occur on mousemove but if mouse is not moved the wrong object would stay highlighted.
+            handleIntersections();
+        }
+}        
 
     // change color of cone based on active grab
     if(cursorGrabActive)
@@ -137,27 +145,15 @@ canvasContainer.addEventListener('mousemove', event => {
     /////////////////// update cursor raycaster ///////////////////    
     // update ray and apply rotation (apply Euler from cone)
     cursorRay.set(cone.position, new THREE.Vector3(0,1,0).normalize().applyEuler(cone.rotation));
+    handleIntersections();
+});
 
-    // check selection of cursor
-    let cursorIntersects = cursorRay.intersectObjects(cursorDraggableObjects);
-    if(cursorIntersects.length != 0 && cursorIntersects[0].distance < 1){
-        if(!activeCursorSelection){
-            activeCursorSelection = cursorIntersects[0].object;
-            activeCursorSelection.material.color.setHex(0xff0000);
-            pointerLine.material.color.setHex(0xff0000);
-        }        
-    }
-    // reset color
-    else if(activeCursorSelection != null){
-        activeCursorSelection.material.color.setHex(0xffffff)
-        pointerLine.material.color.setHex(0x00afff);
-        activeCursorSelection = null;
-    }
-
-    // attach object to pointer line
+function handleIntersections(){
+    // handle activeCursorSelection case
     if(activeCursorSelection != null){
-        if( cursorGrabActive && pointerLine.children.length == 0){
+        if(cursorGrabActive){
             pointerLine.attach(activeCursorSelection);
+            grabbedObject = true;
         }
         // detach object from pointer line
         if(pointerLine.children.length != 0 && !cursorGrabActive){
@@ -168,9 +164,32 @@ canvasContainer.addEventListener('mousemove', event => {
             activeCursorSelection.position.copy(newPosition);
             activeCursorSelection.setRotationFromQuaternion(newRotation);
             environment.addObjects(activeCursorSelection);
+            grabbedObject = false;
         }
     }
-});
+
+    // check selection of cursor
+    let cursorIntersects = cursorRay.intersectObjects(cursorDraggableObjects);
+    if(cursorIntersects.length != 0 && cursorIntersects[0].distance < 1){
+        if(!grabbedObject && pointerLine.children.length == 0){
+            // handle intersections with multiple objects
+            if(activeCursorSelection != null)
+                activeCursorSelection.material.color.setHex(0xffffff);
+
+            activeCursorSelection = cursorIntersects[0].object;
+            activeCursorSelection.material.color.setHex(0xff0000);
+            pointerLine.material.color.setHex(0xff0000);
+        }        
+    }
+    // reset color if intersections are back to 0
+    else if(activeCursorSelection != null && pointerLine.children.length == 0){
+            activeCursorSelection.material.color.setHex(0xffffff);
+            pointerLine.material.color.setHex(0x00afff);
+            activeCursorSelection = null;
+    }
+
+    
+}
 
 document.addEventListener('mouseup', event => {
     mouse.updateState(event, false);
