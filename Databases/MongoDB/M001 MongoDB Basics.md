@@ -1,6 +1,6 @@
 # M001: MongoDB Basics
 
-# What is MongoDB?
+## What is MongoDB?
 
 - NoSQL document database (data is stored as documents)
 - Documents are store in collections of documents
@@ -13,7 +13,7 @@
 - **Cursor:** A pointer to a result set of a query
 - **MQL:** MongoDB query language
 
-# Topics
+## Topics
 
 [Documents and Collections](M001%20MongoDB%20Basics/Documents%20and%20Collections.md)
 
@@ -23,6 +23,6 @@
 
 [Advanced CRUD operations](M001%20MongoDB%20Basics/Advanced%20CRUD%20operations.md)
 
-# Courses that might be interesting
+## Courses that might be interesting
 
 - M320 - Data Modeling

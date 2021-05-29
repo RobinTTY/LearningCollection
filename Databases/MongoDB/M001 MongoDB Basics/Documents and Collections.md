@@ -17,7 +17,7 @@
   - text based ⇒ space consuming
   - supports limited number of basic data types
 
-![Documents%20and%20Collections%2049fd8161a7084ab783ceb7a894e181f7/Screenshot_2021-05-02_183509.png](Documents%20and%20Collections/Screenshot_2021-05-02_183509.png)
+![Documents%20and%20Collections%2049fd8161a7084ab783ceb7a894e181f7/Screenshot_2021-05-02_183509.png](resources/Screenshot_2021-05-02_183509.png)
 
 ## The \_id field
 
