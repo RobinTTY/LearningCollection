@@ -2,7 +2,7 @@
 
 # Importing and exporting data
 
-```
+```txt
 mongoimport --uri "<AtlasClusterURI>       // import json
             --drop=<filename>.json
 mongoexport --uri "<AtlasClusterURI>       // export json
@@ -19,6 +19,6 @@ mongodump --uri "<AtlasClusterURI>         // export bson
 - The connection string is a srv-string
 - srv is used to establish a secure connection
 
-```
+```txt
 mongodb+srv://<your username>:<your password>@<your cluster>.mongodb.net/<database>
 ```
