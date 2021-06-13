@@ -23,7 +23,7 @@
 
 [Chapter 4: Advanced CRUD operations](Advanced%20CRUD%20operations.md)
 
-[Chapter 5: Indexing and Aggregation Pipeline](Indexing%20and%20Aggregation%20Pipeline)
+[Chapter 5: Indexing and Aggregation Pipeline](Indexing%20and%20Aggregation%20Pipeline.md)
 
 ## Courses that might be interesting
 
