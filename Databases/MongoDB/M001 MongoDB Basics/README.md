@@ -15,13 +15,13 @@
 
 ## Topics
 
-[Chapter 1: Documents and Collections](M001%20MongoDB%20Basics/Documents%20and%20Collections.md)
+[Chapter 1: Documents and Collections](Documents%20and%20Collections.md)
 
-[Chapter 2: Importing and Exporting data](M001%20MongoDB%20Basics/Importing%20and%20Exporting%20data.md)
+[Chapter 2: Importing and Exporting data](Importing%20and%20Exporting%20data.md)
 
-[Chapter 3: Querying, Creating, Updating and Deleting documents with Mongo shell](M001%20MongoDB%20Basics/Querying,%20Creating,%20Updating%20and%20Deleting%20document.md)
+[Chapter 3: Querying, Creating, Updating and Deleting documents with Mongo shell](Querying,%20Creating,%20Updating%20and%20Deleting%20document.md)
 
-[Chapter 4: Advanced CRUD operations](M001%20MongoDB%20Basics/Advanced%20CRUD%20operations.md)
+[Chapter 4: Advanced CRUD operations](Advanced%20CRUD%20operations.md)
 
 [Chapter 5: Indexing and Aggregation Pipeline](Indexing%20and%20Aggregation%20Pipeline)
 
