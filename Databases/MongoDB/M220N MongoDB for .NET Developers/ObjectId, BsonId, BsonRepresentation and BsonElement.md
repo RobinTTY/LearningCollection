@@ -26,7 +26,7 @@ will also be index columns using the defaults for each type if not specified.
 
 The Id property is required for mapping the Common Language Runtime (CLR) object to the MongoDB collection.
 
-## [BsonId]
+## The [BsonId] attribute
 
 Designates this property as the document's primary key.
 Gives you the flexibility of naming that index any way you want.
@@ -51,7 +51,7 @@ public ObjectId SmthElseOtherThanId {get; set;}
 
 with no [BsonId] decoration also won't be an index column.
 
-## [BsonRepresentation]
+## The [BsonRepresentation] attribute
 
 Lets you juggle with the Mongo type vs the internal .Net type, if there's a conversion between them.
 
@@ -103,13 +103,14 @@ public int StringId { get; set; }
 
 will be just fine.
 
-## [BsonElement]
+## The [BsonElement] attribute
 
-The attribute's value represents the property name in the MongoDB collection.
-
-Example:
+If we want to use a different property name than what is used in the database we can use the `[BsonElement]` attribute:
 
 ```C#
-[BsonElement("Pressure")]
-public double Pressure { get; set; }
+public class MyClass
+{
+    [BsonElement("sp")]
+    public string SomeProperty { get; set; }
+}
 ```
