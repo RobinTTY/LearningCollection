@@ -98,9 +98,28 @@ var projectionFilter = Builders<Movie>.Projection
 Sorting first, limiting the results, and skipping so we get different results for each page:
 
 ```C#
+var sortByYearDescending = Builders<Movie>.Sort.Ascending(m => m.Year);
 var movies = await _moviesCollection.Find<Movie>(Builders<Movie>.Filter.Empty)
     .Sort(sortByYearDescending)
     .Limit(moviesPerPage)
     .Skip(pageNumber * moviesPerPage)
     .ToListAsync();
+```
+
+Search for any match between two arrays:
+
+```C#
+public async Task<IReadOnlyList<MovieByCountryProjection>> GetMoviesByCountryAsync(
+    CancellationToken cancellationToken = default,
+    params string[] countries
+    )
+{
+    var project = Builders<Movie>.Projection.Include(movie => movie.Title);
+
+    return await _moviesCollection
+        .Find(Builders<Movie>.Filter.AnyIn(movie => movie.Countries, countries))
+        .SortByDescending(m => m.Title)
+        .Project<MovieByCountryProjection>(project)
+        .ToListAsync(cancellationToken);
+}
 ```
