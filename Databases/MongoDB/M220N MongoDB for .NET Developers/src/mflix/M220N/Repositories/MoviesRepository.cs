@@ -231,6 +231,7 @@ namespace M220N.Repositories
             // In conjunction with limitStage, I enable pagination
             var skipStage = new BsonDocument("$skip", DefaultMoviesPerPage * page);
 
+            // TODO: look at this
             // I build the facets
             var facetStage = BuildFacetStage();
 
@@ -239,8 +240,9 @@ namespace M220N.Repositories
             {
                 matchStage,
                 sortStage,
-                // add the remaining stages in the correct order
-
+                skipStage,
+                limitStage,
+                facetStage
             };
 
             // I run the pipeline you built
