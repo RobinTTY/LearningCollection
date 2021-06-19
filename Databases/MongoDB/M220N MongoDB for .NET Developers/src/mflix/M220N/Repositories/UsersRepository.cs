@@ -17,7 +17,7 @@ namespace M220N.Repositories
 
         public UsersRepository(IMongoClient mongoClient)
         {
-            var camelCaseConvention = new ConventionPack {new CamelCaseElementNameConvention()};
+            var camelCaseConvention = new ConventionPack { new CamelCaseElementNameConvention() };
             ConventionRegistry.Register("CamelCase", camelCaseConvention, type => true);
 
             _usersCollection = mongoClient.GetDatabase("sample_mflix").GetCollection<User>("users");
@@ -77,8 +77,8 @@ namespace M220N.Repositories
                     Email = email,
                     HashedPassword = PasswordHashOMatic.Hash(password)
                 };
-                await _usersCollection.InsertOneAsync(user, cancellationToken: cancellationToken);
-                
+                await _usersCollection.WithWriteConcern(WriteConcern.WMajority).InsertOneAsync(user, cancellationToken: cancellationToken);
+
                 // // TODO Ticket: Durable Writes
                 // // To use a more durable Write Concern for this operation, add the 
                 // // .WithWriteConcern() method to your InsertOneAsync call.
@@ -209,24 +209,11 @@ namespace M220N.Repositories
         {
             try
             {
-                /**
-                  Ticket: User Preferences
-            
-                  Update the "preferences" field in the corresponding user's document to
-                  reflect the new information in preferences.
-                */
-
-                UpdateResult updateResult = null;
-                // TODO Ticket: User Preferences
-                // Use the data in "preferences" to update the user's preferences.
-                //
-                // updateResult = await _usersCollection.UpdateOneAsync(
-                //    new BsonDocument(),
-                //    Builders<User>.Update.Set("TODO", preferences),
-                //    /* Be sure to pass a new UpdateOptions object here,
-                //       setting IsUpsert to false! */
-                //    new UpdateOptions(),
-                //    cancellationToken);
+                var updateResult = await _usersCollection.UpdateOneAsync(
+                   Builders<User>.Filter.Eq(user => user.Email, email),
+                   Builders<User>.Update.Set(user => user.Preferences, preferences),
+                   new UpdateOptions { IsUpsert = false },
+                   cancellationToken);
 
                 return updateResult.MatchedCount == 0
                     ? new UserResponse(false, "No user found with that email")

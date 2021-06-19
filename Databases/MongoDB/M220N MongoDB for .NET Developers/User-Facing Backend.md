@@ -39,7 +39,7 @@ public void CountMovies()
              * create a mapping class for the output type, which is what we've
              * done for you in the MFlix application.
              */
-            
+
             var pipeline = PipelineDefinition<Movie, BsonDocument>
                 .Create(new BsonDocument[] {
                     matchStage,
@@ -47,7 +47,7 @@ public void CountMovies()
                     projectionStage
                 });
 
-            
+
             var result = _moviesCollection.Aggregate(pipeline).ToList();
             /* Note: we're making a synchronous Aggregate() call.
              * If you want a challenge, change the line above to make an
@@ -65,7 +65,7 @@ public void CountMovies()
              * that we built in the code above, so let's make sure that field
              * wasn't included in the resulting BsonDocument. We expect the call
              * to GetValue() to throw a KeyNotFoundException exception if the
-             * field doesn't exist. 
+             * field doesn't exist.
              */
 
             Assert.Throws<KeyNotFoundException>(()=> firstMovie.GetValue("Id"));
@@ -100,14 +100,14 @@ To use faceted searches, the application must use the **$facet pipeline stage** 
 
 ## Basic Writes
 
-To add something new to the database we can use the methods ``InsertOneAsync`` and ``InsertManyAsync``.
+To add something new to the database we can use the methods `InsertOneAsync` and `InsertManyAsync`.
 
 ### Example
 
 ```C#
 public async Task CreateMovieAsync()
 {
-    
+
     var newTheater = new Theater(27777,
                     "4 Privet Drive",
                     "Little Whinging",
@@ -133,7 +133,7 @@ public async Task CreateMovieAsync()
 
 ## Basic Updates
 
-To update something in the database we can use the methods ``UpdateOneAsync``, ``UpdateManyAsync`` and ``FindOneAndUpdateAsync``.
+To update something in the database we can use the methods `UpdateOneAsync`, `UpdateManyAsync` and `FindOneAndUpdateAsync`.
 
 ### Examples
 
@@ -172,4 +172,176 @@ var result = await _theatersCollection.UpdateManyAsync(
     filter,
     update
     );
+```
+
+## Write Concerns
+
+- Write concerns are important when there are more than one data source
+- An Atlas replica set is an example where write concerns can be important
+
+### writeConcern: { w: 1 }
+
+- Only requests an acknowledgement that one node applied the write
+- This is the default writeConcern in MongoDB
+
+### writeConcern: { w: majority }
+
+- Requests acknowledgement that a majority of nodes in the replica set applied the write
+- Takes longer than w: 1
+- Is more durable than w: 1
+  - Useful for ensuring vital writes are majority-committed
+  - e.g. user registration
+
+### writeConcern: { w: 0 }
+
+- Does not request an acknowledgement that any nodes applied the write
+  - "Fire and forget"
+  - acknowledgement can still indicate network errors or socket exceptions
+- Fastest writeConcern level
+- Least durable writeConcern
+
+### Example
+
+```C#
+await _usersCollection.WithWriteConcern(WriteConcern.WMajority).InsertOneAsync(user, cancellationToken: cancellationToken);
+```
+
+## Joins
+
+- Join two collections of data
+  - Movies and comments
+- Use new expressive $lookup
+  - allows us to apply aggregation pipelines to data - before the data is joined
+- Build aggregation in Compass, and then export to language
+
+Join comments to movies (this pipeline is executed upon the movies collection):
+
+```C#
+// $match stage
+{
+  year: { "$gte": 1980, "$lt": 1990 }
+}
+
+// $lookup stage
+// from: collection we are joining from
+{
+  from: "comments",
+  // pipeline has access to fields inside comments collection
+  // but not to fields inside the movies collection
+  // if we need fields from movies we need to declare them in let
+  // this makes _id available in the pipeline as "id"
+  // this variable is referred to with the "$$" signs (movies collection)
+  // one "$" sign refers to the comments collection!
+  let: { "id": "$_id" },
+  pipeline: [
+    {
+      "$match":
+      // matches the comment "movie_id" field to the movie "id" field
+      { "$expr": { "$eq": [ "$movie_id", "$$id" ]} }
+    }
+  ],
+  // each movie has a new field movie_comments with the comments as array
+  as: "movie_comments"
+}
+
+// if we only care about how many comments there are, we can add a stage to our pipeline
+{
+  from: "comments",
+  let: { "id": "$_id" },
+  pipeline: [
+    {
+      "$match":
+      { "$expr": { "$eq": [ "$movie_id", "$$id" ]} }
+    },
+    {
+      "$count": "count"
+    }
+  ],
+  as: "movie_comments"
+}
+```
+
+We can also export the pipeline from Compass to C# code:
+
+```C#
+new BsonArray
+{
+    new BsonDocument("$match", 
+    new BsonDocument("year", 
+    new BsonDocument
+            {
+                { "$gte", 1980 }, 
+                { "$lt", 1990 }
+            })),
+    new BsonDocument("$lookup", 
+    new BsonDocument
+        {
+            { "from", "comments" }, 
+            { "let", 
+    new BsonDocument("id", "$_id") }, 
+            { "pipeline", 
+    new BsonArray
+            {
+                new BsonDocument("$match", 
+                new BsonDocument("$expr", 
+                new BsonDocument("$eq", 
+                new BsonArray
+                            {
+                                "$movie_id",
+                                "$$id"
+                            })))
+            } }, 
+            { "as", "movie_comments" }
+        })
+}
+```
+
+Better approach:
+
+```C#
+/* Approach that uses several helpful methods in the driver:
+    * Aggregate(), Match(), and Lookup(), each of which is represented
+    * in the code above as MQL. The Lookup() method is a bit complex;
+    * here is an explanation of each of the parameters:
+    * 
+    *  - The collection from which we want to lookup the values 
+    *      (in this case, the Comments collection)
+    *  - The "key" in the Movies collection that will match a key in 
+    *      the Comments collection.
+    *  - The "key" in the Comments collection that matches the previous 
+    *      parameter. In both cases, it's the _id of each Movie we match 
+    *      in the Match state.
+    *  - The property in which we want to put the lookup results. We 
+    *      have already defined a Comments property on the Movie object 
+    *      for just this purpose, so we specify it here.
+    *  
+    */
+var movies = _moviesCollection
+    .Aggregate()  // begins a fluent aggregation
+    .Match(m => (int)m.Year < 1990 && (int)m.Year >= 1980)
+    .Lookup(
+        _commentsCollection,
+        m => m.Id,
+        c => c.MovieId,
+        (Movie m)=>m.Comments
+        )
+    .ToList();
+
+var firstMovie = movies.First();
+```
+
+## Basic Deletes
+
+```C#
+// delete one document
+var filter = Builders<Theater>.Filter.Eq(t => t.TheaterId, 27017);
+var result = await _theatersCollection.DeleteOneAsync(filter);
+
+// delete one document but return it
+filter = Builders<Theater>.Filter.Eq(t => t.TheaterId, 27018);
+var deletedDoc = await _theatersCollection.FindOneAndDeleteAsync(filter);
+
+// delete many
+var filter = Builders<Theater>.Filter.Eq(t => t.Location.Address.City, "Movieville");
+var result = await _theatersCollection.DeleteManyAsync(filter);
 ```
