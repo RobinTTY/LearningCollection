@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using M220N.Models;
@@ -68,7 +67,6 @@ namespace M220N.Repositories
         {
             try
             {
-                // TODO Ticket: User Management
                 // Create a user with the "Name", "Email", and "HashedPassword" fields.
                 // DO NOT STORE CLEAR-TEXT PASSWORDS! Instead, use the helper class
                 // we have created for you: PasswordHashOMatic.Hash(password)
@@ -119,7 +117,6 @@ namespace M220N.Repositories
                     return new UserResponse(false, "The password provided is not valid");
                 }
 
-                // TODO Ticket: User Management
                 // Locate the session object in the `sessions` collection by
                 // matching the "user_id" field with the email passed to this function.
                 // Then update the Session.UserId and Session.Jwt properties,
@@ -152,10 +149,9 @@ namespace M220N.Repositories
         /// <returns></returns>
         public async Task<UserResponse> LogoutUserAsync(string email, CancellationToken cancellationToken = default)
         {
-            // TODO Ticket: User Management
             // Delete the document in the `sessions` collection matching the email.
-            
-            await _sessionsCollection.DeleteOneAsync(new BsonDocument(), cancellationToken);
+            var filter = Builders<Session>.Filter.Eq(session => session.UserId, email);
+            await _sessionsCollection.DeleteOneAsync(filter, cancellationToken);
             return new UserResponse(true, "User logged out.");
         }
 
@@ -169,7 +165,8 @@ namespace M220N.Repositories
         {
             // TODO Ticket: User Management
             // Retrieve the session document corresponding with the user's email.
-            return await _sessionsCollection.Find(new BsonDocument()).FirstOrDefaultAsync();
+            var filter = Builders<Session>.Filter.Eq(session => session.UserId, email);
+            return await _sessionsCollection.Find(filter).FirstOrDefaultAsync(cancellationToken);
         }
 
         /// <summary>
