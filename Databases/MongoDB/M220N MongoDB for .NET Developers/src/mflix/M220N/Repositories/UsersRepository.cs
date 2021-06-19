@@ -1,5 +1,6 @@
-﻿    using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using M220N.Models;
@@ -50,11 +51,8 @@ namespace M220N.Repositories
         /// <returns>A User or null</returns>
         public async Task<User> GetUserAsync(string email, CancellationToken cancellationToken = default)
         {
-            // TODO Ticket: User Management
             // Retrieve the user document corresponding with the user's email.
-            //
-            // // return await _usersCollection.Find(...)
-            return null;
+            return await _usersCollection.Find(Builders<User>.Filter.Eq(user => user.Email, email)).FirstOrDefaultAsync(cancellationToken);
         }
 
         /// <summary>
@@ -70,19 +68,22 @@ namespace M220N.Repositories
         {
             try
             {
-                var user = new User();
                 // TODO Ticket: User Management
                 // Create a user with the "Name", "Email", and "HashedPassword" fields.
                 // DO NOT STORE CLEAR-TEXT PASSWORDS! Instead, use the helper class
                 // we have created for you: PasswordHashOMatic.Hash(password)
                 //
-                // // user = new User...
-                // // await _usersCollection.InsertOneAsync(...)
-                //
+                var user = new User
+                {
+                    Name = name,
+                    Email = email,
+                    HashedPassword = PasswordHashOMatic.Hash(password)
+                };
+                await _usersCollection.InsertOneAsync(user, cancellationToken: cancellationToken);
+                
                 // // TODO Ticket: Durable Writes
                 // // To use a more durable Write Concern for this operation, add the 
                 // // .WithWriteConcern() method to your InsertOneAsync call.
-
                 var newUser = await GetUserAsync(user.Email, cancellationToken);
                 return new UserResponse(newUser);
             }
@@ -127,10 +128,11 @@ namespace M220N.Repositories
                 // 
                 // If the session doesn't exist, allow MongoDB to create a
                 // new one by passing the IsUpsert update option.
-                //  await _sessionsCollection.UpdateOneAsync(
-                //  new BsonDocument(...),
-                //  Builders<Session>.Update.Set(...).Set(...),
-                //  new UpdateOptions(...));
+                var filter = Builders<Session>.Filter.Eq(session => session.UserId, user.Email);
+                var result = await _sessionsCollection.UpdateOneAsync(
+                filter,
+                Builders<Session>.Update.Set(u => u.UserId, user.Email).Set(u => u.Jwt, user.AuthToken),
+                new UpdateOptions { IsUpsert = true }, cancellationToken);
 
                 storedUser.AuthToken = user.AuthToken;
                 return new UserResponse(storedUser);
