@@ -1,7 +1,5 @@
 # Importing and Exporting data
 
-# Importing and exporting data
-
 ```txt
 mongoimport --uri "<AtlasClusterURI>       // import json
             --drop=<filename>.json
