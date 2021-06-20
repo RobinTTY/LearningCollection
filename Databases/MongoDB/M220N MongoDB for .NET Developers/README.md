@@ -10,6 +10,8 @@
 
 [Chapter 4: Admin Backend](Admin%20Backend.md)
 
+[Chapter 5: Resiliency](Resiliency.md)
+
 ## Extra Notes
 
 [ObjectId, BsonId, BsonRepresentation and BsonElement](ObjectId,%20BsonId,%20BsonRepresentation%20and%20BsonElement.md)

@@ -88,17 +88,13 @@ namespace M220N.Repositories
                     .Match(Builders<Movie>.Filter.Eq(x => x.Id, movieId))
                     // Ticket: Get Comments
                     // Add a lookup stage that includes the comments associated with the retrieved movie
-                    .Lookup(_commentsCollection, movie => movie.Id, comment => comment.MovieId, (Movie movie) => movie.Comments)
+                    .Lookup(_commentsCollection, movie => movie.Id, comment => comment.MovieId,
+                        (Movie movie) => movie.Comments)
                     .FirstOrDefaultAsync(cancellationToken);
             }
-            catch (Exception ex)
+            catch (FormatException formatException)
             {
-                // TODO Ticket: Error Handling
-                // Catch the exception and check the exception type and message contents.
-                // Return null if the exception is due to a bad/missing Id. Otherwise,
-                // throw.
-
-                throw;
+                return null;
             }
         }
 

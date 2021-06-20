@@ -81,8 +81,6 @@ namespace M220N.Repositories
             Builders<Comment>.Update.Set(comm => comm.Text, comment),
             new UpdateOptions(),
             cancellationToken);
-
-            return null;
         }
 
         /// <summary>
