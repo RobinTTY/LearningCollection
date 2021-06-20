@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using M220N.Models;
 using MongoDB.Bson;
@@ -26,14 +27,9 @@ namespace Migrator
 
             if (datePipelineResults.Count > 0)
             {
-                var operations = new List<ReplaceOneModel<Movie>>();
-                var options = new BulkWriteOptions { IsOrdered = false };
-                datePipelineResults.ForEach(c =>
-                {
-                    operations.Add(new ReplaceOneModel<Movie>(new BsonDocument("_id", c.Id), c) { IsUpsert = true });
-                });
-
-                var bulkWriteDatesResult = await _moviesCollection.BulkWriteAsync(operations, options);
+                var requests = new List<ReplaceOneModel<Movie>>();
+                datePipelineResults.ForEach(transformedMovie => requests.Add(new ReplaceOneModel<Movie>(Builders<Movie>.Filter.Where(movie => movie.Id == transformedMovie.Id), transformedMovie)));
+                var bulkWriteDatesResult = await _moviesCollection.BulkWriteAsync(requests);
                 Console.WriteLine($"{bulkWriteDatesResult.ProcessedRequests.Count} records updated.");
             }
 
@@ -42,15 +38,9 @@ namespace Migrator
 
             if (ratingPipelineResults.Count > 0)
             {
-                var operations = new List<ReplaceOneModel<Movie>>();
-                var options = new BulkWriteOptions { IsOrdered = false };
-                ratingPipelineResults.ForEach(c =>
-                {
-                    operations.Add(new ReplaceOneModel<Movie>(new BsonDocument("_id", c.Id), c) { IsUpsert = true });
-                });
-
-                var bulkWriteRatingsResult = await _moviesCollection.BulkWriteAsync(operations, options);
-
+                var requests = new List<ReplaceOneModel<Movie>>();
+                ratingPipelineResults.ForEach(transformedMovie => requests.Add(new ReplaceOneModel<Movie>(Builders<Movie>.Filter.Where(movie => movie.Id == transformedMovie.Id), transformedMovie)));
+                var bulkWriteRatingsResult = await _moviesCollection.BulkWriteAsync(requests);
                 Console.WriteLine($"{bulkWriteRatingsResult.ProcessedRequests.Count} records updated.");
             }
 
