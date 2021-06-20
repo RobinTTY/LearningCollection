@@ -9,8 +9,6 @@ namespace M220NTests
 {
     class CommentsRepositoryTests
     {
-
-
         private CommentsRepository _commentsRepository;
 
         [SetUp]

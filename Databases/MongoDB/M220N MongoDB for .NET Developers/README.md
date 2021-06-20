@@ -8,6 +8,8 @@
 
 [Chapter 3: User-Facing Backend](User-Facing%20Backend.md)
 
+[Chapter 4: Admin Backend](Admin%20Backend.md)
+
 ## Extra Notes
 
 [ObjectId, BsonId, BsonRepresentation and BsonElement](ObjectId,%20BsonId,%20BsonRepresentation%20and%20BsonElement.md)
