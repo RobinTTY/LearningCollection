@@ -57,3 +57,25 @@ return new TopCommentsProjection(result);
 - Has to be specified with the flag { ordered: false }
 - Executes writes in parallel
 
+## Using BulkWriteAsync to update many documents in a specific way
+
+The ``BulkWriteAsync`` method takes an ``IEnumerable`` of the ``WriteModel`` abstract class as input. There are several derived classes of ``WriteModel``, which allow you to perform different operations:
+
+|C# Driver|MongoDB Shell equivalent|Operation|
+|:-------:|:----------------------:|:-------:|
+|InsertOneModel|[insertOne](https://docs.mongodb.com/manual/reference/method/db.collection.insertOne/)|Inserts the document|
+|UpdateOneModel|[updateOne](https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/)|Updates one document that matches the filter definition|
+|UpdateManyModel|[updateMany](https://docs.mongodb.com/manual/reference/method/db.collection.updateMany/)|Updates all the documents that match the filter definition|
+|ReplaceOneModel|[replaceOne](https://docs.mongodb.com/manual/reference/method/db.collection.replaceOne/)|Replaces one document that matches the filter definition with the document provided|
+|DeleteOneModel|[deleteOne](https://docs.mongodb.com/manual/reference/method/db.collection.deleteOne/)|Deletes one document that matches the filter definition|
+|DeleteManyModel|[deleteMany](https://docs.mongodb.com/manual/reference/method/db.collection.deleteMany/)|Deletes all the documents that match the filter definition|
+
+These operations can be passed to the ``BulkWriteAsync`` method and will be executed. They are equivalent to the MongoDB [db.collection.bulkWrite()](https://docs.mongodb.com/manual/reference/method/db.collection.bulkWrite) shell method.
+
+### Example
+
+```C#
+var requests = new List<ReplaceOneModel<Movie>>();
+datePipelineResults.ForEach(transformedMovie => requests.Add(new ReplaceOneModel<Movie>(Builders<Movie>.Filter.Where(movie => movie.Id == transformedMovie.Id), transformedMovie)));
+var bulkWriteDatesResult = await _moviesCollection.BulkWriteAsync(requests);
+```
