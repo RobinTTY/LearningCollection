@@ -4,18 +4,28 @@ import './index.css';
 
 // Since the Square components no longer maintain state, the Square components receive values from the Board component and inform the Board component when they’re clicked.
 // In React terms, the Square components are now controlled components. The Board has full control over them.
-class Square extends React.Component {
-    render() {
-      return (
-        <button 
-          className="square"
-          onClick={() => this.props.onClick()}
-        >
-          {this.props.value}
-        </button>
-      );
-    }
-  }
+// class Square extends React.Component {
+//     render() {
+//       return (
+//         <button 
+//           className="square"
+//           onClick={() => this.props.onClick()}
+//         >
+//           {this.props.value}
+//         </button>
+//       );
+//     }
+//   }
+
+// Function components are a simpler way to write components that only contain a render method and don’t have their own state.
+// Function components are less tedious to write than classes, and many components can be expressed this way.
+function Square(props) {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
+}
   
   class Board extends React.Component {
     // React components can have state by setting this.state in their constructors
@@ -27,6 +37,7 @@ class Square extends React.Component {
       // Instead, we’ll pass down a function from the Board to the Square, and we’ll have Square call that function when a square is clicked
       this.state = {
         squares: Array(9).fill(null),
+        xIsNext: true,
       };
     }
 
@@ -34,8 +45,12 @@ class Square extends React.Component {
     handleClick(i) {
       // we call .slice() to create a copy of the squares array to modify instead of modifying the existing array
       const squares = this.state.squares.slice();
-      squares[i] = 'X';
-      this.setState({ squares: squares });
+      squares[i] = this.state.xIsNext ? 'X' : 'O';
+      // setState() enqueues changes to the component state and tells React that this component and its children need to be re-rendered with the updated state
+      this.setState({ 
+        squares: squares,
+        xIsNext: !this.state.xIsNext,
+      });
     }
 
     renderSquare(i) {
@@ -51,7 +66,7 @@ class Square extends React.Component {
     }
   
     render() {
-      const status = 'Next player: X';
+      const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
   
       return (
         <div>
