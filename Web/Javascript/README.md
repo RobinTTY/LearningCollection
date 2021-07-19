@@ -4,5 +4,5 @@ JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programm
 
 ## Contents
 
-Introduction to Javascript by [Codecademy](https://www.codecademy.com/courses/introduction-to-javascript)
+Introduction to Javascript by [Codecademy](https://www.codecademy.com/courses/introduction-to-javascript)  
 Javascript Refresher by [Packt](https://www.packtpub.com/product/react-the-complete-guide-includes-hooks-react-router-and-redux-2021-updated-second-edition-video/9781801812603)
