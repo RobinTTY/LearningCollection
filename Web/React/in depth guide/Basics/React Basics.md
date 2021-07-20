@@ -206,3 +206,48 @@ function ExpenseItem(props) {
   );
 }
 ```
+
+### Composition and using props.children
+
+Sometimes you might want to have a component where you don't configure everything through props but where instead you're able to **pass content between the opening and closing** tags of that component. This is especially useful for components that represent 'generic boxes' and that don’t know their children ahead of time.
+
+Example:
+
+```JSX
+import "./Card.css";
+
+function Card(props) {
+  // this component allows us to append css classes through its props
+  const classes = "card " + props.className;
+  // props.children displays everything between the opening and closing tags of the Card component
+  return <div className={classes}>{props.children}</div>;
+}
+
+export default Card;
+
+// using Card
+<Card className="expenses">
+    <ExpenseItem
+    title={props.expenses[0].title}
+    amount={props.expenses[0].amount}
+    date={props.expenses[0].date}
+    ></ExpenseItem>
+    ...
+</Card>
+```
+
+### Arrow syntax
+
+We can also write our components with the arrow syntax, which looks like this:
+
+```JSX
+const App = () => {
+  const expenses = [...];
+
+  return (
+    <div>
+      <ExpenseList expenses={expenses} />
+    </div>
+  );
+};
+```
