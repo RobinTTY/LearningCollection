@@ -251,3 +251,33 @@ const App = () => {
   );
 };
 ```
+
+## React state and working with events
+
+### Events
+
+Attaching events to an element is simple. Take for instance the onclick event:
+
+```JSX
+<button onClick={clickHandler}>Change Title</button>
+```
+
+### The useState Hook
+
+A Hook is a special function that lets you “hook into” React features. `useState` is a hook that lets you add React state to function components. The `useState` hook is used like this:
+
+```JSX
+const ExpenseItem = (props) => {
+  // The hook function returns a pair of values, the first of which is the hook's current value,
+  // and the second is a function that should be called to update the hook's value.
+  const [title, setTitle] = useState(props.title);
+
+  const clickHandler = () => {
+    setTitle("Updated!");
+  };
+
+  return (
+      <div className="expense-item__description">
+        <h2>{title}</h2>
+        ...
+```
