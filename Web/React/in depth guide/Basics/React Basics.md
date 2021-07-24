@@ -391,3 +391,62 @@ const submitHandler = (event) => {
     ...
   };
 ```
+
+### Controlled Components
+
+In HTML, form elements such as `<input>`, `<textarea>`, and `<select>` typically maintain their own state and update it based on user input. In React, mutable state is typically kept in the state property of components, and only updated with `setState()`.
+
+We can combine the two by making the React state be the “single source of truth”. Then the **React component that renders a form also controls what happens in that form on subsequent user input**. An input form element whose value is controlled by React in this way is called a “controlled component”.
+
+Example:
+
+```JSX
+// Component using the controlled component
+const ExpenseList = (props) => {
+  const [selectedYear, setSelectedYear] = useState(2020);
+
+  const changeFilterHandler = (year) => {
+    setSelectedYear(year);
+    console.log(year);
+  };
+
+  return (
+    <div>
+      <Card className="expenses">
+        <ExpensesFilter
+          selected={selectedYear}
+          onChangeFilter={changeFilterHandler}
+        />
+        ...
+      </Card>
+    </div>
+  );
+};
+
+// controlled component ExpensesFilter
+const ExpensesFilter = (props) => {
+  const dropdownChangeHandler = (event) => {
+    props.onChangeFilter(event.target.value);
+  };
+
+  return (
+    <div className="expenses-filter">
+      <div className="expenses-filter__control">
+        <label>Filter by year</label>
+        <select value={props.selected} onChange={dropdownChangeHandler}>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2019">2019</option>
+        </select>
+      </div>
+    </div>
+  );
+};
+```
+
+Since the `value` attribute is set on our `ExpensesFilter` element (through the passed down `selected` prop), the displayed value will always be the state `selectedYear`, making the React state the source of truth. Since `changeFilterHandler` runs on every new selection to update the React state, the year can then be used to filter the expenses.
+
+### Stateful and Stateless components
+
+In React, a stateful component is a component that holds some state. Stateless components, by contrast, have no state. Note that both types of components can use props.
