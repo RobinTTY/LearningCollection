@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   // we can have 3 states (generally used more often):
-  const [enteredTitle, setEnteredTitle] = useState("Title");
-  const [enteredAmount, setEnteredAmount] = useState("Amount");
-  const [enteredDate, setEnteredDate] = useState("Date");
+  const [enteredTitle, setEnteredTitle] = useState("");
+  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
 
   // or just one:
   // const [userInput, setUserInput] = useState({
@@ -64,6 +64,9 @@ const ExpenseForm = () => {
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
+
+    // call the passed down function to handle the newly added expense data
+    props.onSaveExpenseData(expenseData);
 
     // clear input fields after submit
     setEnteredTitle("");

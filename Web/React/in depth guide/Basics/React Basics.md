@@ -348,3 +348,46 @@ const submitHandler = (event) => {
 
 ...
 ```
+
+### Passing data from child to parent
+
+When we want to pass data from a child to a parent, we use props.  
+Example:
+
+```JSX
+// parent component
+const NewExpense = () => {
+  // Handles the submission of a new expense.
+  // Adds a random id to the expense data.
+  const saveExpenseDataHandler = (expenseData) => {
+    const expenseData = {
+      ...expenseData,
+      id: Math.random().toString(),
+    };
+
+    console.log("Saving expense data: ", expenseData);
+  };
+
+  return (
+    <div className="new-expense">
+      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+    </div>
+  );
+};
+
+// child component
+const submitHandler = (event) => {
+    ...
+
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
+
+    // call the passed down function to handle the newly added expense data
+    props.onSaveExpenseData(expenseData);
+
+    ...
+  };
+```
