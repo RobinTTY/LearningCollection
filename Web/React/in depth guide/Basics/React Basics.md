@@ -450,3 +450,31 @@ Since the `value` attribute is set on our `ExpensesFilter` element (through the 
 ### Stateful and Stateless components
 
 In React, a stateful component is a component that holds some state. Stateless components, by contrast, have no state. Note that both types of components can use props.
+
+## Rendering Lists & Conditional Content
+
+### Dynamic list elements
+
+To generate the expenses list dynamically we can do this:
+
+```JSX
+const ExpenseList = (props) => {
+  ...
+  // generate one ExpenseItem for each expense that is passed down through props
+  return (
+    <div>
+      <Card className="expenses">
+        ...
+        {props.expenses.map((expense) => (
+          <ExpenseItem
+            key={expense.id}
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          />
+        ))}
+      </Card>
+    </div>
+  );
+};
+```
