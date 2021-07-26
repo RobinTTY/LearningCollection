@@ -478,3 +478,34 @@ const ExpenseList = (props) => {
   );
 };
 ```
+
+## Updating the list
+
+To update the list we need state in our App.js file:
+
+```JSX
+const dummyExpenses = [
+    ...
+    { id: "e2", title: "New TV", amount: 799.49, date: new Date(2021, 2, 12) },
+    ...
+  ];
+
+const App = () => {
+  const [expenses, setExpenses] = useState(dummyExpenses);
+
+  const addExpenseHandler = (expense) => {
+    // add new expense to current list (this is how we should get the current state instead of
+    // accessing expenses directly)
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
+  };
+
+  return (
+    <div>
+      <ExpenseList expenses={expenses} />
+      <NewExpense onAddExpense={addExpenseHandler} />
+    </div>
+  );
+};
+```
