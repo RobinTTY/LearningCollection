@@ -479,7 +479,7 @@ const ExpenseList = (props) => {
 };
 ```
 
-## Updating the list
+### Updating the list
 
 To update the list we need state in our App.js file:
 
@@ -505,6 +505,90 @@ const App = () => {
     <div>
       <ExpenseList expenses={expenses} />
       <NewExpense onAddExpense={addExpenseHandler} />
+    </div>
+  );
+};
+```
+
+### Rendering conditional content
+
+If we want for instance to display an info text if there are no items available if the list is filtered for a specific year, we can do it like this:
+
+```JSX
+const ExpenseList = (props) => {
+  const [selectedYear, setSelectedYear] = useState("2020");
+
+  const changeFilterHandler = (year) => {
+    setSelectedYear(year);
+    console.log(year);
+  };
+
+  const filteredExpenses = props.expenses.filter(
+    (expenses) => expenses.date.getFullYear().toString() === selectedYear
+  );
+
+  // expressions can just use vanilla javascript ternary operators to render conditional content
+  return (
+    <div>
+      <Card className="expenses">
+        <ExpensesFilter
+          selected={selectedYear}
+          onChangeFilter={changeFilterHandler}
+        />
+        {filteredExpenses.length == 0 ? (
+          <p>No expenses for this timeframe.</p>
+        ) : (
+          filteredExpenses.map((expense) => (
+            <ExpenseItem
+              key={expense.id}
+              title={expense.title}
+              amount={expense.amount}
+              date={expense.date}
+            />
+          ))
+        )}
+      </Card>
+    </div>
+  );
+};
+```
+
+Alternatively we can place the logic outside of our return statement to make it easier to read:
+
+```JSX
+const ExpenseList = (props) => {
+  const [selectedYear, setSelectedYear] = useState("2020");
+
+  const changeFilterHandler = (year) => {
+    setSelectedYear(year);
+    console.log(year);
+  };
+
+  const filteredExpenses = props.expenses.filter(
+    (expenses) => expenses.date.getFullYear().toString() === selectedYear
+  );
+
+  let expensesContent = <p>No expenses for this time frame.</p>;
+  if (filteredExpenses.length > 0) {
+    expensesContent = filteredExpenses.map((expense) => (
+      <ExpenseItem
+        key={expense.id}
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+      />
+    ));
+  }
+
+  return (
+    <div>
+      <Card className="expenses">
+        <ExpensesFilter
+          selected={selectedYear}
+          onChangeFilter={changeFilterHandler}
+        />
+        {expensesContent}
+      </Card>
     </div>
   );
 };
