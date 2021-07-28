@@ -593,3 +593,26 @@ const ExpenseList = (props) => {
   );
 };
 ```
+
+### Applying dynamic styles
+
+React can also apply styling dynamically:
+
+```JSX
+const ChartBar = (props) => {
+  let barFillHeight = "0%";
+  if (props.max > 0) {
+    barFillHeight = Math.round((props.value / props.maxValue) * 100) + "%";
+  }
+
+  // We use the barFillHeight variable to apply the height to the bar element
+  return (
+    <div className="chart-bar">
+      <div className="chart-bar__inner">
+        <div className="chart-bar__fill" style={{height: barFillHeight}}></div>
+      </div>
+      <div className="chart-bar__label">{props.label}</div>
+    </div>
+  );
+};
+```
