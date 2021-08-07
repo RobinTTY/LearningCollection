@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunklearning_knowledge_base=self.webpackChunklearning_knowledge_base||[]).push([[282],{1760:function(e){e.exports=JSON.parse('{"allTagsPath":"/learningcollection/blog/tags","slug":"facebook","name":"facebook","count":1,"permalink":"/learningcollection/blog/tags/facebook"}')}}]);

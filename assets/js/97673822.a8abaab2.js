@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunklearning_knowledge_base=self.webpackChunklearning_knowledge_base||[]).push([[412],{8446:function(e){e.exports=JSON.parse('{"allTagsPath":"/learningcollection/blog/tags","slug":"hola","name":"hola","count":1,"permalink":"/learningcollection/blog/tags/hola"}')}}]);
