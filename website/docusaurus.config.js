@@ -15,7 +15,7 @@ module.exports = {
   trailingSlash: false,
   themeConfig: {
     navbar: {
-      title: "My Site",
+      title: "Learning Collection",
       logo: {
         alt: "My Site Logo",
         src: "img/logo.svg",
@@ -25,13 +25,7 @@ module.exports = {
           type: "doc",
           docId: "intro",
           position: "left",
-          label: "Tutorial",
-        },
-        { to: "/blog", label: "Blog", position: "left" },
-        {
-          href: "https://github.com/facebook/docusaurus",
-          label: "GitHub",
-          position: "right",
+          label: "Docs",
         },
       ],
     },
@@ -39,46 +33,29 @@ module.exports = {
       style: "dark",
       links: [
         {
-          title: "Docs",
+          title: "My other sites",
           items: [
             {
-              label: "Tutorial",
-              to: "/docs/intro",
+              label: "Website",
+              href: "https://robintty.github.io/",
             },
           ],
         },
         {
-          title: "Community",
+          title: "Socials",
           items: [
-            {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
-            },
-            {
-              label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
-            },
-            {
-              label: "Twitter",
-              href: "https://twitter.com/docusaurus",
-            },
-          ],
-        },
-        {
-          title: "More",
-          items: [
-            {
-              label: "Blog",
-              to: "/blog",
-            },
             {
               label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
+              href: "https://github.com/RobinTTY",
+            },
+            {
+              label: "LinkedIn",
+              href: "https://www.linkedin.com/in/robin-m%C3%BCller-574782170/",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Robin Müller. Built with Docusaurus.`,
     },
     prism: {
       theme: lightCodeTheme,
@@ -91,15 +68,8 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
           editUrl:
-            "https://github.com/facebook/docusaurus/edit/master/website/",
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            "https://github.com/facebook/docusaurus/edit/master/website/blog/",
+            "https://github.com/RobinTTY/LearningCollection/tree/master/website/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),

@@ -1,4 +1,5 @@
 ---
+id: test
 title: Markdown page example
 ---
 
