@@ -67,6 +67,7 @@ module.exports = {
       "@docusaurus/preset-classic",
       {
         docs: {
+          routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl:
             "https://github.com/RobinTTY/LearningCollection/tree/master/website/",
