@@ -1,4 +1,7 @@
-# Certificates
+---
+id: certificates
+title: Certificates
+---
 
 TLS uses a X.509 Certificate with extended key usage:
 Server Authentication (1.3.6.1.5.5.7.3.1)

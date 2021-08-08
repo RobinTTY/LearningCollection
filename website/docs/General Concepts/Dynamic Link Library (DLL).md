@@ -1,4 +1,7 @@
-# Dynamic Link Library (DLL)
+---
+id: dlls
+title: Dynamic Link Library (DLL)
+---
 
 - collection of code and/or data, which may be used by several applications
 - for instance common methods to process files, work with GUI components etc. are made available in libraries so several applications may use the same functionality

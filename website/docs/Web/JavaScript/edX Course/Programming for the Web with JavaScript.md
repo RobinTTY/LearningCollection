@@ -1,4 +1,7 @@
-# Notes on PennX: SD4x
+---
+id: pennxSd4x
+title: Notes on PennX - SD4x
+---
 
 ## Anatomy of an HTTP Request
 
@@ -8,17 +11,17 @@ The first line of a request will always be a verb followed by an argument:
 - HEAD: retrieve only headers (information about the resource)
 - POST: create resource (usually used in form submission context)
 
-![HTTPRequest](ressources/HTTPRequest.PNG)
+![HTTPRequest](/img/docs/Web/JavaScript/edxCourse/HTTPRequest.PNG)
 
 ## Anatomy of an HTTP Response
 
 The first line of a response is always the protocol and status code. Following that comes other header information regarding the response and/or the server, then a blank line and the the response body, i.e. the resource that was requested.
 
-![HTTPResponse](ressources/HTTPResponse.PNG)
+![HTTPResponse](/img/docs/Web/JavaScript/edxCourse/HTTPResponse.PNG)
 
 ## CSS Syntax
 
-![cssSyntax](ressources/cssSyntax.PNG)
+![cssSyntax](/img/docs/Web/JavaScript/edxCourse/cssSyntax.PNG)
 
 ## Javascript
 
@@ -37,9 +40,9 @@ Values stored can be of any type:
 var myArray = ['cars', 12, false]
 ```
 
-- When reading an array value by its index, the array will return undefined if the index is out of bounds, __no exception!__
+- When reading an array value by its index, the array will return undefined if the index is out of bounds, **no exception!**
 - Elements can be written to negative indices and there can be gaps between elements, where no other element is
-  - __e.g. a[1] = 'test', a[3] = 'another test' and a[2] is undefined, a.length will be 2 not 3__
+  - **e.g. a[1] = 'test', a[3] = 'another test' and a[2] is undefined, a.length will be 2 not 3**
 
 ### push()
 
@@ -133,7 +136,7 @@ Object arguments are passed by reference, the function can change them.
 
 ### Functions as objects
 
-__Javascript functions are objects!__  
+**Javascript functions are objects!**  
 Therefore functions can take advantage of the benefits of an object, such as having properties
 
 Since JavaScript functions are objects, they can be assigned to variables:
@@ -162,8 +165,8 @@ console.log(johnDoe.greeting());
 
 ### Object prototypes
 
-- Every object in JavaScript has a prototype, accessed from the \_\_proto__ property in the object.
-- The \_\_proto__ property is also an object, with its own \_\_proto__ property, and so on
+- Every object in JavaScript has a prototype, accessed from the \_\_proto\_\_ property in the object.
+- The \_\_proto** property is also an object, with its own \_\_proto** property, and so on
 - The root prototype of all objects is Object.prototype
 - An object inherits the properties of its prototype
 
@@ -192,7 +195,7 @@ janeDoe.greeting();     // Hello! My name is Jane Doe
 ### Extending prototypes
 
 - Prototypes can extend another prototype with more functionality
-- To inherit a prototype, set the \_\_ proto__ property of an object to the parent prototype
+- To inherit a prototype, set the \_\_ proto\_\_ property of an object to the parent prototype
 
 ```Javascript
 function Student (name, age, school) {
@@ -327,9 +330,9 @@ chars.search(/[^0-9a-z]/);      // look for characters not in range -> 6
 ### Selecting DOM Elements
 
 - in jQuery, $ is used to select DOm elements for manipulation, along with basic CSS element syntax
-  - $("*") selects all elements
+  - $("\*") selects all elements
   - $(this) selects the current element
-  - $("div") selects all \<div> elements
+  - $("div") selects all `<div>` elements
   - $(".title") selects all elements with class="title"
   - $("#name") selects the element with id="name"
 
@@ -396,7 +399,7 @@ var msg = `Dear ${person.name},     // This will even create a new line!
 How are you?`
 ```
 
-Note: Notice that the backtick character __`__ is used instead of the normal __'__ character!
+Note: Notice that the backtick character **`** is used instead of the normal **'** character!
 
 ### Classes
 

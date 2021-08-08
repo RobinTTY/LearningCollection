@@ -1,4 +1,7 @@
-# Semaphore vs Mutex
+---
+id: semaphoreVsMutex
+title: Semaphore vs Mutex
+---
 
 ## Mutex
 

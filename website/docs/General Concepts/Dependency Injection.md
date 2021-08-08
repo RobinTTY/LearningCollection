@@ -1,4 +1,7 @@
-# Dependency Injection
+---
+id: dependencyInjection
+title: Dependency Injection
+---
 
 - allows us to develop loosely coupled code
 - great way to reduce tight coupling between software components
@@ -16,7 +19,7 @@ Dependencies can be injected into objects by many means (such as constructor inj
 
 ## [Martin Fowler Explantion](https://martinfowler.com/articles/injection.html)
 
-A common issue to deal with is how to wire together different elements: how do you fit together this web controller architecture with that database interface backing when they were built by different teams with little knowledge of each other. A number of frameworks have taken a stab at this problem, and several are branching out to provide a general capability to assemble components from different layers. These are often referred to as lightweight containers, examples include PicoContainer, and Spring.  
+A common issue to deal with is how to wire together different elements: how do you fit together this web controller architecture with that database interface backing when they were built by different teams with little knowledge of each other. A number of frameworks have taken a stab at this problem, and several are branching out to provide a general capability to assemble components from different layers. These are often referred to as lightweight containers, examples include PicoContainer, and Spring.
 
 Underlying these containers are a number of interesting design principles, things that go beyond both these specific containers and indeed the Java platform. Here I want to start exploring some of these principles. The examples I use are in Java, but like most of my writing the principles are equally applicable to other OO environments, particularly .NET.
 
@@ -24,6 +27,6 @@ Underlying these containers are a number of interesting design principles, thing
 
 His definitions not general:
 
-- I use __component__ to mean a __glob of software that's intended to be used, without change,__ by an application that is out of the control of the writers of the component.
-- By 'without change' I mean that the using application doesn't change the source code of the components, although they __may alter the component's behavior by extending it in ways allowed by the component writers.__
-- A __service__ is similar to a component in that it's __used by foreign applications.__ The main difference is that I expect a __component to be used locally__ (think jar file, assembly, dll, or a source import). A __service will be used remotely through some remote interface__, either synchronous or asynchronous (eg web service, messaging system, RPC, or socket.)
+- I use **component** to mean a **glob of software that's intended to be used, without change,** by an application that is out of the control of the writers of the component.
+- By 'without change' I mean that the using application doesn't change the source code of the components, although they **may alter the component's behavior by extending it in ways allowed by the component writers.**
+- A **service** is similar to a component in that it's **used by foreign applications.** The main difference is that I expect a **component to be used locally** (think jar file, assembly, dll, or a source import). A **service will be used remotely through some remote interface**, either synchronous or asynchronous (eg web service, messaging system, RPC, or socket.)

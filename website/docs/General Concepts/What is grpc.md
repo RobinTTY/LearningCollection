@@ -1,21 +1,24 @@
-# gRPC
+---
+id: grpc
+title: gRPC
+---
 
 Resource: https://www.grpc.io/docs/guides/
 
 ## Overview
 
-In gRPC a __client application can directly call methods on a server application on a different machine as if it was a local object__,
-making it easier for you to create distributed applications and services. As in many RPC systems, __gRPC is based around the idea of
-defining a service, specifying the methods that can be called remotely with their parameters and return types__. On the server side,
+In gRPC a **client application can directly call methods on a server application on a different machine as if it was a local object**,
+making it easier for you to create distributed applications and services. As in many RPC systems, **gRPC is based around the idea of
+defining a service, specifying the methods that can be called remotely with their parameters and return types**. On the server side,
 the server implements this interface and runs a gRPC server to handle client calls. On the client side, the client has a stub
 (referred to as just a client in some languages) that provides the same methods as the server.
 
-![grpcOverview](ressources/grpcOverview.PNG)
+![grpcOverview](/img/docs/GeneralConcepts/grpcOverview.PNG)
 
 gRPC clients and servers can run and talk to each other in a variety of environments - from servers inside Google to your own
 desktop - and can be written in any of gRPC’s supported languages. So, for example, you can easily create a gRPC server in Java with
-clients in Go, Python, or Ruby. __In addition, the latest Google APIs will have gRPC versions of their interfaces, letting you easily
-build Google functionality into your applications__.
+clients in Go, Python, or Ruby. **In addition, the latest Google APIs will have gRPC versions of their interfaces, letting you easily
+build Google functionality into your applications**.
 
 ## What is a protocol buffer
 
@@ -58,10 +61,10 @@ Each message type has one or more uniquely numbered fields, and each field has a
 to structure your data hierarchically. You can specify optional fields, required fields, and repeated fields. You can find more information about
 writing .proto files in the [Protocol Buffer Language Guide](https://developers.google.com/protocol-buffers/docs/proto).
 
-__Once you've defined your messages, you run the protocol buffer compiler for your application's language on your .proto file to generate data
-access classes.__ These provide simple accessors for each field (like name() and set_name()) as well as methods to serialize/parse the whole
+**Once you've defined your messages, you run the protocol buffer compiler for your application's language on your .proto file to generate data
+access classes.** These provide simple accessors for each field (like name() and set_name()) as well as methods to serialize/parse the whole
 structure to/from raw bytes – so, for instance, if your chosen language is C++, running the compiler on the above example will generate a class
-called Person.  You can then use this class in your application to populate, serialize, and retrieve Person protocol buffer messages. You might
+called Person. You can then use this class in your application to populate, serialize, and retrieve Person protocol buffer messages. You might
 then write some code like this:
 
 ```C++

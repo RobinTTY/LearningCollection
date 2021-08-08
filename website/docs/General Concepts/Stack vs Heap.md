@@ -1,4 +1,7 @@
-# Stack vs Heap
+---
+id: stackVsHeap
+title: Stack vs Heap
+---
 
 ## Stack
 
@@ -8,7 +11,7 @@ Example:
 
 ```C#
 static int Factorial (int x)
-{  
+{
     if (x == 0) return 1;
     return x * Factorial (x-1);
 }
@@ -22,4 +25,4 @@ The heap is a block of memory in which objects (i.e., reference-type instances) 
 
 Value-type instances (and object references) live wherever the variable was declared. If the instance was declared as a field within a class type, or as an array element, that instance lives on the heap. You can’t explicitly delete objects in C#, as you can in C++. An unreferenced object is eventually collected by the garbage collector.
 
-The heap also stores static fields. Unlike objects allocated on the heap (which can get garbage-collected), these live until the application domain is torn down. 
+The heap also stores static fields. Unlike objects allocated on the heap (which can get garbage-collected), these live until the application domain is torn down.
