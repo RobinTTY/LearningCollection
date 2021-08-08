@@ -3,7 +3,7 @@ id: grpc
 title: gRPC
 ---
 
-Resource: https://www.grpc.io/docs/guides/
+Resource: <https://www.grpc.io/docs/guides/>
 
 ## Overview
 
@@ -22,7 +22,7 @@ build Google functionality into your applications**.
 
 ## What is a protocol buffer
 
-Resource: https://developers.google.com/protocol-buffers/docs/overview
+Resource: <https://developers.google.com/protocol-buffers/docs/overview>
 
 Protocol buffers are a flexible, efficient, automated mechanism for serializing structured data – think XML, but smaller, faster, and simpler.
 You define how you want your data to be structured once, then you can use special generated source code to easily write and read your structured
