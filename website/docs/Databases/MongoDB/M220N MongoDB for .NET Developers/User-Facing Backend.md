@@ -1,10 +1,13 @@
-# User-Facing Backend
+---
+id: userFacingBackend
+title: User-Facing Backend
+---
 
 ## Aggregation Pipeline
 
 ### Example
 
-![Aggregation Pipeline](resources/Pipeline.PNG)
+![Aggregation Pipeline](/img/docs/Databases/MongoDB/M220NMongoDBFor.NetDevelopers/Pipeline.PNG)
 
 ### Example of a similar (but not the same) pipeline in C#
 
@@ -266,31 +269,31 @@ We can also export the pipeline from Compass to C# code:
 ```C#
 new BsonArray
 {
-    new BsonDocument("$match", 
-    new BsonDocument("year", 
+    new BsonDocument("$match",
+    new BsonDocument("year",
     new BsonDocument
             {
-                { "$gte", 1980 }, 
+                { "$gte", 1980 },
                 { "$lt", 1990 }
             })),
-    new BsonDocument("$lookup", 
+    new BsonDocument("$lookup",
     new BsonDocument
         {
-            { "from", "comments" }, 
-            { "let", 
-    new BsonDocument("id", "$_id") }, 
-            { "pipeline", 
+            { "from", "comments" },
+            { "let",
+    new BsonDocument("id", "$_id") },
+            { "pipeline",
     new BsonArray
             {
-                new BsonDocument("$match", 
-                new BsonDocument("$expr", 
-                new BsonDocument("$eq", 
+                new BsonDocument("$match",
+                new BsonDocument("$expr",
+                new BsonDocument("$eq",
                 new BsonArray
                             {
                                 "$movie_id",
                                 "$$id"
                             })))
-            } }, 
+            } },
             { "as", "movie_comments" }
         })
 }
@@ -303,18 +306,18 @@ Better approach:
     * Aggregate(), Match(), and Lookup(), each of which is represented
     * in the code above as MQL. The Lookup() method is a bit complex;
     * here is an explanation of each of the parameters:
-    * 
-    *  - The collection from which we want to lookup the values 
+    *
+    *  - The collection from which we want to lookup the values
     *      (in this case, the Comments collection)
-    *  - The "key" in the Movies collection that will match a key in 
+    *  - The "key" in the Movies collection that will match a key in
     *      the Comments collection.
-    *  - The "key" in the Comments collection that matches the previous 
-    *      parameter. In both cases, it's the _id of each Movie we match 
+    *  - The "key" in the Comments collection that matches the previous
+    *      parameter. In both cases, it's the _id of each Movie we match
     *      in the Match state.
-    *  - The property in which we want to put the lookup results. We 
-    *      have already defined a Comments property on the Movie object 
+    *  - The property in which we want to put the lookup results. We
+    *      have already defined a Comments property on the Movie object
     *      for just this purpose, so we specify it here.
-    *  
+    *
     */
 var movies = _moviesCollection
     .Aggregate()  // begins a fluent aggregation

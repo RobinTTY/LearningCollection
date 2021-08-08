@@ -1,4 +1,7 @@
-# Querying, Creating, Updating and Deleting documents with Mongo shell
+---
+id: queryingCreatingUpdatingDeleting
+title: Querying, Creating, Updating and Deleting documents with Mongo shell
+---
 
 ## Querying data
 

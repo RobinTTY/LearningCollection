@@ -1,4 +1,7 @@
-# Important Mongo Shell Commands
+---
+id: mongoShellCommands
+title: Important Mongo Shell Commands
+---
 
 - Select database: `use <database>`
 - Show available databases on the current server: `show dbs`

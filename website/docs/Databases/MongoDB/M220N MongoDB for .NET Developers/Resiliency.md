@@ -1,4 +1,7 @@
-# Resiliency
+---
+id: resiliency
+title: Resiliency
+---
 
 ## Connection pooling
 
@@ -8,7 +11,7 @@
 - By default the driver will create a pool of 100 connections to share
 - Subsequent requests appear faster to the client
 
-![connection pool](resources/connectionPool.PNG)
+![connection pool](/img/docs/Databases/MongoDB/M220NMongoDBFor.NetDevelopers/connectionPool.PNG)
 
 ### Example
 
@@ -19,7 +22,6 @@ mongodb+srv://user:password@server.net?maxPoolSize=50
 ```
 
 For more options see: [MongoDB Docs](https://docs.mongodb.com/manual/reference/connection-string/)
-
 
 Defined in code:
 

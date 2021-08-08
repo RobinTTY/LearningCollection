@@ -1,4 +1,7 @@
-# M001: MongoDB Basics
+---
+id: mongoDbBasics
+title: M001 - MongoDB Basics
+---
 
 ## What is MongoDB?
 
@@ -15,15 +18,15 @@
 
 ## Topics
 
-[Chapter 1: Documents and Collections](Documents%20and%20Collections.md)
+[Chapter 1: Documents and Collections](documentsAndCollections)
 
-[Chapter 2: Importing and Exporting data](Importing%20and%20Exporting%20data.md)
+[Chapter 2: Importing and Exporting data](importingExportingData)
 
-[Chapter 3: Querying, Creating, Updating and Deleting documents with Mongo shell](Querying,%20Creating,%20Updating%20and%20Deleting%20document.md)
+[Chapter 3: Querying, Creating, Updating and Deleting documents with Mongo shell](queryingCreatingUpdatingDeleting)
 
-[Chapter 4: Advanced CRUD operations](Advanced%20CRUD%20operations.md)
+[Chapter 4: Advanced CRUD operations](advancedCrudOperations)
 
-[Chapter 5: Indexing and Aggregation Pipeline](Indexing%20and%20Aggregation%20Pipeline.md)
+[Chapter 5: Indexing and Aggregation Pipeline](IndexingAggregationsPipeline)
 
 ## Courses that might be interesting
 

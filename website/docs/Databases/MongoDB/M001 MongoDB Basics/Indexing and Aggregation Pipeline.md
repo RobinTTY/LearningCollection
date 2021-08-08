@@ -1,4 +1,7 @@
-# Indexing and Aggregation Pipeline
+---
+id: IndexingAggregationsPipeline
+title: Indexing and Aggregation Pipeline
+---
 
 ## Aggregation Framework
 
@@ -25,14 +28,14 @@ db.listingsAndReviews.aggregate([
 
 With the aggregation framework we can build pipelines:
 
-![aggregation pipeline](resources/Screenshot%202021-06-12%20141444.png)
+![aggregation pipeline](/img/docs/Databases/MongoDB/M001MongoDBBasics/AggregationPipeline.png)
 
 **Note:** It matters in which order the different pipeline stages are since each pipeline stage uses the results of the preceding stage.
 
 ### $group operator
 
-![group](resources/Screenshot%202021-06-12%20141815.png)
-![group2](resources/Screenshot%202021-06-12%20141944.png)
+![group](/img/docs/Databases/MongoDB/M001MongoDBBasics/Group.png)
+![group2](/img/docs/Databases/MongoDB/M001MongoDBBasics/Group2.png)
 
 ### Examples
 
@@ -135,7 +138,7 @@ db.zips.find().sort({ "pop": -1 }).limit(10)
 db.trips.createIndex({ "birth year": 1 })
 ```
 
-![Queries](resources/Screenshot%202021-06-13%20115421.png)
+![Queries](/img/docs/Databases/MongoDB/M001MongoDBBasics/Queries.png)
 
 First query can use the index, second query needs to scan full collection for the filter but can use the index for the sort.
 
@@ -145,7 +148,7 @@ First query can use the index, second query needs to scan full collection for th
 - The order of fields listed in a compound index has significance. For instance, if a compound index consists of `{ userid: 1, score: -1 }`, the index sorts first by userid and then, within each userid value, sorts by score
 - For compound indexes and sort operations, the sort order (i.e. ascending or descending) of the index keys can determine whether the index can support a sort operation
 
-![compund index](resources/Screenshot%202021-06-13%20115925.png)
+![compund index](/img/docs/Databases/MongoDB/M001MongoDBBasics/CompoundIndex.png)
 
 Helps with the query at the bottom since the documents are indexed by the station id and already sorted (indexed) by the birth year.
 

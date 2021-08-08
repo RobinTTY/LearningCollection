@@ -1,4 +1,7 @@
-# Importing and Exporting data
+---
+id: importingExportingData
+title: Importing and Exporting data
+---
 
 ```txt
 mongoimport --uri "<AtlasClusterURI>       // import json

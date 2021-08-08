@@ -1,20 +1,23 @@
-# Notes on MongoDB
+---
+id: notesOnMongoDB
+title: Notes on MongoDB
+---
 
 ## ObjectId
 
-If you have a column named Id, id or _id, in your strongly typed TDocument class (the item type in a collection), then a column named "_id" will be generated in Mongo. It will also create an index for that column. You get a duplicate key error exception if trying to insert an item with a key that already exists.
+If you have a column named Id, id or \_id, in your strongly typed TDocument class (the item type in a collection), then a column named "\_id" will be generated in Mongo. It will also create an index for that column. You get a duplicate key error exception if trying to insert an item with a key that already exists.
 
 ```C#
 public ObjectId Id { get; set; }
 ```
 
-will use the type generator for ObjectId and it will look like _id: ObjectId("57ade20771e59f422cc652d9").
+will use the type generator for ObjectId and it will look like \_id: ObjectId("57ade20771e59f422cc652d9").
 
 ```C#
 public Guid _id { get; set; }
 ```
 
-will use the Guid generator to produce something like "_id" : BinData(3,"s2Td7qdghkywlfMSWMPzaA==").
+will use the Guid generator to produce something like "\_id" : BinData(3,"s2Td7qdghkywlfMSWMPzaA==").
 
 ```C#
 public int Id { get; set; }
@@ -43,7 +46,7 @@ public Guid SmthElseOtherThanId { get; set; }
 public string StringId { get; set; }
 ```
 
-won't be indexes. MongoDB will still use _id internally.
+won't be indexes. MongoDB will still use \_id internally.
 
 ```C#
 public ObjectId SmthElseOtherThanId {get; set;}

@@ -1,4 +1,7 @@
-# Getting Started
+---
+id: gettingStarted
+title: Getting Started
+---
 
 Establishing a connection with the C# MongoDB driver:
 

@@ -3,10 +3,9 @@ id: antlr
 title: ANTLR
 ---
 
-# ANTLR (Another Tool For Language Recognition - pronounced Antler)
-
 ## What is ANTLR
 
+- ANTLR stands for Another Tool for Language Recognition
 - parser generator that uses LL(\*) for parsing
   - an LL parser (Left-to-right, Leftmost derivation) is a top-down parser for a subset of context-free languages. It parses the input from Left to right, performing Leftmost derivation of the sentence
   - An LL parser is called an LL(k) parser if it uses k tokens of lookahead when parsing a sentence

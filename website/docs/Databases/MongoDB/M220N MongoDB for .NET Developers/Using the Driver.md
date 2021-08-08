@@ -1,8 +1,11 @@
-# Using the Driver
+---
+id: usingTheDriver
+title: Using the Driver
+---
 
 ## mflix project structure
 
-![project structure](resources/2021-06-14.png)
+![project structure](/img/docs/Databases/MongoDB/M220NMongoDBFor.NetDevelopers/2021-06-14.png)
 
 ## Approaches to working with data
 
@@ -45,7 +48,7 @@ var expensiveGuitars = guitars.Where(g => g.Price > 400).ToList();
 - Thread makes request to external resource and waits for response
 - Thread can not handle any other requests until response is received
 
-![Synchronous](resources/synchronous.gif)
+![Synchronous](/img/docs/Databases/MongoDB/M220NMongoDBFor.NetDevelopers/synchronous.gif)
 
 ### Asynchronous
 
@@ -54,7 +57,7 @@ var expensiveGuitars = guitars.Where(g => g.Price > 400).ToList();
 - Thread makes request to external resource and returns immediately to the thread pool
 - When the external ressource returns the response, ASP.NET grabs any available thread to handle the call
 
-![Asynchronous](resources/asynchronous.gif)
+![Asynchronous](/img/docs/Databases/MongoDB/M220NMongoDBFor.NetDevelopers/asynchronous.gif)
 
 ## How to use the asynchronous model
 

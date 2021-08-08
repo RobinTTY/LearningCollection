@@ -1,4 +1,7 @@
-# Advanced CRUD operations
+---
+id: advancedCrudOperations
+title: Advanced CRUD operations
+---
 
 ## MQL Operators
 
@@ -90,11 +93,11 @@ already contains an implicit $and. The explicit typing looks like this:
 
 Another example:
 
-![implicitAnd](resources/Screenshot%202021-05-29%20065910.png)
+![implicitAnd](/img/docs/Databases/MongoDB/M001MongoDBBasics/implicitAnd.png)
 
 **Note:** Explicitly use \$and when you need to include the same operator more than once in a query
 
-![and](resources/and.png)
+![and](/img/docs/Databases/MongoDB/M001MongoDBBasics/and.png)
 
 ```c
 db.routes.find({ "$and": [ { "$or" :[ { "dst_airport": "KZN" },
@@ -115,7 +118,7 @@ How many zips in the sample_training.zips dataset are neither over-populated nor
 In this case, we consider population of more than 1,000,000 to be over- populated and less than 5,000 to be under-populated.
 
 ```json
-{ "pop": {  "$lt": 1000000 } , "pop": {  "$gt": 5000 } }
+{ "pop": { "$lt": 1000000 }, "pop": { "$gt": 5000 } }
 ```
 
 ##### Quiz 2
@@ -124,18 +127,28 @@ How many companies in the sample_training.companies dataset were
 
 either founded in 2004
 
-- [and] either have the social category_code [or] web category_code,  
+- [and] either have the social category_code [or] web category_code,
 
 [or] were founded in the month of October
 
 - [and] also either have the social category_code [or] web category_code?
 
 ```json
-{ "$or": 
-    [ 
-        { "$and": [{ "founded_year": 2004 }, { "$or": [{ "category_code": "social" }, { "category_code": "web" }]}]},
-        { "$and": [{ "founded_month": 10 }, { "$or": [{ "category_code": "social" }, { "category_code": "web" }]}]}
-    ]
+{
+  "$or": [
+    {
+      "$and": [
+        { "founded_year": 2004 },
+        { "$or": [{ "category_code": "social" }, { "category_code": "web" }] }
+      ]
+    },
+    {
+      "$and": [
+        { "founded_month": 10 },
+        { "$or": [{ "category_code": "social" }, { "category_code": "web" }] }
+      ]
+    }
+  ]
 }
 ```
 
@@ -163,7 +176,7 @@ This allows us to compare values that vary from document to document instead of 
 
 #### MQL syntax vs aggregation syntax
 
-![aggregation](resources/aggregation.PNG)
+![aggregation](/img/docs/Databases/MongoDB/M001MongoDBBasics/aggregation.PNG)
 
 From [Github](https://github.com/Automattic/mongoose/issues/6453):
 
@@ -174,7 +187,7 @@ From [Github](https://github.com/Automattic/mongoose/issues/6453):
 How many companies in the sample_training.companies collection have the same permalink as their twitter_username?
 
 ```json
-{ "$expr": { "$eq": [ "$permalink", "$twitter_username" ]  } }
+{ "$expr": { "$eq": ["$permalink", "$twitter_username"] } }
 ```
 
 ### Array Operators
@@ -201,7 +214,7 @@ This will find all documents with exactly 20 amenities which include all the ame
 What is the name of the listing in the sample_airbnb.listingsAndReviews dataset that accommodates more than 6 people and has exactly 50 reviews?
 
 ```json
-{ "$and": [ { "accommodates": {  "$gt": 6 } }, { "reviews": { "$size": 50 } } ] }
+{ "$and": [{ "accommodates": { "$gt": 6 } }, { "reviews": { "$size": 50 } }] }
 ```
 
 #### Lab 2
@@ -209,7 +222,12 @@ What is the name of the listing in the sample_airbnb.listingsAndReviews dataset 
 Using the sample_airbnb.listingsAndReviews collection find out how many documents have the "property_type" "House", and include "Changing table" as one of the "amenities"?
 
 ```json
-{ "$and": [ { "property_type": "House" }, { "amenities": { "$all": [ "Changing table" ] } } ] }
+{
+  "$and": [
+    { "property_type": "House" },
+    { "amenities": { "$all": ["Changing table"] } }
+  ]
+}
 ```
 
 ### Projection
@@ -224,7 +242,7 @@ db.<collection>.find({ <query> }, { <projection> })
 
 - 1: include the field
 - 0: exclude the field
-- Use only 1s or only 0s (other than excluding the _id while specifying included fields)
+- Use only 1s or only 0s (other than excluding the \_id while specifying included fields)
 
 Example:
 

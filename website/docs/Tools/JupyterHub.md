@@ -3,8 +3,6 @@ id: jupyterhub
 title: Jupyter Hub
 ---
 
-# JupyterHub
-
 ## What JupyterHub does (from [the Jupyter Website](https://jupyter.org/hub))
 
 JupyterHub brings the power of notebooks to groups of users. It gives users access to computational environments and resources without burdening the users with installation and maintenance tasks.
