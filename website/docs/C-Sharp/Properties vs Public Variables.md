@@ -3,7 +3,7 @@ id: propsVsPublicVars
 title: Properties vs Public variables
 ---
 
-```C#
+```cs
 private int _name;
 
 public int Name
@@ -15,7 +15,7 @@ public int Name
 
 vs
 
-```C#
+```cs
 public int Name;
 ```
 

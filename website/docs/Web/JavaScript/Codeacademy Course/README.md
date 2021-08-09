@@ -49,8 +49,8 @@ In short, variables label and store data in memory. It is important to distingui
 
 There were a lot of changes introduced in the ES6 version of JavaScript in 2015. One of the biggest changes was two new keywords, `let` and `const`, to create, or declare, variables. Prior to the ES6, programmers could only use the `var` keyword to declare variables.
 
-```Javascript
-var myName = 'Arya';
+```js
+var myName = "Arya";
 console.log(myName);
 // Output: Ary
 ```
@@ -73,8 +73,8 @@ The `const` keyword was also introduced in ES6, and is short for the word consta
 
 In the ES6 version of JavaScript, we can insert, or interpolate, variables into strings using template literals:
 
-```Javascript
-const myPet = 'armadillo';
+```js
+const myPet = "armadillo";
 console.log(`I own a pet ${myPet}.`);
 // Output: I own a pet armadillo.
 ```
@@ -85,15 +85,15 @@ One of the biggest benefits to using template literals is the readability of the
 
 The `typeof` operator returns a string indicating the type of the unevaluated operand.
 
-```Javascript
-let newVariable = 'Playing around with typeof.';
+```js
+let newVariable = "Playing around with typeof.";
 
-console.log(typeof(newVariable));
+console.log(typeof newVariable);
 // Output: string
 
 newVariable = 1;
 
-console.log(typeof(newVariable));
+console.log(typeof newVariable);
 // Output: number
 ```
 
@@ -111,6 +111,6 @@ Complete list of falsy values: [MDN](https://developer.mozilla.org/en-US/docs/Gl
 
 In a boolean condition, JavaScript assigns the truthy value to a variable if you use the `||` operator in your assignment:
 
-```Javascript
-let defaultName = username || 'Stranger';
+```js
+let defaultName = username || "Stranger";
 ```

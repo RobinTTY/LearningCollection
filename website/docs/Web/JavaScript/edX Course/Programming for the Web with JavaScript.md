@@ -36,8 +36,8 @@ Any variable type can become a boolean when used with logical operators!
 
 Values stored can be of any type:
 
-```Javascript
-var myArray = ['cars', 12, false]
+```js
+var myArray = ["cars", 12, false];
 ```
 
 - When reading an array value by its index, the array will return undefined if the index is out of bounds, **no exception!**
@@ -68,18 +68,18 @@ Removes and returns an element from the beginning of the array: e.g. var vehicle
 
 Example object declaration and modification:
 
-```Javascript
+```js
 var pet = {
-    name: 'Cooper',
-    type: 'dog'
-}
+  name: "Cooper",
+  type: "dog",
+};
 
-console.log(pet.age);           // undefined
+console.log(pet.age); // undefined
 pet.age = 11;
-console.log(pet.age);           // 11
+console.log(pet.age); // 11
 
-pet['status'] = 'good boy';
-console.log(pet.status);        // "good boy"
+pet["status"] = "good boy";
+console.log(pet.status); // "good boy"
 ```
 
 key-value pair age and status is added since it doesn't exist yet.
@@ -92,7 +92,7 @@ Keep in mind difference between comparisons "==" and "===":
 
 Objects are only considered equal if the variables are aliases, i.e. refer to the same object:
 
-```Javascript
+```js
 var cooper = { age: 11 }
 var flanders = { age: 11 }
 
@@ -107,7 +107,7 @@ if(myDog == cooper) { . . . }       // true!
 
 Example of a function:
 
-```Javascript
+```js
 function factorial(n) {
     var product = 1;
     for (var i = 1; i <= n; i++) {
@@ -141,24 +141,24 @@ Therefore functions can take advantage of the benefits of an object, such as hav
 
 Since JavaScript functions are objects, they can be assigned to variables:
 
-```Javascript
-var add = function (a, b){
-    return a + b;
+```js
+var add = function (a, b) {
+  return a + b;
 };
 
-console.log(add(3,5));      // 8
+console.log(add(3, 5)); // 8
 ```
 
 JavaScript functions can also be declared and used in objects:
 
-```Javascript
+```js
 var johnDoe = {
-    name: 'John Doe',
-    age: '32',
-    greeting: function(){
-        return ' Hello! Nice Meeting You!';
-    }
-}
+  name: "John Doe",
+  age: "32",
+  greeting: function () {
+    return " Hello! Nice Meeting You!";
+  },
+};
 
 console.log(johnDoe.greeting());
 ```
@@ -176,20 +176,21 @@ console.log(johnDoe.greeting());
 - the _this_ keyword refers to the current object
 - the new keyword can be used to create new objects from the same prototype
 
-```Javascript
-function Person (name, age){    // prototype
-    this.name = name;
-    this.age = age;
-    this.greeting = function () {
-        return 'Hello! My name is ' + this.name;
-    }
+```js
+function Person(name, age) {
+  // prototype
+  this.name = name;
+  this.age = age;
+  this.greeting = function () {
+    return "Hello! My name is " + this.name;
+  };
 }
 
-var johnDoe = new Person('John Doe', 32);
-johnDoe.greeting();     // Hello! My name is John Doe
+var johnDoe = new Person("John Doe", 32);
+johnDoe.greeting(); // Hello! My name is John Doe
 
-var janeDoe = new Person('Jane Doe', 28);
-janeDoe.greeting();     // Hello! My name is Jane Doe
+var janeDoe = new Person("Jane Doe", 28);
+janeDoe.greeting(); // Hello! My name is Jane Doe
 ```
 
 ### Extending prototypes
@@ -197,48 +198,48 @@ janeDoe.greeting();     // Hello! My name is Jane Doe
 - Prototypes can extend another prototype with more functionality
 - To inherit a prototype, set the \_\_ proto\_\_ property of an object to the parent prototype
 
-```Javascript
-function Student (name, age, school) {
-    this.__proto__ = new Person(name, age);
-    this.school = school;
+```js
+function Student(name, age, school) {
+  this.__proto__ = new Person(name, age);
+  this.school = school;
 }
 
-var sarahBrown = new Student('Sarah Brown', 17, 'PennX');
+var sarahBrown = new Student("Sarah Brown", 17, "PennX");
 
-sarahBrown.greeting();          // Hello! My name is Sarah Brown
-sarahBrown instanceof Person;   // true
+sarahBrown.greeting(); // Hello! My name is Sarah Brown
+sarahBrown instanceof Person; // true
 ```
 
 ### Prototype properties
 
 - Properties and methods can be added to prototypes by adding them to the prototype property
 
-```Javascript
-var Person = function (name, age, occupation){
-    this.name = name;
-    this.age = age;
-    this.occupation = occupation;
-}
+```js
+var Person = function (name, age, occupation) {
+  this.name = name;
+  this.age = age;
+  this.occupation = occupation;
+};
 
-Person.prototype.planet = 'Earth';
-Person.prototype.introduction = function(){
-    return 'I am a ' + this.occupation;
-}
+Person.prototype.planet = "Earth";
+Person.prototype.introduction = function () {
+  return "I am a " + this.occupation;
+};
 
-var johnDoe = new Person('John Doe', 32, 'Dentist');
+var johnDoe = new Person("John Doe", 32, "Dentist");
 
-johnDoe.planet;             // Earth
-johnDoe.introduction();     // I am a Dentist
+johnDoe.planet; // Earth
+johnDoe.introduction(); // I am a Dentist
 ```
 
 ## JavaScript regular expressions
 
 In Javascript strings are immutable!
 
-```Javascript
-var animal = 'cat';
+```js
+var animal = "cat";
 
-animal[0] = 'r';
+animal[0] = "r";
 
 console.log(animal); // still cat
 ```
@@ -258,57 +259,57 @@ Functions that work on strings, like toUpperCase() therefore return a new string
 - We can pass a regular expression to the string's search function to see if it matches the pattern
 - In general, it is considered a match if any part of the string matches the regular expression
 
-```Javascript
-var status = 'I am working VERY hard';
+```js
+var status = "I am working VERY hard";
 
-status.search(/VERY/);  // returns the position -> 13
+status.search(/VERY/); // returns the position -> 13
 
-status.search(/very/);  // not found -> -1
+status.search(/very/); // not found -> -1
 
 status.search(/very/i); // ignores case -> 13
 ```
 
 We can also use the regex test function:
 
-```Javascript
-/script/.test('javascript is so much fun!');    // true
+```js
+/script/.test("javascript is so much fun!"); // true
 ```
 
 ### Ranges of characters
 
-```Javascript
-var numbers = '5 8 2 5 7 6';
-numbers.search(/[012]/);        // 4
+```js
+var numbers = "5 8 2 5 7 6";
+numbers.search(/[012]/); // 4
 
-var password = 'password4real';
-password.search(/[a-z]/);       // 0
-password.search(/\d/);          // 8 (any digit)
+var password = "password4real";
+password.search(/[a-z]/); // 0
+password.search(/\d/); // 8 (any digit)
 
-var code = 'abc123d4e5';
+var code = "abc123d4e5";
 code.search(/[0-9][a-z][0-9]/); // 5
 
-var chars = 'abc123K456';
-chars.search(/[^0-9a-z]/);      // look for characters not in range -> 6
+var chars = "abc123K456";
+chars.search(/[^0-9a-z]/); // look for characters not in range -> 6
 ```
 
 ### Quantifiers
 
-```Javascript
-/[a-z][0-9]?[a-z]/.test('a1b');     // matches
-/[a-z][0-9]?[a-z]/.test('abc');     // matches -> number is optional
-/[a-z][0-9]?[a-z]/.test('a123b');   // doesn't match -> ? tests for single occurrence
+```js
+/[a-z][0-9]?[a-z]/.test("a1b"); // matches
+/[a-z][0-9]?[a-z]/.test("abc"); // matches -> number is optional
+/[a-z][0-9]?[a-z]/.test("a123b"); // doesn't match -> ? tests for single occurrence
 
-/[a-z][0-9]*[a-z]/.test('a123b');   // matches -> * tests for multiple occurrence
+/[a-z][0-9]*[a-z]/.test("a123b"); // matches -> * tests for multiple occurrence
 ```
 
 ### startsWith and endsWith Matches
 
-```Javascript
-/^[a-z][0-9]/.test('a1b');          // ^ starts with -> true
-/^[a-z][0-9]/.test('ab12');         // false
+```js
+/^[a-z][0-9]/.test("a1b"); // ^ starts with -> true
+/^[a-z][0-9]/.test("ab12"); // false
 
-/[a-z][a-z]$/.test('123abc');      // $ ends with -> true
-/[a-z][a-z]$/.test('123abc456');   // false
+/[a-z][a-z]$/.test("123abc"); // $ ends with -> true
+/[a-z][a-z]$/.test("123abc456"); // false
 ```
 
 ## Event-driven programming
@@ -341,23 +342,23 @@ chars.search(/[^0-9a-z]/);      // look for characters not in range -> 6
 - to manipulate DOM contents, the general format is $(selector).action(arguments)
 - Examples:
 
-```Javascript
-$("#name").html("Hello");           // set html of element with id name to Hello
-$("#name").append("World!");        // append World! to element with id name
-$("#name").addClass("greeting");    // add class
-$("#name").hide();                  // hide element
-$("#name").show();                  // unhide element
+```js
+$("#name").html("Hello"); // set html of element with id name to Hello
+$("#name").append("World!"); // append World! to element with id name
+$("#name").addClass("greeting"); // add class
+$("#name").hide(); // hide element
+$("#name").show(); // unhide element
 ```
 
 - to add an event listener to an element, the general format is $(selector).event(callback)
 
 ### Selectors
 
-```Javascript
-$(someNodes).find(selector)     // will search someNodes' children for selector
-$("div.book")                   // selects divs with class="book"
-$("div, .book")                 // selects all divs and all elements with class="book"
-$("p:hidden")                   // selects all <p> elements that are visually hidden
+```js
+$(someNodes).find(selector); // will search someNodes' children for selector
+$("div.book"); // selects divs with class="book"
+$("div, .book"); // selects all divs and all elements with class="book"
+$("p:hidden"); // selects all <p> elements that are visually hidden
 ```
 
 ## ES5 vs ES6
@@ -366,37 +367,37 @@ $("p:hidden")                   // selects all <p> elements that are visually hi
 
 ES5 Syntax:
 
-```Javascript
+```js
 var square = function (n) {
-    return n*n;
+  return n * n;
 };
 ```
 
 ES6 Syntax:
 
-```Javascript
-let square = n => {
-    return n*n;
-}
+```js
+let square = (n) => {
+  return n * n;
+};
 ```
 
 ### Default Parameter Values
 
-```Javascript
-function pow (base, power = 2) {
-    return Math.pow(base, power);
-};
+```js
+function pow(base, power = 2) {
+  return Math.pow(base, power);
+}
 
-console.log(pow(3));        // 9
+console.log(pow(3)); // 9
 ```
 
 ### Template Literals
 
-```Javascript
+```js
 var person = { name: "Lydia" };
 
 var msg = `Dear ${person.name},     // This will even create a new line!
-How are you?`
+How are you?`;
 ```
 
 Note: Notice that the backtick character **`** is used instead of the normal **'** character!
@@ -405,20 +406,20 @@ Note: Notice that the backtick character **`** is used instead of the normal **'
 
 ES5 Syntax:
 
-```Javascript
+```js
 var Rectangle = function (height, width) {
-    this.height = height;
-    this.width = width;
-}
+  this.height = height;
+  this.width = width;
+};
 
 Rectangle.prototype.area = function () {
-    return this.height * this.width;
-}
+  return this.height * this.width;
+};
 ```
 
 ES6 Syntax:
 
-```Javascript
+```js
 class Rectangle {
     constructor (heightm width){
         this.height = height;

@@ -60,7 +60,7 @@ In addition to the action verbs in the preceding table, a web API in ASP.NET Cor
 
 ### Retrieve a product
 
-```C#
+```csharp
 [HttpGet("{id}")]
 public async Task<ActionResult<Product>> GetById(long id)
 {
@@ -90,7 +90,7 @@ Each ActionResult used in the preceding action is mapped to the corresponding HT
 
 ### Add a product
 
-```C#
+```cs
 [HttpPost]
 public async Task<ActionResult<Product>> Create(Product product)
 {
@@ -120,7 +120,7 @@ Each ActionResult used in the preceding action is mapped to the corresponding HT
 
 ### Modify a product
 
-```C#
+```cs
 [HttpPut("{id}")]
 public async Task<IActionResult> Update(long id, Product product)
 {
@@ -154,7 +154,7 @@ Each ActionResult used in the preceding action is mapped to the corresponding HT
 
 ### Removing a product
 
-```C#
+```cs
 [HttpDelete("{id}")]
 public async Task<IActionResult> Delete(long id)
 {
@@ -221,7 +221,7 @@ curl -k -s <https://localhost:5001/api/Products/3> | python -m json.tool
 
 The following output is displayed, proving that the new product was persisted to the in-memory database:
 
-```JSON
+```json
 {
   "id": 3,
   "name": "Plush Squirrel",
@@ -248,7 +248,7 @@ The preceding command deletes the product from the in-memory database.
 
 The updated inventory is displayed:
 
-```JSON
+```json
 [
   {
     "id": 2,

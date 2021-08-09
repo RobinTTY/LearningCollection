@@ -9,7 +9,7 @@ title: Assembly Class
   - The code example also demonstrates the use of the GetName method to obtain an AssemblyName object that can be used to parse the full name of the assembly
   - The example displays the version number of the assembly, the CodeBase property, and the EntryPoint property
 
-```C#
+```cs
 using System;
 using System.Reflection;
 using System.Security.Permissions;

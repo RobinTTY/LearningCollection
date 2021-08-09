@@ -95,7 +95,7 @@ The token unmanaged in the constraint is not a keyword, nor a contextual keyword
 
 Another Example:
 
-```C#
+```cs
 unsafe public static byte[] ToByteArray<T>(this T argument) where T : unmanaged
 {
     var size = sizeof(T);

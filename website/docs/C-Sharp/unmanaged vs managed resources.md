@@ -29,7 +29,7 @@ The point of Dispose is to free unmanaged resources. It needs to be done at some
 
 The object that you've created needs to expose some method, that the outside world can call, in order to clean up unmanaged resources. There is a standardized name for this method:
 
-```C#
+```cs
 public void Dispose()
 ```
 
@@ -37,7 +37,7 @@ The IDisposable interface has just this one method that needs to be implemented.
 
 So you make your object expose the IDisposable interface, and that way you promise that you've written that single method to clean up your unmanaged resources:
 
-```C#
+```cs
 public void Dispose()
 {
    Win32.DestroyHandle(this.CursorFileBitmapIconServiceHandle);
@@ -57,7 +57,7 @@ So now we will:
 
 So let's update our `Dispose()` method to get rid of those managed objects:
 
-```C#
+```cs
 public void Dispose()
 {
    //Free unmanaged resources
@@ -91,7 +91,7 @@ The destruction of our object by the Garbage collector is the perfect time to fr
 
 **Note:** In C#, you don't explicitly override the Finalize() method. You write a method that looks like a C++ destructor, and the compiler takes that to be your implementation of the Finalize() method:
 
-```C#
+```cs
 ~MyObject()
 {
    //we're being finalized (i.e. destroyed), call Dispose in case the user forgot to
@@ -101,7 +101,7 @@ The destruction of our object by the Garbage collector is the perfect time to fr
 
 **But there's a bug in that code.** You see, the garbage collector runs on a background thread; you don't know the order in which two objects are destroyed. It is entirely possible that in your Dispose() code, the managed object you're trying to get rid of (because you wanted to be helpful) is no longer there:
 
-```C#
+```cs
 public void Dispose()
 {
    //Free unmanaged resources
@@ -127,13 +127,13 @@ The standard pattern to do this is to have `Finalize()` and `Dispose()` both cal
 
 This internal method could be given some arbitrary name like "CoreDispose", or "MyInternalDispose", but is tradition to call it Dispose(Boolean):
 
-```C#
+```cs
 protected void Dispose(Boolean disposing)
 ```
 
 But a more helpful parameter name might be:
 
-```C#
+```cs
 protected void Dispose(Boolean itIsSafeToAlsoFreeManagedObjects)
 {
    //Free unmanaged resources
@@ -160,7 +160,7 @@ protected void Dispose(Boolean itIsSafeToAlsoFreeManagedObjects)
 
 And you change your implementation of the `IDisposable.Dispose()` method to:
 
-```C#
+```cs
 public void Dispose()
 {
    Dispose(true); //I am calling you from Dispose, it's safe
@@ -169,7 +169,7 @@ public void Dispose()
 
 and your finalizer to:
 
-```C#
+```cs
 ~MyObject()
 {
    Dispose(false); //I am *not* calling you from Dispose, it's *not* safe
@@ -178,7 +178,7 @@ and your finalizer to:
 
 **Note:** If your object descends from an object that implements Dispose, then don't forget to call their base Dispose method when you override Dispose:
 
-```C#
+```cs
     public override void Dispose()
     {
         try
@@ -202,7 +202,7 @@ You'll notice in my code I was careful to remove references to objects that I've
 
 When the user calls `Dispose()`: the handle **CursorFileBitmapIconServiceHandle** is destroyed. Later when the garbage collector runs, it will try to destroy the same handle again.
 
-```C#
+```cs
 protected void Dispose(Boolean iAmBeingCalledFromDisposeAndNotFinalize)
 {
    //Free unmanaged resources
@@ -213,7 +213,7 @@ protected void Dispose(Boolean iAmBeingCalledFromDisposeAndNotFinalize)
 
 The way you fix this is tell the garbage collector that it doesn't need to bother finalizing the object – its resources have already been cleaned up, and no more work is needed. You do this by calling `GC.SuppressFinalize()` in the `Dispose()` method:
 
-```C#
+```cs
 public void Dispose()
 {
    Dispose(true); //I am calling you from Dispose, it's safe
@@ -244,7 +244,7 @@ It's your choice! But choose Dispose.
 
 You certainly could place your unmanaged cleanup in the finalizer:
 
-```C#
+```cs
 ~MyObject()
 {
    //Free unmanaged resources

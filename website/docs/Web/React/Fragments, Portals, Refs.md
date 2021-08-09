@@ -9,7 +9,7 @@ A common pattern in React is for a component to return multiple elements. Fragme
 
 Example:
 
-```JSX
+```jsx
 render() {
   return (
     <React.Fragment>
@@ -25,7 +25,7 @@ render() {
 
 A common pattern is for a component to return a list of children. Take this example React snippet:
 
-```JSX
+```jsx
 class Table extends React.Component {
   render() {
     return (
@@ -41,7 +41,7 @@ class Table extends React.Component {
 
 `<Columns />` would need to return multiple `<td>` elements in order for the rendered HTML to be valid. If a parent div was used inside the `render()` of `<Columns />`, then the resulting HTML will be invalid.
 
-```JSX
+```jsx
 class Columns extends React.Component {
   render() {
     return (
@@ -56,7 +56,7 @@ class Columns extends React.Component {
 
 results in a `<Table />` output of:
 
-```HTML
+```html
 <table>
   <tr>
     <div>
@@ -73,7 +73,7 @@ Fragments solve this problem. Fragments also cut down on the number of wrapping 
 
 There is a new, shorter syntax you can use for declaring fragments. It looks like empty tags:
 
-```JSX
+```jsx
 class Columns extends React.Component {
   render() {
     return (
@@ -94,8 +94,8 @@ For more details see: [React Docs](https://reactjs.org/docs/fragments.html)
 
 Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
 
-```Js
-ReactDOM.createPortal(child, container)
+```js
+ReactDOM.createPortal(child, container);
 ```
 
 The first argument (`child`) is any renderable React child, such as an element, string, or fragment. The second argument (`container`) is a DOM element.
@@ -104,7 +104,7 @@ The first argument (`child`) is any renderable React child, such as an element, 
 
 Normally, when you return an element from a component’s render method, it’s mounted into the DOM as a child of the nearest parent node:
 
-```JSX
+```jsx
 render() {
   // React mounts a new div and renders the children into it
   return (
@@ -117,7 +117,7 @@ render() {
 
 However, sometimes it’s useful to insert a child into a different location in the DOM:
 
-```JSX
+```jsx
 render() {
   // React does *not* create a new div. It renders the children into `domNode`.
   // `domNode` is any valid DOM node, regardless of its location in the DOM.
@@ -160,7 +160,7 @@ For example, instead of exposing `open()` and `close()` methods on a Dialog comp
 
 Refs are created using `React.createRef()` and attached to React elements via the `ref` attribute. Refs are commonly assigned to an instance property when a component is constructed so they can be referenced throughout the component.
 
-```JSX
+```jsx
 const AddUser = (props) => {
   const nameInputRef = useRef();
   const ageInputRef = useRef();

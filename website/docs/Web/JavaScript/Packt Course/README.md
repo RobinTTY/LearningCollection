@@ -5,7 +5,7 @@ title: Javascript Refresher
 
 ## let & const
 
-```JavaScript
+```js
 // use let for values that are variable
 let a = 1;
 // use const for values that are constant
@@ -16,7 +16,7 @@ Note: Variables declared with the `var` keyword are scoped to the immediate func
 
 ### Example let vs var
 
-```JavaScript
+```js
 function run() {
   var foo = "Foo";
   let bar = "Bar";
@@ -24,7 +24,7 @@ function run() {
   console.log(foo, bar); // Foo Bar
 
   {
-    var moo = "Mooo"
+    var moo = "Mooo";
     let baz = "Bazz";
     console.log(moo, baz); // Mooo Bazz
   }
@@ -42,20 +42,20 @@ Arrow functions are defined using the '=>' syntax. They are syntactic sugar for 
 
 ### Example
 
-```JavaScript
+```js
 // traditional function declaration
 function printMyName(name) {
-    console.log(name);
+  console.log(name);
 }
 
-printMyName('Robin');
+printMyName("Robin");
 
 // arrow function
 const printMyName = (name) => {
-    console.log(name);
-}
+  console.log(name);
+};
 
-printMyName('Robin');
+printMyName("Robin");
 
 // Special case of only returning (kind of like C#)
 const multiply = (number) => number * 2;
@@ -69,7 +69,7 @@ A module is essentially a reusable piece of JavaScript which exports specific ob
 
 ### Example
 
-```JavaScript
+```js
 // person.js
 const person = {
     name: 'Robin'
@@ -97,28 +97,28 @@ Classes are a template for creating objects. Classes in JS are built on prototyp
 
 ### Example
 
-```JavaScript
+```js
 // with EcmaScript 6
 class Human {
-    constructor(){
-        this.gender = 'male';
-    }
+  constructor() {
+    this.gender = "male";
+  }
 
-    printGender() {
-        console.log(this.gender);
-    }
+  printGender() {
+    console.log(this.gender);
+  }
 }
 
 class Person extends Human {
-    constructor(){
-        // super must always be called if a class is being extended
-        super();
-        this.name = 'Robin';
-    }
+  constructor() {
+    // super must always be called if a class is being extended
+    super();
+    this.name = "Robin";
+  }
 
-    printMyName(){
-        console.log(this.name);
-    }
+  printMyName() {
+    console.log(this.name);
+  }
 }
 
 const person = new Person();
@@ -127,20 +127,20 @@ person.printGender();
 
 // with EcmaScript 7 (proposal) - https://github.com/tc39/proposal-class-fields
 class Human {
-    // no more 'this' keyword here
-    gender = 'male';
+  // no more 'this' keyword here
+  gender = "male";
 
-    printGender = () => {
-        console.log(this.gender);
-    }
+  printGender = () => {
+    console.log(this.gender);
+  };
 }
 
 class Person extends Human {
-    name = 'Robin';
+  name = "Robin";
 
-    printMyName = () => {
-        console.log(this.name);
-    }
+  printMyName = () => {
+    console.log(this.name);
+  };
 }
 
 const person = new Person();
@@ -156,7 +156,7 @@ The spread operator “spreads” the values in an iterable (arrays, strings) ac
 
 #### Example
 
-```JavaScript
+```js
 const arr1 = [1, 2, 3];
 const arr2 = [...arr1, 4, 5, 6];
 
@@ -169,9 +169,9 @@ The rest parameter gives us an easier and cleaner way of working with an indefin
 
 #### Example
 
-```JavaScript
+```js
 function sortArgs(...args) {
-    return args.sort();
+  return args.sort();
 }
 ```
 
@@ -181,11 +181,11 @@ The destructuring assignment syntax makes it possible to unpack values from arra
 
 ### Example
 
-```JavaScript
+```js
 // Array destructuring
 let a, b, rest;
 [a, b, ...rest] = [10, 20, 30, 40, 50];
-console.log(rest);  // [30, 40, 50]
+console.log(rest); // [30, 40, 50]
 
 // Object destructuring
 let { x, y, ...z } = { x: 10, y: 20, a: 30, b: 40 };

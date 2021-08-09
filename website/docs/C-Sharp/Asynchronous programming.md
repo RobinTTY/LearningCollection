@@ -20,7 +20,7 @@ title: Asynchronous Programming
 
 You may need to download some data from a web service when a button is pressed, but don’t want to block the UI thread. It can be accomplished simply like this:
 
-```C#
+```cs
 private readonly HttpClient _httpClient = new HttpClient();
 
 downloadButton.Clicked += async (o, e) =>
@@ -41,7 +41,7 @@ And that’s it! The code expresses the intent (downloading some data asynchrono
 Say you're writing a mobile game where pressing a button can inflict damage on many enemies on the screen. Performing the damage calculation can be expensive, and doing it on the UI thread would make the game appear to pause as the calculation is performed!  
 The best way to handle this is to start a background thread which does the work using Task.Run, and await its result. This will allow the UI to feel smooth as the work is being done.
 
-```C#
+```cs
 private DamageResult CalculateDamageDone()
 {
     // Code omitted:
@@ -100,7 +100,7 @@ This snippet downloads the HTML from the homepage at www.dotnetfoundation.org an
 
 Note: If you plan on doing HTML parsing in production code, don't use regular expressions. Use a parsing library instead.
 
-```C#
+```cs
 private readonly HttpClient _httpClient = new HttpClient();
 
 [HttpGet]
@@ -117,7 +117,7 @@ public async Task<int> GetDotNetCountAsync()
 
 Here's the same scenario written for a Universal Windows App, which performs the same task when a Button is pressed:
 
-```C#
+```cs
 private readonly HttpClient _httpClient = new HttpClient();
 
 private async void SeeTheDotNets_Click(object sender, RoutedEventArgs e)
@@ -147,7 +147,7 @@ private async void SeeTheDotNets_Click(object sender, RoutedEventArgs e)
 
 You may find yourself in a situation where you need to retrieve multiple pieces of data concurrently. The Task API contains two methods, Task.WhenAll and Task.WhenAny which allow you to write asynchronous code which performs a non-blocking wait on multiple background jobs. This example shows how you might grab User data for a set of userIds:
 
-```C#
+```cs
 public async Task<User> GetUserAsync(int userId)
 {
     // Code omitted:
@@ -170,7 +170,7 @@ public static async Task<IEnumerable<User>> GetUsersAsync(IEnumerable<int> userI
 
 Here's another way to write this a bit more succinctly, using LINQ:
 
-```C#
+```cs
 public async Task<User> GetUserAsync(int userId)
 {
     // Code omitted:

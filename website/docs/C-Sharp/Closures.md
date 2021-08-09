@@ -7,7 +7,7 @@ title: Closures
 
 In essence, a closure is a block of code which can be executed at a later time, but which maintains the environment in which it was first created - i.e. it can still use the local variables etc of the method which created it, even after that method has finished executing.
 
-```C#
+```cs
 using System;
 
 class Test
@@ -35,7 +35,7 @@ class Test
 
 Output:
 
-```C#
+```cs
 counter=1
 counter=2
 ```
@@ -56,15 +56,14 @@ Our example will produce a new list containing every element of the original lis
 
 In C# the natural way of representing a predicate is as a delegate, and indeed .NET 2.0 contains a `Predicate<T>` type. (Aside: for some reason LINQ prefers `Func<T,bool>`; I'm not sure why, given that it's less descriptive. The two are functionally equivalent.)
 
-```C#
+```cs
 // Declaration for System.Predicate<T>
 public delegate bool Predicate<T>(T obj)
 ```
 
 Code used to filter the list:
 
-```C#
-// In ListUtil.cs
+```cs title="ListUtil.cs"
 static class ListUtil
 {
     public static IList<T> Filter<T>(IList<T> source, Predicate<T> predicate)
@@ -88,7 +87,7 @@ Now that we've defined our filtering method, we need to call it. In order to dem
 
 We'll take a list of strings, and then produce another list which contains only the "short" strings from the original list. Building a list is clearly simple - it's creating the predicate which is the tricky bit. The code looks like this when using a lambda expression:
 
-```C#
+```cs
 static void Main()
 {
     Predicate<string> predicate = item => item.Length < 5;
@@ -101,8 +100,7 @@ static void Main()
 
 So far our predicate hasn't needed any context - the length is hard-coded, and the string to check is passed to it as a parameter. Let's change the situation so that the user can specify the maximum length of strings to allow.
 
-```C#
-// In Example2c.cs (C# 3)
+```cs title="Example2c.cs (C# 3)"
 static void Main()
 {
     Console.Write("Maximum length of string to include? ");
@@ -116,8 +114,7 @@ static void Main()
 
 In C#, the variable itself has been captured by the delegate (delegate = predicate). To prove that C# captures the variable, let's change the C# code to change the value of the parameter after the list has been filtered once, and then filter it again:
 
-```C#
-// In Example2d.cs
+```cs title="Example2d.cs"
 static void Main()
 {
     Console.Write("Maximum length of string to include? ");
@@ -136,8 +133,7 @@ static void Main()
 
 Note that we're only changing the value of the local variable. We're not recreating the delegate instance, or anything like that. The delegate instance has access to the local variable, so it can see that it's changed. Let's go one step further, and make the predicate itself change the value of the variable:
 
-```C#
-// In Example2e.cs
+```cs title="Example2e.cs"
 static void Main()
 {
     int maxLength = 0;
@@ -150,8 +146,7 @@ static void Main()
 
 ### Comparing capture strategies: complexity vs power
 
-```C#
-// In Example3a.cs
+```cs title="Example3a.cs"
 static void Main()
 {
     // First build a list of actions
@@ -171,8 +166,7 @@ static void Main()
 
 What's the output? Well, we've only actually declared a single counter variable - **so that same counter variable is captured by all the Action instances.** The result is the number 10 being printed on every line. To "fix" the code to make it display the output most people would expect (i.e. 0 to 9) we need to introduce an extra variable inside the loop:
 
-```C#
-// In Example3b.cs
+```cs title="Example3b.cs"
 static void Main()
 {
     // First build a list of actions

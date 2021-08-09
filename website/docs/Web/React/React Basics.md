@@ -22,15 +22,15 @@ A very basic React project will look something like this:
 The entry point of our React application.
 Looks something like this:
 
-```JSX
-import ReactDOM from 'react-dom';
+```jsx
+import ReactDOM from "react-dom";
 
 // would not work in plain javascript, there is no import of css files there
-import './index.css';
-import App from './App';
+import "./index.css";
+import App from "./App";
 
 // the app component gets inserted into the DOM inside the 'root' element
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 ### index.html
@@ -38,7 +38,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 Imports our React application and defines the root element where the application will be injected.
 Looks something like this:
 
-```HTML
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -65,7 +65,7 @@ Looks something like this:
 
 Our root React component (a function component to be precise). It looks like this:
 
-```JSX
+```jsx
 function App() {
   // JSX syntax
   return (
@@ -82,7 +82,7 @@ export default App;
 
 A very basic custom component might look like this:
 
-```JSX
+```jsx
 function ExpenseItem() {
   return (
     <div>
@@ -104,7 +104,7 @@ export default ExpenseItem;
 
 If we want to add css styling to our component we need to import the css file like this:
 
-```JSX
+```jsx
 import ExpenseItem from "./components/ExpenseItem";
 
 function App() {
@@ -119,7 +119,7 @@ function App() {
 Like with many other languages we can use interpolation with JSX.
 This may look something like this:
 
-```JSX
+```jsx
 function ExpenseItem() {
   const expenseDate = new Date(2021, 2, 28);
   const expenseTitle = "Car Insurance";
@@ -142,7 +142,7 @@ function ExpenseItem() {
 Props are arguments passed into React components. Props are passed to components via HTML attributes.
 This looks like this:
 
-```JSX
+```jsx
 // Inside the parent component (App)
 function App() {
   const expenses = [
@@ -216,7 +216,7 @@ Sometimes you might want to have a component where you don't configure everythin
 
 Example:
 
-```JSX
+```jsx
 import "./Card.css";
 
 function Card(props) {
@@ -230,20 +230,20 @@ export default Card;
 
 // using Card
 <Card className="expenses">
-    <ExpenseItem
+  <ExpenseItem
     title={props.expenses[0].title}
     amount={props.expenses[0].amount}
     date={props.expenses[0].date}
-    ></ExpenseItem>
-    ...
-</Card>
+  ></ExpenseItem>
+  ...
+</Card>;
 ```
 
 ### Arrow syntax
 
 We can also write our components with the arrow syntax, which looks like this:
 
-```JSX
+```jsx
 const App = () => {
   const expenses = [...];
 
@@ -261,7 +261,7 @@ const App = () => {
 
 Attaching events to an element is simple. Take for instance the onclick event:
 
-```JSX
+```jsx
 <button onClick={clickHandler}>Change Title</button>
 ```
 
@@ -269,7 +269,7 @@ Attaching events to an element is simple. Take for instance the onclick event:
 
 A Hook is a special function that lets you “hook into” React features. `useState` is a hook that lets you add React state to function components. The `useState` hook is used like this:
 
-```JSX
+```jsx
 const ExpenseItem = (props) => {
   // The hook function returns a pair of values, the first of which is the hook's current value,
   // and the second is a function that should be called to update the hook's value.
@@ -291,7 +291,7 @@ If we want to gather input from a form but also want to clear it after the user 
 
 Example:
 
-```JSX
+```jsx
 ...
 
 const submitHandler = (event) => {
@@ -357,7 +357,7 @@ const submitHandler = (event) => {
 When we want to pass data from a child to a parent, we use props.  
 Example:
 
-```JSX
+```jsx
 // parent component
 const NewExpense = () => {
   // Handles the submission of a new expense.
@@ -403,7 +403,7 @@ We can combine the two by making the React state be the “single source of trut
 
 Example:
 
-```JSX
+```jsx
 // Component using the controlled component
 const ExpenseList = (props) => {
   const [selectedYear, setSelectedYear] = useState(2020);
@@ -460,7 +460,7 @@ In React, a stateful component is a component that holds some state. Stateless c
 
 To generate the expenses list dynamically we can do this:
 
-```JSX
+```jsx
 const ExpenseList = (props) => {
   ...
   // generate one ExpenseItem for each expense that is passed down through props
@@ -486,7 +486,7 @@ const ExpenseList = (props) => {
 
 To update the list we need state in our App.js file:
 
-```JSX
+```jsx
 const dummyExpenses = [
     ...
     { id: "e2", title: "New TV", amount: 799.49, date: new Date(2021, 2, 12) },
@@ -517,7 +517,7 @@ const App = () => {
 
 If we want for instance to display an info text if there are no items available if the list is filtered for a specific year, we can do it like this:
 
-```JSX
+```jsx
 const ExpenseList = (props) => {
   const [selectedYear, setSelectedYear] = useState("2020");
 
@@ -558,7 +558,7 @@ const ExpenseList = (props) => {
 
 Alternatively we can place the logic outside of our return statement to make it easier to read:
 
-```JSX
+```jsx
 const ExpenseList = (props) => {
   const [selectedYear, setSelectedYear] = useState("2020");
 
@@ -601,7 +601,7 @@ const ExpenseList = (props) => {
 
 React can also apply styling dynamically:
 
-```JSX
+```jsx
 const ChartBar = (props) => {
   let barFillHeight = "0%";
   if (props.max > 0) {
@@ -612,7 +612,10 @@ const ChartBar = (props) => {
   return (
     <div className="chart-bar">
       <div className="chart-bar__inner">
-        <div className="chart-bar__fill" style={{height: barFillHeight}}></div>
+        <div
+          className="chart-bar__fill"
+          style={{ height: barFillHeight }}
+        ></div>
       </div>
       <div className="chart-bar__label">{props.label}</div>
     </div>

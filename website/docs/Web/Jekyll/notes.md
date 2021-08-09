@@ -45,7 +45,7 @@ Liquid is where Jekyll starts to get more interesting. Liquid is a templating la
 
 Objects tell Liquid where to output content. They're denoted by double curly braces: `{{` and `}}`. For example:
 
-```Liquid
+```liquid
 {{ page.title }}
 ```
 
@@ -55,7 +55,7 @@ Outputs a variable called `page.title` on the page.
 
 Tags create the logic and control flow for templates. They are denoted by curly braces and percent signs: `{%` and `%}`. For example:
 
-```Liquid
+```liquid
 {% if page.show_sidebar %}
   <div class="sidebar">
     sidebar content
@@ -69,7 +69,7 @@ Outputs the sidebar if `page.show_sidebar` is true. [Available Tags](https://jek
 
 Filters change the output of a Liquid object. They are used within an output and are separated by a `|`. For example:
 
-```Liquid
+```liquid
 {{ "hi" | capitalize }}
 ```
 
@@ -79,7 +79,7 @@ Outputs `Hi`. [More Information](https://jekyllrb.com/docs/liquid/filters/)
 
 In an html file we could use:
 
-```Liquid
+```liquid
 ...
 <h1>{{ "Hello World!" | downcase }}</h1>
 ...
@@ -87,7 +87,7 @@ In an html file we could use:
 
 To get our changes processed by Jekyll we need to add [front matter](https://jekyllrb.com/docs/front-matter/) to the top of the page:
 
-```YAML
+```yaml
 ---
 # the 3 dashes (front matter) tell Jekyll to process Liquid
 ---
@@ -99,7 +99,7 @@ The "Hello World!" will now be downcased on render.
 
 Front matter is a snippet of YAML which sits between two triple-dashed lines at the top of a file. Front matter is used to set variables for the page, for example:
 
-```YAML
+```yaml
 ---
 my_number: 5
 ---
@@ -107,7 +107,7 @@ my_number: 5
 
 Front matter variables are available in Liquid under the page variable. For example to output the variable above you would use:
 
-```Liquid
+```liquid
 {{ page.my_number }}
 ```
 
@@ -125,11 +125,11 @@ Using a layout is a much better choice. Layouts are templates that wrap around y
 
 Example layout:
 
-```HTML
-<!doctype html>
+```html
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>{{ page.title }}</title>
   </head>
   <body>
@@ -142,7 +142,7 @@ The content of the page is replaced with a `content` variable. `content` is a sp
 
 To have index.html use this layout, you can set a `layout` variable in front matter. The layout wraps around the content of the page so all you need in `index.html` is:
 
-```YAML
+```liquid
 ---
 layout: default
 title: Home
@@ -166,7 +166,7 @@ Navigation source code can get complex so sometimes it’s nice to move it into 
 
 Example for the navigation file '\_includes/navigation.html':
 
-```HTML
+```html
 <nav>
   <a href="/">Home</a>
   <a href="/about.html">About</a>
@@ -175,16 +175,15 @@ Example for the navigation file '\_includes/navigation.html':
 
 Adding the navigation to \_layouts/default.html:
 
-```HTML
-<!doctype html>
+```html
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>{{ page.title }}</title>
   </head>
   <body>
-    {% include navigation.html %}
-    {{ content }}
+    {% include navigation.html %} {{ content }}
   </body>
 </html>
 ```
@@ -195,7 +194,7 @@ To highlight the current page in the navigation, `_includes/navigation.html` nee
 
 Using `page.url` you can check if each link is the current page and color it red if true:
 
-```HTML
+```html
 <nav>
   <a href="/" {% if page.url == "/" %}style="color: red;"{% endif %}>
     Home
@@ -218,7 +217,7 @@ YAML is a format that’s common in the Ruby ecosystem. We’ll use it to store 
 
 The data file looks like this:
 
-```YAML
+```yaml
 - name: Home
   link: /
 - name: About
@@ -227,7 +226,7 @@ The data file looks like this:
 
 Jekyll makes this data file available to you at `site.data.navigation`. Instead of outputting each link in `_includes/navigation.html`, now you can iterate over the data file instead:
 
-```HTML
+```liquid
 <nav>
   {% for item in site.data.navigation %}
     <a href="{{ item.link }}" {% if page.url == item.link %}style="color: red;"{% endif %}>
@@ -254,11 +253,11 @@ Jekyll sites often use this structure to keep assets organized:
 
 We can style the content of our html with a class like this:
 
-```HTML
+```liquid
 <nav>
-  {% for item in site.data.navigation %}
-    <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a>
-  {% endfor %}
+{% for item in site.data.navigation %}
+<a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a>
+{% endfor %}
 </nav>
 ```
 
@@ -287,17 +286,16 @@ We’ll need to reference the stylesheet in our layout.
 
 We add the stylesheet to the `<head>` of `_layouts/default.html`:
 
-```HTML
-<!doctype html>
+```html
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/styles.css" />
   </head>
   <body>
-    {% include navigation.html %}
-    {{ content }}
+    {% include navigation.html %} {{ content }}
   </body>
 </html>
 ```
@@ -312,7 +310,7 @@ Blog posts live in a folder called `_posts`. **The filename for posts have a spe
 
 An example of a post looks like this:
 
-```YAML
+```yaml
 ---
 layout: post
 author: jill
@@ -333,7 +331,7 @@ This is like the `about.md` you created before except it has an `author` and a d
 
 We'll create the `post` layout at `_layouts/post.html` with the following content:
 
-```YAML
+```liquid
 ---
 layout: default
 ---
@@ -353,19 +351,20 @@ There’s currently no way to navigate to the blog post. Typically a blog has a 
 
 We create `blog.html` in your root (`/blog.html`) with the following content:
 
-```HTML
+```html
 ---
 layout: default
 title: Blog
 ---
+
 <h1>Latest Posts</h1>
 
 <ul>
   {% for post in site.posts %}
-    <li>
-      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-      <p>{{ post.excerpt }}</p>
-    </li>
+  <li>
+    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    <p>{{ post.excerpt }}</p>
+  </li>
   {% endfor %}
 </ul>
 ```
@@ -378,7 +377,7 @@ There’s a few things to note with this code:
 
 We'll also need a way to navigate to this page through the main navigation. We add an entry for the blog page in \_data/navigation.yml:
 
-```YAML
+```yaml
 - name: Home
   link: /
 - name: About
@@ -407,7 +406,7 @@ Documents (the items in a collection) live in a folder in the root of the site n
 
 We can add authors to this collection by creating one like this (\_authors/jill.md):
 
-```YAML
+```yaml
 ---
 short_name: jill
 name: Jill Smith
@@ -422,20 +421,21 @@ Now we'll need to add a page which lists all the authors on the site. Jekyll mak
 
 We create `staff.html` and iterate over `site.authors` to output all the staff:
 
-```HTML
+```html
 ---
 layout: default
 title: Staff
 ---
+
 <h1>Staff</h1>
 
 <ul>
   {% for author in site.authors %}
-    <li>
-      <h2>{{ author.name }}</h2>
-      <h3>{{ author.position }}</h3>
-      <p>{{ author.content | markdownify }}</p>
-    </li>
+  <li>
+    <h2>{{ author.name }}</h2>
+    <h3>{{ author.position }}</h3>
+    <p>{{ author.content | markdownify }}</p>
+  </li>
   {% endfor %}
 </ul>
 ```
@@ -444,7 +444,7 @@ Since the content is markdown, you need to run it through the `markdownify filte
 
 We also need a way to navigate to this page through the main navigation. We open `_data/navigation.yml` and add an entry for the staff page:
 
-```YAML
+```yaml
 - name: Home
   link: /
 - name: About
@@ -461,7 +461,7 @@ By default, collections do not output a page for documents. In this case we want
 
 We open `_config.yml` and add `output: true` to the author collection configuration:
 
-```YAML
+```yaml
 collections:
   authors:
     output: true
@@ -469,29 +469,31 @@ collections:
 
 We can link to the output page using author.url:
 
-```HTML
+```html
 ---
 layout: default
 ---
+
 <h1>Staff</h1>
 
 <ul>
   {% for author in site.authors %}
-    <li>
-      <h2><a href="{{ author.url }}">{{ author.name }}</a></h2>
-      <h3>{{ author.position }}</h3>
-      <p>{{ author.content | markdownify }}</p>
-    </li>
+  <li>
+    <h2><a href="{{ author.url }}">{{ author.name }}</a></h2>
+    <h3>{{ author.position }}</h3>
+    <p>{{ author.content | markdownify }}</p>
+  </li>
   {% endfor %}
 </ul>
 ```
 
 Just like posts we’ll need to create a layout for authors. We create `_layouts/author.html` with the following content:
 
-```HTML
+```html
 ---
 layout: default
 ---
+
 <h1>{{ page.name }}</h1>
 <h2>{{ page.position }}</h2>
 
@@ -508,7 +510,7 @@ We can achieve this by using [front matter defaults](https://jekyllrb.com/docs/c
 
 We add defaults for layouts to our `_config.yml`:
 
-```YAML
+```yaml
 collections:
   authors:
     output: true
@@ -538,10 +540,11 @@ Let’s list the posts an author has published on their page. To do this we need
 
 We iterate over this filtered list in `_layouts/author.html` to output the author’s posts:
 
-```HTML
+```html
 ---
 layout: default
 ---
+
 <h1>{{ page.name }}</h1>
 <h2>{{ page.position }}</h2>
 
@@ -549,9 +552,9 @@ layout: default
 
 <h2>Posts</h2>
 <ul>
-  {% assign filtered_posts = site.posts | where: 'author', page.short_name %}
-  {% for post in filtered_posts %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% assign filtered_posts = site.posts | where: 'author', page.short_name %} {%
+  for post in filtered_posts %}
+  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
 ```
@@ -560,17 +563,17 @@ layout: default
 
 The posts have a reference to the author so let’s link it to the author’s page. We can do this using a similar filtering technique in `_layouts/post.html`:
 
-```HTML
+```html
 ---
 layout: default
 ---
+
 <h1>{{ page.title }}</h1>
 
 <p>
-  {{ page.date | date_to_string }}
-  {% assign author = site.authors | where: 'short_name', page.author | first %}
-  {% if author %}
-    - <a href="{{ author.url }}">{{ author.name }}</a>
+  {{ page.date | date_to_string }} {% assign author = site.authors | where:
+  'short_name', page.author | first %} {% if author %} -
+  <a href="{{ author.url }}">{{ author.name }}</a>
   {% endif %}
 </p>
 
@@ -629,7 +632,7 @@ end
 
 Then we add these lines to our \_config.yml:
 
-```YAML
+```yaml
 plugins:
   - jekyll-feed
   - jekyll-sitemap
@@ -641,19 +644,17 @@ Now we install them by running a `bundle update`.
 `jekyll-sitemap` doesn’t need any setup, it will create your sitemap on build.
 For `jekyll-feed` and `jekyll-seo-tag` we need to add tags to `_layouts/default.html`:
 
-```HTML
-<!doctype html>
+```html
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    {% feed_meta %}
-    {% seo %}
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    {% feed_meta %} {% seo %}
   </head>
   <body>
-    {% include navigation.html %}
-    {{ content }}
+    {% include navigation.html %} {{ content }}
   </body>
 </html>
 ```
@@ -670,7 +671,7 @@ JEKYLL_ENV=production bundle exec jekyll build
 
 By default `JEKYLL_ENV` is development. The `JEKYLL_ENV` is available in liquid using `jekyll.environment`. So to only output the analytics script on production we would do the following:
 
-```HTML
+```liquid
 {% if jekyll.environment == "production" %}
   <script src="my-analytics-script.js"></script>
 {% endif %}
@@ -692,9 +693,10 @@ A better way is to automate this process using a [CI](https://jekyllrb.com/docs/
 
 Jekyll traverses your site looking for files to process. Any files with [front matter](https://jekyllrb.com/docs/front-matter/) are subject to processing. For each of these files, Jekyll makes a variety of data available via the Liquid. The following is a reference of the available data:
 
-```HTML
+```html
 ---
 ---
+
 <h1>{{ page.name }}</h1>
 <h2>{{ page.position }}</h2>
 
@@ -702,9 +704,9 @@ Jekyll traverses your site looking for files to process. Any files with [front m
 
 <h2>Posts</h2>
 <ul>
-  {% assign filtered_posts = site.posts | where: 'author', page.short_name %}
-  {% for post in filtered_posts %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% assign filtered_posts = site.posts | where: 'author', page.short_name %} {%
+  for post in filtered_posts %}
+  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
 ```

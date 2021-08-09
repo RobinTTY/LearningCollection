@@ -9,7 +9,7 @@ We can dynamically apply styles to components using the className property:
 
 Styles in `CourseInput.css`:
 
-```CSS
+```css
 .form-control.invalid input {
   border-color: red;
   background: #ffd7d7;
@@ -22,7 +22,7 @@ Styles in `CourseInput.css`:
 
 Applying it inside the JSX through the className property:
 
-```JSX
+```jsx
 const CourseInput = (props) => {
   ...
 
@@ -42,7 +42,7 @@ const CourseInput = (props) => {
 
 The library [Styled Components](https://github.com/styled-components/styled-components) allows you to scope styles to a component. Instead of using a css file like this:
 
-```CSS
+```css
 .button {
   font: inherit;
   padding: 0.5rem 1.5rem;
@@ -67,7 +67,7 @@ The library [Styled Components](https://github.com/styled-components/styled-comp
 
 You just write you CSS directly in the js file:
 
-```JSX
+```jsx
 import styled from "styled-components";
 
 // tagged template literal (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
@@ -103,14 +103,13 @@ const Button = styled.button`
 // };
 
 export default Button;
-
 ```
 
 ### Using dynamic styles
 
 We can also dynamically apply styles based upon props on the elements with the "Styled Components" library. This is done like this:
 
-```JSX
+```jsx
 const FormControl = styled.div`
   margin: 0.5rem 0;
 
@@ -167,7 +166,7 @@ const CourseInput = (props) => {
 
 Another way to scope styles to a component is to use [CSS Modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/). In this approach we keep our CSS in a separate file and import it into our JSX file in a special way:
 
-```JSX
+```jsx
 // We name our file with the .module extension
 import styles from "./Button.module.css";
 
@@ -183,7 +182,7 @@ const Button = (props) => {
 
 In the DOM the component now looks like this:
 
-```HTML
+```html
 <button type="submit" class="Button_button__plK1F">Add Goal</button>
 ```
 
@@ -193,7 +192,7 @@ If you have styles in your CSS with names like "form-control" where a dash is in
 
 Adding a conditional style can be done like this:
 
-```JSX
+```jsx
 return (
   <form onSubmit={formSubmitHandler}>
     <div
