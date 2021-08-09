@@ -1,4 +1,7 @@
-# Styling React Components
+---
+id: stylingComponents
+title: Styling Components
+---
 
 ## Dynamic styling
 
@@ -184,7 +187,7 @@ In the DOM the component now looks like this:
 <button type="submit" class="Button_button__plK1F">Add Goal</button>
 ```
 
-The style is applied through the class "Button_button\_\_plK1F". The naming consists of "\<component-name>\_\<style-name>\_\_\<unique-hash>".
+The style is applied through the class `Button_button__plK1F`. The naming consists of `<component-name>_<style-name>__<unique-hash>`.
 
 If you have styles in your CSS with names like "form-control" where a dash is in the name, you need to access them like this: `styles["form-control"]`.
 

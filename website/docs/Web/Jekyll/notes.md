@@ -1,4 +1,7 @@
-# Notes on Jekyll
+---
+id: notesOnJekyll
+title: Notes on Jekyll
+---
 
 Jekyll is a simple, extendable, static site generator. Given text written in a supported markup language it churns through layouts to create a static website. Throughout that process you can tweak how you want the site URLs to look, what data gets displayed in the layout, and more.
 
@@ -20,11 +23,11 @@ Site will be served to [localhost](http://localhost:4000). Site will be rebuild 
 
 A basic Jekyll site usually looks something like this:
 
-![DirectoryStructure](resources/directoryStructure.PNG)
+![DirectoryStructure](/img/docs/Web/Jekyll/directoryStructure.PNG)
 
 What each of these does:
 
-![DirectoryExplanation](resources/DirectoryExplanation.PNG)
+![DirectoryExplanation](/img/docs/Web/Jekyll/DirectoryExplanation.PNG)
 
 ### No database
 
@@ -161,7 +164,7 @@ Navigation source code can get complex so sometimes it’s nice to move it into 
 
 ### Include usage
 
-Example for the navigation file '_includes/navigation.html':
+Example for the navigation file '\_includes/navigation.html':
 
 ```HTML
 <nav>
@@ -170,7 +173,7 @@ Example for the navigation file '_includes/navigation.html':
 </nav>
 ```
 
-Adding the navigation to _layouts/default.html:
+Adding the navigation to \_layouts/default.html:
 
 ```HTML
 <!doctype html>
@@ -205,7 +208,7 @@ Using `page.url` you can check if each link is the current page and color it red
 
 ## 6. Data Files
 
-Jekyll __supports loading data from YAML, JSON, and CSV files__ located in a `_data directory`. Data files are a great way to separate content from source code to make the site easier to maintain.
+Jekyll **supports loading data from YAML, JSON, and CSV files** located in a `_data directory`. Data files are a great way to separate content from source code to make the site easier to maintain.
 
 ### Data file usage
 
@@ -266,6 +269,7 @@ Example sass file under `/assets/css/styles.scss`:
 ```scss
 ---
 ---
+
 @import "main";
 ```
 
@@ -304,7 +308,7 @@ In true Jekyll style, blogging is powered by text files only.
 
 ### Posts
 
-Blog posts live in a folder called `_posts`. __The filename for posts have a special format:__ the publish date, then a title, followed by an extension.
+Blog posts live in a folder called `_posts`. **The filename for posts have a special format:** the publish date, then a title, followed by an extension.
 
 An example of a post looks like this:
 
@@ -372,7 +376,7 @@ There’s a few things to note with this code:
 - `post.title` is pulled from the post filename and can be overridden by setting `title` in front matter
 - `post.excerpt` is the first paragraph of content by default
 
-We'll also need a way to navigate to this page through the main navigation. We add an entry for the blog page in _data/navigation.yml:
+We'll also need a way to navigate to this page through the main navigation. We add an entry for the blog page in \_data/navigation.yml:
 
 ```YAML
 - name: Home
@@ -399,9 +403,9 @@ To reload the configuration we'll need to restart the server by terminating and 
 
 ### Add authors
 
-Documents (the items in a collection) live in a folder in the root of the site named  `_*collection_name*`. In this case, `_authors`.
+Documents (the items in a collection) live in a folder in the root of the site named `_*collection_name*`. In this case, `_authors`.
 
-We can add authors to this collection by creating one like this (_authors/jill.md):
+We can add authors to this collection by creating one like this (\_authors/jill.md):
 
 ```YAML
 ---
@@ -623,7 +627,7 @@ group :jekyll_plugins do
 end
 ```
 
-Then we add these lines to our _config.yml:
+Then we add these lines to our \_config.yml:
 
 ```YAML
 plugins:
@@ -707,26 +711,26 @@ Jekyll traverses your site looking for files to process. Any files with [front m
 
 ### Global Variables
 
-![GlobalVariables](resources/GlobalVariables.PNG)
+![GlobalVariables](/img/docs/Web/Jekyll/GlobalVariables.PNG)
 
 ### Site Variables
 
-![SiteVariables](resources/SiteVariables.PNG)
+![SiteVariables](/img/docs/Web/Jekyll/SiteVariables.PNG)
 
 ### Page Variables
 
-![PageVariables](resources/PageVariables.PNG)
+![PageVariables](/img/docs/Web/Jekyll/PageVariables.PNG)
 
 Use Custom Front Matter:
 
-Any custom front matter that you specify will be available under ```page```. For example, if you specify ```custom_css: true``` in a page’s front matter, that value will be available as ```page.custom_css```.
+Any custom front matter that you specify will be available under `page`. For example, if you specify `custom_css: true` in a page’s front matter, that value will be available as `page.custom_css`.
 
-If you specify front matter in a ```layout```, access that via layout. For example, if you specify ```class: full_page``` in a layout’s front matter, that value will be available as ```layout.class``` in the layout and its parents.
+If you specify front matter in a `layout`, access that via layout. For example, if you specify `class: full_page` in a layout’s front matter, that value will be available as `layout.class` in the layout and its parents.
 
 ### Paginator Variables
 
-![Paginator](resources/Paginator.PNG)
+![Paginator](/img/docs/Web/Jekyll/Paginator.PNG)
 
 Paginator variable availability:
 
-These are only available in index files, however they can be located in a subdirectory, such as ```/blog/index.html```.
+These are only available in index files, however they can be located in a subdirectory, such as `/blog/index.html`.

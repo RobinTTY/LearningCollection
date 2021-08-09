@@ -1,4 +1,7 @@
-# Introduction to Javascript - Codeacademy
+---
+id: introductionToJavascript
+title: Introduction to Javascript
+---
 
 ## Keywords
 
@@ -6,9 +9,9 @@ Keywords are words that are built into the JavaScript language, so the computer 
 
 ## The Console
 
-In JavaScript, the ```console``` keyword refers to an object, a collection of data and actions, that we can use in our code.
+In JavaScript, the `console` keyword refers to an object, a collection of data and actions, that we can use in our code.
 
-One action, or method, that is built into the ```console``` object is the ```.log()``` method.
+One action, or method, that is built into the `console` object is the `.log()` method.
 
 ## Data Types
 
@@ -30,7 +33,7 @@ An operator is a character that performs a task in our code. JavaScript has seve
 
 - Add (+)
 - Substract (-)
-- Multiplay (*)
+- Multiplay (\*)
 - Divide (/)
 - Remainder (%)
 
@@ -98,7 +101,7 @@ Note: The type of a variable is not fixed in JavaScript!
 
 ## Truthy and Falsy
 
-In JavaScript, a *truthy* value is a value that is considered true when encountered in a Boolean context. All values are truthy unless they are defined as falsy (i.e., except for false, 0, -0, 0n, "", null, undefined, and NaN).
+In JavaScript, a _truthy_ value is a value that is considered true when encountered in a Boolean context. All values are truthy unless they are defined as falsy (i.e., except for false, 0, -0, 0n, "", null, undefined, and NaN).
 
 A falsy (sometimes written falsey) value is a value that is considered false when encountered in a Boolean context.
 

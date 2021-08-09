@@ -1,4 +1,7 @@
-# React Basics
+---
+id: basics
+title: Basics
+---
 
 ## Creating a new project
 
@@ -12,7 +15,7 @@ npx create-react-app <app-name>
 
 A very basic React project will look something like this:
 
-![ProjectStructure](./resources/ReactProjectStructure.PNG)
+![ProjectStructure](/img/docs/Web/React/ReactProjectStructure.PNG)
 
 ### index.js
 

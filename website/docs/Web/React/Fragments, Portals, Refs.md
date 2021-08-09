@@ -1,4 +1,7 @@
-# Fragments, Portals and Refs
+---
+id: fragmentsPortalsRefs
+title: Fragments, Portals, Refs
+---
 
 ## Fragments
 

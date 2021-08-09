@@ -1,6 +1,6 @@
 ---
 id: pennxSd4x
-title: Notes on PennX - SD4x
+title: PennX - SD4x
 ---
 
 ## Anatomy of an HTTP Request
