@@ -16,7 +16,7 @@ A pending promise can either be fulfilled with a value or rejected with a reason
 
 ## Flow of execution
 
-![ProjectStructure](/img/docs/Web/JavaScript/promises.png)
+![ProjectStructure](/img/docs/Web/JavaScript/CoreConcepts/promises.png)
 
 ## Syntax
 
@@ -228,7 +228,7 @@ That’s because an error is passed down the chain, and in the second code piece
 
 ### Flow diagram
 
-![PromiseFlow](/img/docs/Web/JavaScript/catchVsThen.png)
+![PromiseFlow](/img/docs/Web/JavaScript/CoreConcepts/catchVsThen.png)
 
 ### Reference
 
