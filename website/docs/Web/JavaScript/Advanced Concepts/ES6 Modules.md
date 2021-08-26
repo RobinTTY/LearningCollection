@@ -23,7 +23,7 @@ Before ES6 we really went out of our ways to obtain modules in JavaScript. Syste
 
 With ES6 modules, you can concatenate all scripts you might need in one main script by marking some of them as exports, then other modules can import them.
 
-![ProjectStructure](/img/docs/Web/JavaScript/CoreConcepts/es6modules.png)
+![ProjectStructure](/img/docs/Web/JavaScript/AdvancedConcepts/es6modules.png)
 
 Before ES2015 (ES6) release, there were at least 3 major modules competing standards:
 
