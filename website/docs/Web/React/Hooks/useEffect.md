@@ -30,7 +30,9 @@ function Example() {
 }
 ```
 
-> You can think of useEffect Hook as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` combined.
+:::note
+You can think of useEffect Hook as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` combined.
+:::
 
 There are two common kinds of side effects in React components: those that don’t require cleanup, and those that do. Let’s look at this distinction in more detail.
 
@@ -102,7 +104,9 @@ function Example() {
 - **Why is useEffect called inside a component?:** Placing `useEffect` inside the component lets us access the `count` state variable (or any props) right from the effect. We don’t need a special API to read it — it’s already in the function scope. Hooks embrace JavaScript closures and avoid introducing React-specific APIs where JavaScript already provides a solution.
 - **Does useEffect run after every render?:** Yes! By default, it runs both after the first render and after every update. Instead of thinking in terms of “mounting” and “updating”, you might find it easier to think that effects happen “after render”. React guarantees the DOM has been updated by the time it runs the effects.
 
-> **Note:** Unlike `componentDidMount` or `componentDidUpdate`, effects scheduled with useEffect don’t block the browser from updating the screen. This makes your app feel more responsive. The majority of effects don’t need to happen synchronously. In the uncommon cases where they do (such as measuring the layout), there is a separate [useLayoutEffect](https://reactjs.org/docs/hooks-reference.html#uselayouteffect) Hook with an API identical to `useEffect`.
+:::note
+Unlike `componentDidMount` or `componentDidUpdate`, effects scheduled with useEffect don’t block the browser from updating the screen. This makes your app feel more responsive. The majority of effects don’t need to happen synchronously. In the uncommon cases where they do (such as measuring the layout), there is a separate [useLayoutEffect](https://reactjs.org/docs/hooks-reference.html#uselayouteffect) Hook with an API identical to `useEffect`.
+:::
 
 ### Effects with cleanup
 
@@ -180,7 +184,9 @@ function FriendStatus(props) {
 - **Why did we return a function from our effect?**: This is the optional cleanup mechanism for effects. Every effect may return a function that cleans up after it. This lets us keep the logic for adding and removing subscriptions close to each other. They’re part of the same effect!
 - **When exactly does React clean up an effect?** React performs the cleanup when the component unmounts. However, as we learned earlier, effects run for every render and not just once. This is why React also cleans up effects from the previous render before running the effects next time. This helps avoid bugs and can be opted out of in case it creates performance issues later.
 
-> We don’t have to return a named function from the effect (like we did here with `effect`). We can also return an arrow function or call it something different.
+:::note
+We don’t have to return a named function from the effect (like we did here with `effect`). We can also return an arrow function or call it something different.
+:::
 
 ## Tips for using effects
 
@@ -280,7 +286,9 @@ useEffect(() => {
 
 If you want to run an effect and clean it up only once (on mount and unmount), you can pass an empty array (`[]`) as a second argument.
 
-> **Note:** Make sure the array includes **all values from the component scope (such as props and state) that change over time and that are used by the effect.** Otherwise, your code will reference stale values from previous renders. Using the [eslint-hooks-plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) is recommended to warn against incorrectly applied dependencies.
+:::note
+Make sure the array includes **all values from the component scope (such as props and state) that change over time and that are used by the effect.** Otherwise, your code will reference stale values from previous renders. Using the [eslint-hooks-plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) is recommended to warn against incorrectly applied dependencies.
+:::
 
 ### Using timeouts to optimize performance
 
