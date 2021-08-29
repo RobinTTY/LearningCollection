@@ -1,6 +1,7 @@
 ---
 id: useEffect
 title: useEffect
+sidebar_position: 2
 ---
 
 ## What is an effect (or a "side effect")?

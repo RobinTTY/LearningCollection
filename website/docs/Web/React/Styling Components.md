@@ -1,6 +1,7 @@
 ---
 id: stylingComponents
 title: Styling Components
+sidebar_position: 2
 ---
 
 ## Dynamic styling

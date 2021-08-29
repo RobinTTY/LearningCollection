@@ -1,6 +1,7 @@
 ---
 id: useReducer
 title: useReducer
+sidebar_position: 4
 ---
 
 The `useReducer` hook is an alternative to `useState`. `useReducer` is usually preferable to `useState` **when you have complex state logic** that involves multiple sub-values or when the next state depends on the previous one. `useReducer` also lets you optimize performance for components that trigger deep updates because [you can pass dispatch down instead of callbacks](https://reactjs.org/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down).

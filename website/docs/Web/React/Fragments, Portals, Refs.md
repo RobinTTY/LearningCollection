@@ -1,6 +1,7 @@
 ---
 id: fragmentsPortalsRefs
 title: Fragments, Portals, Refs
+sidebar_position: 3
 ---
 
 ## Fragments
