@@ -1,6 +1,7 @@
 ---
 id: resiliency
 title: Resiliency
+sidebar_position: 6
 ---
 
 ## Connection pooling

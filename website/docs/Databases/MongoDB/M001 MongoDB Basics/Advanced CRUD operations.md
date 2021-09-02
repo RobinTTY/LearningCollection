@@ -1,6 +1,7 @@
 ---
 id: advancedCrudOperations
 title: Advanced CRUD operations
+sidebar_position: 5
 ---
 
 ## MQL Operators

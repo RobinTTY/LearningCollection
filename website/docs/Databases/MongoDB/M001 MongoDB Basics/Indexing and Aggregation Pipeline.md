@@ -1,6 +1,7 @@
 ---
 id: IndexingAggregationsPipeline
 title: Indexing and Aggregation Pipeline
+sidebar_position: 6
 ---
 
 ## Aggregation Framework

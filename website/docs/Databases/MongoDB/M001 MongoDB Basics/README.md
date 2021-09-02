@@ -1,6 +1,7 @@
 ---
 id: mongoDbBasics
 title: M001 - MongoDB Basics
+sidebar_position: 1
 ---
 
 ## What is MongoDB?

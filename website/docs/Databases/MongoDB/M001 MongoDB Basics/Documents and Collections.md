@@ -1,6 +1,7 @@
 ---
 id: documentsAndCollections
 title: Documents and Collections
+sidebar_position: 2
 ---
 
 ## What is a document?

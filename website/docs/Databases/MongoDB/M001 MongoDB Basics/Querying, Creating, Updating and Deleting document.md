@@ -1,6 +1,7 @@
 ---
 id: queryingCreatingUpdatingDeleting
 title: Querying, Creating, Updating and Deleting documents with Mongo shell
+sidebar_position: 4
 ---
 
 ## Querying data

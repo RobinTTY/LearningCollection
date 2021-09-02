@@ -1,6 +1,7 @@
 ---
 id: importingExportingData
 title: Importing and Exporting data
+sidebar_position: 3
 ---
 
 ```txt

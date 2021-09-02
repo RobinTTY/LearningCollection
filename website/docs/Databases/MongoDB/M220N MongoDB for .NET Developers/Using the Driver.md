@@ -1,6 +1,7 @@
 ---
 id: usingTheDriver
 title: Using the Driver
+sidebar_position: 3
 ---
 
 ## mflix project structure

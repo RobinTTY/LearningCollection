@@ -1,6 +1,7 @@
 ---
 id: gettingStarted
 title: Getting Started
+sidebar_position: 2
 ---
 
 Establishing a connection with the C# MongoDB driver:

@@ -1,6 +1,7 @@
 ---
 id: userFacingBackend
 title: User-Facing Backend
+sidebar_position: 4
 ---
 
 ## Aggregation Pipeline

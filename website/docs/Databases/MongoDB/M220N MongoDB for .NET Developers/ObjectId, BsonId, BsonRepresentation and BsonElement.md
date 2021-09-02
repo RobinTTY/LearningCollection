@@ -1,6 +1,7 @@
 ---
 id: notesOnMongoDB
 title: Notes on MongoDB
+sidebar_position: 7
 ---
 
 ## ObjectId

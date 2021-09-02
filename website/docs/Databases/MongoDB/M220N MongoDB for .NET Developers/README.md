@@ -1,9 +1,8 @@
 ---
 id: m220n
 title: M220N - MongoDB for .NET Developers
+sidebar_position: 1
 ---
-
-# M220N: MongoDB for .NET Developers
 
 ## Topics
 
