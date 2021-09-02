@@ -1,6 +1,6 @@
 ---
 id: mongoDbBasics
-title: M001 - MongoDB Basics
+title: Introduction
 sidebar_position: 1
 ---
 
