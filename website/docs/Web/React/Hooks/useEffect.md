@@ -4,8 +4,6 @@ title: useEffect
 sidebar_position: 2
 ---
 
-## What is an effect (or a "side effect")?
-
 The Effect Hook lets you perform side effects in function components. **Data fetching, setting up a subscription, storing data in browser storage, and manually changing the DOM** in React components are all **examples of side effects**. Whether or not you’re used to calling these operations “side effects” (or just “effects”), you’ve likely performed them in your components before.
 
 ## Using the effect hook
