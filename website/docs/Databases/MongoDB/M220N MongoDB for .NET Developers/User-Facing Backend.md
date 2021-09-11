@@ -87,7 +87,7 @@ Some core functionality that a faceted search feature should provide might inclu
 - finding the items that match a particular value of a certain facet (e.g. colour:blue)
 - finding the items in the intersection of multiple facet values (e.g. colour:blue AND size:medium)
 - finding the items in the union of multiple facet values (e.g. colour:blue OR colour:red OR size:large)
-- for each possible facet filter combination, display to the user the possible facet values on which it is possible to filter further (“drill down”)
+- for each possible facet filter combination, display to the user the possible facet values on which it is possible to filter further ("drill down")
 - for each facet value on which it is possible to drill down, display to the user the count of items matching that filter.
 
 For more info see the [MongoDB Blog](https://www.mongodb.com/blog/post/faceted-search-with-mongodb).

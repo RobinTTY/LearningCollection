@@ -152,7 +152,7 @@ person.printGender();
 
 ### The Spread Operator
 
-The spread operator “spreads” the values in an iterable (arrays, strings) across zero or more arguments or elements.
+The spread operator "spreads" the values in an iterable (arrays, strings) across zero or more arguments or elements.
 
 #### Example
 

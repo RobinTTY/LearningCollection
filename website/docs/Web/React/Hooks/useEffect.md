@@ -4,7 +4,7 @@ title: useEffect
 sidebar_position: 2
 ---
 
-The Effect Hook lets you perform side effects in function components. **Data fetching, setting up a subscription, storing data in browser storage, and manually changing the DOM** in React components are all **examples of side effects**. Whether or not you’re used to calling these operations “side effects” (or just “effects”), you’ve likely performed them in your components before.
+The Effect Hook lets you perform side effects in function components. **Data fetching, setting up a subscription, storing data in browser storage, and manually changing the DOM** in React components are all **examples of side effects**. Whether or not you’re used to calling these operations "side effects" (or just "effects"), you’ve likely performed them in your components before.
 
 ## Using the effect hook
 
@@ -99,9 +99,9 @@ function Example() {
 }
 ```
 
-- **What does useEffect do?:** By using this Hook, you tell React that your component needs to do something after render. React will remember the function you passed (we’ll refer to it as our “effect”), and call it later after performing the DOM updates. In this effect, we set the document title, but we could also perform data fetching or call some other imperative API.
+- **What does useEffect do?:** By using this Hook, you tell React that your component needs to do something after render. React will remember the function you passed (we’ll refer to it as our "effect"), and call it later after performing the DOM updates. In this effect, we set the document title, but we could also perform data fetching or call some other imperative API.
 - **Why is useEffect called inside a component?:** Placing `useEffect` inside the component lets us access the `count` state variable (or any props) right from the effect. We don’t need a special API to read it — it’s already in the function scope. Hooks embrace JavaScript closures and avoid introducing React-specific APIs where JavaScript already provides a solution.
-- **Does useEffect run after every render?:** Yes! By default, it runs both after the first render and after every update. Instead of thinking in terms of “mounting” and “updating”, you might find it easier to think that effects happen “after render”. React guarantees the DOM has been updated by the time it runs the effects.
+- **Does useEffect run after every render?:** Yes! By default, it runs both after the first render and after every update. Instead of thinking in terms of "mounting" and "updating", you might find it easier to think that effects happen "after render". React guarantees the DOM has been updated by the time it runs the effects.
 
 :::note
 Unlike `componentDidMount` or `componentDidUpdate`, effects scheduled with useEffect don’t block the browser from updating the screen. This makes your app feel more responsive. The majority of effects don’t need to happen synchronously. In the uncommon cases where they do (such as measuring the layout), there is a separate [useLayoutEffect](https://reactjs.org/docs/hooks-reference.html#uselayouteffect) Hook with an API identical to `useEffect`.

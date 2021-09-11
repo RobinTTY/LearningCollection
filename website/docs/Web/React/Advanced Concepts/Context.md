@@ -10,9 +10,9 @@ In a typical React application, data is passed top-down (parent to child) via pr
 
 ## When to use context
 
-Context is designed to share **data that can be considered “global”** for a tree of React components, such as the current authenticated user, theme, or preferred language.
+Context is designed to share **data that can be considered "global"** for a tree of React components, such as the current authenticated user, theme, or preferred language.
 
-For example, in the code below we manually thread through a “theme” prop in order to style the Button component:
+For example, in the code below we manually thread through a "theme" prop in order to style the Button component:
 
 ```jsx {8-11,14}
 class App extends React.Component {
