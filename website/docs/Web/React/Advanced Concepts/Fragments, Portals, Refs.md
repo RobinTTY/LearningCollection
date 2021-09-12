@@ -1,8 +1,12 @@
 ---
 id: fragmentsPortalsRefs
 title: Fragments, Portals, Refs
-sidebar_position: 3
+sidebar_position: 2
 ---
+
+:::danger
+TODO: breakout into multiple topics
+:::
 
 ## Fragments
 

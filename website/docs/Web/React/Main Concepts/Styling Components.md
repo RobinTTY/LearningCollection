@@ -1,8 +1,12 @@
 ---
 id: stylingComponents
 title: Styling Components
-sidebar_position: 2
+sidebar_position: 3
 ---
+
+:::danger
+TODO: break out into multiple topics if necessary
+:::
 
 ## Dynamic styling
 
