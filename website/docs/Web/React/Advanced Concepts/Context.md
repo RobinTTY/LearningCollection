@@ -77,6 +77,15 @@ class ThemedButton extends React.Component {
 }
 ```
 
+## Context Limitations
+
+Context is not made for every scenario, it has a few limitations:
+
+- [Context is not optimized for high frequency changes](https://github.com/facebook/react/issues/14110#issuecomment-448074060) (e.g. changes multiple times per second)
+  - You could use something like [Redux](https://react-redux.js.org/) instead
+- Context shouldn't be used to replace ALL component communications and props
+  - Components should still be configurable via props and short "prop chains" might not need replacement
+
 ## API
 
 ### React.createContext

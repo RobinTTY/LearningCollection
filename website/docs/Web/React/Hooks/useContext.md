@@ -4,7 +4,7 @@ title: useContext
 sidebar_position: 3
 ---
 
-The `useContext` Hook provides the same functionality as the [Context API](../Advanced%20Concepts/Context), just packaged up into a simple to use Hook that you can use inside functional components. The hook makes our code more readable and compact.
+The `useContext` Hook provides the same functionality as the [Context API](../Advanced%20Concepts/Context), just packaged up into a simple to use Hook that you can use inside functional components. The hook makes our code more readable and compact. Refer to the [Context API documentation](../Advanced%20Concepts/Context) for details on when to use context.
 
 ## useContext hook vs classic API
 
@@ -171,3 +171,65 @@ const Navigation = (props) => {
 
 export default Navigation;
 ```
+
+## Creating a separate context component
+
+You might want to pull more logic out of for example the `App` component and create a separate context management component, to make the code a bit more readable. We could do it like this:
+
+```jsx title="store/auth-context.js" {10-11,24-32}
+import React, { useState, useEffect } from "react";
+
+const AuthContext = React.createContext({
+  isLoggedIn: false,
+  onLogout: () => {},
+  onLogin: (email, password) => {},
+});
+
+export const AuthContextProvider = (props) => {
+  // this is a good place to handle our state for the auth context
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  ...
+
+  const logoutHandler = () => {
+    ...
+  };
+
+  const loginHandler = () => {
+    ...
+  };
+
+  return (
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: isLoggedIn,
+        onLogout: logoutHandler,
+        onLogin: loginHandler,
+      }}
+    >
+      {props.children}
+    </AuthContext.Provider>
+  );
+};
+
+export default AuthContext;
+```
+
+Now we can use the component like this:
+
+```jsx title="index.js"
+...
+import App from './App';
+import { AuthContextProvider } from './store/auth-context';
+
+ReactDOM.render(
+  <AuthContextProvider>
+    <App />
+  </AuthContextProvider>,
+  document.getElementById('root')
+);
+```
+
+Our `AuthContextProvider` component will provide our authorization context throughout the application.
+
+See the [Github Repo](https://github.com/RobinTTY/LearningCollection/tree/master/Web/React/in%20depth%20guide/06_Effects_Reducers_Context/src) for the full code.
