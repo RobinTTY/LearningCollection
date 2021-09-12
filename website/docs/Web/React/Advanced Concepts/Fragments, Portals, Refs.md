@@ -163,7 +163,7 @@ For example, instead of exposing `open()` and `close()` methods on a Dialog comp
 
 ### Creating Refs
 
-Refs are created using `React.createRef()` and attached to React elements via the `ref` attribute. Refs are commonly assigned to an instance property when a component is constructed so they can be referenced throughout the component.
+Refs are created either using `React.createRef()` and attached to React elements via the `ref` attribute or by using the `useRef` hook. Refs are commonly assigned to an instance property when a component is constructed so they can be referenced throughout the component.
 
 ```jsx
 const AddUser = (props) => {
