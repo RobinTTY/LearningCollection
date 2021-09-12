@@ -16,6 +16,21 @@ To create a new React project we simply use the following command:
 npx create-react-app <app-name>
 ```
 
+## Project Checklist
+
+There are a few things that should be done to create good code with React:
+
+- Install the [React Hooks linter plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+- [Enforce semicolons](https://eslint.org/docs/rules/semi) through ESLint
+
+:::info
+This checklist is just based upon my own experience with React and JavaScript in general.
+:::
+
+:::danger
+TODO: This checklist is under construction and not complete
+:::
+
 ## Structure of a React project
 
 A very basic React project will look something like this:
