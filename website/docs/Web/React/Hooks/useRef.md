@@ -95,3 +95,52 @@ function TextInputWithFocusButton() {
 We use the `ref` property on the `input` element to set the current value of `inputRef` to the input element. Now when we click the button it will call `onButtonClick` which uses the current value of the `inputRef` variable to set the focus on the `input` element.
 
 Being able to access any DOM element directly with a ref is really useful for doing things like setting focus or managing other attributes that you cannot directly control in React, but refs shouldn't be overused.
+
+### Storing the previous value of a state variable
+
+Refs can also be used for any form of storage that is persisted across component renders. A very common use case for this would be storing the previous value of a state variable:
+
+```jsx {3,5-7}
+function Counter() {
+  const [count, setCount] = useState(0);
+  const prevCountRef = useRef();
+
+  useEffect(() => {
+    prevCountRef.current = count;
+  });
+  const prevCount = prevCountRef.current;
+
+  return (
+    <h1>
+      Now: {count}, before: {prevCount}
+    </h1>
+  );
+}
+```
+
+The above code will update the `previousName` ref every time the name changes so that it always has the previous value of the name variable stored in it.
+
+You can extract the functionality into its own hook:
+
+```jsx
+function usePrevious(value) {
+  const ref = useRef();
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+}
+```
+
+and then use it in `useEffect`:
+
+```jsx {5}
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const calculation = count + 100;
+  const prevCalculation = usePrevious(calculation);
+  // ...
+```
+
+It’s possible that in the future React will provide a `usePrevious` Hook out of the box since it’s a relatively common use case.
