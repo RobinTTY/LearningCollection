@@ -139,3 +139,7 @@ These objects are called "React elements". You can think of them as descriptions
 :::tip
 It is recommended to use the ["Babel" language definition](https://babeljs.io/docs/en/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted.
 :::
+
+### TODO
+
+TODO: [This information seems good to know](https://reactjs.org/docs/jsx-in-depth.html)
