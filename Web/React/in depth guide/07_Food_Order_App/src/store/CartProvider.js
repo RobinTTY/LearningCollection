@@ -1,17 +1,54 @@
+// We use useReducer since the managed state is a bit more complex (we have to check certain things, etc.)
+import { useReducer } from "react";
 import CartContext from "./cart-context";
+
+const defaultCartState = {
+  items: [],
+  totalAmount: 0,
+};
+
+const cartReducer = (state, action) => {
+  switch (action.type) {
+    case "ADD":
+      return {
+        items: [...state.items, action.item],
+        totalAmount: state.totalAmount + action.item.price,
+      };
+    case "REMOVE":
+      return {
+        items: state.items.filter((item) => item.id !== action.item.id),
+        totalAmount: state.totalAmount - action.item.price,
+      };
+  }
+};
 
 /**
  * Manages the cart context data. Provides the context to the components that need it.
  * @param {*} props
  */
 const CartProvider = (props) => {
-  const addItemToCartHandler = (item) => {};
+  const [cartState, dispatchCartAction] = useReducer(
+    cartReducer,
+    defaultCartState
+  );
 
-  const removeItemFromCartHandler = (item) => {};
+  const addItemToCartHandler = (item) => {
+    dispatchCartAction({
+      type: "ADD",
+      item: item,
+    });
+  };
+
+  const removeItemFromCartHandler = (item) => {
+    dispatchCartAction({
+      type: "REMOVE",
+      item: item,
+    });
+  };
 
   const cartContext = {
-    items: [],
-    totalAmount: 0,
+    items: cartState.items,
+    totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
   };
