@@ -16,3 +16,5 @@ This page contains the topics I still want to look into.
   - [ ] [Marble Testing](https://medium.com/@bencabanes/marble-testing-observable-introduction-1f5ad39231c)
 - [ ] Imperative vs Declarative Programming
   - [ ] [Introduction](https://ui.dev/imperative-vs-declarative-programming/)
+- [ ] JavaScript
+  - [ ] [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
