@@ -31,7 +31,7 @@ There are more concern levels available. See [MongoDB Documentation](https://doc
 
 **Solution:**
 
-```C#
+```cs
 var result = await _commentsCollection
   .WithReadConcern(ReadConcern.Majority)
   .Aggregate()
@@ -78,7 +78,7 @@ These operations can be passed to the `BulkWriteAsync` method and will be execut
 
 ### Example
 
-```C#
+```cs
 var requests = new List<ReplaceOneModel<Movie>>();
 datePipelineResults.ForEach(transformedMovie => requests.Add(new ReplaceOneModel<Movie>(Builders<Movie>.Filter.Where(movie => movie.Id == transformedMovie.Id), transformedMovie)));
 var bulkWriteDatesResult = await _moviesCollection.BulkWriteAsync(requests);

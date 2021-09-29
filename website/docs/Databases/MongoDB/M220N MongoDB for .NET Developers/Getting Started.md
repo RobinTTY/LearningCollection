@@ -6,7 +6,7 @@ sidebar_position: 2
 
 Establishing a connection with the C# MongoDB driver:
 
-```C#
+```cs
 using MongoDB.Driver;
 using MongoDB.Bson;
 

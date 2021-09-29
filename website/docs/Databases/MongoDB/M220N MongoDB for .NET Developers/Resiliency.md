@@ -26,7 +26,7 @@ For more options see: [MongoDB Docs](https://docs.mongodb.com/manual/reference/c
 
 Defined in code:
 
-```C#
+```cs
 _client = new MongoClient(new MongoClientSettings(){ MaxConnectionPoolSize = 50});
 ```
 
@@ -47,7 +47,7 @@ mongodb+srv://user:password@server.net?wtimeoutMS=2500
 
 Defined in code:
 
-```C#
+```cs
 _client = new MongoClient(Constants.MongoDbConnectionUriWithMaxPoolSize).WithWriteConcern(
                 new WriteConcern(wTimeout: TimeSpan.FromMilliseconds(2500))) as MongoClient;
 ```
@@ -69,7 +69,7 @@ mongodb+srv://user:password@server.net?serverSelectionTimeoutMS=5000
 
 Defined in code:
 
-```C#
+```cs
 _client = new MongoClient(new MongoClientSettings(){ ServerSelectionTimeout = TimeSpan.FromMilliseconds(5000)});
 ```
 

@@ -12,7 +12,7 @@ sidebar_position: 4
 
 ### Example of a similar (but not the same) pipeline in C#
 
-```C#
+```cs
 public void CountMovies()
         {
             // This stage finds all movies that have a specific director
@@ -108,7 +108,7 @@ To add something new to the database we can use the methods `InsertOneAsync` and
 
 ### Example
 
-```C#
+```cs
 public async Task CreateMovieAsync()
 {
 
@@ -143,7 +143,7 @@ To update something in the database we can use the methods `UpdateOneAsync`, `Up
 
 Updating one document:
 
-```C#
+```cs
 // not type safe
 var updateResult = _theatersCollection.UpdateOne(filter,
     new BsonDocument("$set",
@@ -167,7 +167,7 @@ var updatedDoc = await _theatersCollection.FindOneAndUpdateAsync<Theater>(
 
 Updating many documents:
 
-```C#
+```cs
 var update = Builders<Theater>
                 .Update.Set(t => t.Location.Address.City, "Bloomington");
 
@@ -206,7 +206,7 @@ var result = await _theatersCollection.UpdateManyAsync(
 
 ### Example
 
-```C#
+```cs
 await _usersCollection.WithWriteConcern(WriteConcern.WMajority).InsertOneAsync(user, cancellationToken: cancellationToken);
 ```
 
@@ -220,7 +220,7 @@ await _usersCollection.WithWriteConcern(WriteConcern.WMajority).InsertOneAsync(u
 
 Join comments to movies (this pipeline is executed upon the movies collection):
 
-```C#
+```cs
 // $match stage
 {
   year: { "$gte": 1980, "$lt": 1990 }
@@ -267,7 +267,7 @@ Join comments to movies (this pipeline is executed upon the movies collection):
 
 We can also export the pipeline from Compass to C# code:
 
-```C#
+```cs
 new BsonArray
 {
     new BsonDocument("$match",
@@ -302,7 +302,7 @@ new BsonArray
 
 Better approach:
 
-```C#
+```cs
 /* Approach that uses several helpful methods in the driver:
     * Aggregate(), Match(), and Lookup(), each of which is represented
     * in the code above as MQL. The Lookup() method is a bit complex;
@@ -336,7 +336,7 @@ var firstMovie = movies.First();
 
 ## Basic Deletes
 
-```C#
+```cs
 // delete one document
 var filter = Builders<Theater>.Filter.Eq(t => t.TheaterId, 27017);
 var result = await _theatersCollection.DeleteOneAsync(filter);

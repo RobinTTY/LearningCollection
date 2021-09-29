@@ -12,7 +12,7 @@ sidebar_position: 3
 
 The MongoDB driver supports many different approaches to working with your data. For instance you can read data in 4 different ways using the driver:
 
-```C#
+```cs
 // Using MQL as a string -> NOT TYPE SAFE
 var filter = "{ price: { $gt: 400 } }";
 var expensiveGuitars = guitarsCollection.Find(filter);
@@ -64,19 +64,19 @@ var expensiveGuitars = guitars.Where(g => g.Price > 400).ToList();
 
 ### Synchronous
 
-```C#
+```cs
 public ActionResult GetMovie(string movieId) { ... }
 ```
 
 ### Asynchronous
 
-```C#
+```cs
 public async Task<ActionResult> GetMovieAsync(string movieId, CancellationToken cancellationToken = default) { ... }
 ```
 
 ### Asynchronous Repository Method
 
-```C#
+```cs
 public async Task<Movie> FetchMovieAsync(string movieId, CancellationToken cancellationToken = default)
 {
     return await _movies.Collection
@@ -89,7 +89,7 @@ public async Task<Movie> FetchMovieAsync(string movieId, CancellationToken cance
 
 To limit the amount of data that MongoDB sends to applications, you can include a projection document to specify or restrict fields to return. With the C# driver we do it like this:
 
-```C#
+```cs
 var projectionFilter = Builders<Movie>.Projection
     .Include(m => m.Title)
     .Include(m => m.Year)
@@ -101,7 +101,7 @@ var projectionFilter = Builders<Movie>.Projection
 
 Sorting first, limiting the results, and skipping so we get different results for each page:
 
-```C#
+```cs
 var sortByYearDescending = Builders<Movie>.Sort.Ascending(m => m.Year);
 var movies = await _moviesCollection.Find<Movie>(Builders<Movie>.Filter.Empty)
     .Sort(sortByYearDescending)
@@ -112,7 +112,7 @@ var movies = await _moviesCollection.Find<Movie>(Builders<Movie>.Filter.Empty)
 
 Search for any match between two arrays:
 
-```C#
+```cs
 public async Task<IReadOnlyList<MovieByCountryProjection>> GetMoviesByCountryAsync(
     CancellationToken cancellationToken = default,
     params string[] countries
