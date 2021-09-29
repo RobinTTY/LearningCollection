@@ -18,3 +18,5 @@ This page contains the topics I still want to look into.
   - [ ] [Introduction](https://ui.dev/imperative-vs-declarative-programming/)
 - [ ] JavaScript
   - [ ] [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+- [ ] Tooling
+  - [ ] [Emmet](https://code.visualstudio.com/docs/editor/emmet)
