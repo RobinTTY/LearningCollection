@@ -1,6 +1,7 @@
 ---
 id: mongoShellCommands
 title: Important Mongo Shell Commands
+position: 1
 ---
 
 - Select database: `use <database>`
