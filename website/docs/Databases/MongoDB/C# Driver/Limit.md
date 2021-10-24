@@ -14,9 +14,15 @@ IFindFluent<TDocument, TProjection> Limit(int? limit);
 
 ### Parameters
 
-**`limit`** - `int`
+#### **`limit`** - `int?`
 
 The limit to enforce on the number of documents to return. A limit of 0 will return all documents.
+
+### Returns
+
+#### **IFindFluent<TDocument, TProjection>**
+
+TODO
 
 ## Example
 
