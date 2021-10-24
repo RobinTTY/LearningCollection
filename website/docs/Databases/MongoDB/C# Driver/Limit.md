@@ -20,7 +20,7 @@ The limit to enforce on the number of documents to return. A limit of 0 will ret
 
 ### Returns
 
-#### **IFindFluent<TDocument, TProjection>**
+#### **`IFindFluent<TDocument, TProjection>`**
 
 TODO
 

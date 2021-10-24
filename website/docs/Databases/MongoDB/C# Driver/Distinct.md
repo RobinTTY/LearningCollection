@@ -41,7 +41,7 @@ A cancellation token can be provided to the operation to cancel it prematurely.
 
 ### Returns
 
-#### **IAsyncCursor<TField>**
+#### **`IAsyncCursor<TField>`**
 
 TODO
 
