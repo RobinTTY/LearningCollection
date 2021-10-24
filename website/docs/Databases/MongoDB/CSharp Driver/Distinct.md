@@ -1,5 +1,5 @@
 ---
-id: mongodbDistinct
+id: distinct
 title: Distinct
 sidebar_position: 2
 ---

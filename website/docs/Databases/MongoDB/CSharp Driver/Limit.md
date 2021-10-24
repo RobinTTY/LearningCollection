@@ -1,5 +1,5 @@
 ---
-id: mongodbLimit
+id: limit
 title: Limit
 sidebar_position: 1
 ---
