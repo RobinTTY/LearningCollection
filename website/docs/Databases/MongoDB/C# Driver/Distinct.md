@@ -1,7 +1,7 @@
 ---
 id: distinct
 title: Distinct
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 The `Limit` method operates on the `IFindFluent` interface. It limits the number of documents to query from the database.
