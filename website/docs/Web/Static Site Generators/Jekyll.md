@@ -1,6 +1,7 @@
 ---
-id: notesOnJekyll
-title: Notes on Jekyll
+id: jekyll
+title: Jekyll
+sidebar_position: 2
 ---
 
 Jekyll is a simple, extendable, static site generator. Given text written in a supported markup language it churns through layouts to create a static website. Throughout that process you can tweak how you want the site URLs to look, what data gets displayed in the layout, and more.

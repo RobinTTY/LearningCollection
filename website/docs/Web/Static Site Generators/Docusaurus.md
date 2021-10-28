@@ -1,4 +1,8 @@
-# Docusaurus
+---
+id: docusaurus
+title: Docusaurus
+sidebar_position: 1
+---
 
 ## What is Docusaurus
 
