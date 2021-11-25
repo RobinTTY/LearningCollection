@@ -20,3 +20,5 @@ This page contains the topics I still want to look into.
   - [ ] [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
 - [ ] Tooling
   - [ ] [Emmet](https://code.visualstudio.com/docs/editor/emmet)
+- [ ] Search
+  - [ ] [Modern Web](https://modern-web.dev/) What technology do they use for their search bar?
