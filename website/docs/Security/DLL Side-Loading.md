@@ -23,52 +23,80 @@ DLL Side-Loading involves execution of a malicious payload in form of a DLL. Rat
 - This fact can be abused by placing a malicious DLL in one of these directories
   - In these cases Windows reaches the malicious DLL before finding the legitimate version
 
-## Less common variants
+Side-loading **takes advantage of the DLL search order** used by the loader by positioning both the victim application and malicious payload(s) alongside each other. Executables used to side-load payloads may not be flagged during delivery and/or execution which makes them a good way to evade detection.
 
-Another way to take advantage of DLL side-loading is by the way of Windows side-by-side (SxS or WinSxS) assembly feature.
-
-This feature helps manage conflicting and
-duplicate DLL versions by loading them on
-demand from a common directory
-
-![Side-By-Side-Loading](/img/docs/Security/Side-by-Side.png)
-
-- WinSxS mainfests, which are embedded in the executable as XML data, describe dependencies and libraries used by the application
-- WinSxS is designed to give developers flexibility to update binaries by easily replacing the old binaries in the same location
-- This omission may inadvertently grant trusted installer privileges to malicious payloads.
-
-![Side-By-Side-Loading2](/img/docs/Security/Side-by-Side2.png)
-
-### The problem
-
-The problem with this technique is that it offers little to no validation of the loaded DLL other than what is explicit in the manifest’s DLL metadata.
+The payload itself may also be encrypted/packed or otherwise obfuscated until loaded into memory of the trusted process.
 
 ## Examples of DLL Side-Loading
 
-### OceanLotus KerrDown
+### Operation Clandestine Fox
 
-- OceanLotus (APT32) is a sophisticated threat actor originating out of south east asia
-- KerrDown uses DLL Side-Loading to load [Cobalt Strike](https://www.infocyte.com/cyber-security/2020/09/02/cobalt-strike-the-new-favorite-among-thieves/) beacons into memory
+- Attack originating from APT3, a China-based group which researchers have attributed to China's Ministry of State Security
+- Attack was carried out in 2014
+- Target were companies in the energy sector
 
-![KerrDown](https://unit42.paloaltonetworks.com/wp-content/uploads/2019/01/Figure-6-Execution-flow-of-sideloaded-malicious-downloader.png)
+#### Initial Contact
 
-#### Process
+- The initial attack vector is social engineering: An e-mail is sent which is made to look like a job application
+- The e-mail contains an attachment with a resume and **sample software** the applicant has written
+- The applicant had previously contacted the employee who received the e-mail via a social network, to make it look more legitimate
+- Before the e-mail was sent, there had been three weeks of communication between applicant and employee
 
-- Victim needs to open a lure document, which includes an image file with a message in Vietnamese which that asks the victim to enable macros to view the contents of the file
-  ![Delivery](https://unit42.paloaltonetworks.com/wp-content/uploads/2019/01/Figure-1-Lure-document.png)
-- Two different base64 blobs are inserted in the page in separate tables, the font size has been changed to 1 which may deceive victims to overlook the content
-  - this may be used to hide the content from automated tools which can detect the presence of an embedded binary within files
+The email contained the following:
 
-![Base64](https://unit42.paloaltonetworks.com/wp-content/uploads/2019/01/Figure-2-Base64-encoded-pedll-files-embedded-as-text-in-the-document..png)
+> Hi Michael,
+>
+> Attached is my resume and the software I developed for my Uncle who is a researcher in new material. Last week I was busy with my partners to develop a control system. Thank you very much. Wish to be a member of your company.
+>
+> Emily
 
-- Based on whether the system is 32-bit or 64-bit one of the two base64 encoded blobs gets executed by the embedded macro
-- We can see that the decoded blob begins with the header of a [Portable Executable (PE)](https://en.wikipedia.org/wiki/Portable_Executable) DLL file
-- After decoding the DLL is dropped in the directory location `'Users\Administrator\AppData\Roaming\'` as 'main_background.png'.
-- The DLL retrieves the payload from the URL, decrypts it executes it in the memory. Therefore, it is observed that only the KerrDown DLL downloader is saved in the system and the payload (Cobalt Strike Beacon) directly gets executed in the memory without being written in the system.
+- FireEye investigated this attack and found some inconsistencies in the social profile of the alleged applicant:
+  - She had some fake education history
+  - She also had additional contacts at the victim's company
+  - She had inquired about who the IT Manger was and what versions of software they ran with her other contacts
+
+The attacker used e-mail and social networks to communicate with her various contacts. Worth noting is that the attacker used the private e-mail addresses of employees to contact them, possibly to circumvent the more sophisticated corporate e-mail security but maybe just because employees had linked their personal e-mail to the social network instead of the work address.
+
+#### The E-Mail Attachments
+
+Attached to the E-Mail was a single **"resume.rar"** file. This archive was sent to different companies and didn't always contain the same files. The archive with the sideloading attack looked as follows:
+
+- SETUP.exe
+- my resume.pdf
+
+This archive was protected by the password "TTcalc".
+
+**SETUP.exe** is a self executing RAR archive containting more files:
+
+- ttcalc.exe
+- ttcalcBAK.exe
+- ttcalc.chm
+- README
+- CHANGELOG
+- COPYRIGHT
+
+When the SETUP.exe is executed it opens the WinRAR window, prompting the user for the location to extract the files to.
+
+The files are written to a TTCalc folder and it is tried to launch ttcalcBAK.exe (the malware dropper) but the path is incorrect so it fails with an error message. All other files are benign and related to the legitimate TTCalc application.
+
+TTCalc is a scientific calculator.
+
+ttcalcBAK.exe is also a self-extracting RAR which drops and launches _chrome_frame_helper_. Chrome frame helper dll is a file that belongs to Google Chrome Frame, a plugin for Internet Explorer that enables Internet Explorer to display web pages in Google Chrome's rendering style. The project was retired in 2014.
+
+In this case the file is a [Backdoor](https://www.fireeye.com/blog/threat-research/2014/07/pacific-ring-of-fire-plugx-kaba.html), it uses a legitimate Chrome executable to **load the malicious DLL via side-loading**. According to FireEye this kind of malware was quiet common at the time (2014).
+
+Now with the actual malcode loaded the malware would start to communicate with the Command and Control Server.
+
+## What we can learn
+
+- Very often the attack vector is social engineering and if we are more cautious about these interactions we can avoid possible attacks
+- Don't use your personal Mail for business communication purposes
 
 ## Mitigations
 
-- **Application Developer Guidance:** Train developers of applications so they know how to avoid introducing DLL Side-Loading vulnerabilities
+- Train developers of applications so they know how to avoid introducing DLL Side-Loading vulnerabilities
+- Train users of applications that might be vulnerable to DLL Side-Loading attacks
+- Restrict possibly abused functionality in applications if possible (e.g. Excel/Word Macros, etc.)
 - Keep software up to date
 
 ## Detection
