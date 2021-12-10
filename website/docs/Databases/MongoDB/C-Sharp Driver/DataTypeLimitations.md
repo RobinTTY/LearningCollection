@@ -28,7 +28,7 @@ public class MyDataModel
 Trying to store unsinged values in the database will cause a **runtime exception**.
 The exception will look like this:
 
-```cs
+```none
 Unhandled Exception: System.OverflowException: Value was either too large or too small for an Int32.
    at System.Convert.ThrowInt32OverflowException()
    at System.UInt32.System.IConvertible.ToInt32(IFormatProvider provider)
