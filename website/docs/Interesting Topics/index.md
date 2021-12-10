@@ -22,3 +22,11 @@ This page contains the topics I still want to look into.
   - [ ] [Emmet](https://code.visualstudio.com/docs/editor/emmet)
 - [ ] Search
   - [ ] [Modern Web](https://modern-web.dev/) What technology do they use for their search bar?
+- [ ] C# Libraries
+  - [ ] [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet)
+  - [ ] [FluentAssertions](https://github.com/fluentassertions/fluentassertions)
+  - [ ] [Polly](https://github.com/App-vNext/Polly)
+  - [ ] [Moq](https://github.com/moq/moq4)
+  - [ ] [Bogus](https://github.com/bchavez/Bogus)
+  - [ ] [AutoMapper](https://github.com/AutoMapper/AutoMapper)
+  - [ ] [FluentValidation](https://github.com/FluentValidation/FluentValidation)
