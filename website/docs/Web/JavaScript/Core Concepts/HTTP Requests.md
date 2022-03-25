@@ -8,7 +8,7 @@ There are different options when it comes to making HTTP requests (this is not R
 
 There are a few differences to them, which can be compared here:
 
-![httpRequestLibraries](/img/docs/Web/JavaScript/CoreConcepts/HttpRequestLibraries.PNG)
+![httpRequestLibraries](/img/docs/Web/JavaScript/CoreConcepts/HttpRequestLibraries.png)
 
 Generally when making simple requests in a browser context, the Fetch API is a very good option, since it doesn't require any additional package and generally has very solid feature support. If the has more complex requirements, axios should be considered.
 
