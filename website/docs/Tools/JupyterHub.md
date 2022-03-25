@@ -53,7 +53,7 @@ Deploying this environment trough docker is not possible as stated on the Jupyte
 
 ### Which user owns which process
 
-![linux-ps](/img/docs/Tools/jupyterhub/linux-ps.png)
+![linux-ps](/img/docs/Tools/jupyterHub/linux-ps.png)
 
 - User "jupyter+ runs the spawned kernels (ipykernel_launcher) and a process for each user. The kernels are spawned after a user creates a notebook.
 - Users are registered as standard (non-root) users in Linux
@@ -76,11 +76,11 @@ The certificate path is an example and must be supplied with a valid path to the
 After completing this setup the Hub should be accessible by https.
 The setup should look something like this:
 
-![HttpsSetup](/img/docs/Tools/jupyterhub/httpsConfiguration.PNG)
+![HttpsSetup](/img/docs/Tools/jupyterHub/httpsConfiguration.PNG)
 
 Accessing the site should then look like this (notice the padlock and https connection):
 
-![HttpsAccess](/img/docs/Tools/jupyterhub/hubWithHttps.PNG)
+![HttpsAccess](/img/docs/Tools/jupyterHub/hubWithHttps.PNG)
 
 ## Creating and managing different kernel/virtual environments
 
