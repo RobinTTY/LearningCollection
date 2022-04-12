@@ -1,27 +1,8 @@
 ---
-id: ansible
-title: Ansible
+id: tools-ansible-writing-playbooks
+title: Writing Playbooks
+sidebar_position: 5
 ---
-
-## Installation
-
-See [Ansbile Docs](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
-
-## Terminology
-
-- **Control Node:** Any machine with Ansible installed, can run commands and playbooks (can't be a Windows computer)
-- **Managed Nodes:** The network devices you manage trough Ansible. Sometimes called hosts. Ansible is not installed on managed nodes
-- **Inventory:** A list of managed nodes. Can specify information like IP address for each managed node and can organize them by creating and nesting groups
-- **Modules:** The units of code Ansible executes. Each module has a particular use (e.g. administering users, managing VLAN interfaces, etc.). A single module can be invoked by a task, or several can be invoked by a playbook
-- **Tasks:** The units of action in Ansible. You can execute a single task once with an ad-hoc command.
-- **Playbooks:** Ordered lists of tasks, saved so they can run those tasks repeatedly. Can include variables as well as tasks. Written in YAML.
-
-## Managed Node Requirements
-
-- SSH for communication (sftp by default)
-- Python 2.6 or higher OR Python 3.5 or higher
-
-## Writing Playbooks
 
 Playbooks are Ansible's configuration, deployment, and orchestration language. They can describe a policy you want your remote system to enforce, or a set of steps in a general IT process. They are expressed in YAML format and have a minimum of syntax, which intentionally tries to not be a programming language or script, but rather a model of a configuration or a process.
 
@@ -34,7 +15,19 @@ A playbook consists of one or more 'plays' in a list. The goal of a play is to m
 
 By composing a playbook of multiple ‘plays’, it is possible to orchestrate multi-machine deployments, running certain steps on all machines in the webservers group, then certain steps on the database server group, then more commands back on the webservers group, etc.
 
-### Playbook example with one group of hosts
+## Preconditions
+
+To create a playbook and execute it on a (group of) host(s) you need to check some preconditions:
+
+1. Edit `/etc/ansible/hosts` and add the host(s) you want to manage
+2. Ensure you can access all hosts via ssh keys for the most comfortable workflow
+3. Check reachability of hosts via `ansible all -m ping`
+
+:::warning
+When using Windows Subsystem for Linux, SSH keys need to be stored in the Linux filesystem to avoid permission issues.
+:::
+
+## Playbook example with one group of hosts
 
 ```yaml
 ---
@@ -65,7 +58,7 @@ By composing a playbook of multiple ‘plays’, it is possible to orchestrate m
         state: restarted
 ```
 
-### Playbook example with multiple groups of hosts
+## Playbook example with multiple groups of hosts
 
 ```yaml
 ---
@@ -95,24 +88,6 @@ By composing a playbook of multiple ‘plays’, it is possible to orchestrate m
         name: postgresql
         state: started
 ```
-
-## Control Node Environment
-
-A control node has the following files per default under /etc/ansible:
-
-- ansible.cfg - options for ansible
-- hosts - list of computers where ansible should execute the playbook
-- roles - ways of automatically loading certain vars_files, tasks, and handlers based on a known file structure
-
-## Important CLI Commands
-
-- ssh-keygen - generate new ssh-key
-- ssh-copy-id `[ip-address]` - copy ssh-key to target host
-- ansible -m ping all - ping all hosts defined in the ansible hosts file
-- ansible -m shell -a 'hostname' all - execute a command in bash on all hosts
-- ansible playbook `[playbook-name]`
-
-Keys are added to ~/.ssh/known_hosts
 
 ## Privilege escalation
 
