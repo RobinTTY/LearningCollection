@@ -1,0 +1,16 @@
+type: code
+files:
+- name: main.js
+  visible: true
+  text: |-
+    function sayHi() {
+      console.log("Hello");
+    }
+    // Write your code below
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/8392#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sat, 04 Jun 2022 03:37:32 UTC
+record: -1

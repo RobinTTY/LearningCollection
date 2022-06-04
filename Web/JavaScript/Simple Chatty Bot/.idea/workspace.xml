@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0ded0bae-3e27-47f0-85c5-3a91e1a8e806" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/JavaScript.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Simple Chatty Bot.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/externalDependencies.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/frameworkLessonHistory/storage.storageData" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/frameworkLessonHistory/storage.storageRecordIndex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simple Chatty Bot/Chatty Bot welcomes you/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simple Chatty Bot/Chatty Bot welcomes you/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simple Chatty Bot/Chatty Bot welcomes you/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simple Chatty Bot/Guess the age/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simple Chatty Bot/Guess the age/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simple Chatty Bot/Guess the age/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simple Chatty Bot/Learning numbers/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simple Chatty Bot/Learning numbers/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simple Chatty Bot/Learning numbers/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simple Chatty Bot/Multiple choice/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simple Chatty Bot/Multiple choice/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simple Chatty Bot/Multiple choice/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simple Chatty Bot/Print your name/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simple Chatty Bot/Print your name/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simple Chatty Bot/Print your name/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simple Chatty Bot/lesson-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simple Chatty Bot/task/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simple Chatty Bot/task/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Boolean and Logical Operators/Hey, fellows, make no errors/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Boolean and Logical Operators/Hey, fellows, make no errors/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Boolean and Logical Operators/Hey, fellows, make no errors/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Boolean and Logical Operators/Hey, fellows, make no errors/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Boolean and Logical Operators/Theory/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Boolean and Logical Operators/Theory/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Boolean and Logical Operators/Theory/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Boolean and Logical Operators/Theory/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Boolean and Logical Operators/lesson-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Comments/Theory/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Comments/Theory/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Comments/Theory/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Comments/Theory/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Comments/Uncomment a line/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Comments/Uncomment a line/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Comments/Uncomment a line/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Comments/Uncomment a line/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Comments/lesson-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Functions/A difference/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Functions/A difference/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Functions/A difference/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Functions/A difference/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Functions/Call the function/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Functions/Call the function/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Functions/Call the function/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Functions/Call the function/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Functions/Square/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Functions/Square/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Functions/Square/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Functions/Square/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Functions/Theory/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Functions/Theory/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Functions/Theory/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Functions/Theory/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Functions/lesson-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Strings and Numbers/Printing the type/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Strings and Numbers/Printing the type/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Strings and Numbers/Printing the type/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Strings and Numbers/Printing the type/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Strings and Numbers/Theory/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Strings and Numbers/Theory/task-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Strings and Numbers/Theory/task-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Strings and Numbers/Theory/task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/Strings and Numbers/lesson-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Topics/section-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/course-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/course-remote-info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../website/docs/Web/JavaScript/Core Concepts/HTTP Requests.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../website/docs/Web/JavaScript/Core Concepts/HTTP Requests.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../website/docs/Web/JavaScript/Core Concepts/Promise.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../website/docs/Web/JavaScript/Core Concepts/Promise.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../website/docs/Web/JavaScript/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../website/docs/Web/JavaScript/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../website/docs/Web/React/_category_.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../website/docs/Web/React/_category_.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../website/docs/Web/Static Site Generators/_category_.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../website/docs/Web/Static Site Generators/_category_.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../website/static/img/docs/Tools/jupyterHub/linux-ps.PNG" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2A5wdxKAOzQoHwF5RbrFcSI765m" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "javascript.nodejs.core.library.configured.version": "16.15.0",
+    "javascript.nodejs.core.library.typings.version": "16.11.38",
+    "last_opened_file_path": "C:/Projects/LearningCollection/Web/JavaScript/Simple Chatty Bot/Topics/Strings and Numbers/Printing the type/main.js",
+    "nodejs_interpreter_path": "C:/Program Files/nodejs/node",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Printing the type" type="NodeJSConfigurationType" path-to-js-file="Topics/Strings and Numbers/Printing the type/main.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0ded0bae-3e27-47f0-85c5-3a91e1a8e806" name="Changes" comment="" />
+      <created>1654312844239</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1654312844239</updated>
+      <workItem from="1654312846511" duration="1629000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

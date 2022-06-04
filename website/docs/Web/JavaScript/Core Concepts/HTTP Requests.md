@@ -1,7 +1,7 @@
 ---
 id: httpRequests
 title: HTTP Requests
-sidebar_position: 1
+sidebar_position: 3
 ---
 
 There are different options when it comes to making HTTP requests (this is not React specific). There are different libraries that can be used to achieve the task, a very popular one is [Axios](https://github.com/axios/axios). Nowadays there is also the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) that is built into browsers.
