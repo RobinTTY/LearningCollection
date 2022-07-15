@@ -1,5 +1,5 @@
 ---
-id: csharp-coreConcepts-recordTypes
+id: recordTypes
 title: Record Types
 sidebar_position: 1
 ---

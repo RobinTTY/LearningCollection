@@ -1,21 +1,8 @@
 ---
-id: netFramework
-title: .NET Framework
+id: netstandardVsNetcoreVsUwp
+title: .Net Core vs .Net Standard vs UWP
+sidebar_position: 1
 ---
-
-## Miscellaneous
-
-- C# is also called a strongly typed language because its type rules (whether enforced statically or at runtime) are very strict.
-  - For instance, you cannot call a function that’s designed to accept an integer with a floating-point number, unless you first explicitly convert the floating-point number to an integer
-- C# depends on a runtime equipped with a host of features such as automatic memory management and exception handling
-  - At the core of the Microsoft .NET Framework is the Common Language Runtime (CLR), which provides these runtime features
-  - The .NET Core and Xamarin frameworks provide similar runtimes
-- C# is one of several managed languages that get compiled into managed code. Managed code is represented in Intermediate Language or IL
-  - The CLR converts the IL into the native code of the machine, such as X86 or X64, usually just prior to execution. This is referred to as Just-In-Time (JIT) compilation
-- The container for managed code is called an **assembly** or portable executable. An assembly can be an executable file (.exe) or a library (.dll), and contains not only IL, but type information (metadata).
-  - The C# compiler compiles source code, specified as a set of files with the .cs extension, into an assembly
-  - An assembly is the unit of packaging and deployment in .NET. An assembly can be either an application or a library
-  - You can examine and disassemble the contents of an IL assembly with Microsoft’s ildasm tool or JetBrains dotPeek (there are other tools, see Chapter 1 P.4)
 
 ## Major Frameworks
 
@@ -39,6 +26,22 @@ Note: A nuance not shown in Table 1-1 is that UWP uses .NET Core under the cover
 Overview of the .Net Framework:
 
 ![NetFramework](/img/docs/C-Sharp/NetFramework.PNG)
+
+### .NET Standard
+
+- This is the set of fundamental APIs (commonly referred to as base class library or BCL) that all .NET implementations must implement
+- By targeting .NET Standard, you can build libraries that you can share across all your .NET apps, no matter on which .NET implementation or OS they run
+- **Used for building libraries that can be referenced from all .NET implementations, such as .NET Framework, .NET Core and Xamarin**
+
+### Framework overview
+
+The different frameworks are layered like this:
+
+![platform_overview](/img/docs/C-Sharp/platform_overview.png)
+
+With the [introduction of .NET 5](https://devblogs.microsoft.com/dotnet/announcing-net-5-0/) Microsoft wants to unify all aspects of development into a single platform:
+
+![dotnet5_platform](/img/docs/C-Sharp/dotnet5_platform.png)
 
 ## Legacy and Niche Frameworks
 
@@ -65,10 +68,3 @@ Somewhat confusingly, the term "WinRT" has historically been used to mean two mo
 - The defunct mobile operating system for RISC-based tablets ("Windows RT") that Microsoft released in 2011
 
 WinRT is much richer. In part, it is an enhanced version of COM (Component Object Model) that supports .NET, C++, and JavaScript. Unlike Win32, it’s object oriented and has a relatively rich type system. This means that referencing a WinRT library from C# feels much like referencing a .NET library—you may not even be aware that you’re using WinRT. The WinRT libraries in Windows 10 form an essential part of the UWP platform (UWP relies on both WinRT and .NET Core libraries). What distinguishes WinRT from ordinary COM is that WinRT projects its libraries into a multitude of languages, namely C#, VB, C++, and JavaScript, so that each language sees WinRT types (almost) as though they were written especially for it.
-
-## The .Net Framework
-
-- The .NET Framework is a set of libraries
-  - A library is a .dll and is equivalent to an .exe without an entry point, its purpose is to be called upon (referenced) by an application or by other libraries
-- The .NET Framework is organized into nested namespaces. For example, this is the namespace that contains types for handling text:
-  - using System.Text;

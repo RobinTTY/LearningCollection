@@ -1,6 +1,7 @@
 ---
 id: serialization
 title: Serialization
+sidebar_position: 6
 ---
 
 ## Definition
@@ -15,7 +16,12 @@ This process of serializing an object is also called marshalling an object. The 
 
 The term "marshal" is considered to be synonymous with "serialize" in the Python standard library,[5] but the terms are not synonymous in the Java-related RFC 2713:
 
-    To "marshal" an object means to record its state and codebase(s) in such a way that when the marshalled object is "unmarshalled," a copy of the original object is obtained, possibly by automatically loading the class definitions of the object. You can marshal any object that is serializable or remote (that is, implements the java.rmi.Remote interface). Marshalling is like serialization, except marshalling also records codebases. Marshalling is different from serialization in that marshalling treats remote objects specially.
+    To "marshal" an object means to record its state and codebase(s) in such a way that when the marshalled object
+    is "unmarshalled," a copy of the original object is obtained, possibly by automatically loading the class
+    definitions of the object.
+    You can marshal any object that is serializable or remote (that is, implements the java.rmi.Remote interface).
+    Marshalling is like serialization, except marshalling also records codebases.
+    Marshalling is different from serialization in that marshalling treats remote objects specially.
 
     — Schema for Representing Java(tm) Objects in an LDAP Directory (RFC 2713)
 

@@ -1,6 +1,7 @@
 ---
 id: manResetEvent
 title: ManualResetEvent
+sidebar_position: 2
 ---
 
 - Represents a thread synchronization event that, when signaled, must be reset manually

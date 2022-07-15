@@ -1,6 +1,7 @@
 ---
 id: volatileKeyword
 title: Volatile Keyword
+sidebar_position: 3
 ---
 
 - the volatile keyword indicates that a field might be modified by multiple threads that are executing at the same time

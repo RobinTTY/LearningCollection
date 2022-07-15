@@ -1,6 +1,7 @@
 ---
 id: closures
 title: Closures
+sidebar_position: 5
 ---
 
 ## StackOverflow

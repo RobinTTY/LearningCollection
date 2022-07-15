@@ -1,6 +1,7 @@
 ---
 id: ienumerable
 title: IEnumerable
+sidebar_position: 1
 ---
 
 - Exposes an enumerator, which supports a simple iteration over a non-generic collection

@@ -1,7 +1,7 @@
 ---
 id: dotnet6
 title: .Net 6
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 This page convers the most important updates introduced in .Net 6 (in my view).

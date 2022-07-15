@@ -1,6 +1,7 @@
 ---
 id: unmanagedVsManagedResources
 title: Unmanaged vs managed resources
+sidebar_position: 4
 ---
 
 - **Managed resources basically means "managed memory" that is managed by the garbage collector.**

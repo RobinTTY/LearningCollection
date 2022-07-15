@@ -1,6 +1,7 @@
 ---
 id: assemblyClass
-title: Assembly Class
+title: Assembly
+sidebar_position: 1
 ---
 
 - Represents an assembly, which is a reusable, versionable, and self-describing building block of a common language runtime application (in more simple terms: A chunk of (precompiled) code that can be executed by the .NET runtime environment. A .NET program consists of one or more assemblies)
@@ -100,4 +101,4 @@ Void Main()
 - The GetType method can be used to search for a particular type in the assembly.
 - The CreateInstance method can be used to search for and create instances of types in the assembly.
 
-Taken from: https://docs.microsoft.com/en-us/dotnet/api/system.reflection.assembly?view=netframework-4.7.2
+Source: [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/api/system.reflection.assembly?view=netframework-4.7.2)

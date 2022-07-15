@@ -1,6 +1,7 @@
 ---
 id: unmanagedConstraint
 title: Unmanaged constraint
+sidebar_position: 5
 ---
 
 The unmanaged constraint feature **will give language enforcement to the class of types known as "unmanaged types"** in the C# language spec. This is defined in section 18.2 as a **type which is not a reference type and doesn't contain reference type fields at any level of nesting.**
@@ -11,14 +12,14 @@ Interoperability enables you to preserve and take advantage of existing investme
 
 Unmanaged types are one of the core building blocks for interop code, yet the lack of support in generics makes it impossible to create re-usable routines across all unmanaged types. Instead developers are forced to author the same boiler plate code for every unmanaged type in their library:
 
-```C#
+```cs
 int Hash(Point point) { ... }
 int Hash(TimeSpan timeSpan) { ... }
 ```
 
 To enable this type of scenario the language will be introducing a new constraint: unmanaged:
 
-```C#
+```cs
 void Hash<T>(T value) where T : unmanaged
 {
     ...
@@ -27,7 +28,7 @@ void Hash<T>(T value) where T : unmanaged
 
 This constraint can only be met by types which fit into the unmanaged type definition in the C# language spec. Another way of looking at it is that a type satisfies the unmanaged constraint iff it can also be used as a pointer.
 
-```C#
+```cs
 Hash(new Point()); // Okay
 Hash(42); // Okay
 Hash("hello") // Error: Type string does not satisfy the unmanaged constraint
@@ -35,7 +36,7 @@ Hash("hello") // Error: Type string does not satisfy the unmanaged constraint
 
 Type parameters with the unmanaged constraint can use all the features available to unmanaged types: pointers, fixed, etc ...
 
-```C#
+```cs
 void Hash<T>(T value) where T : unmanaged
 {
     // Okay
@@ -48,7 +49,7 @@ void Hash<T>(T value) where T : unmanaged
 
 This constraint will also make it possible to have efficient conversions between structured data and streams of bytes. This is an operation that is common in networking stacks and serialization layers:
 
-```C#
+```cs
 Span<byte> Convert<T>(ref T value) where T : unmanaged
 {
     ...
@@ -68,7 +69,7 @@ The language will introduce a new constraint named unmanaged. In order to satisf
 
 Compiler generated instance fields, such as those backing auto-implemented properties, must also meet these constraints.
 
-```C#
+```cs
 // Unmanaged type
 struct Point
 {
