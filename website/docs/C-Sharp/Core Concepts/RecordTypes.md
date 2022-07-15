@@ -10,6 +10,14 @@ The important things first:
 
 - Records are distinct from classes in that record types use **value-based equality**
   - That means: Two variables of a record type are equal if the record type definitions are identical, and if for every field, the values in both records are equal
+- When do we use records/classes/stucts:
+  - You use `class` definitions to create object-oriented hierarchies that focus on the responsibilities and behavior of objects
+  - You create `struct` types for data structures that store data and are small enough to copy efficiently
+  - You create `record` types when you want value-based equality and comparison, don't want to copy values, and want to use reference variables
+  - You create `record struct` types when you want the features of records for a type that is small enough to copy efficiently
+
+Some more details:
+
 - To enforce value semantics, the compiler generates several methods for a record type:
   - An override of [`Object.Equals(Object)`](<https://docs.microsoft.com/en-us/dotnet/api/system.object.equals#system-object-equals(system-object)>)
   - A virtual Equals method whose parameter is the record type
@@ -143,3 +151,22 @@ we get:
 HeatingDegreeDays { BaseTemperature = 65, TempRecords = record_types.DailyTemperature[], DegreeDays = 85 }
 CoolingDegreeDays { BaseTemperature = 65, TempRecords = record_types.DailyTemperature[], DegreeDays = 71.5 }
 ```
+
+In this case it makes sense to "override" the compiler synthesized `ToString` method to display the data more appropriately. But we don't actually use the `override` keyword, instead we use something called `PrintMembers`, which provide are a better option for inheritance scenarios.
+
+The signature of `PrintMembers` we need to use, depends on the record type:
+
+```cs
+// If a record type is sealed, or a record struct
+private bool PrintMembers(StringBuilder builder);
+// If a record type isn't sealed and derives from object (that is, it doesn't declare a base record)
+protected virtual bool PrintMembers(StringBuilder builder);
+// If a record type isn't sealed and derives from another record
+protected override bool PrintMembers(StringBuilder builder);
+```
+
+The language enforces the correct signature, so the compiler will issue a warning or errors.
+
+## Reference
+
+This is a summary of the [Microsoft docs tutorial for record types](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/tutorials/records), more details can be found there.
