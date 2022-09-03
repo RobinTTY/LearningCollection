@@ -3,6 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="0ded0bae-3e27-47f0-85c5-3a91e1a8e806" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simple Chatty Bot/Chatty Bot welcomes you/task-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Simple Chatty Bot/Chatty Bot welcomes you/task-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simple Chatty Bot/Chatty Bot welcomes you/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Simple Chatty Bot/Chatty Bot welcomes you/task-remote-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simple Chatty Bot/Chatty Bot welcomes you/task.html" beforeDir="false" afterPath="$PROJECT_DIR$/Simple Chatty Bot/Chatty Bot welcomes you/task.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simple Chatty Bot/Guess the age/task-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Simple Chatty Bot/Guess the age/task-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simple Chatty Bot/Guess the age/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Simple Chatty Bot/Guess the age/task-remote-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simple Chatty Bot/Guess the age/task.html" beforeDir="false" afterPath="$PROJECT_DIR$/Simple Chatty Bot/Guess the age/task.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simple Chatty Bot/Learning numbers/task-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Simple Chatty Bot/Learning numbers/task-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simple Chatty Bot/Learning numbers/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Simple Chatty Bot/Learning numbers/task-remote-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simple Chatty Bot/Learning numbers/task.html" beforeDir="false" afterPath="$PROJECT_DIR$/Simple Chatty Bot/Learning numbers/task.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simple Chatty Bot/Multiple choice/task-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Simple Chatty Bot/Multiple choice/task-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simple Chatty Bot/Multiple choice/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Simple Chatty Bot/Multiple choice/task-remote-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simple Chatty Bot/Multiple choice/task.html" beforeDir="false" afterPath="$PROJECT_DIR$/Simple Chatty Bot/Multiple choice/task.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simple Chatty Bot/Print your name/task-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Simple Chatty Bot/Print your name/task-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simple Chatty Bot/Print your name/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Simple Chatty Bot/Print your name/task-remote-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simple Chatty Bot/Print your name/task.html" beforeDir="false" afterPath="$PROJECT_DIR$/Simple Chatty Bot/Print your name/task.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/course-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/course-remote-info.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,18 +39,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "javascript.nodejs.core.library.configured.version": "16.15.0",
-    "javascript.nodejs.core.library.typings.version": "16.11.38",
-    "last_opened_file_path": "C:/Projects/LearningCollection/Web/JavaScript/Simple Chatty Bot/Topics/Strings and Numbers/Printing the type/main.js",
-    "nodejs_interpreter_path": "C:/Program Files/nodejs/node",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;16.15.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;16.11.38&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Projects/LearningCollection/Web/JavaScript/Simple Chatty Bot/Topics/Strings and Numbers/Printing the type/main.js&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;C:/Program Files/nodejs/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Printing the type" type="NodeJSConfigurationType" path-to-js-file="Topics/Strings and Numbers/Printing the type/main.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
@@ -50,6 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1654312844239</updated>
       <workItem from="1654312846511" duration="3401000" />
+      <workItem from="1661980997430" duration="53000" />
     </task>
     <servers />
   </component>

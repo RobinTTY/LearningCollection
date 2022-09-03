@@ -31,7 +31,7 @@ files:
 
     console.log("Completed, have a nice day!");
   learner_created: false
-feedback_link: https://hyperskill.org/projects/221/stages/1110/implement#comment
+feedback_link: https://hyperskill.org/learn/step/17057#comment
 check_profile: hyperskill_node_javascript
 status: Unchecked
 record: -1

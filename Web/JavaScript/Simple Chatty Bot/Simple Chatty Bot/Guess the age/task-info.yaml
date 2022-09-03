@@ -22,7 +22,7 @@ files:
 
     console.log("Your age is {your_age}; that's a good time to start programming!");
   learner_created: false
-feedback_link: https://hyperskill.org/projects/221/stages/1109/implement#comment
+feedback_link: https://hyperskill.org/learn/step/17056#comment
 check_profile: hyperskill_node_javascript
 status: Unchecked
 record: -1

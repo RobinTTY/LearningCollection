@@ -1,8 +1,5 @@
 type: remote_edu
 files:
-- name: tests.py
-  visible: false
-  learner_created: false
 - name: main.js
   visible: true
   text: |
@@ -16,7 +13,10 @@ files:
 
     console.log("What a great name you have, {your_name}!");
   learner_created: false
-feedback_link: https://hyperskill.org/projects/221/stages/1108/implement#comment
+- name: tests.py
+  visible: false
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/17055#comment
 check_profile: hyperskill_node_javascript
 status: Unchecked
 record: -1

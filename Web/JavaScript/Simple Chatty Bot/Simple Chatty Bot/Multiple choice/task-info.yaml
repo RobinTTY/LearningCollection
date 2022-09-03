@@ -23,7 +23,7 @@ files:
     \ have a nice day!\");\n}\n\n\ngreet('Aid', '2020')  // change it as you need\n\
     remind_name();\nguess_age();\ncount();\n// ...\nend();\n"
   learner_created: false
-feedback_link: https://hyperskill.org/projects/221/stages/1111/implement#comment
+feedback_link: https://hyperskill.org/learn/step/17058#comment
 check_profile: hyperskill_node_javascript
 status: Unchecked
 record: -1

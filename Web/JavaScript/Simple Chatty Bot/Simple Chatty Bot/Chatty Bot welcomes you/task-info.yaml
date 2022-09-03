@@ -9,7 +9,7 @@ files:
 
     console.log("Hello, World!");
   learner_created: false
-feedback_link: https://hyperskill.org/projects/221/stages/1107/implement#comment
+feedback_link: https://hyperskill.org/learn/step/17054#comment
 check_profile: hyperskill_node_javascript
 status: Solved
 feedback:
