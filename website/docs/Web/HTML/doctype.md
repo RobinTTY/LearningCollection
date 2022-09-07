@@ -8,7 +8,7 @@ In HTML, the DOCTYPE is the required `<!DOCTYPE html>` preamble found at the top
 
 ## Browser Modes
 
-Before the days of web standards introduzed by the W3C, webpages typically had to be written in two versions: one for Netscape Navigator, and one for Internet Explorer. When the web standards were made at W3C, browsers could not just start using them, as doing so would break most existing sites on the web. Browsers therefore introduced two modes to treat new standards compliant sites differently from old legacy sites.
+Before the days of web standards introduced by the W3C, webpages typically had to be written in two versions: one for Netscape Navigator, and one for Internet Explorer. When the web standards were made at W3C, browsers could not just start using them, as doing so would break most existing sites on the web. Browsers therefore introduced two modes to treat new standards compliant sites differently from old legacy sites.
 
 There are now three modes used by the layout engines in web browsers: **quirks mode, almost standards mode, and full standards mode**.
 
