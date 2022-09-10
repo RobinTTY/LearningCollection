@@ -1,0 +1,54 @@
+---
+id: border
+title: Border
+sidebar_position: 6
+---
+
+CSS provides several properties that allow you to define style, width and color of the element border. Setting the borders can be useful as a decoration, and can perform more practical functions, such as highlighting important or interactive elements on a web page.
+
+## Border style
+
+To change the style of the border, the `border-style` property is used. Possible types are for instance: dotted, dashed, solid, etc.
+
+![border](/img/docs/Web/CSS/border.jpg)
+
+## Border color
+
+The color of the border can be set with the `border-color` property. If it is not specified, the border color will be the text color of the element.
+
+## Border width
+
+The border width is defined with the `border-width` property and any length unit in CSS.
+
+## The `border` property
+
+To set the style for the border, it is not necessary to use all three of the above properties in turn. Instead the `border` property can be used to set everything at once:
+
+```css
+p {
+  border: 2px solid gray;
+}
+```
+
+## Border for one side of an element
+
+It is also possible to set a border for one side of the element only. There are `border-top`, `border-right`, `border-bottom`, `border-left` properties for setting the border on the top, right, bottom and left sides of the element respectively.
+
+### Example
+
+```html title=index.html
+<p>News</p>
+```
+
+```css title=index.css
+p {
+  border-bottom: 2px solid brown;
+  border-left: 2px solid brown;
+}
+```
+
+#### Result:
+
+<p style={{ borderBottom: "2px solid brown", borderLeft: "2px solid brown" }}>
+  News
+</p>
