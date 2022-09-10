@@ -1,7 +1,7 @@
 ---
 id: constructable-stylesheets
 title: Constructable Stylesheets
-sidebar_position: 4
+sidebar_position: 7
 ---
 
 Like HTML elements, CSS stylesheets can be created using JavaScript. The process has historically been to create a `<style>` element using `document.createElement('style')`, and then access its sheet property to obtain a reference to the underlying [CSSStyleSheet](https://developer.mozilla.org/docs/Web/API/CSSStyleSheet) instance. This method can produce duplicate CSS code and its attendant bloat, and the act of attaching leads to a flash of unstyled content whether there is bloat or not.
