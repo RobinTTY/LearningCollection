@@ -1,0 +1,21 @@
+body{
+    background-color: #30363d;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+}
+
+.container{
+    margin: auto;
+    text-align: center;
+}
+
+kbd{
+    display: inline-block;
+    background-color: white;
+    border: 2px solid gray;
+    width: 50px;
+    height: 60px;
+    margin-right: -4px;
+    padding-top: 120px;
+}
