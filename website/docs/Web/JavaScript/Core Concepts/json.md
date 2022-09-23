@@ -1,7 +1,7 @@
 ---
 id: json
 title: JSON
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 **JSON** (or **JavaScript Object Notation**) is a text-based format for storing and transmitting structured data. It comes from the JavaScript language, but it is still considered to be language-independent: it works with almost any programming language. With JSON's lightweight syntax, you can easily store and send to other apps everything from numbers and strings to arrays and objects. You can also create more complex data structures by linking arrays to each other.
