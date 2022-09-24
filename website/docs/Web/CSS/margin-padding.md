@@ -9,7 +9,7 @@ Margin and Padding are the properties that are used to add space around the elem
 - **Margin** is a distance from one package to another, it's an interblock space
 - **Padding** refers to a shift from content to rim package
 
-![margin](/img/docs/Web/CSS/margin.png)
+![margin](/img/docs/Web/css/margin.png)
 
 We therefore use margin for outside shifts and padding for inside shifts.
 
