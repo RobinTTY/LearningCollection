@@ -1,7 +1,7 @@
 ---
 id: interface-elements
 title: Interface Elements
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 Interface elements are used to create applications and services. There are many different types, each with its own characteristics and purpose.
