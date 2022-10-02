@@ -138,3 +138,31 @@ The " " (space) combinator selects nodes that are descendants of the first eleme
 
 ### Child combinator
 
+The `>` combinator selects nodes that are direct children of the first element. Syntax: `A > B` 
+Example: `ul > li` will match all `<li>` elements that are nested directly inside a `<ul>` element.
+
+### General sibling combinator
+
+The `~` combinator selects siblings. This means that the second element follows the first (though not necessarily immediately), and both share the same parent. Syntax: `A ~ B` Example: `p ~ span` will match all `<span>` elements that follow a `<p>` (immediately or not).
+
+### Adjacent sibling combinator
+
+The `+` combinator matches the second element only if it immediately follows the first element, and both are children of the same parent element. Syntax: `A + B` Example: `h2 + p` will match the first `<p>` element that immediately follow an `<h2>` element.
+
+### Column combinator (experimental)
+
+The `||` combinator selects nodes which belong to a column. Syntax: `A || B` Example: `col || td` will match all `<td>` elements that belong to the scope of the `<col>`.
+
+## Pseudo-classes and pseudo-elements
+
+### Pseudo classes
+
+The `:` pseudo allow the selection of elements based on state information that is not contained in the document tree. Example: `a:visited` will match all `<a>` elements that have been visited by the user.
+
+For the full list of pseudo classes, see: [Pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+
+### Pseudo elements
+
+The `::` pseudo represent entities that are not included in HTML. Example: `p::first-line` will match the first line of all `<p>` elements.
+
+For the full list of pseudo elements, see: [Pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
