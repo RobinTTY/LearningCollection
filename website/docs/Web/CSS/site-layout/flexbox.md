@@ -1,7 +1,7 @@
 ---
 id: flexbox
 title: Flexbox
-sidebar_position: 7
+sidebar_position: 2
 ---
 
 For a long time, there were only several simple CSS properties like `float`, `margin`, `position`, `display` and other similar tools for setting up a proper layout.

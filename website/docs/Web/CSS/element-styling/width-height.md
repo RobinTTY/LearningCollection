@@ -1,7 +1,7 @@
 ---
 id: width-height
-title: Width/Height properties
-sidebar_position: 5
+title: Width/Height Properties
+sidebar_position: 2
 ---
 
 CSS has properties that allow you to set web page elements to a certain width and height. With their help, you can set fixed sizes of elements, whether it is a sidebar, an image, a table, or any other block.

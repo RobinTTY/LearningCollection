@@ -1,7 +1,7 @@
 ---
 id: position
 title: Document Flow and Positioning
-sidebar_position: 7
+sidebar_position: 1
 ---
 
 HTML documents are displayed on the page from top to bottom, so the elements that are described higher in the HTML file will be rendered in the browser earlier than those described lower.
