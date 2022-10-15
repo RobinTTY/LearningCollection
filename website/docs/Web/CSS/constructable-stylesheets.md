@@ -8,7 +8,7 @@ Like HTML elements, CSS stylesheets can be created using JavaScript. The process
 
 The `CSSStyleSheet` interface is the root of a collection of CSS representation interfaces referred to as the [CSSOM](https://developer.mozilla.org/docs/Web/API/CSS_Object_Model), offering a programmatic way to manipulate stylesheets as well as eliminating the problems associated with the old method.
 
-![CSSStyleSheet](/img/docs/Web/CSS/CSSStyleSheet.webp)
+![CSSStyleSheet](/img/docs/Web/css/CSSStyleSheet.webp)
 
 Constructable Stylesheets make it possible to define and prepare shared CSS styles, and then apply those styles to multiple Shadow Roots or the Document easily and without duplication. **Updates to a shared `CSSStyleSheet` are applied to all roots into which it has been adopted**, and [adopting a stylesheet](https://wicg.github.io/construct-stylesheets/#using-constructed-stylesheets) is fast and synchronous once the sheet has been loaded.
 

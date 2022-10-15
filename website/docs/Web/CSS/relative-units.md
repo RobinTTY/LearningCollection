@@ -60,13 +60,13 @@ The most important units here are:
 
 `vmin` uses the size of the smaller side. For example, if the height of the browser window is less than the width, `1vmin` will be equal to `1vh`. If the browser's width is less than its height, `1vmin` equals `1vw`.
 
-![vmin](/img/docs/Web/CSS/vmin.svg)
+![vmin](/img/docs/Web/css/vmin.svg)
 
 #### vmax
 
 `vmax` is the direct opposite of `vmin` and uses the larger side. For example, if the width of the browser is greater than its height, `1vmax` is `1vw`. If the height of the browser is greater than its width, `1vmax` equals `1vh`.
 
-![vmax](/img/docs/Web/CSS/vmax.svg)
+![vmax](/img/docs/Web/css/vmax.svg)
 
 :::info
 `vmin` and `vmax` will be different when you resize your browser window or change your smartphone orientation.

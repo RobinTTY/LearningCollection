@@ -1,6 +1,7 @@
 ---
 id: es6-modules
 title: ES6 Modules
+sidebar_position: 2
 ---
 
 Before ES6 we really went out of our ways to obtain modules in JavaScript. Systems like RequireJS, Angular’s dependency injection mechanism, and CommonJS have been catering to our modular needs for a long time now – alongside with helpful tools such as Browserify and Webpack. In fact, ES6 modules have been heavily influenced by CommonJS. **An ES6 module is a file containing JS code.** There’s no special module keyword; a module mostly reads just like a script. There are two differences.

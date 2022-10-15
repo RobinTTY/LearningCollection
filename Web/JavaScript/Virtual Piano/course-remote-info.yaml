@@ -3,14 +3,14 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/315625/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Thu, 01 Jan 1970 00:00:00 UTC
+update_date: Sun, 11 Sep 2022 00:23:50 UTC
 stages:
 - id: 556
   step: 9022
   is_completed: true
 - id: 557
   step: 9023
-  is_completed: false
+  is_completed: true
 - id: 558
   step: 9024
   is_completed: false
@@ -79,29 +79,23 @@ topics:
     theory_id: 10605
   - title: HTML attributes id and class
     theory_id: 7527
+  - title: Comments
+    theory_id: 7502
   - title: Margin and Padding
     theory_id: 8346
   - title: Width and Height
     theory_id: 8325
   - title: Border
     theory_id: 8355
-  - title: Colors
-    theory_id: 7973
-  - title: Comments
-    theory_id: 7502
   - title: Links
     theory_id: 11834
   - title: RGB
     theory_id: 8819
+  - title: Colors
+    theory_id: 7973
   2:
   - title: Comments
     theory_id: 8170
-  - title: Position
-    theory_id: 11581
-  - title: Float
-    theory_id: 12697
-  - title: Clear
-    theory_id: 12705
   - title: CSS Selectors
     theory_id: 7738
   - title: Introduction to Flexbox
@@ -114,8 +108,6 @@ topics:
     theory_id: 11784
   - title: DOM
     theory_id: 8635
-  - title: Text Alignment
-    theory_id: 11589
   - title: Connecting JavaScript to HTML
     theory_id: 7510
   - title: Overview of the basic program
@@ -130,8 +122,16 @@ topics:
     theory_id: 8372
   - title: Functions
     theory_id: 8388
+  - title: Position
+    theory_id: 11581
+  - title: Float
+    theory_id: 12697
+  - title: Clear
+    theory_id: 12705
   - title: Boolean and Logical Operators
     theory_id: 8471
+  - title: Text Alignment
+    theory_id: 11589
   - title: Intro to DOM events
     theory_id: 10857
   - title: JSON
@@ -164,9 +164,9 @@ topics:
     theory_id: 8204
   - title: Google Fonts
     theory_id: 7844
-  - title: z-index
-    theory_id: 11161
   - title: Introduction to Linux
     theory_id: 9526
   - title: Starting with Git
     theory_id: 10894
+  - title: z-index
+    theory_id: 11161
