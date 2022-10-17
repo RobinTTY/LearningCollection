@@ -18,7 +18,7 @@ Constructable Stylesheets can be used:
 
 - to provide a centralized theme used by many components
   - the theme can be a `CSSStyleSheet` instance passed to components, with updates to the theme propagating out to components automatically
-- to distribute [CSS Custom Property](https://developer.mozilla.org/docs/Web/CSS/--*) values to specific DOM subtrees without relying on the [cascade](https://developer.mozilla.org/docs/Web/CSS/Cascade)
+- to distribute [CSS Custom Property](https://developer.mozilla.org/docs/Web/css/--*) values to specific DOM subtrees without relying on the [cascade](https://developer.mozilla.org/docs/Web/css/Cascade)
 - as a direct interface to the browser's CSS parser, making it easy to preload stylesheets without injecting them into the DOM
 
 ## Constructing a stylesheet

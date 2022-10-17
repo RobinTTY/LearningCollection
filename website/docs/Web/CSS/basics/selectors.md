@@ -159,10 +159,10 @@ The `||` combinator selects nodes which belong to a column. Syntax: `A || B` Exa
 
 The `:` pseudo allow the selection of elements based on state information that is not contained in the document tree. Example: `a:visited` will match all `<a>` elements that have been visited by the user.
 
-For the full list of pseudo classes, see: [Pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+For the full list of pseudo classes, see: [Pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/css/Pseudo-classes)
 
 ### Pseudo elements
 
 The `::` pseudo represent entities that are not included in HTML. Example: `p::first-line` will match the first line of all `<p>` elements.
 
-For the full list of pseudo elements, see: [Pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
+For the full list of pseudo elements, see: [Pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/css/Pseudo-elements)

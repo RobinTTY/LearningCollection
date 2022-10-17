@@ -28,7 +28,7 @@ You can also override the elements' display order, automatically set up their si
 
 WHen talking about flexboxes, some terms are important. They are the following:
 
-![flexbox-terms](/img/docs/Web/CSS/flexbox-terms.png)
+![flexbox-terms](/img/docs/Web/css/flexbox-terms.png)
 
 - **Main axis**: the axis that determines the direction in which all the elements are going to be placed by default
 - **Cross axis**: the axis perpendicular to the main axis
@@ -55,11 +55,11 @@ Example with 3 child elements:
 
 This is what it looks like with `display: block;` set to the flex-container:
 
-![flex-display-block](/img/docs/Web/CSS/flex-display-block.svg)
+![flex-display-block](/img/docs/Web/css/flex-display-block.svg)
 
 And this is what happens if `display: flex;` is applied:
 
-![flex-display-flex](/img/docs/Web/CSS/flex-display-flex.svg)
+![flex-display-flex](/img/docs/Web/css/flex-display-flex.svg)
 
 If the block has a text or an image not wrapped with `<div></div>`, they become **anonymous flex items**. In this case, the text will be stuck to the top, and the height of the image will be equal to the height of the container.
 
