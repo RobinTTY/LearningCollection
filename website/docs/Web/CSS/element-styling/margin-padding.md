@@ -1,7 +1,7 @@
 ---
 id: margin-padding
 title: Margin and Padding
-sidebar_position: 4
+sidebar_position: 1
 ---
 
 Margin and Padding are the properties that are used to add space around the element.
