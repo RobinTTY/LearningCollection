@@ -23,9 +23,15 @@ module.exports = {
       items: [
         {
           type: "doc",
-          docId: "docs-home",
+          docId: "intro",
           position: "left",
           label: "Docs",
+        },
+        {
+          to: "/finance/intro",
+          position: "left",
+          label: "Finance",
+          sidebarId: "finance",
         },
       ],
     },
@@ -76,6 +82,17 @@ module.exports = {
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
+      },
+    ],
+  ],
+  plugins: [
+    [
+      "content-docs",
+      {
+        id: "finance",
+        path: "finance",
+        routeBasePath: "finance",
+        sidebarPath: require.resolve("./sidebars.js"),
       },
     ],
   ],
