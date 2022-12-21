@@ -1,6 +1,7 @@
 ---
 id: jupyterhub
 title: Jupyter Hub
+sidebar_position: 4
 ---
 
 ## What JupyterHub does (from [the Jupyter Website](https://jupyter.org/hub))
