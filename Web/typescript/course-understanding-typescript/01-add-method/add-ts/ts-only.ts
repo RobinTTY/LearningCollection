@@ -7,6 +7,6 @@ function add(num1: number, num2: number) {
 }
 
 // input.value is always a string => leads to a simple concatenation instead of addition
-button.addEventListener("click", function() {
+button.addEventListener("click", function () {
   console.log(add(+input1.value, +input2.value));
 });
