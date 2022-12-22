@@ -158,3 +158,33 @@ function printResult(num: number): void {
 The special type `object` refers to any value that isn’t a primitive (`string`, `number`, `bigint`, `boolean`, `symbol`, `null`, or `undefined`). This is different from the empty object type `{ }`, and also different from the global type `Object`. It’s very likely you will never use `Object`.
 
 Note that in JavaScript, function values are objects: They have properties, have `Object.prototype` in their prototype chain, are `instanceof Object`, you can call `Object.keys` on them, and so on. For this reason, function types are considered to be `object`s in TypeScript
+
+## unknown
+
+The `unknown` type is the type-safe counterpart of `any`. Anything is assignable to unknown, but unknown isn't assignable to anything but itself and any without a type assertion or a control flow based narrowing. Likewise, no operations are permitted on an unknown without first asserting or narrowing to a more specific type.
+
+```ts
+let vAny: any = 10; // We can assign anything to any
+let vUnknown: unknown = 10; // We can assign anything to unknown just like any
+
+let s1: string = vAny; // Any is assignable to anything
+let s2: string = vUnknown; // Invalid; we can't assign vUnknown to any other type (without an explicit assertion)
+
+vAny.method(); // Ok; anything goes with any
+vUnknown.method(); // Not ok; we don't know anything about this variable
+```
+
+There are often times where we want to describe the least-capable type in TypeScript. This is useful for APIs that want to signal “this can be any value, so you must perform some type of checking before you use it”. This forces users to safely introspect returned values.
+
+## never
+
+Some functions never return a value:
+
+```ts
+// Function returning never must have unreachable end point
+function fail(msg: string): never {
+  throw new Error(msg);
+}
+```
+
+The never type represents values which are never observed. In a return type, this means that the function throws an exception or terminates execution of the program.
