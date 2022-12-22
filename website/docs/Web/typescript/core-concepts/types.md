@@ -142,3 +142,19 @@ printCoord({ x: 100, y: 100 });
 ```
 
 It's similar to an interface, but it can't be extended - and it can represent things that interfaces can't.
+
+## void
+
+`void` represents the return value of functions which don’t return a value. It’s the inferred type any time a function doesn’t have any return statements, or doesn't return any explicit value from those return statements:
+
+```ts
+function printResult(num: number): void {
+  console.log("Result: " + num);
+}
+```
+
+## object
+
+The special type `object` refers to any value that isn’t a primitive (`string`, `number`, `bigint`, `boolean`, `symbol`, `null`, or `undefined`). This is different from the empty object type `{ }`, and also different from the global type `Object`. It’s very likely you will never use `Object`.
+
+Note that in JavaScript, function values are objects: They have properties, have `Object.prototype` in their prototype chain, are `instanceof Object`, you can call `Object.keys` on them, and so on. For this reason, function types are considered to be `object`s in TypeScript
