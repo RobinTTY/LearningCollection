@@ -78,3 +78,44 @@ type StringNumberPair = [string, number];
 ```
 
 Here, `StringNumberPair` is a tuple type of `string` and `number`. To the type system, `StringNumberPair` describes arrays whose 0 index contains a `string` and whose 1 index contains a `number`.
+
+## Union Types
+
+A union type is a type formed from two or more other types, representing values that may be any one of those types. We refer to each of these types as the union's members.
+
+Example of a function that can operate on strings or numbers:
+
+```ts
+function printId(id: number | string) {
+  console.log("Your ID is: " + id);
+}
+// OK
+printId(101);
+// OK
+printId("202");
+```
+
+## Literal Types
+
+In addition to the general types string and number, we can refer to specific strings and numbers in type positions. This is reflected in how TypeScript creates types for literals:
+
+![type-literals-02](/img/docs/Web/typescript/type-literals-02.png)
+
+It’s not much use to have a variable that can only have one value! But by combining literals into unions, you can express a much more useful concept - for example, functions that only accept a certain set of known values:
+
+```ts
+function printText(s: string, alignment: "left" | "right" | "center") {
+  // ...
+}
+printText("Hello, world", "left");
+// Argument of type '"centre"' is not assignable to parameter of type '"left" | "right" | "center"'
+printText("G'day, mate", "centre");
+```
+
+Numeric literal types work the same way:
+
+```ts
+function compare(a: string, b: string): -1 | 0 | 1 {
+  return a === b ? 0 : a > b ? 1 : -1;
+}
+```
