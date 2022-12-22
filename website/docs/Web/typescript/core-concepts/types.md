@@ -119,3 +119,26 @@ function compare(a: string, b: string): -1 | 0 | 1 {
   return a === b ? 0 : a > b ? 1 : -1;
 }
 ```
+
+## Type Aliases
+
+We’ve been using object types and union types by writing them directly in type annotations. This is convenient, but it’s common to want to use the same type more than once and refer to it by a single name.
+
+A type alias is exactly that - a name for any type. The syntax for a type alias is:
+
+```ts {1-4}
+type Point = {
+  x: number;
+  y: number;
+};
+
+// Exactly the same as the earlier example
+function printCoord(pt: Point) {
+  console.log("The coordinate's x value is " + pt.x);
+  console.log("The coordinate's y value is " + pt.y);
+}
+
+printCoord({ x: 100, y: 100 });
+```
+
+It's similar to an interface, but it can't be extended - and it can represent things that interfaces can't.
