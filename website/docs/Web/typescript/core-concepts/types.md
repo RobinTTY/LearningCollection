@@ -45,6 +45,19 @@ printCoord({ x: 3, y: 7 });
 
 Here, we annotated the parameter with a type with two properties - `x` and `y` - which are both of type number. You can use `,` or `;` to separate the properties, and the last separator is optional either way.
 
+### Optional Properties
+
+Object types can also specify that some or all of their properties are optional. To do this, add a `?` after the property name:
+
+```ts
+function printName(obj: { first: string; last?: string }) {
+  // ...
+}
+// Both OK
+printName({ first: "Bob" });
+printName({ first: "Alice", last: "Alisson" });
+```
+
 ## Arrays
 
 To specify the type of an array like `[1, 2, 3]`, you can use the syntax `number[];`. You may also see this written as `Array<number>`, which means the same thing.

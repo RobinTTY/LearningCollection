@@ -1,0 +1,101 @@
+---
+id: interfaces
+title: Interfaces
+sidebar_position: 5
+---
+
+import ReactPlayer from "react-player";
+import CodeBlock from "@theme/CodeBlock";
+import interfaceExtension from "!!raw-loader!/static/code/docs/web/typescript/interface-extension.ts";
+import typeExtension from "!!raw-loader!/static/code/docs/web/typescript/type-extension.ts";
+import interfaceFields from "!!raw-loader!/static/code/docs/web/typescript/interface-fields.ts";
+import typeFields from "!!raw-loader!/static/code/docs/web/typescript/type-fields.ts";
+
+An interface declaration is another way to name an object type:
+
+```ts
+interface Point {
+  x: number;
+  y: number;
+}
+
+function printCoord(pt: Point) {
+  console.log("The coordinate's x value is " + pt.x);
+  console.log("The coordinate's y value is " + pt.y);
+}
+
+printCoord({ x: 100, y: 100 });
+```
+
+## Differences Between Type Aliases and Interfaces
+
+Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an `interface` are available in `type`, the key distinction is that it can be extended.
+
+Interfaces are often used to share common functionality between classes. So they are similar to abstract classes but without any implementation.
+
+### Extending Types vs Interfaces
+
+<div style={{ display: "flex" }}>
+  <div style={{ flex: "45%" }}>
+    <CodeBlock language="ts" title="Extending an interface">
+      {interfaceExtension}
+    </CodeBlock>
+  </div>
+  <div style={{ flex: "0 0 5%" }}></div>
+  <div style={{ flex: "45%" }}>
+    <CodeBlock language="ts" title="Extending a type via intersections">
+      {typeExtension}
+    </CodeBlock>
+  </div>
+</div>
+
+### Adding new fields
+
+<div style={{ display: "flex" }}>
+  <div style={{ flex: "45%" }}>
+    <CodeBlock language="ts" title="Adding new fields to an existing interface">
+      {interfaceFields}
+    </CodeBlock>
+  </div>
+  <div style={{ flex: "0 0 5%" }}></div>
+  <div style={{ flex: "45%" }}>
+    <CodeBlock
+      language="ts"
+      title="A type cannot be changed after being created"
+    >
+      {typeFields}
+    </CodeBlock>
+  </div>
+</div>
+
+### Thoughts about Types vs Interfaces
+
+<ReactPlayer
+  style={{ marginBottom: "1.5em" }}
+  controls
+  url="https://www.youtube.com/watch?v=zM9UPcIyyhQ"
+/>
+
+Main takeaways:
+
+- Use types unless you need a specific feature of interfaces
+- If you need a type that extends another type => Use an interface
+
+## Interfaces as Function Types
+
+Interfaces can also describe function types:
+
+```ts
+// type AddFn = (a: number, b: number) => number;
+interface AddFn {
+  (a: number, b: number): number;
+}
+
+let add: AddFn;
+
+add = (n1: number, n2: number) => {
+  return n1 + n2;
+};
+```
+
+Usually we use type aliases for function types, but interfaces can also be used.
