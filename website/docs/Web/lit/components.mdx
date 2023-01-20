@@ -1,0 +1,221 @@
+---
+id: components
+title: Components
+sidebar_position: 2
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+A Lit component is a reusable piece of UI. You can think of a Lit component as a container that has some state and that displays a UI based on its state. It can also react to user input, fire events—anything you'd expect a UI component to do. And a Lit component is an HTML element, so it has all of the standard element APIs.
+
+Creating a Lit component involves a number of concepts:
+
+- [Defining a component](https://lit.dev/docs/components/defining/): A Lit component is implemented as a custom element, registered with the browser.
+- [Rendering](https://lit.dev/docs/components/rendering/): A component has render method that's called to render the component's contents. In the render method, you define a template for the component.
+- [Reactive properties](https://lit.dev/docs/components/properties/): Properties hold the state of the component. Changing one or more of the components' reactive properties triggers an update cycle, re-rendering the component.
+- [Styles](https://lit.dev/docs/components/styles/): A component can define encapsulated styles to control its own appearance.
+- [Lifecycle](https://lit.dev/docs/components/lifecycle/): Lit defines a set of callbacks that you can override to hook into the component's lifecycle—for example, to run code when the element's added to a page, or whenever the component updates.
+
+## Defining a component
+
+A Lit component is defined by creating a class, extending it with `LitElement` and registering the class with the browser:
+
+```ts
+@customElement("simple-greeting")
+export class SimpleGreeting extends LitElement {
+  /* ... */
+}
+```
+
+The `@customElement` decorator is shorthand for calling `customElements.define`, which registers a custom element class with the browser and associates it with an element name (in this case, `simple-greeting`).
+
+### A Lit component is an HTML element
+
+When you define a Lit component, you're defining a [custom HTML element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements). So you can use the new element like you'd use any built-in element:
+
+```html
+<simple-greeting name="Markup"></simple-greeting>
+```
+
+```ts
+const greeting = document.createElement("simple-greeting");
+```
+
+The `LitElement` base class is a subclass of `HTMLElement`, so a Lit component inherits all of the standard `HTMLElement` properties and methods.
+
+Specifically, `LitElement` inherits from `ReactiveElement`, which implements reactive properties, and in turn inherits from `HTMLElement`.
+
+<div style={{ textAlign: "center" }}>
+  <img src={useBaseUrl("/img/docs/Web/lit/lit-element-inheritance.png")} />
+</div>
+
+### Providing good TypeScript typings
+
+TypeScript will infer the class of an HTML element returned from certain DOM APIs based on the tag name. For example, `document.createElement('img')` returns an `HTMLImageElement` instance with a `src: string` property.
+
+Custom elements can get this same treatment by adding to the `HTMLElementTagNameMap` as follows:
+
+```ts
+@customElement("my-element")
+export class MyElement extends LitElement {
+  @property({ type: Number })
+  aNumber: number = 5;
+  /* ... */
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "my-element": MyElement;
+  }
+}
+```
+
+By doing this, the following code properly type-checks:
+
+```ts
+const myElement = document.createElement("my-element");
+myElement.aNumber = 10;
+```
+
+It is recommended to add an `HTMLElementTagNameMap` entry for all elements authored in TypeScript, and ensuring to publish the `.d.ts` typings in the npm package.
+
+## Rendering
+
+A template defines what the component should render. Templates can include expressions, which are placeholders for dynamic content.
+
+To define a template for a Lit component, add a `render()` method:
+
+```ts
+import { LitElement, html } from "lit";
+import { customElement } from "lit/decorators.js";
+
+@customElement("my-element")
+class MyElement extends LitElement {
+  render() {
+    return html`<p>Hello from my template.</p>`;
+  }
+}
+```
+
+The template is written in HTML inside a JavaScript [tagged template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates) using Lit's `html` tag function.
+
+Lit templates can include JavaScript expressions. You can use expressions to set text content, attributes, properties, and event listeners. The `render()` method can also include any JavaScript—for example, you can create local variables for use in expressions.
+
+### Renderable values
+
+Typically, the component's `render()` method returns a single `TemplateResult` object (the same type returned by the `html` tag function). However, it can return anything that Lit can render as the child of an HTML element:
+
+- Primitive values like string, number, or boolean
+- `TemplateResult` objects created by the `html` function
+- DOM Nodes
+  The sentinel values [`nothing`](https://lit.dev/docs/templates/conditionals/#conditionally-rendering-nothing) and [`noChange`](https://lit.dev/docs/templates/custom-directives/#signaling-no-change)
+- Arrays or iterables of any of the supported types
+
+This is almost identical to the set of values that can be rendered to a Lit [child expression](https://lit.dev/docs/templates/expressions/#child-expressions). The one difference is that a child expression can render an `SVGTemplateResult`, returned by the `svg` function. This kind of template result can only be rendered as the descendant of an `<svg>` element.
+
+### A good `render()` method
+
+To take best advantage of Lit's functional rendering model, the render() method should follow these guidelines:
+
+- Avoid changing the component's state
+- Avoid producing any side effects
+- Use only the component's properties as input
+- Return the same result when given the same property values
+
+Following these guidelines keeps the template deterministic, and makes it easier to reason about the code.
+
+In most cases you should avoid making DOM updates outside of `render()`. Instead, express the component's template as a function of its state, and capture its state in properties.
+
+For example, if your component needs to update its UI when it receives an event, have the event listener set a reactive property that is used in `render()`, rather than manipulate the DOM directly.
+
+For more information, see [Reactive properties](https://lit.dev/docs/components/properties/).
+
+### Composing templates
+
+You can compose Lit templates from other templates. The following example composes a template for a component called `<my-page>` from smaller templates for the page's header, footer, and main content:
+
+```ts
+import { LitElement, html } from "lit";
+import { customElement, property } from "lit/decorators.js";
+
+@customElement("my-page")
+class MyPage extends LitElement {
+  @property({ attribute: false })
+  article = {
+    title: "My Nifty Article",
+    text: "Some witty text.",
+  };
+
+  headerTemplate() {
+    return html`<header>${this.article.title}</header>`;
+  }
+
+  articleTemplate() {
+    return html`<article>${this.article.text}</article>`;
+  }
+
+  footerTemplate() {
+    return html`<footer>Your footer here.</footer>`;
+  }
+
+  render() {
+    return html`
+      ${this.headerTemplate()} ${this.articleTemplate()} ${this.footerTemplate()}
+    `;
+  }
+}
+```
+
+In this example, the individual templates are defined as instance methods, so a subclass could extend this component and override one or more templates.
+
+You can also compose templates by importing other elements and using them in your template:
+
+```ts
+import { LitElement, html } from "lit";
+import { customElement } from "lit/decorators.js";
+
+import "./my-header.js";
+import "./my-article.js";
+import "./my-footer.js";
+
+@customElement("my-page")
+class MyPage extends LitElement {
+  render() {
+    return html`
+      <my-header></my-header>
+      <my-article></my-article>
+      <my-footer></my-footer>
+    `;
+  }
+}
+```
+
+### When templates render
+
+A Lit component renders its template initially when it's added to the DOM on a page. After the initial render, any change to the component's reactive properties triggers an update cycle, re-rendering the component.
+
+Lit batches updates to maximize performance and efficiency. Setting multiple properties at once triggers only one update, performed asynchronously at microtask timing.
+
+During an update, only the parts of the DOM that change are re-rendered. Although Lit templates look like string interpolation, Lit parses and creates static HTML once, and then only updates changed values in expressions after that, making updates very efficient.
+
+### DOM Encapsulation
+
+**Lit uses shadow DOM to encapsulate the DOM a component renders.** Shadow DOM lets an element create its own, isolated DOM tree that's separate from the main document tree. It's a core feature of the web components specifications that enables interoperability, style encapsulation, and other benefits.
+
+## Reactive Properties
+
+Lit components receive input and store their state as JavaScript class fields or properties. Reactive properties are properties that can trigger the reactive update cycle when changed, re-rendering the component, and optionally be read or written to attributes.
+
+```ts
+class MyElement extends LitElement {
+  @property()
+  name: string;
+}
+```
+
+Lit manages your reactive properties and their corresponding attributes. In particular:
+
+- **Reactive updates:** Lit generates a getter/setter pair for each reactive property. When a reactive property changes, the component schedules an update.
+- **Attribute handling:** By default, Lit sets up an observed attribute corresponding to the property, and updates the property when the attribute changes. Property values can also, optionally, be reflected back to the attribute.
+- **Superclass properties:** Lit automatically applies property options declared by a superclass. You don't need to redeclare properties unless you want to change options.
+- **Element upgrade:** If a Lit component is defined after the element is already in the DOM, Lit handles upgrade logic, ensuring that any properties set on an element before it was upgraded trigger the correct reactive side effects when the element upgrades.
