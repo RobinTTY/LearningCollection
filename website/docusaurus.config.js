@@ -66,7 +66,14 @@ module.exports = {
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
-      additionalLanguages: ["csharp", "json", "jsx", "typescript", "css"],
+      additionalLanguages: [
+        "csharp",
+        "json",
+        "jsx",
+        "typescript",
+        "css",
+        "graphql",
+      ],
     },
   },
   presets: [
