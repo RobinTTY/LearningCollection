@@ -1,7 +1,7 @@
 ---
 id: authentication
 title: Authentication
-position: 2
+sidebar_position: 2
 ---
 
 1. Enable authorization in the config

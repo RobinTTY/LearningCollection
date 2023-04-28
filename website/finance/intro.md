@@ -4,7 +4,7 @@ title: Introduction
 sidebar_position: 1
 ---
 
-This documentation contains information about various financial concepts and terms and is intended to be a quick reference for someone who is new to the world of finance. It is not intended to be a comprehensive guide to all the concepts and terms in finance.
+This documentation contains information about various financial concepts and terms and is intended to be a quick reference for someone who is new to the word of finance. It is not intended to be a comprehensive guide to all the concepts and terms in finance.
 
 ## Information Sources
 
@@ -15,8 +15,8 @@ This documentation contains information about various financial concepts and ter
 
 ## Stock Trading (Germany)
 
-![Scalable Capital](https://de.scalable.capital/en)
-![lemon.markets (API Trading)](https://www.lemon.markets/)
+- [Scalable Capital](https://de.scalable.capital/en)
+- [lemon.markets (API Trading)](https://www.lemon.markets/)
 
 ## Look into
 
