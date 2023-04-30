@@ -61,7 +61,6 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Robin Müller. Built with Docusaurus.`,
     },
     prism: {
       theme: lightCodeTheme,
