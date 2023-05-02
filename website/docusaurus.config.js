@@ -31,7 +31,7 @@ module.exports = {
           to: "/finance/intro",
           position: "left",
           label: "Finance",
-          sidebarId: "finance",
+          sidebarid: "finance",
         },
       ],
     },

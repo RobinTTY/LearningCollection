@@ -1,0 +1,198 @@
+---
+id: data-fetching
+title: Data Fetching
+sidebar_position: 2
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+This page explains different aspects of data fetching in Hot Chocolate.
+
+## Resolvers
+
+Resolvers are the main building blocks when it comes to fetching data. Every field in our GraphQL schema is backed by such a resolver function, responsible for returning the field's value. Since a resolver is just a function, we can use it to retrieve data from a database, a REST service, or any other data source as needed.
+
+### Resolver Tree
+
+A resolver tree is a projection of a GraphQL operation that is prepared for execution. For better understanding, let's imagine we have a simple GraphQL query like the following, where we select some fields of the currently logged-in user.
+
+```graphql
+query {
+  me {
+    name
+    company {
+      id
+      name
+    }
+  }
+}
+```
+
+In Hot Chocolate, this query results in the following resolver tree.
+
+![resolver-tree](/img/docs/apis/graphql/resolver-tree.png)
+
+This tree will be traversed by the execution engine, starting with one or more root resolvers. In the above example the `me` field represents the only root resolver.
+
+Field resolvers that are sub-selections of a field, can only be executed after a value has been resolved for their parent field. In the case of the above example this means that the `name` and `company` resolvers can only run, after the `me` resolver has finished.
+
+:::danger
+Resolvers of field sub-selections can and will be executed in parallel.
+Because of this it is important that resolvers, with the exception of top level mutation field resolvers, do not contain side-effects, since their execution order may vary.
+:::
+
+The execution of a request finishes, once each resolver of the selected fields has produced a result. This is of course an oversimplification that differs from the actual implementation.
+
+### Defining a Resolver
+
+Resolvers can be defined in a way that should feel very familiar to C# developers, especially in the Annotation-based approach.
+
+#### Properties
+
+Hot Chocolate automatically converts properties with a public get accessor to a resolver that simply returns its value.
+
+#### Regular Resolver
+
+A regular resolver is just a simple method, which returns a value.
+
+<Tabs>
+  <TabItem value="annotation" label="Annotation-based" default>
+
+```csharp
+public class Query
+{
+    public string Foo() => "Bar";
+}
+
+public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services
+            .AddGraphQLServer()
+            .AddQueryType<Query>();
+    }
+}
+```
+
+  </TabItem>
+  <TabItem value="code" label="Code-first">
+
+```csharp
+public class Query
+{
+    public string Foo() => "Bar";
+}
+
+public class QueryType: ObjectType<Query>
+{
+    protected override void Configure(IObjectTypeDescriptor<Query> descriptor)
+    {
+        descriptor
+            .Field(f => f.Foo())
+            .Type<NonNullType<StringType>>();
+    }
+}
+
+public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services
+            .AddGraphQLServer()
+            .AddQueryType<QueryType>();
+    }
+}
+```
+
+  </TabItem>
+  <TabItem value="schema" label="Schema-first">
+
+```csharp
+public class Query
+{
+    public string Foo() => "Bar";
+}
+
+public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services
+            .AddGraphQLServer()
+            .AddDocumentFromString(@"
+                type Query {
+                    foo: String!
+                }
+            ")
+            .BindRuntimeType<Query>();
+    }
+}
+```
+
+  </TabItem>
+</Tabs>
+
+#### Async Resolver
+
+Most data fetching operations, like calling a service or communicating with a database, will be asynchronous.
+In Hot Chocolate, we can simply mark our resolver methods and delegates as `async` or return a `Task<T>` and it becomes an async-capable resolver.
+We can also add a `CancellationToken` argument to our resolver. Hot Chocolate will automatically cancel this token if the request has been aborted.
+
+```csharp
+public class Query
+{
+    public async Task<string> Foo(CancellationToken ct)
+    {
+        // Omitted code for brevity
+    }
+}
+```
+
+When using a delegate resolver, the `CancellationToken` is passed as second argument to the delegate.
+
+```csharp
+descriptor
+    .Field("foo")
+    .Resolve((context, ct) =>
+    {
+        // Omitted code for brevity
+    });
+```
+
+#### ResolveWith
+
+Thus far we have looked at two ways to specify resolvers in Code-first:
+
+- Add new methods to the CLR type, e.g. the `T` type of `ObjectType<T>`
+- Add new fields to the schema type in the form of delegates
+
+```csharp
+descriptor.Field("foo").Resolve(context => )
+```
+
+But there's a third way. We can describe our field using the `descriptor`, but instead of a resolver delegate, we can point to a method on another class, responsible for resolving this field.
+
+```csharp
+public class FooResolvers
+{
+    public string GetFoo(string arg, [Service] FooService service)
+    {
+        // Omitted code for brevity
+    }
+}
+
+public class QueryType : ObjectType
+{
+    protected override void Configure(IObjectTypeDescriptor descriptor)
+    {
+        descriptor
+            .Field("foo")
+            .Argument("arg", a => a.Type<NonNullType<StringType>>())
+            .ResolveWith<FooResolvers>(r => r.GetFoo(default, default));
+    }
+}
+```
+
+### Arguments
