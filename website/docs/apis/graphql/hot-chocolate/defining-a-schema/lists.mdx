@@ -1,0 +1,87 @@
+---
+id: lists
+title: Lists
+sidebar_position: 3
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+GraphQL allows us to return lists of elements from our fields.
+
+```graphql
+type Query {
+  users: [User]
+}
+```
+
+Clients can query list fields like any other field:
+
+```graphql
+{
+  users {
+    id
+    name
+  }
+}
+```
+
+Querying a list field will result in an ordered list containing elements with the specified sub-selection of fields.
+More information about lists can be found in the [official GraphQL documentation](https://graphql.org/learn/schema/#lists-and-non-null).
+
+## Usage
+
+Lists can be defined like this:
+
+<Tabs>
+  <TabItem value="annotation" label="Annotation-based" default>
+
+If our field resolver returns a list type, e.g. `IEnumerable<T>` or `IQueryable<T>`, it will automatically be treated as a list type in the schema.
+
+```csharp
+public class Query
+{
+    public List<User> GetUsers()
+    {
+        // Omitted code for brevity
+    }
+}
+```
+
+  </TabItem>
+  <TabItem value="code" label="Code-first">
+
+If our field resolver returns a list type, e.g. `IEnumerable<T>` or `IQueryable<T>`, it will automatically be treated as a list type in the schema.
+
+```csharp
+public class QueryType : ObjectType
+{
+    protected override void Configure(IObjectTypeDescriptor descriptor)
+    {
+        descriptor.Name(OperationTypeNames.Query);
+
+        descriptor
+            .Field("users")
+            .Resolve(context =>
+            {
+                List<User> users = null;
+
+                // Omitted code for brevity
+
+                return users;
+            });
+    }
+}
+```
+
+  </TabItem>
+  <TabItem value="schema" label="Schema-first">
+
+```csharp
+type Query {
+  users: [User]
+}
+```
+
+  </TabItem>
+</Tabs>
