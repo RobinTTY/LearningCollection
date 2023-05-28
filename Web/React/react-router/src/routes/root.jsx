@@ -1,17 +1,21 @@
+import { useEffect, useState } from "react";
 import {
   Outlet,
   NavLink,
   useLoaderData,
   useNavigation,
+  useSubmit,
   Form,
   redirect,
 } from "react-router-dom";
 import { getContacts, createContact } from "../contacts";
 
 // Gets the data to be displayed in the contacts (all contacts)
-export async function loader() {
-  const contacts = await getContacts();
-  return { contacts };
+export async function loader({ request }) {
+  const url = new URL(request.url);
+  let q = url.searchParams.get("q");
+  const contacts = await getContacts(q);
+  return { contacts, q };
 }
 
 // We'll create new contacts by exporting an "action" in our root route
@@ -26,27 +30,61 @@ export async function action() {
 // On submit all of your "useLoaderData" hooks update and the UI stays in sync with your data automatically
 export default function Root() {
   // This hook provides the value returned from your route loader.
-  const { contacts } = useLoaderData();
+  const { contacts, q } = useLoaderData();
+
   // This hook tells you everything you need to know about a page navigation to build pending navigation
   // indicators and optimistic UI on data mutations. useNavigation returns the current navigation state:
   // it can be one of "idle" | "submitting" | "loading".
   const navigation = useNavigation();
+
+  // Used to submit the form automatically when someone types in the search input
+  const submit = useSubmit();
+
+  // This hook is used to update the value of the search input when the user navigates back through the browser
+  // (The search input gets emptied)
+  useEffect(() => {
+    document.getElementById("q").value = q;
+  }, [q]);
+
+  // Without any loading indicator, the search feels kinda sluggish. Even if we could make our
+  // database faster, we'll always have the user's network latency in the way and out of our
+  // control.For a better UX, let's add some immediate UI feedback for the search.
+  const searching =
+    navigation.location &&
+    new URLSearchParams(navigation.location.search).has("q");
+
+  // Because the "Form" below is a GET, not a POST, React Router does not call the action.
+  // Submitting a GET form is the same as clicking a link: only the URL changes. That's why
+  // the code we added for filtering is in the loader, not the action of this route.
   return (
     <>
       <div id="sidebar">
         <h1>React Router Contacts</h1>
         <div>
-          <form id="search-form" role="search">
+          <Form id="search-form" role="search">
             <input
               id="q"
+              className={searching ? "loading" : ""}
               aria-label="Search contacts"
               placeholder="Search"
               type="search"
               name="q"
+              defaultValue={q}
+              onChange={(event) => {
+                // only replace history if not the first search
+                const isFirstSearch = q == null;
+                // The currentTarget is the DOM node the event is attached to, and the
+                // currentTarget.form is the input's parent form node.
+                // The submit function will serialize and submit any form you pass to it.
+                submit(event.currentTarget.form, {
+                  // The replace option tells React Router to replace the current history entry
+                  replace: !isFirstSearch,
+                });
+              }}
             />
-            <div id="search-spinner" aria-hidden hidden={true} />
+            <div id="search-spinner" aria-hidden hidden={!searching} />
             <div className="sr-only" aria-live="polite"></div>
-          </form>
+          </Form>
           <Form method="post">
             <button type="submit">New</button>
           </Form>

@@ -1,10 +1,18 @@
-import { Form, useLoaderData } from "react-router-dom";
-import { getContact } from "../contacts";
+import { Form, useLoaderData, useFetcher } from "react-router-dom";
+import { getContact, updateContact } from "../contacts";
 
 // Loader for a single contact
 export async function loader({ params }) {
   const contact = await getContact(params.contactId);
   return { contact };
+}
+
+// Accepts the form data and updates the contact
+export async function action({ request, params }) {
+  let formData = await request.formData();
+  return updateContact(params.contactId, {
+    favorite: formData.get("favorite") === "true",
+  });
 }
 
 export default function Contact() {
@@ -59,11 +67,31 @@ export default function Contact() {
   );
 }
 
+// Note above in the Form the action points to "destroy"
+// Like <Link to>, <Form action> can take a relative value.
+// Since the form is rendered in contact/:contactId, then a relative action with
+// destroy will submit the form to contact/:contactId/destroy when clicked
+
+// In detail:
+// 1. <Form> prevents the default browser behavior of sending a new POST request to the server,
+// but instead emulates the browser by creating a POST request with client side routing
+// 2. The <Form action="destroy"> matches the new route at "contacts/:contactId/destroy"
+// and sends it the request
+// 3. After the action redirects, React Router calls all of the loaders for the data on the
+// page to get the latest values(this is "revalidation").useLoaderData returns new values and
+// causes the components to update!
+
+// If we don't want to create entries in the browsers history stack we use the useFetcher hook
+// It allows us to communicate with loaders and actions without causing a navigation.
+// The form below will send formData with a favorite key that's either "true" | "false"
+// Since it's got method="post" it will call the action. Since there is no
+// <fetcher.Form action="..."> prop, it will post to the route where the form is rendered.
 function Favorite({ contact }) {
-  // yes, this is a `let` for later
+  const fetcher = useFetcher();
   let favorite = contact.favorite;
+
   return (
-    <Form method="post">
+    <fetcher.Form method="post">
       <button
         name="favorite"
         value={favorite ? "false" : "true"}
@@ -71,6 +99,6 @@ function Favorite({ contact }) {
       >
         {favorite ? "★" : "☆"}
       </button>
-    </Form>
+    </fetcher.Form>
   );
 }
