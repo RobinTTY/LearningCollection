@@ -4,6 +4,15 @@ import { getContact, updateContact } from "../contacts";
 // Loader for a single contact
 export async function loader({ params }) {
   const contact = await getContact(params.contactId);
+
+  // Whenever you have an expected error case in a loader or action–like the data not existing–you can throw.
+  // The call stack will break, React Router will catch it, and the error path is rendered instead.
+  if (!contact) {
+    throw new Response("", {
+      status: 404,
+      statusText: "Not Found",
+    });
+  }
   return { contact };
 }
 
@@ -89,6 +98,12 @@ export default function Contact() {
 function Favorite({ contact }) {
   const fetcher = useFetcher();
   let favorite = contact.favorite;
+  // Instead of always rendering the actual data, we check if the fetcher has any formData
+  // being submitted, if so, we'll use that instead.  When the action is done, the
+  // fetcher.formData will no longer exist and we're back to using the actual data
+  if (fetcher.formData) {
+    favorite = fetcher.formData.get("favorite") === "true";
+  }
 
   return (
     <fetcher.Form method="post">
