@@ -356,4 +356,125 @@ A `<Navigate>` element changes the current location when it is rendered. It's a 
 
 #### `useNavigation` Hook
 
-The `useNavigation` hook on the other hand is a hook I use all the time. This hook is a really simple hook that takes no parameters and returns a single navigate function which you can use to redirect a user to specific pages. This navigate function takes two parameters. The first parameter is the to location you want to redirect the user to and the second parameter is an object that can have keys for replace, and state.
+The `useNavigation` hook on the other hand is a hook I use all the time. This hook is a really simple hook that takes no parameters and returns a single `navigate` function which you can use to redirect a user to specific pages. This `navigate` function takes two parameters. The first parameter is the `to` location you want to redirect the user to and the second parameter is an object that can have keys for `replace`, and `state`.
+
+```jsx
+const navigate = useNavigate();
+
+function onSubmit() {
+  // Submit form results
+  navigate("/books", { replace: true, state: { bookName: "Fake Title" } });
+}
+```
+
+The above code will redirect the user to the `/books` route. It will also replace the current route in history and pass along some state information as well. Another way you can use the `navigate` function is to pass it a number. This will allow you to simulate hitting the forward/back button.
+
+```jsx
+navigate(-1); // Go back one page in history
+navigate(-3); // Go back three pages in history
+navigate(1); // Go forward one page in history
+```
+
+:::caution Note
+It's usually better to use `redirect` in loaders and actions than this hook.
+:::
+
+### Navigation Data
+
+Finally it is time to talk about passing data between pages. There are 3 main ways you can pass data between pages:
+
+1. Dynamic Parameters
+2. Search Parameters
+3. State/Location Data
+
+#### Dynamic Parameters
+
+We have already talked about how to use dynamic parameters in URLs by using the `useParams` hook. This is the best way to handle passing information like ids between.
+
+#### Search Parameters
+
+Search parameters are all of the parameters that come after the `?` in a URL (`?name=Kyle&age=27`). In order to work with search parameters you need to use the `useSearchParams` hook which works very similarly to the `useState` hook.
+
+```jsx
+import { useSearchParams } from "react-router-dom";
+
+export function SearchExample() {
+  const [searchParams, setSearchParams] = useSearchParams({ n: 3 });
+  const number = searchParams.get("n");
+
+  return (
+    <>
+      <h1>{number}</h1>
+      <input
+        type="number"
+        value={number}
+        onChange={(e) => setSearchParams({ n: e.target.value })}
+      />
+    </>
+  );
+}
+```
+
+In this example we have an input that as we type in will update the search portion of our URL. For example if our input has the value of 32 our URL will look like `http://localhost:3000?n=32`. The `useSearchParams` hook takes an initial value just like `useState` and in our case our initial value has `n` set to 3. This hook then returns two values. The first value is all our our search parameters and the second value is a function for updating our search parameters. The set function just takes a single argument that is the new value of your search parameters. The first value that contains the search parameters is a bit more confusing, though. This is because this value is of the type `URLSearchParams`. That is why we need to use the `.get` syntax on line 5 above.
+
+#### State/Location Data
+
+The final type of data you can store is state and location data. This information is all accessible via the `useLocation` hook. Using this hook is very simple as it returns one value and takes no parameters.
+
+```jsx
+const location = useLocation();
+```
+
+If we have the following URL `http://localhost/books?n=32#id` then the return value of `useLocation` would look like this:
+
+```js
+{
+  pathname: "/books",
+  search: "?n=32",
+  hash: "#id",
+  key: "2JH3G3S",
+  state: null
+}
+```
+
+This location object contains all the information related to our URL. It also contains a unique key that you can use to do caching if you want to cache information for when a user clicks the back button to come back to a page. You also will notice that we have a state property being returned from `useLocation` as well. This state data can be anything and is passed between pages without being stored in the URL. For example if you click on a `Link` that looks like this:
+
+```jsx
+<Link to="/books" state={{ name: "Kyle" }}>
+```
+
+then the state value in the location object will be set to `{ name: "Kyle" }`. This can be really useful if for example you wan to send across simple messages between pages that shouldn't be stored in the URL. A good example of this would be something like a success message that gets sent to the page you are redirected to after creating a new book.
+
+## Routers In Depth
+
+In the first section of the basics we talked about defining your router and we mentioned the `BrowserRouter` and `NativeRouter`, but those are not the only routers. There are actually 6 routers in total.
+
+### `BrowserRouter`
+
+This is the default router you should use if you are working on a web app and is the router you will use in 99% of all your applications since it covers all the normally routing use cases you have. Each of the other routers I will talk about have very specific use cases where you would want to use them so if you don't fit those use cases then the `BrowserRouter` is what you should use.
+
+### `NativeRouter`
+
+The `NativeRouter` is essentially the equivalent of the `BrowserRouter`, but for React Native. If you are using React Native then this is the router you will want to use.
+
+### `HashRouter`
+
+This router works very similarly to the `BrowserRouter`, but the main difference is that instead of changing the URL to something like `http://localhost:3000/books` it will store the URL in the hash like so `http://localhost:3000/#/books`. As you can see this URL has a `#` after the URL which represents the hash portion of the URL. Anything in the hash portion of the URL is just additional information that usually denotes an id on the page for scrolling purposes since a page will automatically scroll to the element with the id represented by the hash when the page loads.
+
+In React Router this hash is not actually used to store id information for scrolling, but instead it stores information related to the current URL. The reason React Router does this is because some hosting providers do not allow you to actually change the URL of your page. In those very rare circumstances you will want to use the `HashRouter` since the `HashRouter` will not change the actual URL of your page and will only change the hash of your page. If you are able to use any URL with your hosting provider then this is not something you should use.
+
+### `MemoryRouter`
+
+The `MemoryRouter` is a bit different than the rest of the routers we talked about since, instead of storing information about the current route in the URL of the browser, this router stores information on routing directly in memory. Obviously, this is a very bad router to use for normal routing operations, but this router is incredibly useful when you are writing tests for your application that do not have access to the browser.
+
+Because of how React Router works, you need to have your components wrapped in a router otherwise all your routing code will throw errors and break. This means even if you want to test a single component, you will need to wrap that component inside of a router or it will throw errors. If you are testing your code in a way that it does not have access to the browser (such as unit testing) then the routers we have talked about so far will throw errors since they all depend on the browser for the URL. The `MemoryRouter` on the other hand stores all its information in memory which means it never accesses the browser and is ideal when trying to unit test components. Other than this specific use case, though, this router is never to be used.
+
+### `StaticRouter`
+
+The final router is the `StaticRouter` and this router again has a very specific use case. This router is specifically meant for server rendering your React applications since it takes in a single `location` prop and renders out your application using that `location` prop as the URL. This router cannot actually do any routing and will just render a single static page, but that is perfect for server rendering since you want to just render the HTML of your application on the server and then the client can set up all your routing and so on.
+
+```jsx
+<StaticRouter location="/books">
+  <App />
+</StaticRouter>
+```
