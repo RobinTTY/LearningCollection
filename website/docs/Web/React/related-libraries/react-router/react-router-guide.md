@@ -68,8 +68,6 @@ There is a lot of cool stuff you can do with routing to make more complex routes
 - Dynamic Routing
 - Routing Priority
 - Nested Routes
-- Multiple Routes
-- `useRoutes` Hook
 
 ### Dynamic Routing
 
@@ -248,3 +246,114 @@ export function Book() {
 ```
 
 As you can see from this example, we are passing down a context value of `{ hello: "world" }` and then in our child component we are using the `useOutletContext` hook to access the value for our context. This is a pretty common pattern to use since often you will have shared data between all your child components which is the ideal use case for this context.
+
+## Handling Navigation
+
+Now that we know how to define our routes we need to talk about how to navigate between those routes. This section will be broken down into three sections:
+
+1. Link Navigation
+2. Manual Navigation
+3. Navigation Data
+
+### Link Navigation
+
+Link Navigation is the simplest and most common form of navigation you will encounter. We have already seen the most basic form of link navigation using the `Link` component:
+
+```jsx
+<Link to="/">Home</Link>
+<Link to="/books">Books</Link>
+```
+
+These `Link` components can get a bit more complex, though. For example you can have absolute links like the above links or you can have links that are relative to the current component being rendered:
+
+```jsx
+<Link to="/">Home</Link>
+<Link to="../">Back</Link>
+<Link to="edit">Edit</Link>
+```
+
+For example imagine we are in the `/books/3` route with the above links. The first link will lead to the `/` route since it is an absolute route. Any route that starts with a `/` is an absolute route. The second link will lead to the route `/books` since it is a relative link that goes up one level from `/books/3` to `/books`. Finally, our third link will go to the `/books/3/edit` page since it will add the path in the `to` prop to the end of the current link since it is a relative link.
+
+Besides the `to` prop, there are also 3 other props that are important to the `Link` component.
+
+#### `replace`
+
+The `replace` prop is a boolean that when set to `true` will cause this link to replace the current page in the browser history. Imagine you have the following browser history:
+
+```txt
+/
+/books
+/books/3
+```
+
+If you click on a link that goes to the `/books/3/edit` page but it has the `replace` property set to `true` your new history will look like this:
+
+```txt
+/
+/books
+/books/3/edit
+```
+
+The page your were currently on was replaced with the new page. This means that if you click the back button on the new page it will bring you back to the `/books` page instead of the `/books/3` page.
+
+#### `reloadDocument`
+
+This prop is another boolean and is very simple. If it is set to `true` your `Link` component will act like a normal anchor tag and do a full page refresh on navigation instead of just re-rendering the content inside your `Routes` component.
+
+#### `state`
+
+The final prop is called `state`. This prop lets you pass data along with your `Link` that does not show up anywhere in the URL. This is something we will cover in more depth when we talk about navigation data so we can ignore it for now.
+
+#### `NavLink`
+
+The `NavLink` component works exactly the same as the `Link` component, but it is specifically for showing active states on links, for example in nav bars. By default if the `to` property of a `NavLink` is the same as the URL of the current page the link will have an `active` class added to it which you can use for styling. If this is not enough you can instead pass a function with an `isActive` parameter to the `className`, or `style` props, or as the children of the `NavLink`.
+
+```jsx
+<NavLink
+  to="/"
+  style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
+>
+  Home
+</NavLink>
+```
+
+The NavLink also has one prop called `end` which is used to help with nested routing. The `end` prop changes the matching logic for the `active` and `pending` states to only match to the "end" of the `NavLink`'s `to` path. If the URL is longer than `to`, it will no longer be considered active.
+
+Without the end prop, this link is always active because every URL matches `/`:
+
+```jsx
+<NavLink to="/">Home</NavLink>
+```
+
+To match the URL "to the end" of `to`, use `end`:
+
+```jsx
+<NavLink to="/" end>
+  Home
+</NavLink>
+```
+
+Now this link will only be active at `/`. This works for paths with more segments as well:
+
+| Link                          | URL          | isActive |
+| ----------------------------- | ------------ | -------- |
+| `<NavLink to="/tasks" />`     | `/tasks`     | `true`   |
+| `<NavLink to="/tasks" />`     | `/tasks/123` | `true`   |
+| `<NavLink to="/tasks" end />` | `/tasks`     | `true`   |
+| `<NavLink to="/tasks" end />` | `/tasks/123` | `false`  |
+
+### Manual Navigation
+
+Now sometimes you want to manually navigate a user based on things like submitting a form or not having access to a specific page. For those use cases you will need to either use the `Navigate` component or the `useNavigation` hook.
+
+#### `Navigate` Component
+
+A `<Navigate>` element changes the current location when it is rendered. It's a component wrapper around `useNavigate`, and accepts all the same arguments as props.
+
+```jsx
+<Navigate to="/" />
+```
+
+#### `useNavigation` Hook
+
+The `useNavigation` hook on the other hand is a hook I use all the time. This hook is a really simple hook that takes no parameters and returns a single navigate function which you can use to redirect a user to specific pages. This navigate function takes two parameters. The first parameter is the to location you want to redirect the user to and the second parameter is an object that can have keys for replace, and state.
