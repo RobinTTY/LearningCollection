@@ -472,9 +472,3 @@ Because of how React Router works, you need to have your components wrapped in a
 ### `StaticRouter`
 
 The final router is the `StaticRouter` and this router again has a very specific use case. This router is specifically meant for server rendering your React applications since it takes in a single `location` prop and renders out your application using that `location` prop as the URL. This router cannot actually do any routing and will just render a single static page, but that is perfect for server rendering since you want to just render the HTML of your application on the server and then the client can set up all your routing and so on.
-
-```jsx
-<StaticRouter location="/books">
-  <App />
-</StaticRouter>
-```
