@@ -1,8 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from 'react-router-dom';
-import { setContext } from '@apollo/client/link/context';
-import { AUTH_TOKEN } from './constants';
+import { BrowserRouter } from "react-router-dom";
+import { setContext } from "@apollo/client/link/context";
+import { AUTH_TOKEN } from "./constants";
+import { split } from "@apollo/client";
+import { WebSocketLink } from "@apollo/client/link/ws";
+import { getMainDefinition } from "@apollo/client/utilities";
 import App from "./components/App";
 import "./styles/index.css";
 
@@ -29,14 +32,40 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : ''
-    }
+      authorization: token ? `Bearer ${token}` : "",
+    },
   };
 });
 
+// Represents the Websocket connection for subscriptions
+const wsLink = new WebSocketLink({
+  uri: `ws://localhost:4000/graphql`,
+  options: {
+    reconnect: true,
+    connectionParams: {
+      // uses authentication
+      authToken: localStorage.getItem(AUTH_TOKEN),
+    },
+  },
+});
+
+// split is used to “route” a request to a specific middleware link. It takes
+// three arguments, the first one is a test function which returns a boolean.
+// The remaining two arguments are again of type ApolloLink. If test returns
+// true, the request will be forwarded to the link passed as the second
+// argument.If false, to the third one.
+const link = split(
+  ({ query }) => {
+    const { kind, operation } = getMainDefinition(query);
+    return kind === "OperationDefinition" && operation === "subscription";
+  },
+  wsLink,
+  authLink.concat(httpLink)
+);
+
 // 3. Instantiate ApolloClient
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  link,
   cache: new InMemoryCache(),
 });
 
@@ -47,5 +76,5 @@ ReactDOM.render(
       <App />
     </ApolloProvider>
   </BrowserRouter>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
