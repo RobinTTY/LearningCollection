@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from 'react-router-dom';
+import { setContext } from '@apollo/client/link/context';
+import { AUTH_TOKEN } from './constants';
 import App from "./components/App";
 import "./styles/index.css";
 
@@ -17,9 +19,24 @@ const httpLink = createHttpLink({
   uri: "http://localhost:4000",
 });
 
+// This middleware will be invoked every time ApolloClient
+// sends a request to the server. Apollo Links allow us to
+// create middlewares that modify requests before they are
+// sent to the server
+const authLink = setContext((_, { headers }) => {
+  // Get token from the local storage
+  const token = localStorage.getItem(AUTH_TOKEN);
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : ''
+    }
+  };
+});
+
 // 3. Instantiate ApolloClient
 const client = new ApolloClient({
-  link: httpLink,
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 

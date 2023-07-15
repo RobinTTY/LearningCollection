@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
+import { FEED_QUERY } from "./LinkList";
 
 const CREATE_LINK_MUTATION = gql`
   mutation PostMutation($description: String!, $url: String!) {
@@ -30,6 +31,26 @@ const CreateLink = () => {
       description: formState.description,
       // link for the news article
       url: formState.url,
+    },
+    // We first read the current state of the results of the FEED_QUERY
+    update: (cache, { data: { post } }) => {
+      const data = cache.readQuery({
+        query: FEED_QUERY,
+      });
+
+      // Then we insert the newest link at beginning and write the query results back to the store
+      // Note that we need to pass in a set of variables to the readQuery and writeQuery functions.
+      // It’s not enough to simply pass the FEED_QUERY query document in, we also need to specify
+      // the conditions of the original query we’re targeting. In this case, we pass in variables
+      // that line up with the initial variables we passed into the query in LinkList.js
+      cache.writeQuery({
+        query: FEED_QUERY,
+        data: {
+          feed: {
+            links: [post, ...data.feed.links],
+          },
+        },
+      });
     },
     // When the mutation is complete, we navigate the user back to the news feed
     onCompleted: () => navigate("/"),

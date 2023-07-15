@@ -36,6 +36,7 @@ const Login = () => {
     name: "",
   });
 
+  // The token that is returned on login is stored in localStorage
   const [login] = useMutation(LOGIN_MUTATION, {
     variables: {
       email: formState.email,
@@ -47,6 +48,7 @@ const Login = () => {
     },
   });
 
+  // The token that is returned on signup is stored in localStorage
   const [signup] = useMutation(SIGNUP_MUTATION, {
     variables: {
       name: formState.name,
