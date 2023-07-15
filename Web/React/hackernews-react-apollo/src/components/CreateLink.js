@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const CREATE_LINK_MUTATION = gql`
   mutation PostMutation($description: String!, $url: String!) {
@@ -32,7 +32,7 @@ const CreateLink = () => {
       url: formState.url,
     },
     // When the mutation is complete, we navigate the user back to the news feed
-    onCompleted: () => navigate('/')
+    onCompleted: () => navigate("/"),
   });
 
   return (
