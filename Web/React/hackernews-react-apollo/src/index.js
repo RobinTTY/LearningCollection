@@ -57,6 +57,9 @@ const wsLink = new WebSocketLink({
 const link = split(
   ({ query }) => {
     const { kind, operation } = getMainDefinition(query);
+    // In our case, the test function is checking whether the requested operation is a subscription
+    // If it is, it will be forwarded to the wsLink, otherwise (if it’s a query or mutation), the
+    // authLink.concat(httpLink) will take care of it
     return kind === "OperationDefinition" && operation === "subscription";
   },
   wsLink,

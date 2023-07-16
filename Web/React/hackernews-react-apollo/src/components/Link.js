@@ -1,4 +1,4 @@
-import { AUTH_TOKEN } from "../constants";
+import { AUTH_TOKEN, LINKS_PER_PAGE } from "../constants";
 import { FEED_QUERY } from "./LinkList";
 import { timeDifferenceForDate } from "../utils";
 import { useMutation, gql } from "@apollo/client";
@@ -26,6 +26,9 @@ const VOTE_MUTATION = gql`
 const Link = (props) => {
   const { link } = props;
   const authToken = localStorage.getItem(AUTH_TOKEN);
+  const take = LINKS_PER_PAGE;
+  const skip = 0;
+  const orderBy = { createdAt: "desc" };
 
   // When we perform mutations that affect a list of data,
   // we need to manually intervene to update the cache.
@@ -41,6 +44,11 @@ const Link = (props) => {
       // to allow us to update it
       const { feed } = cache.readQuery({
         query: FEED_QUERY,
+        variables: {
+          take,
+          skip,
+          orderBy,
+        },
       });
 
       // Once we have the cache, we create a new array of data that
@@ -63,6 +71,11 @@ const Link = (props) => {
         data: {
           feed: {
             links: updatedLinks,
+            variables: {
+              take,
+              skip,
+              orderBy,
+            },
           },
         },
       });

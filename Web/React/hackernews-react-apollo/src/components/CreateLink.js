@@ -1,3 +1,4 @@
+import { AUTH_TOKEN } from "../constants";
 import React, { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
@@ -34,8 +35,20 @@ const CreateLink = () => {
     },
     // We first read the current state of the results of the FEED_QUERY
     update: (cache, { data: { post } }) => {
+      const take = LINKS_PER_PAGE;
+      const skip = 0;
+      const orderBy = { createdAt: "desc" };
+
+      // readQuery essentially works in the same way as the query method on the ApolloClient that we used
+      // to implement the search.However, instead of making a call to the server, it will simply resolve
+      // the query against the local store
       const data = cache.readQuery({
         query: FEED_QUERY,
+        variables: {
+          take,
+          skip,
+          orderBy,
+        },
       });
 
       // Then we insert the newest link at beginning and write the query results back to the store
@@ -49,6 +62,11 @@ const CreateLink = () => {
           feed: {
             links: [post, ...data.feed.links],
           },
+        },
+        variables: {
+          take,
+          skip,
+          orderBy,
         },
       });
     },
