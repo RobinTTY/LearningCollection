@@ -1,4 +1,3 @@
-import { AUTH_TOKEN } from "../constants";
 import React, { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
