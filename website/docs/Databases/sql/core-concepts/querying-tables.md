@@ -43,20 +43,6 @@ SELECT employee_id AS id, employee_name AS name
 FROM employees;
 ```
 
-[#TODO]: # "Maybe move this to a function section"
-
-## `COUNT` function
-
-We can use a `SELECT` statement to get a count of the records within a table. This can be very useful when we need to know how many records there are, but we don't particularly care what's in them.
-
-Here's an example in SQLite:
-
-```sql
-SELECT count(*) from employees;
-```
-
-The `*` in this case refers to a column name. We don't care about the count of a specific column - we want to know the number of total records so we can use the wildcard `(*)`.
-
 ## `WHERE` clause
 
 We often want to look at specific user data within that table without retrieving all the other records in the table. SQL accepts a `WHERE` clause within a query that allows us to filter the data based on a condition:
