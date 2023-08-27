@@ -1,2 +1,0 @@
-Exercism is a platform to learn new programming languages, where you get feedback on a wide variaty of exercises from a mentor.
-It's great to get better at writing clean code and thinking more about how to code the right way.
