@@ -1,7 +1,7 @@
 ---
 id: constraints
 title: Constratints
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 A `constraint` is a rule we create on a database that enforces some specific behavior. For example, setting a `NOT NULL` constraint on a column ensures that the column will not accept `NULL` values. Constraints are extremely useful when we need to ensure that certain kinds of data exist within our database.

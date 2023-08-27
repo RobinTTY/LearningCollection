@@ -1,7 +1,7 @@
 ---
 id: database-schema
 title: Database Schema
-sidebar_position: 5
+sidebar_position: 2
 ---
 
 A database's [schema](https://www.ibm.com/topics/database-schema) describes how data is organized within it. Data types, table names, field names, constraints, and the relationships between all of those entities are part of a database's schema.
