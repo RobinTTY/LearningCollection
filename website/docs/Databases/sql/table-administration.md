@@ -1,7 +1,7 @@
 ---
-id: manipulating-tables
-title: Manipulating Tables
-sidebar_position: 4
+id: table-administration
+title: Table Administration
+sidebar_position: 7
 ---
 
 ## Creating Tables
@@ -48,3 +48,5 @@ ADD COLUMN job_title TEXT;
 ALTER TABLE contractors
 DROP COLUMN is_manager;
 ```
+
+##

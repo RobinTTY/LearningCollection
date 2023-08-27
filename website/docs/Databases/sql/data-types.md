@@ -1,7 +1,7 @@
 ---
 id: data-types
 title: Data Types
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 SQL as a language can support many different data types. However, the datatypes that your database management system (DBMS) supports will vary depending on the specific database you're using. We discuss some of the most basic datatypes here:

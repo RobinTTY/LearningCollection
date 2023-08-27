@@ -1,7 +1,7 @@
 ---
 id: schema-migration
 title: Schema Migration
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 In software engineering, a schema migration (also database migration, database change management) refers to the management of version-controlled, incremental and reversible changes to relational database schemas. A schema migration is performed on a database whenever it is necessary to update or revert that database's schema to some newer or older version.
