@@ -1,7 +1,7 @@
 ---
 id: altering-tables
 title: Altering Tables
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 ## `INSERT` statement

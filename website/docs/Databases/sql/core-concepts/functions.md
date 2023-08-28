@@ -1,7 +1,7 @@
 ---
 id: functions
 title: Functions
-sidebar_position: 6
+sidebar_position: 4
 ---
 
 SQL has many built-in functions for performing calculations on data. The names of these functions are not standardized across different dialects of SQL.
