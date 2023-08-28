@@ -1,4 +1,3 @@
 # LearningCollection
 
-If I'm learning or trying out something new it probably ends up here.
-I mostly try to write down the important bits along the way in my notes, maybe you'll find them useful.
+If I'm learning or trying out something new it probably ends up here. I try to keep notes so I retain the information better, they can be viewed via my [documentation website](https://robintty.github.io/LearningCollection/).
