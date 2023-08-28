@@ -1,7 +1,7 @@
 ---
 id: interestingTopics
 title: Interesting Topics
-sidebar_position: 1
+sidebar_position: 9
 ---
 
 This page contains the topics I still want to look into.
@@ -42,3 +42,7 @@ This page contains the topics I still want to look into.
 - [ ] [Bogus](https://github.com/bchavez/Bogus)
 - [ ] [AutoMapper](https://github.com/AutoMapper/AutoMapper)
 - [ ] [FluentValidation](https://github.com/FluentValidation/FluentValidation)
+
+### SQL
+
+- [ ] [Well structured SQL course](https://mode.com/sql-tutorial/)
