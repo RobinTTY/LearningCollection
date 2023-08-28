@@ -1,7 +1,7 @@
 ---
 id: object-relational-mapping
 title: Object-Relational Mapping (ORM)
-sidebar_position: 4
+sidebar_position: 2
 ---
 
 An [Object-Relational Mapping](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) or an ORM for short, is a tool that allows you to perform CRUD operations on a database using a traditional programming language. These typically come in the form of a library or framework that you would use in your backend code.
