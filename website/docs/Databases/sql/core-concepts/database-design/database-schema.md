@@ -106,6 +106,35 @@ CREATE TABLE employees (
 
 In this example, an `employee` has a `department_id`. The `department_id` must be the same as the id field of a record from the `departments` table.
 
+### UNIQUE constraint
+
+A `UNIQUE` constraint ensures all values in a column or a group of columns are distinct from one another or unique. You can define a `UNIQUE` constraint at the column or the table level. Only at the table level, you can define a `UNIQUE` constraint across multiple columns.
+
+#### Defining a `UNIQUE` constraint for one column
+
+The following statement creates a new table named contacts with a `UNIQUE` constraint defined for the `email` column:
+
+```sql
+CREATE TABLE contacts(
+    contact_id INTEGER PRIMARY KEY,
+    first_name TEXT,
+    last_name TEXT,
+    email TEXT NOT NULL UNIQUE
+);
+```
+
+#### Defining a `UNIQUE` constraint for multiple columns
+
+```sql
+CREATE TABLE product_suppliers (
+  product_id INTEGER,
+  supplier_id INTEGER,
+  UNIQUE(product_id, supplier_id)
+);
+```
+
+This ensures that we can have multiple rows with the same `product_id` or `supplier_id`, but we can't have two rows where both the `product_id` and `supplier_id` are the same.
+
 ### Auto Increment
 
 Many dialects of SQL support an `AUTO INCREMENT` feature. When inserting records into a table with `AUTO INCREMENT` enabled, the database will assign the next value automatically. In SQLite an integer `id` field that has the `PRIMARY KEY` constraint will auto increment by default. Different dialects of SQL will implement this feature differently.
