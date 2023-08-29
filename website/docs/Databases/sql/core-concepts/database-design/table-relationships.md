@@ -37,3 +37,7 @@ A many-to-many relationship occurs when multiple records in one table can be rel
 
 - A `products` table and a `suppliers` table - Products may have 0 to many suppliers, and suppliers can supply 0 to many products.
 - A `classes` table and a `students` table - Students can take potentially many classes and classes can have many students enrolled.
+
+This type of relationship is usually implemented using a third table, often called a "join table", "junction table" or "link table". This table contains the `primary key` of each of the tables it's joining together:
+
+![link-table](/img/docs/Databases/sql/link-table.svg)
