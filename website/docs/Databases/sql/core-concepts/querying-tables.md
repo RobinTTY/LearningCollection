@@ -183,3 +183,94 @@ FROM Customers
 GROUP BY Country
 HAVING COUNT(CustomerID) > 5;
 ```
+
+## `JOIN` clause
+
+Joins allow us to make use of the relationships we have set up between our tables. In short, joins allow us to query multiple tables at the same time. There are different types of joins, the most common are `INNER JOIN`, `FULL JOIN`, `LEFT JOIN`, and `RIGHT JOIN`.
+
+![joins](/img/docs/Databases/sql/joins.png)
+
+### `ON` clause
+
+In order to perform a join, we need to tell the database which fields should be "matched up". The `ON` clause is used to specify these columns to join.
+
+### Namespacing on tables
+
+When working with multiple tables, you can specify which table a field exists on using a `.`. For example:
+
+```sql
+SELECT students.name, classes.name
+FROM students
+INNER JOIN classes
+ON classes.class_id = students.class_id;
+```
+
+The above query returns the `name` field from the `students` table and the `name` field from the `classes` table. You could also define an alias for each table like this:
+
+```sql
+SELECT s.name, c.name
+FROM students AS s
+INNER JOIN classes AS c
+ON c.class_id = s.class_id;
+```
+
+### `INNER JOIN`
+
+The simplest and most common type of join in SQL is the `INNER JOIN`. By default, a `JOIN` command is an `INNER JOIN`. An `INNER JOIN` returns all of the records in `left_table` that have matching records in `right_table` as demonstrated by the following Venn diagram.
+
+```sql
+SELECT *
+FROM employees
+INNER JOIN departments
+ON employees.department_id = departments.id;
+```
+
+The query above returns all the fields from both tables. The `INNER` keyword doesn't have anything to do with the number of columns returned - it only affects the number of rows returned.
+
+### `LEFT JOIN`
+
+A `LEFT JOIN` will return every record from `left_table` regardless of whether or not any of those records have a match in `right_table`. A left join will also return any matching records from `right_table`.
+
+```sql
+SELECT employees.name, departments.name
+FROM employees
+LEFT JOIN departments
+ON employees.department_id = departments.id;
+```
+
+### `RIGHT JOIN`
+
+A `RIGHT JOIN` is, as you may expect, the opposite of a `LEFT JOIN`. It returns all records from `right_table` regardless of matches, and all matching records between the two tables.
+
+```sql
+SELECT employees.name, departments.name
+FROM employees
+RIGHT JOIN departments
+ON employees.department_id = departments.id;
+```
+
+### `FULL JOIN`
+
+A `FULL JOIN` returns all records from both tables, regardless of whether or not they have a match in the other table.
+
+```sql
+SELECT employees.name, departments.name
+FROM employees
+FULL JOIN departments
+ON employees.department_id = departments.id;
+```
+
+### Multiple joins
+
+To incorporate data from more than two tables, you can utilize multiple joins to execute more complex queries:
+
+```sql
+SELECT *
+FROM employees
+LEFT JOIN departments
+ON employees.department_id = departments.id
+INNER JOIN regions
+ON departments.region_id = regions.id
+```
+
+This will return all the fields from the `employees` table, the `departments` table, and the `regions` table. The `LEFT JOIN` will return all records from the `employees` table, the `INNER JOIN` will return all records from the `departments` table that have a match in the `regions` table.

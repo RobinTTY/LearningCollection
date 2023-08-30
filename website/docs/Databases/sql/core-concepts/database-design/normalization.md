@@ -29,7 +29,7 @@ Following are the various types of Normal forms:
 
 The rules for first normal form are:
 
-- Using row order to convey information is not permitted
+- Using row order to convey information is not permitted (e.g. order by age of users)
 - Mixing data types within the same column is not permitted
 - Having a table without a primary key is not permitted
 - Repeating groups are not permitted (e.g. one column containing all items a player has in the inventory)
@@ -82,3 +82,11 @@ This design can be joined together from the other tables:
 This design can't be joined together from the other tables and is therefore in 5NF:
 
 ![5NF_2](/img/docs/Databases/sql/5NF_2.png)
+
+### Rules of Thumb
+
+1. Every table should always have a unique identifier (primary key)
+2. 90% of the time, that unique identifier will be a single column named `id`
+3. Avoid duplicate data
+4. Avoid storing data that is completely dependent on other data. Instead, compute it on the fly when you need it.
+5. Keep your schema as simple as you can. Optimize for a normalized database first. Only denormalize for speed's sake when you start to run into performance problems.
