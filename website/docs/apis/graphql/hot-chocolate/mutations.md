@@ -1,11 +1,8 @@
 ---
 id: mutations
 title: Mutations
-sidebar_position: 2
+sidebar_position: 3
 ---
-
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
 
 The mutation type in GraphQL is used to mutate/change data.
 This means that when we are doing mutations, we are intending to cause side-effects in the system.
@@ -45,9 +42,6 @@ Each of these mutations is executed serially one by one whereas their child sele
 
 A mutation type can be defined like the following:
 
-<Tabs>
-  <TabItem value="annotation" label="Annotation-based" default>
-
 ```csharp
 public class Mutation
 {
@@ -70,80 +64,6 @@ public class Startup
 }
 
 ```
-
-  </TabItem>
-  <TabItem value="code" label="Code-first">
-
-```csharp
-public class Mutation
-{
-    public async Task<BookAddedPayload> AddBook(Book book)
-    {
-        // Omitted code for brevity
-    }
-}
-
-public class MutationType : ObjectType<Mutation>
-{
-    protected override void Configure(
-        IObjectTypeDescriptor<Mutation> descriptor)
-    {
-        descriptor.Field(f => f.AddBook(default));
-    }
-}
-
-public class Startup
-{
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services
-            .AddGraphQLServer()
-            .AddMutationType<MutationType>();
-    }
-}
-```
-
-  </TabItem>
-  <TabItem value="schema" label="Schema-first">
-
-```csharp
-public class Mutation
-{
-    public async Task<BookAddedPayload> AddBook(Book book)
-    {
-        // Omitted code for brevity
-    }
-}
-
-public class Startup
-{
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services
-            .AddGraphQLServer()
-            .AddDocumentFromString(@"
-                type Mutation {
-                    addBook(input: BookInput): Book
-                }
-
-                input BookInput {
-                    title: String
-                    author: String
-                }
-
-                type Book {
-                    title: String
-                    author: String
-                }
-                ")
-            .BindRuntimeType<Mutation>();
-    }
-}
-
-```
-
-  </TabItem>
-</Tabs>
 
 :::caution Warning
 Only one mutation type can be registered using `AddMutationType()`. If we want to split up our mutation type into multiple classes, we can do so using [type extensions](https://chillicream.com/docs/hotchocolate/v13/defining-a-schema/extending-types).
