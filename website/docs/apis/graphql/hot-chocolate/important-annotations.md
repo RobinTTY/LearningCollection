@@ -1,7 +1,7 @@
 ---
 id: important-annotations
 title: Important Annotations
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 This page lists the most important annotations used in Hot Chocolate.

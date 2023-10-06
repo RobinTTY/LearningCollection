@@ -1,7 +1,7 @@
 ---
 id: resolvers
 title: Resolvers
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 Resolvers are the main building blocks when it comes to fetching data. Every field in our GraphQL schema is backed by such a resolver function, responsible for returning the field's value. Since a resolver is just a function, we can use it to retrieve data from a database, a REST service, or any other data source as needed.
