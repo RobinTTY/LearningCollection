@@ -9,6 +9,7 @@ namespace GraphQLHotChocolate.Data
         {
         }
 
-        public DbSet<Speaker> Speakers { get; set; }
+        // Setting to default! so that compiler doesn't complain about nullability.
+        public DbSet<Speaker> Speakers { get; set; } = default!;
     }
 }
