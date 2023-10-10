@@ -5,14 +5,12 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services
     .AddDbContext<ApplicationDbContext>(options => options.UseSqlite("Data Source=conferences.db"))
-    .AddGraphQLServer().
-    AddQueryType<Query>();
+    .AddGraphQLServer()
+    .AddQueryType<Query>()
+    .AddMutationType<Mutation>();
 
 var app = builder.Build();
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapGraphQL();
-});
+app.MapGraphQL();
 app.Run();
 
 // Database Migration: https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli
