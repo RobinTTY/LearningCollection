@@ -4,7 +4,7 @@ title: .Net 6
 sidebar_position: 2
 ---
 
-This page convers the most important updates introduced in .Net 6 (in my view).
+This page convers the most important changes introduced in .Net 6 (in my view).
 
 ## New Features in .Net 6
 

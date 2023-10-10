@@ -1,6 +1,6 @@
 ---
-id: privateProtectedVsProtectedInternal
-title: Private protected vs protected internal access modifier
+id: private-protected-vs-protected-internal
+title: private protected vs protected internal
 ---
 
 Before C# 7.2 we had `protected internal` modifier:

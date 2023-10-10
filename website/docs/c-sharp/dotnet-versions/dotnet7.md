@@ -4,7 +4,7 @@ title: .Net 7
 sidebar_position: 3
 ---
 
-This page convers the most important updates introduced in .Net 7 (in my view).
+This page covers the most important changes introduced in .Net 7 (in my view).
 For the full breakdown see the [official documentation](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-7) and [Blog Post Features](https://devblogs.microsoft.com/dotnet/announcing-dotnet-7/) and [Blog Post Performance](https://devblogs.microsoft.com/dotnet/performance_improvements_in_net_7/).
 
 ## New Features in .Net 7

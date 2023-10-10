@@ -16,7 +16,7 @@ title: Asynchronous Programming
   - The await keyword is where the magic happens. It yields control to the caller of the method that performed await, and it ultimately allows a UI to be responsive or a service to be elastic
 - There are other ways to approach async code than async and await outlined in the TAP article linked above
 
-## I/O-Bound Example: Downloading data from a web service
+### I/O-Bound Example: Downloading data from a web service
 
 You may need to download some data from a web service when a button is pressed, but don’t want to block the UI thread. It can be accomplished simply like this:
 
@@ -36,7 +36,7 @@ downloadButton.Clicked += async (o, e) =>
 
 And that’s it! The code expresses the intent (downloading some data asynchronously) without getting bogged down in interacting with Task objects.
 
-## CPU-bound Example: Performing a Calculation for a Game
+### CPU-bound Example: Performing a Calculation for a Game
 
 Say you're writing a mobile game where pressing a button can inflict damage on many enemies on the screen. Performing the damage calculation can be expensive, and doing it on the UI thread would make the game appear to pause as the calculation is performed!  
 The best way to handle this is to start a background thread which does the work using Task.Run, and await its result. This will allow the UI to feel smooth as the work is being done.
@@ -62,13 +62,13 @@ calculateButton.Clicked += async (o, e) =>
 
 And that's it! This code cleanly expresses the intent of the button's click event, it doesn't require managing a background thread manually, and it does so in a non-blocking way.
 
-## What happens under the covers
+### What happens under the covers
 
 There's a lot of moving pieces where asynchronous operations are concerned. If you're curious about what's happening underneath the covers of Task and `Task<T>`, checkout the [Async in-depth](https://docs.microsoft.com/en-us/dotnet/standard/async-in-depth) article for more information.  
 On the C# side of things, the compiler transforms your code into a state machine which keeps track of things like yielding execution when an await is reached and resuming execution when a background job has finished.  
 For the theoretically-inclined, this is an implementation of the [Promise Model of asynchrony](https://en.wikipedia.org/wiki/Futures_and_promises).
 
-## Key Pieces to Understand
+### Key Pieces to Understand
 
 - Async code can be used for both I/O-bound and CPU-bound code, but differently for each scenario
 - Async code uses `Task<T>` and Task, which are constructs used to model work being done in the background
@@ -76,7 +76,7 @@ For the theoretically-inclined, this is an implementation of the [Promise Model 
 - When the await keyword is applied, it suspends the calling method and yields control back to its caller until the awaited task is complete
 - await can only be used inside an async method
 
-## Recognize CPU-Bound and I/O-Bound Work
+### Recognize CPU-Bound and I/O-Bound Work
 
 It's key that you can identify when a job you need to do is I/O-bound or CPU-bound, because it can greatly affect the performance of your code and could potentially lead to misusing certain constructs.  
 Here are two questions you should ask before you write any code:

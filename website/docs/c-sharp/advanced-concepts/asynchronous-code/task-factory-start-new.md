@@ -1,7 +1,9 @@
 ---
-id: taskFactoryStartNew
+id: task-factory-start-new
 title: Task.Factory.StartNew()
 ---
+
+TODO: Improve this documentation
 
 - gives you the opportunity to define a lot of useful things about the thread you want to create, while Task.Run doesn't provide this
 - you can attach options to a task for instance:
