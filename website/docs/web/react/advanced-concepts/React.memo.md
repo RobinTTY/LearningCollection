@@ -59,7 +59,7 @@ function areEqual(prevMovie, nextMovie) {
 
 If one of the passed props of the component to memoize is a function, the memoization will not work out of the box. This is due to the fact that the passed down function is redefined with every re-execution of the parent component. Therefore we need to preserve the function in the parent component, this allows us to properly use `React.memo`.
 
-The preserving of the function can be achieved via the `useCallback` hook. For details on how to use `useCallback` see [useCallback](../Hooks/Advanced%20Hooks/useCallback).
+The preserving of the function can be achieved via the `useCallback` hook. For details on how to use `useCallback` see [useCallback](../hooks/advanced-hooks/useCallback).
 
 ## When to use React.memo
 
