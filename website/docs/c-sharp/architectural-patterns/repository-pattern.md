@@ -1,7 +1,7 @@
 ---
 id: repository-pattern
 title: Repository Pattern
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 The Repository pattern is a Domain-Driven Design pattern intended to keep persistence concerns outside of the system's domain model. One or more persistence abstractions - interfaces - are defined in the domain model, and these abstractions have implementations in the form of persistence-specific adapters defined elsewhere in the application.
