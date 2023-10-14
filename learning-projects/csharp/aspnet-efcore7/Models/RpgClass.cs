@@ -1,5 +1,8 @@
-﻿namespace aspnet_efcore7;
+﻿using System.Text.Json.Serialization;
 
+namespace aspnet_efcore7;
+
+[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum RpgClass
 {
   Knight = 1,
