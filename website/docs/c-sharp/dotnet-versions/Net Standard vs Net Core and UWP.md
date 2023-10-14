@@ -25,7 +25,7 @@ Note: A nuance not shown in Table 1-1 is that UWP uses .NET Core under the cover
 
 Overview of the .Net Framework:
 
-![NetFramework](/img/docs/C-Sharp/NetFramework.PNG)
+![NetFramework](/img/docs/csharp/NetFramework.PNG)
 
 ### .NET Standard
 
@@ -37,11 +37,11 @@ Overview of the .Net Framework:
 
 The different frameworks are layered like this:
 
-![platform_overview](/img/docs/C-Sharp/platform_overview.png)
+![platform_overview](/img/docs/csharp/platform_overview.png)
 
 With the [introduction of .NET 5](https://devblogs.microsoft.com/dotnet/announcing-net-5-0/) Microsoft wants to unify all aspects of development into a single platform:
 
-![dotnet5_platform](/img/docs/C-Sharp/dotnet5_platform.png)
+![dotnet5_platform](/img/docs/csharp/dotnet5_platform.png)
 
 ## Legacy and Niche Frameworks
 
