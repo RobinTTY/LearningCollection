@@ -42,6 +42,8 @@ This page contains the topics I still want to look into.
 - [ ] [Bogus](https://github.com/bchavez/Bogus)
 - [ ] [AutoMapper](https://github.com/AutoMapper/AutoMapper)
 - [ ] [FluentValidation](https://github.com/FluentValidation/FluentValidation)
+- [ ] [Hot Chocolate (GraphQL)](https://chillicream.com/docs/hotchocolate)
+  - [ ] [Directives](https://www.youtube.com/watch?v=egyO7rZOoMI)
 
 ### SQL
 
