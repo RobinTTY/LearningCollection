@@ -44,6 +44,14 @@ This page contains the topics I still want to look into.
 - [ ] [FluentValidation](https://github.com/FluentValidation/FluentValidation)
 - [ ] [Hot Chocolate (GraphQL)](https://chillicream.com/docs/hotchocolate)
   - [ ] [Directives](https://www.youtube.com/watch?v=egyO7rZOoMI)
+- [ ] EfCore
+  - [ ] [Compiled Queries](https://learn.microsoft.com/en-us/ef/core/performance/advanced-performance-topics?tabs=with-di%2Cexpression-api-with-constant#compiled-queries)
+
+### Documentation
+
+- Style Guides
+  - [Atlassian](https://atlassian.design/content/)
+  - [Apple](https://support.apple.com/de-de/guide/applestyleguide/welcome/web)
 
 ### SQL
 
