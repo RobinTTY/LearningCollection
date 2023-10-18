@@ -1,7 +1,7 @@
 ---
 id: integration-testing
 title: Integration Testing
-sidebar_position: 10
+sidebar_position: 1
 ---
 
 When doing integration testing for an Entity Framework project it is a common approach to add an `appsettings.json` specific to the integration test environment in the application. While this approach can work, it makes more sense for the application to not have to know anything about the testing environment.
