@@ -187,3 +187,56 @@ public class User
     }
 }
 ```
+
+## Automatic Registration
+
+We can automatically register all resolvers that are annotated with `QueryType`, `MutationType` and `SubscriptionType`. For this we use the package `HotChocolate.Types.Analyzers`. It is a source generator and can be added as a private assset:
+
+```xml title=".csproj"
+<PackageReference Include="HotChocolate.Types.Analyzers" Version="x.x.x">
+    <PrivateAssets>all</PrivateAssets>
+    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+</PackageReference>
+```
+
+Once the package is installed, we only need to add the types by adding the automatically generated `AddTypes` method:
+
+```csharp title="Startup.cs"
+builder.Services
+    .AddGraphQLServer()
+    .AddTypes();
+```
+
+If we now have a type that is annotated with `QueryType` for example, it will be automatically added to the schema. For instance:
+
+```csharp
+[QueryType]
+public sealed class UserQueries
+{
+    public async Task<User> GetUserAsync(AssetContext context)
+    {
+        // Omitted code for brevity
+    }
+}
+```
+
+will lead to the following code being automatically generated:
+
+```csharp
+using System;
+using HotChocolate.Execution.Configuration;
+
+namespace Microsoft.Extensions.DependencyInjection
+{
+    public static class AssetTypesRequestExecutorBuilderExtensions
+    {
+        public static IRequestExecutorBuilder AddTypes(this IRequestExecutorBuilder builder)
+        {
+            builder.AddTypeExtension<Demo.Types.Account.UserQueries>();
+            return builder;
+        }
+    }
+}
+```
+
+It registers the necessary types and adds them to the schema. This way we can easily add new types without having to change the `Startup.cs` file.
