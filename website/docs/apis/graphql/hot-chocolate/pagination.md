@@ -1,7 +1,7 @@
 ---
 id: pagination
 title: Pagination
-sidebar_position: 1
+sidebar_position: 10
 ---
 
 HotChocolate supports both offset and cursor based pagination. The cursor based pagination is based on the [Relay spec](https://relay.dev/graphql/connections.htm).

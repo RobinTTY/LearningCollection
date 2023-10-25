@@ -13,6 +13,7 @@ Queries are expected to be side-effect free and are therefore parallelized by th
 A query type can be defined like the following:
 
 ```csharp
+[QueryType]
 public class Query
 {
     public Book GetBook()
@@ -20,22 +21,7 @@ public class Query
         return new Book { Title  = "C# in depth", Author = "Jon Skeet" };
     }
 }
-
-public class Startup
-{
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services
-            .AddGraphQLServer()
-            .AddQueryType<Query>();
-    }
-}
-
 ```
-
-:::caution
-Only one query type can be registered using `AddQueryType()`. If we want to split up our query type into multiple classes, we can do so using [type extensions](https://chillicream.com/docs/hotchocolate/v13/defining-a-schema/extending-types).
-:::
 
 A query type is just a regular object type, so everything that applies to an [object type](https://chillicream.com/docs/hotchocolate/v13/defining-a-schema/object-types) also applies to the query type (this is true for all root types).
 
@@ -50,9 +36,25 @@ More information about lists can be found in the [official GraphQL documentation
 If our field resolver returns a list type, e.g. `IEnumerable<T>` or `IQueryable<T>`, it will automatically be treated as a list type in the schema.
 
 ```csharp
+[QueryType]
 public class Query
 {
     public List<User> GetUsers()
+    {
+        // Omitted code for brevity
+    }
+}
+```
+
+## `[GraphQLDeprecated]`
+
+Instead of removing a field immediately and possibly breaking existing consumers of our API, fields can be marked as deprecated in our schema. This signals to consumers that the field will be removed in the future and they need to adapt before then.
+
+```csharp
+public class Query
+{
+    [GraphQLDeprecated("Use the `authors` field instead")]
+    public User[] GetUsers()
     {
         // Omitted code for brevity
     }

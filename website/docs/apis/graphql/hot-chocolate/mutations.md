@@ -43,6 +43,7 @@ Each of these mutations is executed serially one by one whereas their child sele
 A mutation type can be defined like the following:
 
 ```csharp
+[MutationType]
 public class Mutation
 {
     public async Task<BookAddedPayload> AddBook(Book book)
@@ -50,24 +51,7 @@ public class Mutation
         // Omitted code for brevity
     }
 }
-
-public class Startup
-{
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services
-            .AddGraphQLServer()
-            .AddMutationType<Mutation>();
-    }
-
-    // Omitted code for brevity
-}
-
 ```
-
-:::caution Warning
-Only one mutation type can be registered using `AddMutationType()`. If we want to split up our mutation type into multiple classes, we can do so using [type extensions](https://chillicream.com/docs/hotchocolate/v13/defining-a-schema/extending-types).
-:::
 
 A mutation type is just a regular object type, so everything that applies to an [object type](https://chillicream.com/docs/hotchocolate/v13/defining-a-schema/object-types) also applies to the mutation type (this is true for all root types).
 
