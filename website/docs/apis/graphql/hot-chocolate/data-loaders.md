@@ -79,11 +79,44 @@ public async Task<Person> GetPerson(string id, [Service]IPersonRepository reposi
 
 ## HotChocolate Data Loaders
 
-The above example would result in two calls to the person repository that would then fetch the persons one by one from our data source. Instead of fetching the data from the repository directly, we fetch the data from the data loader. The data loader batches all the requests together into one request to the database:
+The above example would result in two calls to the person repository that would then fetch the persons one by one from our data source. Instead of fetching the data from the repository directly, we fetch the data from the data loader. The data loader batches all the requests together into one request to the database.
 
-```csharp {16-23}
-// This is one way of implementing a data loader. You will find the different ways of declaring
-// data loaders further down the page.
+### Execution
+
+With a data loader, you can fetch entities with a key. These are the two generics you have in the class data loaders:
+
+```csharp
+public class BatchDataLoader<TId, TEntity>
+```
+
+`TId` is used as an identifier of `TEntity`. `TId` is the type of the values you put into `LoadAsync`.
+
+The execution engine of Hot Chocolate tries to batch as much as possible. It executes resolvers until the queue is empty and then triggers the data loader to resolve the data for the waiting resolvers.
+
+### Data Consistency
+
+Dataloaders do not only batch calls to the database, they also cache the database response. A data loader guarantees data consistency in a single request. If you load an entity with a data loader in your request more than once, it is given that these two entities are equivalent.
+
+:::info
+Data loaders do not fetch an entity if there is already an entity with the requested key in the cache.
+:::
+
+## Types of Data loaders
+
+In Hot Chocolate you can declare data loaders in two different ways. You can:
+
+- separate the data loading concern into separate classes
+- use a delegate in the resolver to define data loaders on the fly
+
+### Batch DataLoader
+
+:::info
+One - To - One, usually used for fields like `personById` or one to one relations.
+:::
+
+The batch data loader collects requests for entities and sends them as a batch request to the data source. Moreover, the data loader caches the retrieved entries within a request. The batch data loader gets the keys as `IReadOnlyList<TKey>` and returns an `IReadOnlyDictionary<TKey, TValue>`.
+
+```csharp title="Data Loader as a class"
 public class PersonBatchDataLoader : BatchDataLoader<string, Person>
 {
     private readonly IPersonRepository _repository;
@@ -117,22 +150,108 @@ public class Query
 }
 ```
 
-### Execution
-
-With a data loader, you can fetch entities with a key. These are the two generics you have in the class data loaders:
-
-```csharp
-public class BatchDataLoader<TId, TEntity>
+```csharp title="Data Loader as a delegate"
+public Task<Person> GetPerson(
+    string id,
+    IResolverContext context,
+    [Service] IPersonRepository repository)
+{
+    return context.BatchDataLoader<string, Person>(
+            async (keys, ct) =>
+            {
+                var result = await repository.GetPersonByIds(keys);
+                return result.ToDictionary(x => x.Id);
+            })
+        .LoadAsync(id);
+}
 ```
 
-`TId` is used as an identifier of `TEntity`. `TId` is the type of the values you put into `LoadAsync`.
+More examples for data loaders can be found in this [Github Repository](https://github.com/ChilliCream/graphql-workshop/tree/master/code/complete/GraphQL/DataLoader).
 
-The execution engine of Hot Chocolate tries to batch as much as possible. It executes resolvers until the queue is empty and then triggers the data loader to resolve the data for the waiting resolvers.
-
-### Data Consistency
-
-Dataloaders do not only batch calls to the database, they also cache the database response. A data loader guarantees data consistency in a single request. If you load an entity with a data loader in your request more than once, it is given that these two entities are equivalent.
+### Group DataLoader
 
 :::info
-Data loaders do not fetch an entity if there is already an entity with the requested key in the cache.
+One - To - Many, usually used for fields like personsByLastName or one to many relations
 :::
+
+The group data loader is also a batch data loader but instead of returning one entity per key, it returns multiple entities per key. As with the batch data loader retrieved collections are cached within a request. The group data loader gets the keys as `IReadOnlyList<TKey>` and returns an `ILookup<TKey, TValue>`.
+
+```csharp title="Data Loader as a class"
+public class PersonsByLastNameDataloader
+    : GroupedDataLoader<string, Person>
+{
+    private readonly IPersonRepository _repository;
+
+    public PersonsByLastNameDataloader(
+        IPersonRepository repository,
+        IBatchScheduler batchScheduler,
+        DataLoaderOptions? options = null)
+        : base(batchScheduler, options)
+    {
+        _repository = repository;
+    }
+
+
+    protected override async Task<ILookup<string, Person>> LoadGroupedBatchAsync(
+        IReadOnlyList<string> names,
+        CancellationToken cancellationToken)
+    {
+        var persons = await _repository.GetPersonsByLastName(names);
+        return persons.ToLookup(x => x.LastName);
+    }
+}
+
+public class Query
+{
+    public async Task<IEnumerable<Person>> GetPersonByLastName(
+        string lastName,
+        PersonsByLastNameDataloader dataLoader)
+        => await dataLoader.LoadAsync(lastName);
+}
+```
+
+```csharp title="Data Loader as a delegate"
+public Task<IEnumerable<Person>> GetPersonByLastName(
+   string lastName,
+   IResolverContext context,
+   [Service]IPersonRepository repository)
+{
+    return context.GroupDataLoader<string, Person>(
+            async (keys, ct) =>
+            {
+                var result = await repository.GetPersonsByLastName(keys);
+                return result.ToLookup(t => t.LastName);
+            })
+        .LoadAsync(lastName);
+}
+```
+
+### Cache DataLoader
+
+:::info
+No batching, just caching. This data loader is used rarely. You most likely want to use the batch data loader.
+:::
+
+The cache data loader is the easiest to implement since there is no batching involved. You can just use the initial `GetPersonById` method. We do not get the benefits of batching with this one, but if in a query graph the same entity is resolved twice we will load it only once from the data source.
+
+```csharp
+public Task<Person> GetPerson(string id, IResolverContext context, [Service]IPersonRepository repository)
+{
+    return context.CacheDataLoader<string, Person>("personById", keys => repository.GetPersonById(keys)).LoadAsync(id);
+}
+```
+
+## Stacked DataLoader Calls
+
+This is more like an edge case that is supported than a certain type of data loader. Sometimes we have more complex resolvers that might first fetch data from one data loader and use that to fetch data from the next.
+
+```csharp
+public Task<IEnumerable<Customer>> GetCustomers(
+    string personId,
+    PersonByIdDataLoader personByIdDataLoader,
+    CustomerByIdsDataLoader customerByIdsDataloader)
+{
+    Person person = await personByIdDataLoader.LoadAsync(personId);
+    return await customerByIdsDataloader.LoadAsync(person.CustomerIds);
+}
+```
