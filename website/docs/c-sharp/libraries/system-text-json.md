@@ -1,7 +1,7 @@
 ---
 id: system-text-json
 title: System.Text.Json
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 Provides high-performance, low-allocating, and standards-compliant capabilities to process JavaScript Object Notation (JSON), which includes serializing objects to JSON text and deserializing JSON text to objects, with UTF-8 support built-in.
