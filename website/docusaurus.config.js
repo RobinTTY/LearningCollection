@@ -23,12 +23,12 @@ module.exports = {
       items: [
         {
           type: "doc",
-          docId: "intro",
+          docId: "introduction",
           position: "left",
           label: "Docs",
         },
         {
-          to: "/finance/intro",
+          to: "/finance/introduction",
           position: "left",
           label: "Finance",
           sidebarid: "finance",
@@ -98,7 +98,7 @@ module.exports = {
         id: "finance",
         path: "finance",
         routeBasePath: "finance",
-        sidebarPath: require.resolve("./sidebars.js"),
+        sidebarPath: require.resolve("./sidebar-finance.js"),
       },
     ],
   ],

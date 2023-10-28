@@ -1,5 +1,5 @@
 ---
-id: interestingTopics
+id: interesting-topics
 title: Interesting Topics
 sidebar_position: 9
 ---
