@@ -1,7 +1,5 @@
 ---
-id: nullCoalescingOperator
 title: Null-coalescing operator (??)
-sidebar_position: 2
 ---
 
 - returns the left-hand operand if the operand is not null; otherwise it returns the right hand operand

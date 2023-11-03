@@ -1,7 +1,5 @@
 ---
-id: nullConditionalOperator
 title: Null-conditional operator (?)
-sidebar_position: 1
 ---
 
 - Tests the value of the left-hand operand for null before performing a member access `(?.)` or index `(?[])` operation

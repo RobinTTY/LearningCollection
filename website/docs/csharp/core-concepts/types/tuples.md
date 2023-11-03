@@ -47,3 +47,26 @@ var results2 = (success: true, message: "well done!");
 bool mySuccess2 = results2.success;
 string myMessage2 = results2.message;
 ```
+
+## Use cases of tuples
+
+One of the most common use cases of tuples is as a method return type. That is, instead of defining [out method parameters](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/method-parameters#out-parameter-modifier), you can group method results in a tuple return type, as the following example shows:
+
+```csharp
+(int min, int max) FindMinMax(int[] input)
+{
+    ...
+}
+
+var xs = new[] { 4, 7, 9 };
+var limits = FindMinMax(xs);
+Console.WriteLine($"Limits of [{string.Join(" ", xs)}] are {limits.min} and {limits.max}");
+
+var ys = new[] { -9, 0, 67, 100 };
+var (minimum, maximum) = FindMinMax(ys);
+Console.WriteLine($"Limits of [{string.Join(" ", ys)}] are {minimum} and {maximum}");
+```
+
+- As the preceding example shows, you can work with the returned tuple instance directly or [deconstruct](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples#tuple-assignment-and-deconstruction) it into separate variables.
+- You can also use tuple types instead of [anonymous types](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/anonymous-types); for example, in LINQ queries. For more information, see [Choosing between anonymous and tuple types](https://learn.microsoft.com/en-us/dotnet/standard/base-types/choosing-between-anonymous-and-tuple).
+- Typically, you use tuples to group loosely related data elements. In public APIs, consider defining a [class](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/class) or a [structure](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct) type.
