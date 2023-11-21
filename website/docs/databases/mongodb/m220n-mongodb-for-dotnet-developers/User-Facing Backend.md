@@ -183,12 +183,12 @@ var result = await _theatersCollection.UpdateManyAsync(
 - Write concerns are important when there are more than one data source
 - An Atlas replica set is an example where write concerns can be important
 
-### writeConcern: { w: 1 }
+### writeConcern: `{ w: 1 }`
 
 - Only requests an acknowledgement that one node applied the write
 - This is the default writeConcern in MongoDB
 
-### writeConcern: { w: majority }
+### writeConcern: `{ w: majority }`
 
 - Requests acknowledgement that a majority of nodes in the replica set applied the write
 - Takes longer than w: 1
@@ -196,7 +196,7 @@ var result = await _theatersCollection.UpdateManyAsync(
   - Useful for ensuring vital writes are majority-committed
   - e.g. user registration
 
-### writeConcern: { w: 0 }
+### writeConcern: `{ w: 0 }`
 
 - Does not request an acknowledgement that any nodes applied the write
   - "Fire and forget"

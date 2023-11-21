@@ -58,7 +58,7 @@ return new TopCommentsProjection(result);
 
 ### Unordered Bulk Write
 
-- Has to be specified with the flag { ordered: false }
+- Has to be specified with the flag `{ ordered: false }`
 - Executes writes in parallel
 
 ## Using BulkWriteAsync to update many documents in a specific way

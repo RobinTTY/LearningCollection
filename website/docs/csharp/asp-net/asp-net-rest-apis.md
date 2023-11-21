@@ -8,19 +8,19 @@ ASP.NET Core supports building RESTful services, also known as web APIs, using C
 
 ## Project structure
 
-Controllers/: Contains classes with public methods exposed as HTTP endpoints.
+`Controllers/`: Contains classes with public methods exposed as HTTP endpoints.
 
-Program.cs: Contains a Main method - the app's managed entry point.
+`Program.cs`: Contains a Main method - the app's managed entry point.
 
-RetailApi.csproj: Contains configuration metadata for the project.
+`RetailApi.csproj`: Contains configuration metadata for the project.
 
-Startup.cs: Configures services and the app's HTTP request pipeline.
+`Startup.cs`: Configures services and the app's HTTP request pipeline.
 
 ## curl
 
 curl is a cross-platform command-line tool for testing web APIs and other HTTP endpoints.
 
-Example command: curl -k -s <https://localhost:5001/api/values> | python -m json.tool
+Example command: `curl -k -s <https://localhost:5001/api/values> | python -m json.tool`
 
 The preceding command uses:
 
@@ -32,15 +32,15 @@ The preceding command uses:
 
 A type of class called a Model is needed to represent a certain item. The Model must include the properties of an item and is used to pass data in the web API. The Model is also used to persist the item in a data store. The directory name "Models" is a convention to place all Models in. The directory name comes from the Model-View-Controller architecture used by the web API.
 
-[Required] signals that a property is required and ensures that a value is provided when creating an item.
+`[Required]` signals that a property is required and ensures that a value is provided when creating an item.
 
-[Range(minimum: 0.01, maximum: (double) decimal.MaxValue)] enforces minimum and maximum values.
+`[Range(minimum: 0.01, maximum: (double) decimal.MaxValue)]` enforces minimum and maximum values.
 
 ## Controller
 
 A Controller is a public class with one or more public methods known as actions. By convention, a Controller class is placed in the project root's Controllers directory. The actions are exposed as callable HTTP endpoints inside the web API controller. The directory name Controllers is a convention. The directory name comes from the Model-View-Controller architecture used by the web API. By convention, controller class names are suffixed with Controller.
 
-[Route("api/[controller]")] defines routing pattern (The [controller] token is replaced by the controller's name (case-insensitive, without the Controller suffix), so requests to https://localhost:5001/api/products are handled by this controller.)
+`[Route("api/[controller]")]` defines routing pattern (The `[controller]` token is replaced by the controller's name (case-insensitive, without the Controller suffix), so requests to `https://localhost:5001/api/products` are handled by this controller.)
 
 [ApiController] adds behaviors that make it easier to build web APIs. Some behaviors include [parameter source inference](https://docs.microsoft.com/aspnet/core/web-api/#binding-source-parameter-inference), [attribute routing as a requirement](https://docs.microsoft.com/aspnet/core/web-api/#attribute-routing-requirement), and [model validation error handling enhancements](https://docs.microsoft.com/aspnet/core/web-api/#automatic-http-400-responses).
 
@@ -79,7 +79,7 @@ public async Task<ActionResult<Product>> GetById(long id)
 The preceding action:
 
 - Responds only to the HTTP GET verb, as denoted by the [HttpGet] attribute.
-- Requires that the id value is included in the URL segment after api/products/. Remember, the /api/products pattern was defined by the controller-level [Route] attribute.
+- Requires that the id value is included in the URL segment after `api/products/`. Remember, the `/api/products` pattern was defined by the controller-level [Route] attribute.
 - Queries the database for a product matching the provided id parameter.
 
 Each ActionResult used in the preceding action is mapped to the corresponding HTTP status code in the following table.
@@ -109,7 +109,7 @@ The preceding action:
 
 Because the controller is annotated with the [ApiController] attribute, it's implied that the product parameter will be found in the request body.
 
-The first parameter in the CreatedAtAction method call represents an action name. The nameof keyword is used to avoid hard-coding the action name. CreatedAtAction uses the action name to generate a Location HTTP response header with a URL to the newly created product.
+The first parameter in the CreatedAtAction method call represents an action name. The `nameof` keyword is used to avoid hard-coding the action name. CreatedAtAction uses the action name to generate a Location HTTP response header with a URL to the newly created product.
 
 Each ActionResult used in the preceding action is mapped to the corresponding HTTP status code in the following table:
 
@@ -140,7 +140,7 @@ public async Task<IActionResult> Update(long id, Product product)
 The preceding action:
 
 - Responds only to the HTTP PUT verb, as denoted by the [HttpPut] attribute.
-- Requires that the id value is included in the URL segment after api/products/.
+- Requires that the id value is included in the URL segment after `api/products/`.
 - Updates the Name and Price properties of the product.
 
 Because the controller is annotated with the [ApiController] attribute, it's implied that the product parameter will be found in the request body.
@@ -190,10 +190,12 @@ Each ActionResult used in the preceding action is mapped to the corresponding HT
 
 ### invalid HTTP POST request
 
+```bash
 curl -v -k \
  -H "Content-Type: application/json" \
  -d "{\"name\":\"Plush Squirrel\",\"price\":0.00}" \
  <https://localhost:5001/api/Products>
+```
 
 In the preceding command:
 
@@ -205,10 +207,12 @@ The command returns an HTTP 400 status code because the controller's [ApiControl
 
 ### valid HTTP POST request
 
+```bash
 curl -v -k \
  -H "Content-Type: application/json" \
  -d "{\"name\":\"Plush Squirrel\",\"price\":12.99}" \
  <https://localhost:5001/api/Products>
+```
 
 Successful creation of the product results in:
 
@@ -218,7 +222,7 @@ Successful creation of the product results in:
 
 ### valid HTTP Get request
 
-curl -k -s <https://localhost:5001/api/Products/3> | python -m json.tool
+`curl -k -s <https://localhost:5001/api/Products/3> | python -m json.tool`
 
 The following output is displayed, proving that the new product was persisted to the in-memory database:
 
@@ -232,16 +236,18 @@ The following output is displayed, proving that the new product was persisted to
 
 ### valid HTTP PUT request
 
+```bash
 curl -k -X PUT \
  -H "Content-Type: application/json" \
  -d "{\"id\":2,\"name\":\"Knotted Rope\",\"price\":14.99}" \
  <https://localhost:5001/api/Products/2>
+```
 
 The preceding command changes the price from 12.99 to 14.99. No output if successful.
 
 ### valid HTTP DELETE request
 
-curl -v -k -X DELETE <https://localhost:5001/api/Products/1>
+`curl -v -k -X DELETE <https://localhost:5001/api/Products/1>`
 
 The preceding command deletes the product from the in-memory database.
 

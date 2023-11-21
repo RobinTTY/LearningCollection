@@ -25,12 +25,12 @@ Provide additional ways to locate data within the database.
 
 #### Comparison Operators
 
-- $eq (==): **Eq**ual to
-- $ne (!=): **N**ot **e**qual to
-- $gt (>): **G**reater **t**han
-- $lt (<): **L**ess **t**han
-- $gte (>=): **G**reater **t**han or **e**qual to
-- $lte (<=): **L**ess **t**han or **e**qual to
+- `$eq` `(==)`: **Eq**ual to
+- `$ne` `(!=)`: **N**ot **e**qual to
+- `$gt` `(>)`: **G**reater **t**han
+- `$lt` `(<)`: **L**ess **t**han
+- `$gte` `(>=)`: **G**reater **t**han or **e**qual to
+- `$lte` `(<=)`: **L**ess **t**han or **e**qual to
 
 Syntax to use them:
 
@@ -60,9 +60,9 @@ db.trips.find({ "tripduration": { "$lte" : 70 },
 
 ### Logic Operators
 
-- **$and:** Match all of the specified query clauses
-- **$or:** At least one of the query clauses is matched
-- **$nor:** Fail to match both given clauses
+- **`$and`:** Match all of the specified query clauses
+- **`$or`:** At least one of the query clauses is matched
+- **`$nor`:** Fail to match both given clauses
 
 Syntax:
 
