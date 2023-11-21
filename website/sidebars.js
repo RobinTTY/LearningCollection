@@ -74,6 +74,11 @@ const sidebars = {
             },
             {
               type: "doc",
+              label: "Nullability",
+              id: "csharp/core-concepts/nullability",
+            },
+            {
+              type: "doc",
               label: "Generics",
               id: "csharp/core-concepts/generics",
             },
