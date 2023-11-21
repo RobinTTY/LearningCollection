@@ -38,9 +38,9 @@ The rules for first normal form are:
 
 For the second normal form to be satisfied, a table must be in 1NF and **each non-key attribute must depend on the entire primary key**.
 
-- Example 1: { Player_ID, Item_Type } -> { Item_Quantity }
+- Example 1: `{ Player_ID, Item_Type } -> { Item_Quantity }`
   - The item quantity depends on both the player ID and the item type, so this is a valid dependency
-- Example 2: { Player_ID, Item_Type } -> { Player_Rating }
+- Example 2: `{ Player_ID, Item_Type } -> { Player_Rating }`
   - The player rating only depends on the player ID, not the item type - so this is not a valid dependency
 
 #### Example
@@ -51,7 +51,7 @@ For the second normal form to be satisfied, a table must be in 1NF and **each no
 
 For the third normal form to be satisfied, a table must be in 2NF and **every non-key attribute must depend on the primary key, the whole key, and nothing but the key**. This means there can't be any transitive dependencies. So there shouldn't exist any dependencies like:
 
-- { Player_ID } -> { Player_Skill_Level } -> { Player_Rating }
+- `{ Player_ID } -> { Player_Skill_Level } -> { Player_Rating }`
 
 #### Boyce-Codd Normal Form
 
