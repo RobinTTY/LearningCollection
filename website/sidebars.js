@@ -42,6 +42,10 @@ const sidebars = {
                   type: "doc",
                   id: "csharp/core-concepts/types/tuples",
                 },
+                {
+                  type: "doc",
+                  id: "csharp/core-concepts/types/datetimes",
+                },
               ],
             },
             {
