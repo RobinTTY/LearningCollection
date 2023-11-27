@@ -46,6 +46,10 @@ const sidebars = {
                   type: "doc",
                   id: "csharp/core-concepts/types/datetimes",
                 },
+                {
+                  type: "doc",
+                  id: "csharp/core-concepts/types/arrays",
+                },
               ],
             },
             {
