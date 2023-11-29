@@ -82,22 +82,22 @@ const sidebars = {
             },
             {
               type: "doc",
-              label: "Nullability",
+              id: "csharp/core-concepts/inheritance",
+            },
+            {
+              type: "doc",
               id: "csharp/core-concepts/nullability",
             },
             {
               type: "doc",
-              label: "Generics",
               id: "csharp/core-concepts/generics",
             },
             {
               type: "doc",
-              label: "Closures",
               id: "csharp/core-concepts/closures",
             },
             {
               type: "doc",
-              label: "Events",
               id: "csharp/core-concepts/events",
             },
           ],

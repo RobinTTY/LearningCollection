@@ -1,7 +1,5 @@
 ---
-id: events
 title: Events
-sidebar_position: 6
 ---
 
 - A mechanism for communication between objects

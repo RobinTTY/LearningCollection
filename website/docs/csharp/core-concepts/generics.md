@@ -1,7 +1,5 @@
 ---
-id: generics
 title: Generics
-sidebar_position: 4
 ---
 
 - Use generic types to maximize code reuse, type safety, and performance
