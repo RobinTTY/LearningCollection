@@ -1,7 +1,6 @@
 ---
-id: aspnet
+id: asp-net-rest-apis
 title: ASP.NET REST APIs
-sidebar_position: 1
 ---
 
 ASP.NET Core supports building RESTful services, also known as web APIs, using C#.
@@ -188,23 +187,6 @@ Each ActionResult used in the preceding action is mapped to the corresponding HT
 
 ## Testing API with curl
 
-### invalid HTTP POST request
-
-```bash
-curl -v -k \
- -H "Content-Type: application/json" \
- -d "{\"name\":\"Plush Squirrel\",\"price\":0.00}" \
- <https://localhost:5001/api/Products>
-```
-
-In the preceding command:
-
-- -v enables verbose output.
-- -d implies an HTTP POST operation and defines the request body.
-- -H indicates that the request body is in JSON format. The header's value overrides the default content type of application/x-www-form-urlencoded
-
-The command returns an HTTP 400 status code because the controller's [ApiController] attribute triggers Model validation on the request body. MVC's Model binder attempts to convert the request's -d JSON to a Product object. Model validation fails because the request's Price value is less than the minimum value of 0.01.
-
 ### valid HTTP POST request
 
 ```bash
@@ -269,3 +251,20 @@ The updated inventory is displayed:
   }
 ]
 ```
+
+### invalid HTTP POST request
+
+```bash
+curl -v -k \
+ -H "Content-Type: application/json" \
+ -d "{\"name\":\"Plush Squirrel\",\"price\":0.00}" \
+ <https://localhost:5001/api/Products>
+```
+
+In the preceding command:
+
+- -v enables verbose output.
+- -d implies an HTTP POST operation and defines the request body.
+- -H indicates that the request body is in JSON format. The header's value overrides the default content type of application/x-www-form-urlencoded
+
+The command returns an HTTP 400 status code because the controller's [ApiController] attribute triggers Model validation on the request body. MVC's Model binder attempts to convert the request's -d JSON to a Product object. Model validation fails because the request's Price value is less than the minimum value of 0.01.
