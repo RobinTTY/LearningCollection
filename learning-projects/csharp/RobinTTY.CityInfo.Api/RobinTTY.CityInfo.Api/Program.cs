@@ -7,6 +7,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// WebApplicationBuilder implements IApplicationBuilder, which defines a class that provides the mechanisms to configure an application's request pipeline
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
