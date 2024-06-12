@@ -136,6 +136,10 @@ const sidebars = {
             },
             {
               type: "doc",
+              id: "csharp/asp-net/routing",
+            },
+            {
+              type: "doc",
               id: "csharp/asp-net/controllers",
             },
           ],
