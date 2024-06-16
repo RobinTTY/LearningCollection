@@ -127,20 +127,48 @@ const sidebars = {
           label: "ASP.NET",
           items: [
             {
-              type: "doc",
-              id: "csharp/asp-net/introduction",
+              type: "category",
+              label: "Core Concepts",
+              items: [
+                {
+                  type: "doc",
+                  id: "csharp/asp-net/core-concepts/introduction",
+                },
+                {
+                  type: "doc",
+                  id: "csharp/asp-net/core-concepts/asp-net-rest-apis",
+                },
+                {
+                  type: "doc",
+                  id: "csharp/asp-net/core-concepts/routing",
+                },
+                {
+                  type: "doc",
+                  id: "csharp/asp-net/core-concepts/controllers",
+                },
+                {
+                  type: "doc",
+                  id: "csharp/asp-net/core-concepts/parameter-binding",
+                },
+                {
+                  type: "doc",
+                  id: "csharp/asp-net/core-concepts/api-errors",
+                },
+                {
+                  type: "doc",
+                  id: "csharp/asp-net/core-concepts/handling-files",
+                },
+              ],
             },
             {
-              type: "doc",
-              id: "csharp/asp-net/asp-net-rest-apis",
-            },
-            {
-              type: "doc",
-              id: "csharp/asp-net/routing",
-            },
-            {
-              type: "doc",
-              id: "csharp/asp-net/controllers",
+              type: "category",
+              label: "Advanced Concepts",
+              items: [
+                {
+                  type: "doc",
+                  id: "csharp/asp-net/advanced-concepts/formatters",
+                },
+              ],
             },
           ],
         },
