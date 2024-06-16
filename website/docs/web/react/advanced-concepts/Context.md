@@ -118,4 +118,4 @@ A React component that subscribes to context changes. Using this component lets 
 
 ## Using context via Hook
 
-When we are working with functional components we will want to use the `useContext` hook. More info [here](../Hooks/useContext).
+When we are working with functional components we will want to use the `useContext` hook. More info [here](../hooks/useContext).

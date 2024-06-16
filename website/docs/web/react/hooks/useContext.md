@@ -4,7 +4,7 @@ title: useContext
 sidebar_position: 3
 ---
 
-The `useContext` Hook provides the same functionality as the [Context API](../advanced-concepts/Context), just packaged up into a simple to use Hook that you can use inside functional components. The hook makes our code more readable and compact. Refer to the [Context API documentation](../advanced-concepts/Context) for details on when to use context.
+The `useContext` Hook provides the same functionality as the [Context API](../advanced-concepts/context), just packaged up into a simple to use Hook that you can use inside functional components. The hook makes our code more readable and compact. Refer to the [Context API documentation](../advanced-concepts/context) for details on when to use context.
 
 ## useContext hook vs classic API
 
