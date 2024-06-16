@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunklearning_knowledge_base=self.webpackChunklearning_knowledge_base||[]).push([[1498],{5394:e=>{e.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"finance"}')}}]);
