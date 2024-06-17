@@ -152,6 +152,10 @@ const sidebars = {
                 },
                 {
                   type: "doc",
+                  id: "csharp/asp-net/core-concepts/validating-input",
+                },
+                {
+                  type: "doc",
                   id: "csharp/asp-net/core-concepts/api-errors",
                 },
                 {
