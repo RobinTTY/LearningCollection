@@ -156,11 +156,19 @@ const sidebars = {
                 },
                 {
                   type: "doc",
+                  id: "csharp/asp-net/core-concepts/partial-updates",
+                },
+                {
+                  type: "doc",
                   id: "csharp/asp-net/core-concepts/api-errors",
                 },
                 {
                   type: "doc",
                   id: "csharp/asp-net/core-concepts/handling-files",
+                },
+                {
+                  type: "doc",
+                  id: "csharp/asp-net/core-concepts/dependency-injection",
                 },
               ],
             },
@@ -171,6 +179,10 @@ const sidebars = {
                 {
                   type: "doc",
                   id: "csharp/asp-net/advanced-concepts/formatters",
+                },
+                {
+                  type: "doc",
+                  id: "csharp/asp-net/advanced-concepts/logging",
                 },
               ],
             },
