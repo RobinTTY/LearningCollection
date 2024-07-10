@@ -35,4 +35,24 @@ public class FilesController(FileExtensionContentTypeProvider fileExtensionConte
         var bytes = System.IO.File.ReadAllBytes(pathToFile);
         return File(bytes, contentType, Path.GetFileName(pathToFile));
     }
+
+    [HttpPost]
+    public ActionResult CreateFile(IFormFile file)
+    {
+        // Validate the input. Put a limit on filesize to avoid large upload attacks.
+        // Only accept .pdf files (check content type)
+        if(file.Length == 0 ||file.Length > 20_971_520 || file.ContentType != "application/pdf")
+        {
+            return BadRequest("No file or an invalid one has been uploaded.");
+        }
+        
+        var pathToFile = Path.Combine(Directory.GetCurrentDirectory(), $"uploaded_file_{Guid.NewGuid()}.pdf");
+
+        using (var fileStream = new FileStream(pathToFile, FileMode.Create))
+        {
+            file.CopyTo(fileStream);
+        }
+
+        return Ok("Your file has been uploaded successfully.");
+    }
 }

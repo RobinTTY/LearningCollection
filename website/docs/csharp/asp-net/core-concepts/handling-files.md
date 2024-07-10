@@ -9,17 +9,28 @@ ASP.NET Web APIs are able to accept and return files. This page explains how thi
 
 Accepting files via an ASP.NET Web API can be done via a form-data upload. This is the most popular/well-known upload method formatting the data you send as a set of key/value pairs.
 
-You normally need to specify `Content-Type` to `multipart/form-data` in the request, and then use `[FromForm]` attribute in MVC to bind values to variables. Also, you can use the built-in `IFormFile` class to access the file uploaded:
+You normally need to specify `Content-Type` to `multipart/form-data` in the request, and then use `[FromForm]` attribute in MVC to bind values to variables (not actually explicitly necessary). Also, you can use the built-in `IFormFile` class to access the file uploaded:
 
 ```csharp
 [HttpPost]
 public async Task<IActionResult> PostFormData([FromForm] IFormFile file)
 {
-    using (var sr = new StreamReader(file.OpenReadStream()))
+    // Validate the input. Put a limit on filesize to avoid large upload attacks.
+    // Only accept .pdf files (check content type)
+    if(file.Length == 0 ||file.Length > 20_971_520 || file.ContentType != "application/pdf")
     {
-        var content = await sr.ReadToEndAsync();
-        return Ok(content);
+        return BadRequest("No file or an invalid one has been uploaded.");
     }
+
+    var pathToFile = Path.Combine(Directory.GetCurrentDirectory(), $"uploaded_file_{Guid.NewGuid()}.pdf");
+
+    using (var fileStream = new FileStream(pathToFile, FileMode.Create))
+    {
+        file.CopyTo(fileStream);
+    }
+
+    // Created can also be returned of course
+    return Ok("Your file has been uploaded successfully.");
 }
 ```
 
