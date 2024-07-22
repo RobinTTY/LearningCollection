@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.StaticFiles;
+using RobinTTY.CityInfo.Api.Services;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<FileExtensionContentTypeProvider>();
+builder.Services.AddTransient<LocalMailService>();
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()

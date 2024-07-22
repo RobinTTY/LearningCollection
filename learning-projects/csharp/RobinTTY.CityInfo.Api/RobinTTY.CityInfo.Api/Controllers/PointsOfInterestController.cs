@@ -2,20 +2,29 @@
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using RobinTTY.CityInfo.Api.Models;
+using RobinTTY.CityInfo.Api.Services;
 
 namespace RobinTTY.CityInfo.Api.Controllers;
 
 [ApiController]
 [Route("api/cities/{cityId}/pointsofinterest")]
-public class PointsOfInterestController(ILogger<PointsOfInterestController> logger) : ControllerBase
+public class PointsOfInterestController : ControllerBase
 {
+    private readonly ILogger<PointsOfInterestController> _logger;
+    private readonly LocalMailService _mailService;
+    public PointsOfInterestController(ILogger<PointsOfInterestController> logger, LocalMailService localMailService)
+    {
+        _logger = logger;
+        _mailService = localMailService ?? throw new ArgumentNullException(nameof(localMailService));
+    }
+
     [HttpGet]
     public ActionResult<IEnumerable<PointOfInterestDto>> GetPointsOfInterest(int cityId)
     {
         var city = GetCityById(cityId);
         if (city == null)
         {
-            logger.LogInformation($"City with id {cityId} wasn't found when accessing points of interest.");
+            _logger.LogInformation($"City with id {cityId} wasn't found when accessing points of interest.");
             return NotFound();
         }
 
@@ -132,6 +141,9 @@ public class PointsOfInterestController(ILogger<PointsOfInterestController> logg
         if (pointOfInterest == null) return NotFound();
 
         city.PointsOfInterest.Remove(pointOfInterest);
+        _mailService.Send("Point of interest deleted.",
+            $"Point of interest {pointOfInterest.Name} with id {pointOfInterest.Id} was deleted.");
+        
         return NoContent();
     }
 
