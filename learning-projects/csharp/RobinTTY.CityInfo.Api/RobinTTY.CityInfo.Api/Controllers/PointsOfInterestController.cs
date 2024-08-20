@@ -11,11 +11,15 @@ namespace RobinTTY.CityInfo.Api.Controllers;
 public class PointsOfInterestController : ControllerBase
 {
     private readonly ILogger<PointsOfInterestController> _logger;
-    private readonly LocalMailService _mailService;
-    public PointsOfInterestController(ILogger<PointsOfInterestController> logger, LocalMailService localMailService)
+    private readonly IMailService _mailService;
+    private readonly CitiesDataStore _citiesDataStore;
+
+    public PointsOfInterestController(ILogger<PointsOfInterestController> logger, IMailService mailService,
+        CitiesDataStore citiesDataStore)
     {
         _logger = logger;
-        _mailService = localMailService ?? throw new ArgumentNullException(nameof(localMailService));
+        _mailService = mailService ?? throw new ArgumentNullException(nameof(mailService));
+        _citiesDataStore = citiesDataStore;
     }
 
     [HttpGet]
@@ -53,7 +57,7 @@ public class PointsOfInterestController : ControllerBase
             return NotFound();
         }
 
-        var maxPointOfInterestId = CitiesDataStore.Current.Cities.SelectMany(c => c!.PointsOfInterest).Max(p => p.Id);
+        var maxPointOfInterestId = _citiesDataStore.Cities.SelectMany(c => c!.PointsOfInterest).Max(p => p.Id);
 
         var transformedPointOfInterest = new PointOfInterestDto
         {
@@ -147,6 +151,6 @@ public class PointsOfInterestController : ControllerBase
         return NoContent();
     }
 
-    private static CityDto? GetCityById(int cityId) =>
-        CitiesDataStore.Current.Cities.FirstOrDefault(c => c?.Id == cityId);
+    private CityDto? GetCityById(int cityId) =>
+        _citiesDataStore.Cities.FirstOrDefault(c => c?.Id == cityId);
 }

@@ -1,6 +1,6 @@
 ﻿namespace RobinTTY.CityInfo.Api.Services;
 
-public class LocalMailService : IMailService
+public class CloudMailService : IMailService
 {
     private readonly string _mailTo = "admin@mycompany.com";
     private readonly string _mailFrom = "noreply@mycompany.com";
@@ -8,7 +8,7 @@ public class LocalMailService : IMailService
     public void Send(string subject, string message)
     {
         // send mail - output to debug window
-        Console.WriteLine($"Mail from {_mailFrom} to {_mailTo}, with {nameof(LocalMailService)}.");
+        Console.WriteLine($"Mail from {_mailFrom} to {_mailTo}, with {nameof(CloudMailService)}.");
         Console.WriteLine($"Subject: {subject}");
         Console.WriteLine($"Message: {message}");
     }
