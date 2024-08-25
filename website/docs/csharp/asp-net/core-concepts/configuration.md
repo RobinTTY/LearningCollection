@@ -68,3 +68,71 @@ Every other host setting is read from application config instead of host config.
 `URLS` is one of the many common host settings that is not a bootstrap setting. Like every other host setting not in the previous list, `URLS` is read later from application config. Host config is a fallback for application config, so host config can be used to set `URLS`, but it will be overridden by any configuration source in application config like `appsettings.json`.
 
 For more information, see [Change the content root, app name, and environment](https://learn.microsoft.com/en-us/aspnet/core/migration/50-to-60-samples#change-the-content-root-app-name-and-environment) and [Change the content root, app name, and environment by environment variables or command line](https://learn.microsoft.com/en-us/aspnet/core/migration/50-to-60-samples#change-the-content-root-app-name-and-environment-by-environment-variables-or-command-line)
+
+## Application configuration providers
+
+### `appsettings.json`
+
+Consider the following `appsettings.json` file:
+
+```json
+{
+  "Position": {
+    "Title": "Editor",
+    "Name": "Joe Smith"
+  },
+  "MyKey": "My appsettings.json Value",
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
+
+The following code from the [sample download](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/configuration/index/samples/6.x/ConfigSample) displays several of the preceding configurations settings:
+
+```csharp
+public class TestModel : PageModel
+{
+    // requires using Microsoft.Extensions.Configuration;
+    private readonly IConfiguration Configuration;
+
+    public TestModel(IConfiguration configuration)
+    {
+        Configuration = configuration;
+    }
+
+    public ContentResult OnGet()
+    {
+        var myKeyValue = Configuration["MyKey"];
+        var title = Configuration["Position:Title"];
+        var name = Configuration["Position:Name"];
+        var defaultLogLevel = Configuration["Logging:LogLevel:Default"];
+
+
+        return Content($"MyKey value: {myKeyValue} \n" +
+                       $"Title: {title} \n" +
+                       $"Name: {name} \n" +
+                       $"Default Log Level: {defaultLogLevel}");
+    }
+}
+```
+
+The default [JsonConfigurationProvider](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.configuration.json.jsonconfigurationprovider) loads configuration in the following order:
+
+1. `appsettings.json`
+2. `appsettings.{Environment}.json`: For example, the `appsettings.Production.json` and `appsettings.Development.json` files. The environment version of the file is loaded based on the [`IHostingEnvironment.EnvironmentName`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.hosting.ihostingenvironment.environmentname). For more information, see [Use multiple environments in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/environments?view=aspnetcore-8.0).
+
+:::warning
+`appsettings.{Environment}.json` values override keys in `appsettings.json`.
+:::
+
+Using the default configuration, the `appsettings.json` and `appsettings.{Environment}.json` files are enabled with `reloadOnChange: true`. Changes made to the `appsettings.json` and `appsettings.{Environment}.json` file after the app starts are read by the JSON configuration provider.
+
+#### Comments in appsettings.json
+
+Comments in `appsettings.json` and `appsettings.{Environment}.json` files are supported using JavaScript or C# style comments.
