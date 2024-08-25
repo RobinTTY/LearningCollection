@@ -57,3 +57,5 @@ app.MapControllers();
 // Start the app
 app.Run();
 ```
+
+ASP.NET Core apps configure and launch a host. The host is responsible for app startup and lifetime management. The ASP.NET Core templates create a WebApplicationBuilder which contains the host.
