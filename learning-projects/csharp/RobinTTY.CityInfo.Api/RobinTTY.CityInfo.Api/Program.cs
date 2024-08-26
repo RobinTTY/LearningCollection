@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.EntityFrameworkCore;
 using RobinTTY.CityInfo.Api;
+using RobinTTY.CityInfo.Api.DbContexts;
 using RobinTTY.CityInfo.Api.Services;
 using Serilog;
 
@@ -15,6 +17,10 @@ builder.Services.AddProblemDetails();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<CityInfoContext>(options =>
+{
+    options.UseSqlite("Data Source=cityInfo.db");
+});
 builder.Services.AddSingleton<FileExtensionContentTypeProvider>();
 builder.Services.AddTransient<IMailService, LocalMailService>();
 builder.Services.AddSingleton<CitiesDataStore>();

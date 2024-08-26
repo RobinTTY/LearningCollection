@@ -1,7 +1,7 @@
 ---
 id: migrations
 title: Migrations
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 ## Important commands
