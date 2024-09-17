@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using RobinTTY.CityInfo.Api.Models;
+using RobinTTY.CityInfo.Api.Services;
 
 namespace RobinTTY.CityInfo.Api.Controllers;
 
@@ -7,23 +9,26 @@ namespace RobinTTY.CityInfo.Api.Controllers;
 [Route("api/cities")]
 public class CitiesController : ControllerBase
 {
-    private readonly CitiesDataStore _citiesDataStore;
+    private readonly ICityInfoRepository _cityInfoRepository;
+    private readonly IMapper _mapper;
     
-    public CitiesController(CitiesDataStore citiesDataStore)
+    public CitiesController(ICityInfoRepository cityInfoRepository, IMapper mapper)
     {
-        _citiesDataStore = citiesDataStore;
+        _cityInfoRepository = cityInfoRepository;
+        _mapper = mapper;
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<CityDto>> GetCities()
+    public async Task<ActionResult<IEnumerable<CityWithoutPointsOfInterestDto>>> GetCities()
     {
-        return Ok(_citiesDataStore.Cities);
+        var cities = await _cityInfoRepository.GetCities();
+        return Ok(_mapper.Map<IEnumerable<CityWithoutPointsOfInterestDto>>(cities));
     }
 
     [HttpGet("{id}")]
-    public ActionResult<CityDto> GetCity(int id)
+    public async Task<ActionResult<CityDto>> GetCity(int id)
     {
-        var cityToReturn = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == id);
+        var cityToReturn = await _cityInfoRepository.GetCity(id, true);
 
         if (cityToReturn == null) return NotFound();
         return Ok(cityToReturn);

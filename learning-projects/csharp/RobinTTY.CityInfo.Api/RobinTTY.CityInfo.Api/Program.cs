@@ -16,14 +16,16 @@ builder.Services
 builder.Services.AddProblemDetails();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddDbContext<CityInfoContext>(options =>
 {
     options.UseSqlite(builder.Configuration.GetConnectionString("CityInfoDb"));
 });
 builder.Services.AddSingleton<FileExtensionContentTypeProvider>();
-builder.Services.AddTransient<IMailService, LocalMailService>();
 builder.Services.AddSingleton<CitiesDataStore>();
+builder.Services.AddScoped<ICityInfoRepository, CityInfoRepository>();
+builder.Services.AddTransient<IMailService, LocalMailService>();
 
 // Configure the logger
 Log.Logger = new LoggerConfiguration()
