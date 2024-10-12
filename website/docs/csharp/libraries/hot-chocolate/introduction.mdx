@@ -16,3 +16,23 @@ Hot Chocolate is one of three products by the company [ChilliCream](https://chil
 This video gives a good introduction to Hot Chocolate:
 
 <ReactPlayer controls url="https://youtu.be/qrh97hToWpM" />
+
+## GraphQL operations
+
+With a REST API we have certain operations we can do like GET, PUT, POST, etc. requests. In GraphQL there are also operation types, those are:
+
+- [Queries](queries)
+- [Mutations](mutations)
+- [Subscriptions](subscriptions)
+
+An operation has the following structure:
+
+![operation-structure](/img/docs/csharp/libraries/hot-chocolate/operation-structure.png)
+![operation-structure](/img/docs/csharp/libraries/hot-chocolate/operation-structure2.png)
+
+- **Operation keyword:** Which operation we want to execute
+- **Operation name:** A name we give to our operation (doesn't have to be unique)
+- **Variables:** We can pass in variables to our operations
+- **Selection Sets:** A selection set defines an ordered set of selections (the data we want to query for instance)
+  - **Field:** GraphQL is about asking for specific fields on objects
+  - **Root Field Selection:** Field on the Root Selection Set are called Root Field Selection
