@@ -228,7 +228,11 @@ const sidebars = {
               items: [
                 {
                   type: "doc",
-                  id: "csharp/entity-framework/querying-data/introduction",
+                  id: "csharp/entity-framework/querying-data/basic-querying",
+                },
+                {
+                  type: "doc",
+                  id: "csharp/entity-framework/querying-data/tracking-behavior",
                 },
               ],
             },
