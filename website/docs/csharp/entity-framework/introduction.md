@@ -1,7 +1,5 @@
 ---
-id: introduction
 title: Introduction
-sidebar_position: 1
 ---
 
 Entity Framework (EF) Core is a lightweight, extensible, [open source](https://github.com/dotnet/efcore) and cross-platform version of the Entity Framework data access technology. EF Core can serve as an object-relational mapper (O/RM), which:

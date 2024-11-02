@@ -1,7 +1,5 @@
 ---
-id: relationships
 title: Relationships
-sidebar_position: 3
 ---
 
 In relational databases, relationships (also called associations) between tables are defined through foreign keys. A foreign key (FK) is a column or combination of columns that is used to establish and enforce a link between the data in two tables. The foreign key refers to the primary key in another table.

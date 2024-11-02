@@ -1,7 +1,5 @@
 ---
-id: dbcontext
 title: DbContext
-sidebar_position: 2
 ---
 
 ## The DbContext lifetime

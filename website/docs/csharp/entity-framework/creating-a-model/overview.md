@@ -1,7 +1,5 @@
 ---
-id: overview
 title: Overview
-sidebar_position: 1
 ---
 
 EF Core uses a metadata model to describe how the application's entity types are mapped to the underlying database. This model is built using a set of conventions - heuristics that look for common patterns.
