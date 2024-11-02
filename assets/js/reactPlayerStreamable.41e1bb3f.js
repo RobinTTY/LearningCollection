@@ -1,8 +1,8 @@
-exports.id = 570;
-exports.ids = [570];
+exports.id = 627;
+exports.ids = [627];
 exports.modules = {
 
-/***/ 3276:
+/***/ 9643:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var __create = Object.create;
@@ -37,17 +37,17 @@ var __publicField = (obj, key, value) => {
   __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
   return value;
 };
-var Mixcloud_exports = {};
-__export(Mixcloud_exports, {
-  default: () => Mixcloud
+var Streamable_exports = {};
+__export(Streamable_exports, {
+  default: () => Streamable
 });
-module.exports = __toCommonJS(Mixcloud_exports);
-var import_react = __toESM(__webpack_require__(6540));
-var import_utils = __webpack_require__(5635);
-var import_patterns = __webpack_require__(327);
-const SDK_URL = "https://widget.mixcloud.com/media/js/widgetApi.js";
-const SDK_GLOBAL = "Mixcloud";
-class Mixcloud extends import_react.Component {
+module.exports = __toCommonJS(Streamable_exports);
+var import_react = __toESM(__webpack_require__(96540));
+var import_utils = __webpack_require__(75635);
+var import_patterns = __webpack_require__(50327);
+const SDK_URL = "https://cdn.embed.ly/player-0.1.0.min.js";
+const SDK_GLOBAL = "playerjs";
+class Streamable extends import_react.Component {
   constructor() {
     super(...arguments);
     __publicField(this, "callPlayer", import_utils.callPlayer);
@@ -55,8 +55,10 @@ class Mixcloud extends import_react.Component {
     __publicField(this, "currentTime", null);
     __publicField(this, "secondsLoaded", null);
     __publicField(this, "mute", () => {
+      this.callPlayer("mute");
     });
     __publicField(this, "unmute", () => {
+      this.callPlayer("unmute");
     });
     __publicField(this, "ref", (iframe) => {
       this.iframe = iframe;
@@ -66,19 +68,29 @@ class Mixcloud extends import_react.Component {
     this.props.onMount && this.props.onMount(this);
   }
   load(url) {
-    (0, import_utils.getSDK)(SDK_URL, SDK_GLOBAL).then((Mixcloud2) => {
-      this.player = Mixcloud2.PlayerWidget(this.iframe);
-      this.player.ready.then(() => {
-        this.player.events.play.on(this.props.onPlay);
-        this.player.events.pause.on(this.props.onPause);
-        this.player.events.ended.on(this.props.onEnded);
-        this.player.events.error.on(this.props.error);
-        this.player.events.progress.on((seconds, duration) => {
-          this.currentTime = seconds;
-          this.duration = duration;
-        });
-        this.props.onReady();
+    (0, import_utils.getSDK)(SDK_URL, SDK_GLOBAL).then((playerjs) => {
+      if (!this.iframe)
+        return;
+      this.player = new playerjs.Player(this.iframe);
+      this.player.setLoop(this.props.loop);
+      this.player.on("ready", this.props.onReady);
+      this.player.on("play", this.props.onPlay);
+      this.player.on("pause", this.props.onPause);
+      this.player.on("seeked", this.props.onSeek);
+      this.player.on("ended", this.props.onEnded);
+      this.player.on("error", this.props.onError);
+      this.player.on("timeupdate", ({ duration, seconds }) => {
+        this.duration = duration;
+        this.currentTime = seconds;
       });
+      this.player.on("buffered", ({ percent }) => {
+        if (this.duration) {
+          this.secondsLoaded = this.duration * percent;
+        }
+      });
+      if (this.props.muted) {
+        this.player.mute();
+      }
     }, this.props.onError);
   }
   play() {
@@ -90,12 +102,16 @@ class Mixcloud extends import_react.Component {
   stop() {
   }
   seekTo(seconds, keepPlaying = true) {
-    this.callPlayer("seek", seconds);
+    this.callPlayer("setCurrentTime", seconds);
     if (!keepPlaying) {
       this.pause();
     }
   }
   setVolume(fraction) {
+    this.callPlayer("setVolume", fraction * 100);
+  }
+  setLoop(loop) {
+    this.callPlayer("setLoop", loop);
   }
   getDuration() {
     return this.duration;
@@ -104,35 +120,29 @@ class Mixcloud extends import_react.Component {
     return this.currentTime;
   }
   getSecondsLoaded() {
-    return null;
+    return this.secondsLoaded;
   }
   render() {
-    const { url, config } = this.props;
-    const id = url.match(import_patterns.MATCH_URL_MIXCLOUD)[1];
+    const id = this.props.url.match(import_patterns.MATCH_URL_STREAMABLE)[1];
     const style = {
       width: "100%",
       height: "100%"
     };
-    const query = (0, import_utils.queryString)({
-      ...config.options,
-      feed: `/${id}/`
-    });
     return /* @__PURE__ */ import_react.default.createElement(
       "iframe",
       {
-        key: id,
         ref: this.ref,
-        style,
-        src: `https://www.mixcloud.com/widget/iframe/?${query}`,
+        src: `https://streamable.com/o/${id}`,
         frameBorder: "0",
-        allow: "autoplay"
+        scrolling: "no",
+        style,
+        allow: "encrypted-media; autoplay; fullscreen;"
       }
     );
   }
 }
-__publicField(Mixcloud, "displayName", "Mixcloud");
-__publicField(Mixcloud, "canPlay", import_patterns.canPlay.mixcloud);
-__publicField(Mixcloud, "loopOnEnded", true);
+__publicField(Streamable, "displayName", "Streamable");
+__publicField(Streamable, "canPlay", import_patterns.canPlay.streamable);
 
 
 /***/ })

@@ -2,7 +2,7 @@ exports.id = 723;
 exports.ids = [723];
 exports.modules = {
 
-/***/ 7553:
+/***/ 47553:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var __create = Object.create;
@@ -42,8 +42,8 @@ __export(Mux_exports, {
   default: () => Mux
 });
 module.exports = __toCommonJS(Mux_exports);
-var import_react = __toESM(__webpack_require__(6540));
-var import_patterns = __webpack_require__(327);
+var import_react = __toESM(__webpack_require__(96540));
+var import_patterns = __webpack_require__(50327);
 const SDK_URL = "https://cdn.jsdelivr.net/npm/@mux/mux-player@VERSION/dist/mux-player.mjs";
 class Mux extends import_react.Component {
   constructor() {

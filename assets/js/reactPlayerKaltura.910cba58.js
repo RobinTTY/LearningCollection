@@ -1,8 +1,8 @@
-exports.id = 979;
-exports.ids = [979];
+exports.id = 463;
+exports.ids = [463];
 exports.modules = {
 
-/***/ 5508:
+/***/ 97945:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var __create = Object.create;
@@ -37,30 +37,28 @@ var __publicField = (obj, key, value) => {
   __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
   return value;
 };
-var SoundCloud_exports = {};
-__export(SoundCloud_exports, {
-  default: () => SoundCloud
+var Kaltura_exports = {};
+__export(Kaltura_exports, {
+  default: () => Kaltura
 });
-module.exports = __toCommonJS(SoundCloud_exports);
-var import_react = __toESM(__webpack_require__(6540));
-var import_utils = __webpack_require__(5635);
-var import_patterns = __webpack_require__(327);
-const SDK_URL = "https://w.soundcloud.com/player/api.js";
-const SDK_GLOBAL = "SC";
-class SoundCloud extends import_react.Component {
+module.exports = __toCommonJS(Kaltura_exports);
+var import_react = __toESM(__webpack_require__(96540));
+var import_utils = __webpack_require__(75635);
+var import_patterns = __webpack_require__(50327);
+const SDK_URL = "https://cdn.embed.ly/player-0.1.0.min.js";
+const SDK_GLOBAL = "playerjs";
+class Kaltura extends import_react.Component {
   constructor() {
     super(...arguments);
     __publicField(this, "callPlayer", import_utils.callPlayer);
     __publicField(this, "duration", null);
     __publicField(this, "currentTime", null);
-    __publicField(this, "fractionLoaded", null);
+    __publicField(this, "secondsLoaded", null);
     __publicField(this, "mute", () => {
-      this.setVolume(0);
+      this.callPlayer("mute");
     });
     __publicField(this, "unmute", () => {
-      if (this.props.volume !== null) {
-        this.setVolume(this.props.volume);
-      }
+      this.callPlayer("unmute");
     });
     __publicField(this, "ref", (iframe) => {
       this.iframe = iframe;
@@ -69,37 +67,32 @@ class SoundCloud extends import_react.Component {
   componentDidMount() {
     this.props.onMount && this.props.onMount(this);
   }
-  load(url, isReady) {
-    (0, import_utils.getSDK)(SDK_URL, SDK_GLOBAL).then((SC) => {
+  load(url) {
+    (0, import_utils.getSDK)(SDK_URL, SDK_GLOBAL).then((playerjs) => {
       if (!this.iframe)
         return;
-      const { PLAY, PLAY_PROGRESS, PAUSE, FINISH, ERROR } = SC.Widget.Events;
-      if (!isReady) {
-        this.player = SC.Widget(this.iframe);
-        this.player.bind(PLAY, this.props.onPlay);
-        this.player.bind(PAUSE, () => {
-          const remaining = this.duration - this.currentTime;
-          if (remaining < 0.05) {
-            return;
+      this.player = new playerjs.Player(this.iframe);
+      this.player.on("ready", () => {
+        setTimeout(() => {
+          this.player.isReady = true;
+          this.player.setLoop(this.props.loop);
+          if (this.props.muted) {
+            this.player.mute();
           }
-          this.props.onPause();
-        });
-        this.player.bind(PLAY_PROGRESS, (e) => {
-          this.currentTime = e.currentPosition / 1e3;
-          this.fractionLoaded = e.loadedProgress;
-        });
-        this.player.bind(FINISH, () => this.props.onEnded());
-        this.player.bind(ERROR, (e) => this.props.onError(e));
-      }
-      this.player.load(url, {
-        ...this.props.config.options,
-        callback: () => {
-          this.player.getDuration((duration) => {
-            this.duration = duration / 1e3;
-            this.props.onReady();
-          });
-        }
+          this.addListeners(this.player, this.props);
+          this.props.onReady();
+        }, 500);
       });
+    }, this.props.onError);
+  }
+  addListeners(player, props) {
+    player.on("play", props.onPlay);
+    player.on("pause", props.onPause);
+    player.on("ended", props.onEnded);
+    player.on("error", props.onError);
+    player.on("timeupdate", ({ duration, seconds }) => {
+      this.duration = duration;
+      this.currentTime = seconds;
     });
   }
   play() {
@@ -111,13 +104,16 @@ class SoundCloud extends import_react.Component {
   stop() {
   }
   seekTo(seconds, keepPlaying = true) {
-    this.callPlayer("seekTo", seconds * 1e3);
+    this.callPlayer("setCurrentTime", seconds);
     if (!keepPlaying) {
       this.pause();
     }
   }
   setVolume(fraction) {
-    this.callPlayer("setVolume", fraction * 100);
+    this.callPlayer("setVolume", fraction);
+  }
+  setLoop(loop) {
+    this.callPlayer("setLoop", loop);
   }
   getDuration() {
     return this.duration;
@@ -126,30 +122,29 @@ class SoundCloud extends import_react.Component {
     return this.currentTime;
   }
   getSecondsLoaded() {
-    return this.fractionLoaded * this.duration;
+    return this.secondsLoaded;
   }
   render() {
-    const { display } = this.props;
     const style = {
       width: "100%",
-      height: "100%",
-      display
+      height: "100%"
     };
     return /* @__PURE__ */ import_react.default.createElement(
       "iframe",
       {
         ref: this.ref,
-        src: `https://w.soundcloud.com/player/?url=${encodeURIComponent(this.props.url)}`,
+        src: this.props.url,
+        frameBorder: "0",
+        scrolling: "no",
         style,
-        frameBorder: 0,
-        allow: "autoplay"
+        allow: "encrypted-media; autoplay; fullscreen;",
+        referrerPolicy: "no-referrer-when-downgrade"
       }
     );
   }
 }
-__publicField(SoundCloud, "displayName", "SoundCloud");
-__publicField(SoundCloud, "canPlay", import_patterns.canPlay.soundcloud);
-__publicField(SoundCloud, "loopOnEnded", true);
+__publicField(Kaltura, "displayName", "Kaltura");
+__publicField(Kaltura, "canPlay", import_patterns.canPlay.kaltura);
 
 
 /***/ })
