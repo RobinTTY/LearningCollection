@@ -72,6 +72,10 @@ using (var db = new BloggingContext())
 }
 ```
 
+The querying workflow looks like this:
+
+![query-workflow](/img/docs/csharp/efcore/query-workflow.png)
+
 ## Saving data
 
 Data is created, deleted, and modified in the database using instances of your entity classes. See [Saving Data](https://learn.microsoft.com/en-us/ef/core/saving/) to learn more.
@@ -85,9 +89,9 @@ using (var db = new BloggingContext())
 }
 ```
 
-## EF O/RM considerations
+## EF ORM considerations
 
-While EF Core is good at abstracting many programming details, there are some best practices applicable to any O/RM that help to avoid common pitfalls in production apps:
+While EF Core is good at abstracting many programming details, there are some best practices applicable to any ORM that help to avoid common pitfalls in production apps:
 
 - **Knowledge of the underlying database server is essential** to architect, debug, profile, and migrate data in high performance production apps. For example, knowledge of primary and foreign keys, constraints, indexes, normalization, DML and DDL statements, data types, profiling, etc.
 - **Functional and integration testing is important** to replicate the production environment as closely as possible to:
