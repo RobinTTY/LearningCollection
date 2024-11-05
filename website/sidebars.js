@@ -234,6 +234,18 @@ const sidebars = {
                   type: "doc",
                   id: "csharp/entity-framework/querying-data/tracking-behavior",
                 },
+                {
+                  type: "doc",
+                  id: "csharp/entity-framework/querying-data/inserting-data",
+                },
+                {
+                  type: "doc",
+                  id: "csharp/entity-framework/querying-data/updating-data",
+                },
+                {
+                  type: "doc",
+                  id: "csharp/entity-framework/querying-data/deleting-data",
+                },
               ],
             },
             {

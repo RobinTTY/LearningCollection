@@ -2,7 +2,9 @@
 title: Entity types
 ---
 
-Including a DbSet of a type on your context means that it is included in EF Core's model; we usually refer to such a type as an entity. EF Core can read and write entity instances from/to the database, and if you're using a relational database, EF Core can create tables for your entities via migrations.
+Including a `DbSet` of a type on your context means that it is included in EF Core's model; we usually refer to such a type as an entity. EF Core can read and write entity instances from/to the database, and if you're using a relational database, EF Core can create tables for your entities via migrations.
+
+![entity-tracking](/img/docs/csharp/efcore/entities.png)
 
 ## Including types in the model
 

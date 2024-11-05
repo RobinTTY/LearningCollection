@@ -7,6 +7,8 @@ Tracking behavior controls if Entity Framework Core keeps information about an e
 - any changes detected in the entity are persisted to the database during `SaveChanges`.
 - navigation properties are fixed up between the entities in a tracking query result and the entities that are in the change tracker.
 
+![entity-tracking](/img/docs/csharp/efcore/entity-tracking.png)
+
 ## Tracking queries
 
 By default, queries that return entity types are tracking. A tracking query means any changes to entity instances are persisted by `SaveChanges`. In the following example, the change to the blogs rating is detected and persisted to the database during `SaveChanges`:
@@ -18,6 +20,12 @@ context.SaveChanges();
 ```
 
 When the results are returned in a tracking query, EF Core checks if the entity is already in the context. If EF Core finds an existing entity, then the same instance is returned, which can potentially use less memory and be faster than a no-tracking query. EF Core doesn't overwrite current and original values of the entity's properties in the entry with the database values. If the entity isn't found in the context, EF Core creates a new entity instance and attaches it to the context. Query results don't contain any entity which is added to the context but not yet saved to the database.
+
+![tracking-workflow](/img/docs/csharp/efcore/tracking-workflow.png)
+
+The entities are just plain objects and don't communicate their changes to the `DbContext`. But the context has its references to these objects and keeps track of their state:
+
+![detect-changes](/img/docs/csharp/efcore/detect-changes.png)
 
 ## No-tracking queries
 
