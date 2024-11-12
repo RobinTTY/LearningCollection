@@ -40,3 +40,30 @@ There are two ways of mapping relationships in EF Core:
 
 - [Data Annotations](https://learn.microsoft.com/en-us/ef/ef6/modeling/code-first/data-annotations)
 - [Fluent API Relationships](https://learn.microsoft.com/en-us/ef/ef6/modeling/code-first/fluent/relationships)
+
+### One-to-Many
+
+A one to many relationship is declared by a reference from parent to child:
+
+```csharp {6}
+public class Author
+{
+  public int Id { get; set; }
+  public string FirstName { get; set; }
+  public string LastName { get; set; }
+  public List<Book> Books { get; set; }
+}
+```
+
+The child doesn't need to reference the parent. So properties exist in the data model but not in the entity class. This is also called "Shadow Properties". But it can also be explicitly added in the code:
+
+```csharp {5}
+public class Book
+{
+  public int Id { get; set; }
+  public string Title { get; set; }
+  public Author Author { get; set; }
+}
+```
+
+Adding it explicitly allows us to navigate from the child object to the parent object.

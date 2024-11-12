@@ -18,3 +18,7 @@ dotnet ef migrations add \<migration-name\>
 dotnet ef migrations remove
 dotnet ef database update
 ```
+
+## Data seeding
+
+See: [Microsoft Docs](https://learn.microsoft.com/en-us/ef/core/modeling/data-seeding)
