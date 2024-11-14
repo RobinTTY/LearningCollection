@@ -1,6 +1,6 @@
 ---
 title: Elastic Beanstalk
-sidebar_position: 3
+sidebar_position: 15
 ---
 
 What is Elastic Beanstalk:
