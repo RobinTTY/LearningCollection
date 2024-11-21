@@ -337,9 +337,8 @@ Auto Scaling Group with Load Balancer:
 
 ### Instance Refresh
 
-- Goal: update launch template and then re-creating all EC2 instances
-- For this we can use the native feature of Instance Refresh
-- Setting of minimum healthy percentage
+- Goal: update all EC2 instances based on new launch template
+- Setting of minimum healthy percentage (percentage which will remain up during refresh)
 - Specify warm-up time (how long until the instance is ready to use)
 
 ![instance-refresh](/img/docs/cloud/aws/instance-refresh.png)
