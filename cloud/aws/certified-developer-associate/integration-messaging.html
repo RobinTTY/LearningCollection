@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-cloud/aws/certified-developer-associate/integration-messaging" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.5.2">
+<title data-rh="true">Integration &amp; Messaging | Learning Collection Knowledge Base</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/integration-messaging"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Integration &amp; Messaging | Learning Collection Knowledge Base"><meta data-rh="true" name="description" content="- When we start deploying multiple applications, they will inevitably need to communicate with one another"><meta data-rh="true" property="og:description" content="- When we start deploying multiple applications, they will inevitably need to communicate with one another"><link data-rh="true" rel="icon" href="/LearningCollection/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/integration-messaging"><link data-rh="true" rel="alternate" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/integration-messaging" hreflang="en"><link data-rh="true" rel="alternate" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/integration-messaging" hreflang="x-default"><link rel="stylesheet" href="/LearningCollection/assets/css/styles.7d3675f6.css">
+<script src="/LearningCollection/assets/js/runtime~main.eebdf92f.js" defer="defer"></script>
+<script src="/LearningCollection/assets/js/main.8b108e6f.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/LearningCollection/"><div class="navbar__logo"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Learning Collection</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/LearningCollection/">Docs</a><a class="navbar__item navbar__link" sidebarid="finance" href="/LearningCollection/finance/introduction">Finance</a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/">Introduction</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/apis/graphql/intro">General Concepts</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Cloud</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">aws</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">certified-developer-associate</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Cloud Overview</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/iam">Identity and Access Management (IAM)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ec2">Elastic Compute Cloud (EC2)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elb">Elastic Load Balancing (ELB)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/relational-databases">Relational Databases (RDS/Aurora)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elasti-cache">ElastiCache</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/route53">Route 53</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/vpc">VPC</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/s3">S3</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cli-sdk-iam-roles-policies">AWS CLI, SDK, IAM Roles &amp; Policies</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudfront">Cloudfront</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ecs-ecr-fargate">ECS, ECR, Fargate</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elastic-beanstalk">Elastic Beanstalk</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudformation">CloudFormation</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/integration-messaging">Integration &amp; Messaging</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/exam-scoring">Exam Scoring</a></li></ul></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/csharp/introduction">C#</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/web/html/doctype">Web</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/databases/sql">Databases</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/tools/git/tags">Tools</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/linux/commonlyUsedCommands">Linux</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/interesting-topics">Interesting Topics</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/LearningCollection/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Cloud</span><meta itemprop="position" content="1"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">aws</span><meta itemprop="position" content="2"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">certified-developer-associate</span><meta itemprop="position" content="3"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Integration &amp; Messaging</span><meta itemprop="position" content="4"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Integration &amp; Messaging</h1></header><ul>
+<li>When we start deploying multiple applications, they will inevitably need to communicate with one another</li>
+<li>There are two patterns of application communication<!-- -->
+<ul>
+<li>Synchronous communications (application to application)<!-- -->
+<ul>
+<li>Scan be problematic if there are sudden spikes of traffic</li>
+</ul>
+</li>
+<li>Asynchronous / Event based (application to queue to application)</li>
+</ul>
+</li>
+</ul>
+<p>It’s better to decouple your applications:</p>
+<ul>
+<li>using SQS: queue model</li>
+<li>using SNS: pub/sub model</li>
+<li>using Kinesis: real-time streaming model</li>
+</ul>
+<p>These services can scale independently from our application!</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="amazon-sqs">Amazon SQS<a href="#amazon-sqs" class="hash-link" aria-label="Direct link to Amazon SQS" title="Direct link to Amazon SQS">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="standard-queue">Standard Queue<a href="#standard-queue" class="hash-link" aria-label="Direct link to Standard Queue" title="Direct link to Standard Queue">​</a></h3>
+<ul>
+<li>Oldest offering (over 10 years old)</li>
+<li>Fully managed service, used to decouple applications</li>
+<li>Attributes:<!-- -->
+<ul>
+<li>Unlimited throughput, unlimited number of messages in queue</li>
+<li>Default retention of messages: 4 days, maximum of 14 days</li>
+<li>Low latency (&lt;10ms on publish and receive)</li>
+<li>Limitation of 256KB per message sent</li>
+</ul>
+</li>
+<li>Can have duplicate messages (at least once delivery, occasionally)</li>
+<li>Can have out of order messages (best effort ordering)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="producing-messages">Producing Messages<a href="#producing-messages" class="hash-link" aria-label="Direct link to Producing Messages" title="Direct link to Producing Messages">​</a></h3>
+<ul>
+<li>Produced to SQS using the SDK (SendMessage API)</li>
+<li>The message is persisted in SQS until a consumer deletes it</li>
+<li>Message retention: default 4 days, up to 14 days</li>
+<li>Example: send an order to be processed<!-- -->
+<ul>
+<li>Order id</li>
+<li>Customer id</li>
+<li>Any attributes you want</li>
+</ul>
+</li>
+<li>SQS standard: unlimited throughput</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="consuming-messages">Consuming Messages<a href="#consuming-messages" class="hash-link" aria-label="Direct link to Consuming Messages" title="Direct link to Consuming Messages">​</a></h3>
+<ul>
+<li>Consumers (running on EC2 instances, servers, or AWS Lambda)…</li>
+<li>Poll SQS for messages (receive up to 10 messages at a time)</li>
+<li>Process the messages (example: insert the message into an RDS database)</li>
+<li>Delete the messages using the DeleteMessage API</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="sqs-consume" src="/LearningCollection/assets/images/sqs-consume-635a38463040b50b90fcd50ad95a4d39.png" width="1516" height="337" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="multiple-ec2-instances-consumers">Multiple EC2 Instances Consumers<a href="#multiple-ec2-instances-consumers" class="hash-link" aria-label="Direct link to Multiple EC2 Instances Consumers" title="Direct link to Multiple EC2 Instances Consumers">​</a></h3>
+<ul>
+<li>Consumers receive and process messages in parallel</li>
+<li>At least once delivery</li>
+<li>Best-effort message ordering</li>
+<li>Consumers delete messages after processing them</li>
+<li>We can scale consumers horizontally to improve throughput of processing</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="auto-scaling-group-asg">Auto Scaling Group (ASG)<a href="#auto-scaling-group-asg" class="hash-link" aria-label="Direct link to Auto Scaling Group (ASG)" title="Direct link to Auto Scaling Group (ASG)">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="sqs-auto-scaling" src="/LearningCollection/assets/images/sqs-auto-scaling-d4e12c2fba72f93e5832a42fca44957b.png" width="1446" height="721" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="decoupling-application-tiers">Decoupling application tiers<a href="#decoupling-application-tiers" class="hash-link" aria-label="Direct link to Decoupling application tiers" title="Direct link to Decoupling application tiers">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="sqs-decouple" src="/LearningCollection/assets/images/sqs-decouple-24fc9549172ddec46b8d50d80e70d4e3.png" width="1801" height="538" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security">Security<a href="#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security">​</a></h3>
+<ul>
+<li>Encryption:<!-- -->
+<ul>
+<li>In-flight encryption using HTTPS API</li>
+<li>At-rest encryption using KMS keys</li>
+<li>Client-side encryption if the client wants to perform encryption/decryption itself</li>
+</ul>
+</li>
+<li>Access Controls: IAM policies to regulate access to the SQS API</li>
+<li>SQS Access Policies (similar to S3 bucket policies)<!-- -->
+<ul>
+<li>Useful for cross-account access to SQS queues</li>
+<li>Useful for allowing other services (SNS, S3…) to write to an SQS queue</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="queue-access-policy">Queue Access Policy<a href="#queue-access-policy" class="hash-link" aria-label="Direct link to Queue Access Policy" title="Direct link to Queue Access Policy">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="sqs-access-policy" src="/LearningCollection/assets/images/sqs-access-policy-3c59db29635057a53299864fe6757a0e.png" width="1783" height="775" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="message-visibility-timeout">Message Visibility Timeout<a href="#message-visibility-timeout" class="hash-link" aria-label="Direct link to Message Visibility Timeout" title="Direct link to Message Visibility Timeout">​</a></h3>
+<ul>
+<li>After a message is polled by a consumer, it becomes invisible to other consumers</li>
+<li>By default, the “message visibility timeout” is 30 seconds</li>
+<li>That means the message has 30 seconds to be processed</li>
+<li>After the message visibility timeout is over, the message is “visible” in SQS</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="sqs-message-visibility" src="/LearningCollection/assets/images/sqs-message-visibility-e0b7d2e3ceb37307dfa2969c57a16b72.png" width="1450" height="433" class="img_ev3q"></p>
+<ul>
+<li>If a message is not processed within the visibility timeout, it will be processed twice</li>
+<li>A consumer could call the ChangeMessageVisibility API to get more time</li>
+<li>If visibility timeout is high (hours), and consumer crashes, re-processing will take time</li>
+<li>If visibility timeout is too low (seconds), we may get duplicates</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="dead-letter-queue-dlq">Dead Letter Queue (DLQ)<a href="#dead-letter-queue-dlq" class="hash-link" aria-label="Direct link to Dead Letter Queue (DLQ)" title="Direct link to Dead Letter Queue (DLQ)">​</a></h3>
+<ul>
+<li>If a consumer fails to process a message within the Visibility Timeout the message goes back to the queue!</li>
+<li>We can set a threshold of how many times a message can go back to the queue</li>
+<li>After the MaximumReceives threshold is exceeded, the message goes into a Dead Letter Queue (DLQ)</li>
+<li>Useful for debugging</li>
+<li>DLQ of a FIFO queue must also be a FIFO queue</li>
+<li>DLQ of a Standard queue must also be a Standard queue</li>
+<li>Make sure to process the messages in the DLQ before they expire:<!-- -->
+<ul>
+<li>Good to set a retention of 14 days in the DLQ</li>
+</ul>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="dlq--redrive-to-source">DLQ – Redrive to Source<a href="#dlq--redrive-to-source" class="hash-link" aria-label="Direct link to DLQ – Redrive to Source" title="Direct link to DLQ – Redrive to Source">​</a></h4>
+<ul>
+<li>Feature to help consume messages in the DLQ to understand what is wrong with them</li>
+<li>When our code is fixed, we can redrive the messages from the DLQ back into the source queue (or any other queue) in batches without writing custom code</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="delay-queue">Delay Queue<a href="#delay-queue" class="hash-link" aria-label="Direct link to Delay Queue" title="Direct link to Delay Queue">​</a></h3>
+<ul>
+<li>Delay a message (consumers don’t see it immediately) up to 15 minutes</li>
+<li>Default is 0 seconds (message is available right away)</li>
+<li>Can set a default at queue level</li>
+<li>Can override the default on send using the DelaySeconds parameter</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="long-polling">Long Polling<a href="#long-polling" class="hash-link" aria-label="Direct link to Long Polling" title="Direct link to Long Polling">​</a></h3>
+<ul>
+<li>When a consumer requests messages from the queue, it can optionally “wait” for messages to arrive if there are none in the queue</li>
+<li>This is called Long Polling</li>
+<li>LongPolling decreases the number of API calls made to SQS while increasing the efficiency and decreasing the latency of your application.</li>
+<li>The wait time can be between 1 sec to 20 sec (20 sec preferable)</li>
+<li>Long Polling is preferable to Short Polling</li>
+<li>Long polling can be enabled at the queue level or at the API level using ReceiveMessageWaitTimeSeconds</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="extended-client">Extended Client<a href="#extended-client" class="hash-link" aria-label="Direct link to Extended Client" title="Direct link to Extended Client">​</a></h3>
+<ul>
+<li>Message size limit is 256KB, how to send large messages, e.g. 1GB?</li>
+<li>Using the SQS Extended Client (Java Library)</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="must-know-api">Must know API<a href="#must-know-api" class="hash-link" aria-label="Direct link to Must know API" title="Direct link to Must know API"> ​</a></h4>
+<ul>
+<li>CreateQueue (MessageRetentionPeriod), DeleteQueue</li>
+<li>PurgeQueue: delete all the messages in queue</li>
+<li>SendMessage (DelaySeconds), ReceiveMessage, DeleteMessage</li>
+<li>MaxNumberOfMessages: default 1, max 10 (for ReceiveMessage API)</li>
+<li>ReceiveMessageWaitTimeSeconds: Long Polling</li>
+<li>ChangeMessageVisibility: change the message timeout</li>
+</ul>
+<p>Note: Batch APIs for SendMessage, DeleteMessage, ChangeMessageVisibility helps decrease your costs</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fifo-queue">FIFO Queue<a href="#fifo-queue" class="hash-link" aria-label="Direct link to FIFO Queue" title="Direct link to FIFO Queue">​</a></h3>
+<ul>
+<li>FIFO = First In First Out (ordering of messages in the queue)</li>
+<li>Limited throughput: 300 msg/s without batching, 3000 msg/s with</li>
+<li>Exactly-once send capability (by removing duplicates)</li>
+<li>Messages are processed in order by the consumer</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="deduplication">Deduplication<a href="#deduplication" class="hash-link" aria-label="Direct link to Deduplication" title="Direct link to Deduplication">​</a></h4>
+<ul>
+<li>De-duplication interval is 5 minutes<!-- -->
+<ul>
+<li>Two de-duplication methods:</li>
+<li>Content-based deduplication: will do a SHA-256 hash of the message body</li>
+<li>Explicitly provide a Message Deduplication ID</li>
+</ul>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="message-grouping">Message Grouping<a href="#message-grouping" class="hash-link" aria-label="Direct link to Message Grouping" title="Direct link to Message Grouping">​</a></h4>
+<ul>
+<li>If you specify the same value of MessageGroupID in an SQS FIFO queue, you can only have one consumer, and all the messages are in order</li>
+<li>To get ordering at the level of a subset of messages, specify different values for MessageGroupID<!-- -->
+<ul>
+<li>Messages that share a common Message Group ID will be in order within the group</li>
+<li>Each Group ID can have a different consumer (parallel processing!)</li>
+<li>Ordering across groups is not guaranteed</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="amazon-sns">Amazon SNS<a href="#amazon-sns" class="hash-link" aria-label="Direct link to Amazon SNS" title="Direct link to Amazon SNS">​</a></h2>
+<p>What if you want to send one message to many receivers?</p>
+<p><img decoding="async" loading="lazy" alt="amazon-sns" src="/LearningCollection/assets/images/amazon-sns-75e163de5944f40e5924ba068b4e0ef8.png" width="1641" height="604" class="img_ev3q"></p>
+<ul>
+<li>The “event producer” only sends message to one SNS topic</li>
+<li>As many “event receivers” (subscriptions) as we want to listen to the SNS topic notifications</li>
+<li>Each subscriber to the topic will get all the messages (note: new feature to filter messages)
+-Up to 12,500,000 subscriptions per topic</li>
+<li>100,000 topics limit</li>
+<li>Subscribers: SQS, Lambda, Kinesis Data Firehose, HTTP(S) Endpoints, SMS &amp; Mobile Notifications, Emails</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="integrations">Integrations<a href="#integrations" class="hash-link" aria-label="Direct link to Integrations" title="Direct link to Integrations">​</a></h3>
+<ul>
+<li>Many AWS services can send data directly to SNS for notifications</li>
+<li>Examples: CloudWatch, AWS Budgets, Lambda, DynamoDB, S3, Auto Scaling Groups, and many more...</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="how-to-publish">How to publish<a href="#how-to-publish" class="hash-link" aria-label="Direct link to How to publish" title="Direct link to How to publish">​</a></h3>
+<ul>
+<li>Topic Publish (using the SDK)<!-- -->
+<ul>
+<li>Create a topic</li>
+<li>Create a subscription (or many)</li>
+<li>Publish to the topic</li>
+</ul>
+</li>
+<li>Direct Publish (for mobile apps SDK)<!-- -->
+<ul>
+<li>Create a platform application</li>
+<li>Create a platform endpoint</li>
+<li>Publish to the platform endpoint</li>
+<li>Works with Google GCM, Apple APNS, Amazon ADM  …</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-1">Security<a href="#security-1" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security">​</a></h3>
+<ul>
+<li><strong>Encryption:</strong>
+<ul>
+<li>In-flight encryption using HTTPS API</li>
+<li>At-rest encryption using KMS keys</li>
+<li>Client-side encryption if the client wants to perform encryption/decryption itself</li>
+</ul>
+</li>
+<li><strong>Access Controls:</strong> IAM policies to regulate access to the SNS API</li>
+<li><strong>SNS Access Policies</strong> (similar to S3 bucket policies):<!-- -->
+<ul>
+<li>Useful for cross-account access to SNS topics</li>
+<li>Useful for allowing other services ( S3…) to write to an SNS topic</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="sns--sqs-fan-out">SNS + SQS: Fan Out<a href="#sns--sqs-fan-out" class="hash-link" aria-label="Direct link to SNS + SQS: Fan Out" title="Direct link to SNS + SQS: Fan Out">​</a></h3>
+<ul>
+<li>Push once in SNS, receive in all SQS queues that are subscribers</li>
+<li>Fully decoupled, no data loss</li>
+<li>SQS allows for: data persistence, delayed processing and retries of work</li>
+<li>Ability to add more SQS subscribers over time</li>
+<li>Make sure your SQS queue access policy allows for SNS to write</li>
+<li>Cross-Region Delivery: works with SQS Queues in other regions</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="sns-fan-out" src="/LearningCollection/assets/images/sns-fan-out-91879647912310c0d20f11ce64672c91.png" width="1117" height="300" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="s3-events-to-multiple-queues">S3 Events to multiple queues<a href="#s3-events-to-multiple-queues" class="hash-link" aria-label="Direct link to S3 Events to multiple queues" title="Direct link to S3 Events to multiple queues">​</a></h3>
+<ul>
+<li>For the same combination of: event type (e.g. object create) and prefix (e.g. images/) you can only have one S3 Event rule</li>
+<li>If you want to send the same S3 event to many SQS queues, use fan-out</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="sns-multiple-queues" src="/LearningCollection/assets/images/sns-multiple-queues-940adead76f3b8d8e1564dd08820faa3.png" width="1372" height="453" class="img_ev3q"></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="sns-to-amazon-s3-through-kinesis-data-firehose">SNS to Amazon S3 through Kinesis Data Firehose<a href="#sns-to-amazon-s3-through-kinesis-data-firehose" class="hash-link" aria-label="Direct link to SNS to Amazon S3 through Kinesis Data Firehose" title="Direct link to SNS to Amazon S3 through Kinesis Data Firehose">​</a></h4>
+<p>SNS can send to Kinesis and therefore we can have the following solutions architecture:</p>
+<p><img decoding="async" loading="lazy" alt="sns-kdf" src="/LearningCollection/assets/images/sns-kdf-e13b70720e31936907a09e74682159ad.png" width="1380" height="316" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fifo-topic">FIFO Topic<a href="#fifo-topic" class="hash-link" aria-label="Direct link to FIFO Topic" title="Direct link to FIFO Topic">​</a></h3>
+<ul>
+<li>FIFO = First In First Out (ordering of messages in the topic)</li>
+<li>Similar features as SQS FIFO:<!-- -->
+<ul>
+<li>Ordering by Message Group ID (all messages in the same group are ordered)</li>
+<li>Deduplication using a Deduplication ID or Content Based Deduplication</li>
+</ul>
+</li>
+<li>Can have SQS Standard and FIFO queues as subscribers</li>
+<li>Limited throughput (same throughput as SQS FIFO)</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fan-out">Fan Out<a href="#fan-out" class="hash-link" aria-label="Direct link to Fan Out" title="Direct link to Fan Out">​</a></h4>
+<p>In case you need fan out + ordering + deduplication:</p>
+<p><img decoding="async" loading="lazy" alt="sns-fan-out2" src="/LearningCollection/assets/images/sns-fan-out2-3ab0f9443710d16d61876e525821ff12.png" width="1162" height="390" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="message-filtering">Message Filtering<a href="#message-filtering" class="hash-link" aria-label="Direct link to Message Filtering" title="Direct link to Message Filtering">​</a></h3>
+<ul>
+<li>JSON policy used to filter messages sent to SNS topic’s subscriptions</li>
+<li>If a subscription doesn’t have a filter policy, it receives every message</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="kinesis-overview">Kinesis Overview<a href="#kinesis-overview" class="hash-link" aria-label="Direct link to Kinesis Overview" title="Direct link to Kinesis Overview">​</a></h2>
+<ul>
+<li>Makes it easy to collect, process, and analyze streaming data in real-time</li>
+<li>Ingest real-time data such as: Application logs, Metrics, Website clickstreams, IoT telemetry data…<!-- -->
+<ul>
+<li>Kinesis Data Streams: capture, process, and store data streams</li>
+<li>Kinesis Data Firehose: load data streams into AWS data stores</li>
+<li>Kinesis Data Analytics: analyze data streams with SQL or Apache Flink</li>
+<li>Kinesis Video Streams: capture, process, and store video streams</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="kinesis-data-streams">Kinesis Data Streams<a href="#kinesis-data-streams" class="hash-link" aria-label="Direct link to Kinesis Data Streams" title="Direct link to Kinesis Data Streams">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="kinesis-data-streams" src="/LearningCollection/assets/images/kinesis-data-streams-9257cdadfa5e08a3e175d8213ec566af.png" width="1750" height="790" class="img_ev3q"></p>
+<ul>
+<li>Retention between 1 day to 365 days</li>
+<li>Ability to reprocess (replay) data</li>
+<li>Once data is inserted in Kinesis, it can’t be deleted (immutability)</li>
+<li>Data that shares the same partition goes to the same shard (ordering)</li>
+<li>Producers: AWS SDK, Kinesis Producer Library (KPL), Kinesis Agent</li>
+<li>Consumers:<!-- -->
+<ul>
+<li>Write your own: Kinesis Client Library (KCL), AWS SDK</li>
+<li>Managed: AWS Lambda, Kinesis Data Firehose, Kinesis Data Analytics</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="capacity-modes">Capacity Modes<a href="#capacity-modes" class="hash-link" aria-label="Direct link to Capacity Modes" title="Direct link to Capacity Modes">​</a></h3>
+<ul>
+<li>Provisioned mode:<!-- -->
+<ul>
+<li>You choose the number of shards provisioned, scale manually or using API</li>
+<li>Each shard gets 1MB/s in (or 1000 records per second)</li>
+<li>Each shard gets 2MB/s out (classic or enhanced fan-out consumer)</li>
+<li>You pay per shard provisioned per hour</li>
+</ul>
+</li>
+<li>On-demand mode:<!-- -->
+<ul>
+<li>No need to provision or manage the capacity</li>
+<li>Default capacity provisioned (4 MB/s in or 4000 records per second)</li>
+<li>Scales automatically based on observed throughput peak during the last 30 days</li>
+<li>Pay per stream per hour &amp; data in/out per GB</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-2">Security<a href="#security-2" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security">​</a></h3>
+<ul>
+<li>Control access / authorization using IAM policies</li>
+<li>Encryption in flight using HTTPS endpoints</li>
+<li>Encryption at rest using KMS</li>
+<li>You can implement encryption/decryption of data on client side (harder)</li>
+<li>VPC Endpoints available for Kinesis to access within VPC</li>
+<li>Monitor API calls using CloudTrail</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="kds-security" src="/LearningCollection/assets/images/kds-security-58e47f23db8a2c6e6e105a2633d3f566.png" width="883" height="730" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="kinesis-producers">Kinesis Producers<a href="#kinesis-producers" class="hash-link" aria-label="Direct link to Kinesis Producers" title="Direct link to Kinesis Producers">​</a></h3>
+<ul>
+<li>Puts data records into data streams</li>
+<li>Data record consists of:<!-- -->
+<ul>
+<li>Sequence number (unique per partition-key within shard)</li>
+<li>Partition key (must specify while put records into stream)</li>
+<li>Data blob (up to 1 MB)</li>
+</ul>
+</li>
+<li>Producers:<!-- -->
+<ul>
+<li>AWS SDK: simple producer</li>
+<li>Kinesis Producer Library (KPL): C++, Java, batch, compression, retries</li>
+<li>Kinesis Agent: monitor log files</li>
+</ul>
+</li>
+<li>Write throughput: 1 MB/sec or 1000 records/sec per shard</li>
+<li>PutRecord API</li>
+<li>Use batching with PutRecords API to reduce costs &amp; increase throughput</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="kinesis-producers" src="/LearningCollection/assets/images/kinesis-producers-0f249957c5372e14a0839686b1e61e2e.png" width="1729" height="787" class="img_ev3q"></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="provisionedthroughputexceeded">ProvisionedThroughputExceeded<a href="#provisionedthroughputexceeded" class="hash-link" aria-label="Direct link to ProvisionedThroughputExceeded" title="Direct link to ProvisionedThroughputExceeded">​</a></h4>
+<p><img decoding="async" loading="lazy" alt="kinesis-throughput" src="/LearningCollection/assets/images/kinesis-throughput-810b416434684abe73b3ac6682f0e155.png" width="1735" height="772" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="data-streams-consumers">Data Streams Consumers<a href="#data-streams-consumers" class="hash-link" aria-label="Direct link to Data Streams Consumers" title="Direct link to Data Streams Consumers">​</a></h3>
+<p>Get data records from data streams and process them:</p>
+<ul>
+<li>AWS Lambda</li>
+<li>Kinesis Data Analytics</li>
+<li>Kinesis Data Firehose</li>
+<li>Custom Consumer (AWS SDK) – Classic or Enhanced Fan-Out</li>
+<li>Kinesis Client Library (KCL): library to simplify reading from data stream</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="custom-consumer">Custom Consumer<a href="#custom-consumer" class="hash-link" aria-label="Direct link to Custom Consumer" title="Direct link to Custom Consumer">​</a></h4>
+<p><img decoding="async" loading="lazy" alt="kinesis-custom-consumer" src="/LearningCollection/assets/images/kinesis-custom-consumer-1a614d05b5b398e590b6c0ca4344604e.png" width="1807" height="739" class="img_ev3q"></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="consumers-types">Consumers Types<a href="#consumers-types" class="hash-link" aria-label="Direct link to Consumers Types" title="Direct link to Consumers Types">​</a></h4>
+<p><img decoding="async" loading="lazy" alt="kinesis-consumer-types" src="/LearningCollection/assets/images/kinesis-consumer-types-fe9a0f1a16998b3003fcb81bc7375b4f.png" width="1764" height="727" class="img_ev3q"></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="consumers-aws-lambda">Consumers: AWS Lambda<a href="#consumers-aws-lambda" class="hash-link" aria-label="Direct link to Consumers: AWS Lambda" title="Direct link to Consumers: AWS Lambda">​</a></h4>
+<ul>
+<li>Supports Classic &amp; Enhanced fan-out consumers</li>
+<li>Read records in batches</li>
+<li>Can configure batch size and batch window</li>
+<li>If error occurs, Lambda retries until succeeds or data expired</li>
+<li>Can process up to 10 batches per shard simultaneously</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="kinesis-aws-lambda" src="/LearningCollection/assets/images/kinesis-aws-lambda-c6713f434cde6d9d16efe7530635551c.png" width="1009" height="693" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="kinesis-client-library-kcl">Kinesis Client Library (KCL)<a href="#kinesis-client-library-kcl" class="hash-link" aria-label="Direct link to Kinesis Client Library (KCL)" title="Direct link to Kinesis Client Library (KCL)">​</a></h3>
+<ul>
+<li>A Java library that helps read record from a Kinesis Data Stream with distributed applications sharing the read workload</li>
+<li>Each shard is to be read by only one KCL instance<!-- -->
+<ul>
+<li>4 shards = max. 4 KCL instances</li>
+<li>6 shards = max. 6 KCL instances</li>
+</ul>
+</li>
+<li>Progress is checkpointed into DynamoDB (needs IAM access)</li>
+<li>Track other workers and share the work amongst shards using DynamoDB</li>
+<li>KCL can run on EC2, Elastic Beanstalk, and on-premises</li>
+<li>Records are read in order at the shard level</li>
+<li>Versions:<!-- -->
+<ul>
+<li>KCL 1.x (supports shared consumer)</li>
+<li>KCL 2.x (supports shared &amp; enhanced fan-out consumer)</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="kcl-example">KCL Example<a href="#kcl-example" class="hash-link" aria-label="Direct link to KCL Example" title="Direct link to KCL Example">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="4-shards">4 Shards<a href="#4-shards" class="hash-link" aria-label="Direct link to 4 Shards" title="Direct link to 4 Shards">​</a></h4>
+<p><img decoding="async" loading="lazy" alt="kcl-example1" src="/LearningCollection/assets/images/kcl-example1-2ad9e7ef9413850a1ecfb66e32be9e77.png" width="1080" height="744" class="img_ev3q"></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="4-shards-scaling-kcl-app">4 shards, Scaling KCL App<a href="#4-shards-scaling-kcl-app" class="hash-link" aria-label="Direct link to 4 shards, Scaling KCL App" title="Direct link to 4 shards, Scaling KCL App">​</a></h4>
+<p><img decoding="async" loading="lazy" alt="kcl-example2" src="/LearningCollection/assets/images/kcl-example2-43afad271ed81c8340066d581c7d9a30.png" width="1138" height="790" class="img_ev3q"></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="6-shards-scaling-kinesis">6 shards, Scaling Kinesis<a href="#6-shards-scaling-kinesis" class="hash-link" aria-label="Direct link to 6 shards, Scaling Kinesis" title="Direct link to 6 shards, Scaling Kinesis">​</a></h4>
+<p><img decoding="async" loading="lazy" alt="kcl-example3" src="/LearningCollection/assets/images/kcl-example3-dd0e07daba31179b1ee634222c726ee5.png" width="1126" height="781" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="shard-splitting">Shard Splitting<a href="#shard-splitting" class="hash-link" aria-label="Direct link to Shard Splitting" title="Direct link to Shard Splitting">​</a></h3>
+<ul>
+<li>Used to increase the Stream capacity (1 MB/s data in per shard)</li>
+<li>Used to divide a “hot shard”</li>
+<li>The old shard is closed and will be deleted once the data is expired</li>
+<li>No automatic scaling (manually increase/decrease capacity)</li>
+<li>Can’t split into more than two shards in a single operation</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="merging-shards">Merging Shards<a href="#merging-shards" class="hash-link" aria-label="Direct link to Merging Shards" title="Direct link to Merging Shards">​</a></h3>
+<ul>
+<li>Decrease the Stream capacity and save costs</li>
+<li>Can be used to group two shards with low traffic (cold shards)</li>
+<li>Old shards are closed and will be deleted once the data is expired</li>
+<li>Can’t merge more than two shards in a single operation</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="kinesis-data-firehose">Kinesis Data Firehose<a href="#kinesis-data-firehose" class="hash-link" aria-label="Direct link to Kinesis Data Firehose" title="Direct link to Kinesis Data Firehose">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="kinesis-firehose" src="/LearningCollection/assets/images/kinesis-firehose-f485a29d86f34255b887b70fb720b171.png" width="1836" height="973" class="img_ev3q"></p>
+<ul>
+<li>Fully Managed Service, no administration, automatic scaling, serverless<!-- -->
+<ul>
+<li>AWS: Redshift / Amazon S3 / OpenSearch</li>
+<li>3rd party partner: Splunk / MongoDB / DataDog / NewRelic / …</li>
+<li>Custom: send to any HTTP endpoint</li>
+</ul>
+</li>
+<li>Pay for data going through Firehose</li>
+<li>Near Real Time<!-- -->
+<ul>
+<li>Buffer interval: 0 seconds (no buffering) to 900 seconds</li>
+<li>Buffer size: minimum 1MB</li>
+</ul>
+</li>
+<li>Supports many data formats, conversions, transformations, compression</li>
+<li>Supports custom data transformations using AWS Lambda</li>
+<li>Can send failed or all data to a backup S3 bucket</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="kinesis-data-streams-vs-firehose">Kinesis Data Streams vs Firehose<a href="#kinesis-data-streams-vs-firehose" class="hash-link" aria-label="Direct link to Kinesis Data Streams vs Firehose" title="Direct link to Kinesis Data Streams vs Firehose">​</a></h4>
+<p><img decoding="async" loading="lazy" alt="data-stream-vs-firehose" src="/LearningCollection/assets/images/data-stream-vs-firehose-cb5b366f722b2568a8d7ca3b24d51c53.png" width="1711" height="748" class="img_ev3q"></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="data-analytics-for-sql-applications">Data Analytics for SQL applications<a href="#data-analytics-for-sql-applications" class="hash-link" aria-label="Direct link to Data Analytics for SQL applications" title="Direct link to Data Analytics for SQL applications">​</a></h4>
+<p><img decoding="async" loading="lazy" alt="kinesis-sql" src="/LearningCollection/assets/images/kinesis-sql-5ecb82e3972f24bcb3068c292749ace1.png" width="1780" height="793" class="img_ev3q"></p>
+<ul>
+<li>Real-time analytics on Kinesis Data Streams &amp; Firehose using SQL</li>
+<li>Add reference data from Amazon S3 to enrich streaming data</li>
+<li>Fully managed, no servers to provision</li>
+<li>Automatic scaling</li>
+<li>Pay for actual consumption rate</li>
+<li>Output:<!-- -->
+<ul>
+<li>Kinesis Data Streams: create streams out of the real-time analytics queries</li>
+<li>Kinesis Data Firehose: send analytics query results to destinations</li>
+</ul>
+</li>
+<li>Use cases:<!-- -->
+<ul>
+<li>Time-series analytics</li>
+<li>Real-time dashboards</li>
+<li>Real-time metrics</li>
+</ul>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="data-analytics-for-apache-flink">Data Analytics for Apache Flink<a href="#data-analytics-for-apache-flink" class="hash-link" aria-label="Direct link to Data Analytics for Apache Flink" title="Direct link to Data Analytics for Apache Flink">​</a></h4>
+<p>Use Flink (Java, Scala or SQL) to process and analyze streaming data:</p>
+<p><img decoding="async" loading="lazy" alt="kinesis-flink" src="/LearningCollection/assets/images/kinesis-flink-4f3b2b3f30408762eee90d6249c4d9b3.png" width="1242" height="295" class="img_ev3q"></p>
+<ul>
+<li>Run any Apache Flink application on a managed cluster on AWS<!-- -->
+<ul>
+<li>provisioning compute resources, parallel computation, automatic scaling</li>
+<li>application backups (implemented as checkpoints and snapshots)</li>
+<li>Use any Apache Flink programming features</li>
+<li>Flink does not read from Firehose (use Kinesis Analytics for SQL instead)</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="kinesis-vs-sqs-ordering">Kinesis vs SQS ordering<a href="#kinesis-vs-sqs-ordering" class="hash-link" aria-label="Direct link to Kinesis vs SQS ordering" title="Direct link to Kinesis vs SQS ordering">​</a></h3>
+<ul>
+<li>Let’s assume 100 trucks, 5 kinesis shards, 1 SQS FIFO</li>
+<li>Kinesis Data Streams:<!-- -->
+<ul>
+<li>On average you’ll have 20 trucks per shard</li>
+<li>Trucks will have their data ordered within each shard</li>
+<li>The maximum amount of consumers in parallel we can have is 5</li>
+<li>Can receive up to 5 MB/s of data</li>
+</ul>
+</li>
+<li>SQS FIFO<!-- -->
+<ul>
+<li>You only have one SQS FIFO queue</li>
+<li>You will have 100 Group ID</li>
+<li>You can have up to 100 Consumers (due to the 100 Group ID)</li>
+<li>You have up to 300 messages per second (or 3000 if using batching)</li>
+</ul>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="ordering-data-into-kinesis">Ordering data into Kinesis<a href="#ordering-data-into-kinesis" class="hash-link" aria-label="Direct link to Ordering data into Kinesis" title="Direct link to Ordering data into Kinesis">​</a></h4>
+<ul>
+<li>Imagine you have 100 trucks (truck_1, truck_2, … truck_100) on the road sending their GPS positions regularly into AWS.</li>
+<li>You want to consume the data in order for each truck, so that you can track their movement accurately.</li>
+<li>How should you send that data into Kinesis?</li>
+<li>Answer: send using a “Partition Key” value of the “truck_id”<!-- -->
+<ul>
+<li>The same key will always go to the same shard</li>
+</ul>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="ordering-kinesis" src="/LearningCollection/assets/images/ordering-kinesis-6d234e88152262b6faadc59974250533.png" width="889" height="496" class="img_ev3q"></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="ordering-data-into-sqs">Ordering data into SQS<a href="#ordering-data-into-sqs" class="hash-link" aria-label="Direct link to Ordering data into SQS" title="Direct link to Ordering data into SQS">​</a></h4>
+<ul>
+<li>For SQS standard, there is no ordering.</li>
+<li>For SQS FIFO, if you don’t use a Group ID, messages are consumed in the order they are sent, with only one consumer</li>
+<li>You want to scale the number of consumers, but you want messages to be “grouped” when they are related to each other</li>
+<li>Then you use a Group ID (similar to Partition Key in Kinesis)</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="sqs-vs-sns-vs-kinesis">SQS vs SNS vs Kinesis<a href="#sqs-vs-sns-vs-kinesis" class="hash-link" aria-label="Direct link to SQS vs SNS vs Kinesis" title="Direct link to SQS vs SNS vs Kinesis">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="sqs-sns-kinesis" src="/LearningCollection/assets/images/sqs-sns-kinesis-62f76183786a2e5dc624f87a4e83d84f.png" width="1723" height="711" class="img_ev3q"></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/RobinTTY/LearningCollection/tree/master/website/docs/cloud/aws/certified-developer-associate/integration-messaging.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudformation"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">CloudFormation</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/LearningCollection/cloud/aws/certified-developer-associate/exam-scoring"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Exam Scoring</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#amazon-sqs" class="table-of-contents__link toc-highlight">Amazon SQS</a><ul><li><a href="#standard-queue" class="table-of-contents__link toc-highlight">Standard Queue</a></li><li><a href="#producing-messages" class="table-of-contents__link toc-highlight">Producing Messages</a></li><li><a href="#consuming-messages" class="table-of-contents__link toc-highlight">Consuming Messages</a></li><li><a href="#multiple-ec2-instances-consumers" class="table-of-contents__link toc-highlight">Multiple EC2 Instances Consumers</a></li><li><a href="#auto-scaling-group-asg" class="table-of-contents__link toc-highlight">Auto Scaling Group (ASG)</a></li><li><a href="#decoupling-application-tiers" class="table-of-contents__link toc-highlight">Decoupling application tiers</a></li><li><a href="#security" class="table-of-contents__link toc-highlight">Security</a></li><li><a href="#queue-access-policy" class="table-of-contents__link toc-highlight">Queue Access Policy</a></li><li><a href="#message-visibility-timeout" class="table-of-contents__link toc-highlight">Message Visibility Timeout</a></li><li><a href="#dead-letter-queue-dlq" class="table-of-contents__link toc-highlight">Dead Letter Queue (DLQ)</a></li><li><a href="#delay-queue" class="table-of-contents__link toc-highlight">Delay Queue</a></li><li><a href="#long-polling" class="table-of-contents__link toc-highlight">Long Polling</a></li><li><a href="#extended-client" class="table-of-contents__link toc-highlight">Extended Client</a></li><li><a href="#fifo-queue" class="table-of-contents__link toc-highlight">FIFO Queue</a></li></ul></li><li><a href="#amazon-sns" class="table-of-contents__link toc-highlight">Amazon SNS</a><ul><li><a href="#integrations" class="table-of-contents__link toc-highlight">Integrations</a></li><li><a href="#how-to-publish" class="table-of-contents__link toc-highlight">How to publish</a></li><li><a href="#security-1" class="table-of-contents__link toc-highlight">Security</a></li><li><a href="#sns--sqs-fan-out" class="table-of-contents__link toc-highlight">SNS + SQS: Fan Out</a></li><li><a href="#s3-events-to-multiple-queues" class="table-of-contents__link toc-highlight">S3 Events to multiple queues</a></li><li><a href="#fifo-topic" class="table-of-contents__link toc-highlight">FIFO Topic</a></li><li><a href="#message-filtering" class="table-of-contents__link toc-highlight">Message Filtering</a></li></ul></li><li><a href="#kinesis-overview" class="table-of-contents__link toc-highlight">Kinesis Overview</a><ul><li><a href="#kinesis-data-streams" class="table-of-contents__link toc-highlight">Kinesis Data Streams</a></li><li><a href="#capacity-modes" class="table-of-contents__link toc-highlight">Capacity Modes</a></li><li><a href="#security-2" class="table-of-contents__link toc-highlight">Security</a></li><li><a href="#kinesis-producers" class="table-of-contents__link toc-highlight">Kinesis Producers</a></li><li><a href="#data-streams-consumers" class="table-of-contents__link toc-highlight">Data Streams Consumers</a></li><li><a href="#kinesis-client-library-kcl" class="table-of-contents__link toc-highlight">Kinesis Client Library (KCL)</a></li><li><a href="#kcl-example" class="table-of-contents__link toc-highlight">KCL Example</a></li><li><a href="#shard-splitting" class="table-of-contents__link toc-highlight">Shard Splitting</a></li><li><a href="#merging-shards" class="table-of-contents__link toc-highlight">Merging Shards</a></li><li><a href="#kinesis-data-firehose" class="table-of-contents__link toc-highlight">Kinesis Data Firehose</a></li><li><a href="#kinesis-vs-sqs-ordering" class="table-of-contents__link toc-highlight">Kinesis vs SQS ordering</a></li></ul></li><li><a href="#sqs-vs-sns-vs-kinesis" class="table-of-contents__link toc-highlight">SQS vs SNS vs Kinesis</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">My other sites</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.robintty.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Website<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Socials</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/RobinTTY" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/in/robin-m%C3%BCller-574782170/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div></div></footer></div>
+</body>
+</html>
