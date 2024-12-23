@@ -1,5 +1,5 @@
 ---
-title: VPC
+title: Virtual Private Cloud (VPC)
 sidebar_position: 8
 ---
 
