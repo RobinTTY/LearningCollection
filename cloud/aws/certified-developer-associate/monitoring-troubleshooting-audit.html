@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.5.2">
 <title data-rh="true">Monitoring, Troubleshooting &amp; Audit | Learning Collection Knowledge Base</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/monitoring-troubleshooting-audit"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Monitoring, Troubleshooting &amp; Audit | Learning Collection Knowledge Base"><meta data-rh="true" name="description" content="Monitoring in AWS"><meta data-rh="true" property="og:description" content="Monitoring in AWS"><link data-rh="true" rel="icon" href="/LearningCollection/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/monitoring-troubleshooting-audit"><link data-rh="true" rel="alternate" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/monitoring-troubleshooting-audit" hreflang="en"><link data-rh="true" rel="alternate" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/monitoring-troubleshooting-audit" hreflang="x-default"><link rel="stylesheet" href="/LearningCollection/assets/css/styles.7d3675f6.css">
-<script src="/LearningCollection/assets/js/runtime~main.1972ec72.js" defer="defer"></script>
-<script src="/LearningCollection/assets/js/main.591b1e45.js" defer="defer"></script>
+<script src="/LearningCollection/assets/js/runtime~main.ab14e9ad.js" defer="defer"></script>
+<script src="/LearningCollection/assets/js/main.1847cfab.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
-<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/LearningCollection/"><div class="navbar__logo"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Learning Collection</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/LearningCollection/">Docs</a><a class="navbar__item navbar__link" sidebarid="finance" href="/LearningCollection/finance/introduction">Finance</a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/">Introduction</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/apis/graphql/intro">General Concepts</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Cloud</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">aws</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">certified-developer-associate</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Cloud Overview</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/iam">Identity and Access Management (IAM)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ec2">Elastic Compute Cloud (EC2)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elb">Elastic Load Balancing (ELB)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/relational-databases">Relational Databases (RDS/Aurora)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elasti-cache">ElastiCache</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/route53">Route 53</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/vpc">Virtual Private Cloud (VPC)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/s3">S3</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cli-sdk-iam-roles-policies">AWS CLI, SDK, IAM Roles &amp; Policies</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudfront">Cloudfront</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ecs-ecr-fargate">ECS, ECR, Fargate</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elastic-beanstalk">Elastic Beanstalk</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudformation">CloudFormation</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/integration-messaging">Integration &amp; Messaging</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/monitoring-troubleshooting-audit">Monitoring, Troubleshooting &amp; Audit</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/exam-scoring">Exam Scoring</a></li></ul></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/csharp/introduction">C#</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/web/html/doctype">Web</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/databases/sql">Databases</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/tools/git/tags">Tools</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/linux/commonlyUsedCommands">Linux</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/interesting-topics">Interesting Topics</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/LearningCollection/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Cloud</span><meta itemprop="position" content="1"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">aws</span><meta itemprop="position" content="2"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">certified-developer-associate</span><meta itemprop="position" content="3"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Monitoring, Troubleshooting &amp; Audit</span><meta itemprop="position" content="4"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Monitoring, Troubleshooting &amp; Audit</h1></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="monitoring-in-aws">Monitoring in AWS<a href="#monitoring-in-aws" class="hash-link" aria-label="Direct link to Monitoring in AWS" title="Direct link to Monitoring in AWS">​</a></h2>
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/LearningCollection/"><div class="navbar__logo"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Learning Collection</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/LearningCollection/">Docs</a><a class="navbar__item navbar__link" sidebarid="finance" href="/LearningCollection/finance/introduction">Finance</a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/">Introduction</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/apis/graphql/intro">General Concepts</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Cloud</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">aws</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">certified-developer-associate</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Cloud Overview</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/iam">Identity and Access Management (IAM)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ec2">Elastic Compute Cloud (EC2)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elb">Elastic Load Balancing (ELB)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/relational-databases">Relational Databases (RDS/Aurora)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elasti-cache">ElastiCache</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/route53">Route 53</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/vpc">Virtual Private Cloud (VPC)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/s3">S3</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cli-sdk-iam-roles-policies">AWS CLI, SDK, IAM Roles &amp; Policies</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudfront">Cloudfront</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ecs-ecr-fargate">ECS, ECR, Fargate</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elastic-beanstalk">Elastic Beanstalk</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudformation">CloudFormation</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/integration-messaging">Integration &amp; Messaging</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/monitoring-troubleshooting-audit">Monitoring, Troubleshooting &amp; Audit</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/lambda">Lambda</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/exam-scoring">Exam Scoring</a></li></ul></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/csharp/introduction">C#</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/web/html/doctype">Web</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/databases/sql">Databases</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/tools/git/tags">Tools</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/linux/commonlyUsedCommands">Linux</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/interesting-topics">Interesting Topics</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/LearningCollection/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Cloud</span><meta itemprop="position" content="1"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">aws</span><meta itemprop="position" content="2"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">certified-developer-associate</span><meta itemprop="position" content="3"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Monitoring, Troubleshooting &amp; Audit</span><meta itemprop="position" content="4"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Monitoring, Troubleshooting &amp; Audit</h1></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="monitoring-in-aws">Monitoring in AWS<a href="#monitoring-in-aws" class="hash-link" aria-label="Direct link to Monitoring in AWS" title="Direct link to Monitoring in AWS">​</a></h2>
 <ul>
 <li>AWS CloudWatch:<!-- -->
 <ul>
@@ -40,6 +40,491 @@
 <li>Up to 30 dimensions per metric</li>
 <li>Metrics have timestamps</li>
 <li>Can create CloudWatch dashboards of metrics</li>
-</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/RobinTTY/LearningCollection/tree/master/website/docs/cloud/aws/certified-developer-associate/monitoring-troubleshooting-audit.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/LearningCollection/cloud/aws/certified-developer-associate/integration-messaging"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Integration &amp; Messaging</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/LearningCollection/cloud/aws/certified-developer-associate/exam-scoring"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Exam Scoring</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#monitoring-in-aws" class="table-of-contents__link toc-highlight">Monitoring in AWS</a></li><li><a href="#cloudwatch-metrics" class="table-of-contents__link toc-highlight">CloudWatch Metrics</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">My other sites</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.robintty.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Website<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Socials</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/RobinTTY" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/in/robin-m%C3%BCller-574782170/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div></div></footer></div>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="ec2-detailed-monitoring">EC2 Detailed monitoring<a href="#ec2-detailed-monitoring" class="hash-link" aria-label="Direct link to EC2 Detailed monitoring" title="Direct link to EC2 Detailed monitoring">​</a></h3>
+<ul>
+<li>EC2 instance metrics have metrics “every 5 minutes”</li>
+<li>With detailed monitoring (for a cost), you get data “every 1 minute”</li>
+<li>Use detailed monitoring if you want to scale faster for your ASG!</li>
+<li>The AWS Free Tier allows us to have 10 detailed monitoring metrics</li>
+<li>Note: EC2 Memory usage is by default not pushed (must be pushed from inside the instance as a custom metric)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cloudwatch-custom-metrics">CloudWatch Custom Metrics<a href="#cloudwatch-custom-metrics" class="hash-link" aria-label="Direct link to CloudWatch Custom Metrics" title="Direct link to CloudWatch Custom Metrics">​</a></h3>
+<ul>
+<li>Possibility to define and send your own custom metrics to CloudWatch</li>
+<li>Example: memory (RAM) usage, disk space, number of logged in users …</li>
+<li>Use API call PutMetricData</li>
+<li>Ability to use dimensions (attributes) to segment metrics<!-- -->
+<ul>
+<li>Instance.id</li>
+<li>Environment.name</li>
+</ul>
+</li>
+<li>Metric resolution (StorageResolution API parameter – two possible value):<!-- -->
+<ul>
+<li>Standard: 1 minute (60 seconds)</li>
+<li>High Resolution: 1/5/10/30 second(s) – Higher cost</li>
+</ul>
+</li>
+<li>Important: Accepts metric data points two weeks in the past and two hours in the future (make sure to configure your EC2 instance time correctly)</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="cloudwatch-logs">CloudWatch Logs<a href="#cloudwatch-logs" class="hash-link" aria-label="Direct link to CloudWatch Logs" title="Direct link to CloudWatch Logs">​</a></h2>
+<ul>
+<li>Log groups: arbitrary name, usually representing an application</li>
+<li>Log stream: instances within application / log files / containers</li>
+<li>Can define log expiration policies (never expire, 1 day to 10 years…)</li>
+<li>CloudWatch Logs can send logs to:<!-- -->
+<ul>
+<li>Amazon S3 (exports)</li>
+<li>Kinesis Data Streams</li>
+<li>Kinesis Data Firehose</li>
+<li>AWS Lambda</li>
+<li>OpenSearch</li>
+</ul>
+</li>
+<li>Logs are encrypted by default</li>
+<li>Can setup KMS-based encryption with your own keys</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="sources">Sources<a href="#sources" class="hash-link" aria-label="Direct link to Sources" title="Direct link to Sources">​</a></h3>
+<ul>
+<li>SDK, CloudWatch Logs Agent, CloudWatch Unified Agent</li>
+<li>Elastic Beanstalk: collection of logs from application</li>
+<li>ECS: collection from containers</li>
+<li>AWS Lambda: collection from function logs</li>
+<li>VPC Flow Logs: VPC specific logs</li>
+<li>API Gateway</li>
+<li>CloudTrail based on filter</li>
+<li>Route53: Log DNS queries</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="logs-insights">Logs Insights<a href="#logs-insights" class="hash-link" aria-label="Direct link to Logs Insights" title="Direct link to Logs Insights">​</a></h3>
+<ul>
+<li>Search and analyze log data stored in CloudWatch Logs (dashboard like view)</li>
+<li>Example: find a specific IP inside a log, count occurrences of “ERROR” in your logs…</li>
+<li>Provides a purpose-built query language<!-- -->
+<ul>
+<li>Automatically discovers fields from AWS services and JSON log events</li>
+<li>Fetch desired event fields, filter based on conditions, calculate aggregate statistics, sort events, limit number of events…</li>
+<li>Can save queries and add them to CloudWatch Dashboards</li>
+</ul>
+</li>
+<li>Can query multiple Log Groups in different AWS accounts</li>
+<li>It’s a query engine, not a real-time engine</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="s3-export">S3 Export<a href="#s3-export" class="hash-link" aria-label="Direct link to S3 Export" title="Direct link to S3 Export">​</a></h3>
+<ul>
+<li>Log data can take up to 12 hours to become available for export</li>
+<li>The API call is CreateExportTask</li>
+<li>Not near-real time or real-time… use Logs Subscriptions instead</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="logs-subscriptions">Logs Subscriptions<a href="#logs-subscriptions" class="hash-link" aria-label="Direct link to Logs Subscriptions" title="Direct link to Logs Subscriptions">​</a></h3>
+<ul>
+<li>Get a real-time log events from CloudWatch Logs for processing and analysis</li>
+<li>Send to Kinesis Data Streams, Kinesis Data Firehose, or Lambda</li>
+<li>Subscription Filter – filter which logs are events delivered to your destination</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="cw-log-subscription" src="/LearningCollection/assets/images/cw-log-subscription-6546a82a1d8ab5072af0a09fb8d8b550.png" width="779" height="247" class="img_ev3q"></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="logs-aggregation-multi-account--multi-region">Logs Aggregation Multi-Account &amp; Multi Region<a href="#logs-aggregation-multi-account--multi-region" class="hash-link" aria-label="Direct link to Logs Aggregation Multi-Account &amp; Multi Region" title="Direct link to Logs Aggregation Multi-Account &amp; Multi Region">​</a></h4>
+<p><img decoding="async" loading="lazy" alt="cw-logs-aggregation" src="/LearningCollection/assets/images/cw-logs-aggregation-4d5338993a987dcd3f14282d96ee5db3.png" width="870" height="331" class="img_ev3q"></p>
+<ul>
+<li>Cross-Account Subscription – send log events to resources in a different AWS account (KDS, KDF)</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="cw-cross-account" src="/LearningCollection/assets/images/cw-cross-account-ac8268435bd40266bf1a4a3808a51501.png" width="826" height="310" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="logs-for-ec2">Logs for EC2<a href="#logs-for-ec2" class="hash-link" aria-label="Direct link to Logs for EC2" title="Direct link to Logs for EC2">​</a></h3>
+<ul>
+<li>By default, no logs from your EC2 machine will go to CloudWatch</li>
+<li>You need to run a CloudWatch agent on EC2 to push the log files you want</li>
+<li>Make sure IAM permissions are correct</li>
+<li>The CloudWatch log agent can be setup on-premises too</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="logs-agent--unified-agent">Logs Agent &amp; Unified Agent<a href="#logs-agent--unified-agent" class="hash-link" aria-label="Direct link to Logs Agent &amp; Unified Agent" title="Direct link to Logs Agent &amp; Unified Agent">​</a></h3>
+<ul>
+<li>For virtual servers (EC2 instances, on-premise servers…)</li>
+<li>CloudWatch Logs Agent<!-- -->
+<ul>
+<li>Old version of the agent</li>
+<li>Can only send to CloudWatch Logs</li>
+</ul>
+</li>
+<li>CloudWatch Unified Agent<!-- -->
+<ul>
+<li>Collect additional system-level metrics such as RAM, processes, etc…</li>
+<li>Collect logs to send to CloudWatch Logs</li>
+<li>Centralized configuration using SSM Parameter Store</li>
+</ul>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="unified-agent--metrics">Unified Agent – Metrics<a href="#unified-agent--metrics" class="hash-link" aria-label="Direct link to Unified Agent – Metrics" title="Direct link to Unified Agent – Metrics">​</a></h4>
+<ul>
+<li>Collected directly on your Linux server / EC2 instance<!-- -->
+<ul>
+<li>CPU (active, guest, idle, system, user, steal)</li>
+<li>Disk metrics (free, used, total), Disk IO (writes, reads, bytes, iops)</li>
+<li>RAM (free, inactive, used, total, cached)</li>
+<li>Netstat (number of TCP and UDP connections, net packets, bytes)</li>
+<li>Processes (total, dead, bloqued, idle, running, sleep)</li>
+<li>Swap Space (free, used, used %)</li>
+</ul>
+</li>
+<li>Reminder: out-of-the box metrics for EC2 – disk, CPU, network (high level)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="logs-metric-filter">Logs Metric Filter<a href="#logs-metric-filter" class="hash-link" aria-label="Direct link to Logs Metric Filter" title="Direct link to Logs Metric Filter">​</a></h3>
+<ul>
+<li>CloudWatch Logs can use filter expressions<!-- -->
+<ul>
+<li>For example, find a specific IP inside of a log</li>
+<li>Or count occurrences of “ERROR” in your logs</li>
+<li>Metric filters can be used to trigger alarms</li>
+</ul>
+</li>
+<li>Filters do not retroactively filter data. Filters only publish the metric data points for events that happen after the filter was created.</li>
+<li>Ability to specify up to 3 Dimensions for the Metric Filter (optional)</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="cw-metrics-filter" src="/LearningCollection/assets/images/cw-metrics-filter-2ff633933e5c31ccaec49c0af0fa0375.png" width="733" height="123" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="alarms">Alarms<a href="#alarms" class="hash-link" aria-label="Direct link to Alarms" title="Direct link to Alarms">​</a></h3>
+<ul>
+<li>Alarms are used to trigger notifications for any metric</li>
+<li>Various options (sampling, %, max, min, etc…)</li>
+<li>Alarm States:<!-- -->
+<ul>
+<li>OK</li>
+<li>INSUFFICIENT_DATA</li>
+<li>ALARM</li>
+</ul>
+</li>
+<li>Period:<!-- -->
+<ul>
+<li>Length of time in seconds to evaluate the metric</li>
+<li>High resolution custom metrics: 10 sec, 30 sec or multiples of 60 sec</li>
+</ul>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="alarm-targets">Alarm Targets<a href="#alarm-targets" class="hash-link" aria-label="Direct link to Alarm Targets" title="Direct link to Alarm Targets">​</a></h4>
+<ul>
+<li>Stop, Terminate, Reboot, or Recover an <strong>EC2 Instance</strong></li>
+<li>Trigger <strong>Auto Scaling</strong> Action</li>
+<li>Send notification to <strong>SNS</strong> (from which you can do pretty much anything)</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="composite-alarms">Composite Alarms<a href="#composite-alarms" class="hash-link" aria-label="Direct link to Composite Alarms" title="Direct link to Composite Alarms">​</a></h4>
+<ul>
+<li>CloudWatch Alarms are on a single metric</li>
+<li>Composite Alarms are monitoring the states of multiple other alarms</li>
+<li>AND and OR conditions</li>
+<li>Helpful to reduce “alarm noise” by creating complex composite alarms</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="cw-composite-alarms" src="/LearningCollection/assets/images/cw-composite-alarms-99049a5a7fcb587ac401a1882118c0ee.png" width="691" height="212" class="img_ev3q"></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="ec2-instance-recovery">EC2 Instance Recovery<a href="#ec2-instance-recovery" class="hash-link" aria-label="Direct link to EC2 Instance Recovery" title="Direct link to EC2 Instance Recovery">​</a></h4>
+<ul>
+<li>Status Check:<!-- -->
+<ul>
+<li>Instance status = check the EC2 VM</li>
+<li>System status = check the underlying hardware</li>
+<li>Attached EBS status = check attached EBS volumes</li>
+</ul>
+</li>
+<li>Recovery: Same Private, Public, Elastic IP, metadata, placement group</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="cw-ec2-recovery" src="/LearningCollection/assets/images/cw-ec2-recovery-41067b07ee1b17e7e254669a939e54ba.png" width="626" height="179" class="img_ev3q"></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="cloudwatch-alarms-good-to-know">CloudWatch Alarms: good to know<a href="#cloudwatch-alarms-good-to-know" class="hash-link" aria-label="Direct link to CloudWatch Alarms: good to know" title="Direct link to CloudWatch Alarms: good to know">​</a></h4>
+<ul>
+<li>Alarms can be created based on CloudWatch Logs Metrics Filters</li>
+<li>To test alarms and notifications, set the alarm state to Alarm using CLI</li>
+</ul>
+<div class="language-cli codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cli codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">aws cloudwatch set-alarm-state --alarm-name &quot;myalarm&quot; --state-value ALARM --state-reason &quot;testing purposes&quot;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="synthetics-canary">Synthetics Canary<a href="#synthetics-canary" class="hash-link" aria-label="Direct link to Synthetics Canary" title="Direct link to Synthetics Canary">​</a></h3>
+<ul>
+<li>Configurable script that monitor your APIs, URLs, Websites, …</li>
+<li>Reproduce what your customers do programmatically to find issues before customers are impacted</li>
+<li>Checks the availability and latency of your endpoints and can store load time data and screenshots of the UI</li>
+<li>Integration with CloudWatch Alarms</li>
+<li>Scripts written in Node.js or Python</li>
+<li>Programmatic access to a headless Google Chrome browser</li>
+<li>Can run once or on a regular schedule</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="cw-canary" src="/LearningCollection/assets/images/cw-canary-3f7afcc485d4814a1440b19de6859aa4.png" width="351" height="483" class="img_ev3q"></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="synthetics-canary-blueprints">Synthetics Canary Blueprints<a href="#synthetics-canary-blueprints" class="hash-link" aria-label="Direct link to Synthetics Canary Blueprints" title="Direct link to Synthetics Canary Blueprints">​</a></h4>
+<ul>
+<li>Heartbeat Monitor – load URL, store screenshot and an HTTP archive file</li>
+<li>API Canary – test basic read and write functions of REST APIs</li>
+<li>Broken Link Checker – check all links inside the URL that you are testing</li>
+<li>Visual Monitoring – compare a screenshot taken during a canary run with a baseline screenshot</li>
+<li>Canary Recorder – used with CloudWatch Synthetics Recorder (record your actions on a website and automatically generates a script for that)</li>
+<li>GUI Workflow Builder – verifies that actions can be taken on your webpage (e.g., test a webpage with a login form)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="eventbridge-formerly-cloudwatch-events">EventBridge (formerly CloudWatch Events)<a href="#eventbridge-formerly-cloudwatch-events" class="hash-link" aria-label="Direct link to EventBridge (formerly CloudWatch Events)" title="Direct link to EventBridge (formerly CloudWatch Events)">​</a></h3>
+<ul>
+<li>Schedule: Cron jobs (scheduled scripts)</li>
+<li>Event Pattern: Event rules to react to a service doing something</li>
+<li>Trigger Lambda functions, send SQS/SNS messages…</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="rules">Rules<a href="#rules" class="hash-link" aria-label="Direct link to Rules" title="Direct link to Rules">​</a></h4>
+<p><img decoding="async" loading="lazy" alt="cw-event-bridge" src="/LearningCollection/assets/images/cw-event-bridge-dabfc845e9419e6ca8b7ac4542cb8c22.png" width="866" height="406" class="img_ev3q"></p>
+<ul>
+<li>Event buses can be accessed by other AWS accounts using Resource-based Policies</li>
+<li>You can archive events (all/filter) sent to an event bus (indefinitely or set period)</li>
+<li>Ability to replay archived events</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="schema-registry">Schema Registry<a href="#schema-registry" class="hash-link" aria-label="Direct link to Schema Registry" title="Direct link to Schema Registry">​</a></h4>
+<ul>
+<li>EventBridge can analyze the events in your bus and infer the schema</li>
+<li>The Schema Registry allows you to generate code for your application, that will know in advance how data is structured in the event bus</li>
+<li>Schema can be versioned</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="resource-based-policy">Resource-based Policy<a href="#resource-based-policy" class="hash-link" aria-label="Direct link to Resource-based Policy" title="Direct link to Resource-based Policy">​</a></h4>
+<ul>
+<li>Manage permissions for a specific Event Bus</li>
+<li>Example: allow/deny events from another AWS account or AWS region</li>
+<li>Use case: aggregate all events from your AWS Organization in a single AWS account or AWS region (Multi-account Aggregation)</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="eventbridge-resource-based-policy" src="/LearningCollection/assets/images/eventbridge-resource-based-policy-4f8d0e68e85345592363da7ab89fab88.png" width="851" height="224" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="aws-x-ray">AWS X-Ray<a href="#aws-x-ray" class="hash-link" aria-label="Direct link to AWS X-Ray" title="Direct link to AWS X-Ray">​</a></h2>
+<ul>
+<li>Monitoring for distributed services</li>
+<li>X-Ray service collects data from all the different services</li>
+<li>Service map is computed from all the segments and traces</li>
+<li>X-Ray is graphical, so even non technical people can help troubleshoot</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="aws-xray" src="/LearningCollection/assets/images/aws-xray-2958ce49af258e702c3c604e0f63dd37.png" width="635" height="338" class="img_ev3q"></p>
+<p>Advantages:</p>
+<ul>
+<li>Troubleshooting performance (bottlenecks)</li>
+<li>Understand dependencies in a microservice architecture</li>
+<li>Pinpoint service issues</li>
+<li>Review request behavior</li>
+<li>Find errors and exceptions</li>
+<li>Are we meeting time SLA?</li>
+<li>Where I am throttled?</li>
+<li>Identify users that are impacted</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="compatibility">Compatibility<a href="#compatibility" class="hash-link" aria-label="Direct link to Compatibility" title="Direct link to Compatibility">​</a></h3>
+<ul>
+<li>AWS Lambda</li>
+<li>Elastic Beanstalk</li>
+<li>ECS</li>
+<li>ELB</li>
+<li>API Gateway</li>
+<li>EC2 Instances or any application server (even on premise)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="tracing">Tracing<a href="#tracing" class="hash-link" aria-label="Direct link to Tracing" title="Direct link to Tracing">​</a></h3>
+<ul>
+<li>Tracing is an end to end way to following a “request”</li>
+<li>Each component dealing with the request adds its own “trace”</li>
+<li>Tracing is made of segments (+ sub segments)</li>
+<li>Annotations can be added to traces to provide extra-information</li>
+<li>Ability to trace:<!-- -->
+<ul>
+<li>Every request</li>
+<li>Sample request (as a % for example or a rate per minute)</li>
+</ul>
+</li>
+<li>X-Ray Security:<!-- -->
+<ul>
+<li>IAM for authorization</li>
+<li>KMS for encryption at rest</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="enabling-x-ray">Enabling X-Ray<a href="#enabling-x-ray" class="hash-link" aria-label="Direct link to Enabling X-Ray" title="Direct link to Enabling X-Ray">​</a></h3>
+<ul>
+<li>Your code (Java, Python, Go, Node.js, .NET) must import the AWS X-Ray SDK<!-- -->
+<ul>
+<li>Very little code modification needed</li>
+<li>The application SDK will then capture:<!-- -->
+<ul>
+<li>Calls to AWS services</li>
+<li>HTTP / HTTPS requests</li>
+<li>Database Calls (MySQL, PostgreSQL, DynamoDB)</li>
+<li>Queue calls (SQS)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Install the X-Ray daemon or enable X-Ray AWS Integration<!-- -->
+<ul>
+<li>X-Ray daemon works as a low level UDP packet interceptor (Linux / Windows / Mac…)</li>
+<li>AWS Lambda / other AWS services already run the X-Ray daemon for you</li>
+<li>Each application must have the IAM rights to write data to X-Ray</li>
+</ul>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="xray-installation" src="/LearningCollection/assets/images/xray-installation-a5071acd47340926585763c092fe0321.png" width="227" height="462" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="x-ray-troubleshooting">X-Ray Troubleshooting<a href="#x-ray-troubleshooting" class="hash-link" aria-label="Direct link to X-Ray Troubleshooting" title="Direct link to X-Ray Troubleshooting">​</a></h3>
+<ul>
+<li>If X-Ray is not working on EC2<!-- -->
+<ul>
+<li>Ensure the EC2 IAM Role has the proper permissions</li>
+<li>Ensure the EC2 instance is running the X-Ray Daemon</li>
+</ul>
+</li>
+<li>To enable on AWS Lambda<!-- -->
+<ul>
+<li>Ensure it has an IAM execution role with proper policy (AWSX-RayWriteOnlyAccess)</li>
+<li>Ensure that X-Ray is imported in the code</li>
+<li>Enable Lambda X-Ray Active Tracing</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="x-ray-instrumentation-in-your-code">X-Ray Instrumentation in your code<a href="#x-ray-instrumentation-in-your-code" class="hash-link" aria-label="Direct link to X-Ray Instrumentation in your code" title="Direct link to X-Ray Instrumentation in your code">​</a></h3>
+<ul>
+<li>To instrument your application code, you use the X-Ray SDK</li>
+<li>Many SDK require only configuration changes</li>
+<li>You can modify your application code to customize and annotation the data that the SDK sends to X-Ray, using interceptors, filters, handlers, middleware…</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="x-ray-concepts">X-Ray Concepts<a href="#x-ray-concepts" class="hash-link" aria-label="Direct link to X-Ray Concepts" title="Direct link to X-Ray Concepts">​</a></h3>
+<ul>
+<li>Segments: each application / service will send them</li>
+<li>Subsegments: if you need more details in your segment</li>
+<li>Trace: segments collected together to form an end-to-end trace</li>
+<li>Sampling: decrease the amount of requests sent to X-Ray, reduce cost</li>
+<li>Annotations: Key Value pairs used to index traces and use with filters</li>
+<li>Metadata: Key Value pairs, not indexed, not used for searching</li>
+</ul>
+<p>The X-Ray daemon / agent has a config to send traces cross account:</p>
+<ul>
+<li>Make sure the IAM permissions are correct – the agent will assume the role</li>
+<li>This allows to have a central account for all your application tracing</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="sampling-rules">Sampling Rules<a href="#sampling-rules" class="hash-link" aria-label="Direct link to Sampling Rules" title="Direct link to Sampling Rules">​</a></h3>
+<ul>
+<li>With sampling rules, you control the amount of data that you record</li>
+<li>You can modify sampling rules without changing your code</li>
+<li>By default, the X-Ray SDK records the <strong>first request each second</strong>, and <strong>five percent</strong> of any additional requests.</li>
+<li>One request per second is the reservoir, which ensures that at least one trace is recorded each second as long the service is serving
+requests.</li>
+<li>Five percent is the rate at which additional requests beyond the reservoir size are sampled.</li>
+<li>You can create your own rules with the reservoir and rate</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="x-ray-write-apis-used-by-the-x-ray-daemon">X-Ray Write APIs (used by the X-Ray daemon)<a href="#x-ray-write-apis-used-by-the-x-ray-daemon" class="hash-link" aria-label="Direct link to X-Ray Write APIs (used by the X-Ray daemon)" title="Direct link to X-Ray Write APIs (used by the X-Ray daemon)">​</a></h3>
+<ul>
+<li><strong>PutTraceSegments:</strong> Uploads segment documents to AWS X-Ray</li>
+<li><strong>PutTelemetryRecords:</strong> Used by the AWS X-Ray daemon to upload telemetry<!-- -->
+<ul>
+<li>SegmentsReceivedCount, SegmentsRejectedCounts, BackendConnectionErrors…</li>
+</ul>
+</li>
+<li><strong>GetSamplingRules:</strong> Retrieve all sampling rules (to know what/when to send)</li>
+<li><strong>GetServiceGraph:</strong> main graph</li>
+<li><strong>BatchGetTraces:</strong> Retrieves a list of traces specified by ID. Each trace is a collection of segment documents that originates from a single request</li>
+<li>The X-Ray daemon needs to have an IAM policy authorizing the correct API calls to function correctly</li>
+<li><strong>GetTraceSummaries:</strong> Retrieves IDs and annotations for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to BatchGetTraces</li>
+<li><strong>GetTraceGraph:</strong> Retrieves a service graph for one or more specific trace IDs</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="integrations">Integrations<a href="#integrations" class="hash-link" aria-label="Direct link to Integrations" title="Direct link to Integrations">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="x-ray-with-elastic-beanstalk">X-Ray with Elastic Beanstalk<a href="#x-ray-with-elastic-beanstalk" class="hash-link" aria-label="Direct link to X-Ray with Elastic Beanstalk" title="Direct link to X-Ray with Elastic Beanstalk">​</a></h4>
+<ul>
+<li>AWS Elastic Beanstalk platforms include the X-Ray daemon</li>
+<li>You can run the daemon by setting an option in the Elastic Beanstalk console or with a configuration file (in .ebextensions/xray-daemon.config)</li>
+<li>Make sure to give your instance profile the correct IAM permissions so that the X-Ray daemon can function correctly</li>
+<li>Then make sure your application code is instrumented with the X-Ray SDK</li>
+<li>Note: The X-Ray daemon is not provided for Multicontainer Docker</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="ecs--x-ray-integration-options">ECS + X-Ray integration options<a href="#ecs--x-ray-integration-options" class="hash-link" aria-label="Direct link to ECS + X-Ray integration options" title="Direct link to ECS + X-Ray integration options">​</a></h4>
+<p><img decoding="async" loading="lazy" alt="ecs-xray" src="/LearningCollection/assets/images/ecs-xray-31b18d2b23f9bc43e8143e5e9e26786c.png" width="867" height="324" class="img_ev3q"></p>
+<p>Example Task Definition:</p>
+<p><img decoding="async" loading="lazy" alt="ecs-xray-example-task" src="/LearningCollection/assets/images/ecs-xray-example-task-5ca47c0df79a70ac4011b6a235c60177.png" width="570" height="319" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="aws-distro-for-opentelemetry">AWS Distro for OpenTelemetry<a href="#aws-distro-for-opentelemetry" class="hash-link" aria-label="Direct link to AWS Distro for OpenTelemetry" title="Direct link to AWS Distro for OpenTelemetry">​</a></h3>
+<ul>
+<li>Secure, production-ready AWS-supported distribution of the open-source project OpenTelemetry project</li>
+<li>Provides a single set of APIs, libraries, agents, and collector services</li>
+<li>Collects distributed traces and metrics from your apps</li>
+<li>Collects metadata from your AWS resources and services</li>
+<li>Auto-instrumentation Agents to collect traces without changing your code</li>
+<li>Send traces and metrics to multiple AWS services and partner solutions<!-- -->
+<ul>
+<li>X-Ray, CloudWatch, Prometheus…</li>
+</ul>
+</li>
+<li>Instrument your apps running on AWS (e.g., EC2, ECS, EKS, Fargate, Lambda) as well as on-premises</li>
+<li>Migrate from X-Ray to AWS Distro for Temeletry if you want to standardize with open-source APIs from Telemetry or send traces to multiple destinations simultaneously</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="opentelemetry" src="/LearningCollection/assets/images/opentelemetry-f4a4ded7caea845f63ab87b51b501abd.png" width="831" height="347" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="aws-cloudtrail">AWS CloudTrail<a href="#aws-cloudtrail" class="hash-link" aria-label="Direct link to AWS CloudTrail" title="Direct link to AWS CloudTrail">​</a></h2>
+<ul>
+<li>Provides governance, compliance and audit for your AWS Account</li>
+<li>CloudTrail is enabled by default!</li>
+<li>Get an history of events / API calls made within your AWS Account by:<!-- -->
+<ul>
+<li>Console</li>
+<li>SDK</li>
+<li>CLI</li>
+<li>AWS Services</li>
+</ul>
+</li>
+<li>Can put logs from CloudTrail into CloudWatch Logs or S3</li>
+<li>A trail can be applied to All Regions (default) or a single Region.</li>
+<li>If a resource is deleted in AWS, investigate CloudTrail first!</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="cloudtrail-overview" src="/LearningCollection/assets/images/cloudtrail-overview-ece2566fa0daf710465456b0e9c26725.png" width="828" height="349" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="events">Events<a href="#events" class="hash-link" aria-label="Direct link to Events" title="Direct link to Events">​</a></h3>
+<ul>
+<li>Management Events:<!-- -->
+<ul>
+<li>Operations that are performed on resources in your AWS account</li>
+<li>Examples:<!-- -->
+<ul>
+<li>Configuring security (IAM AttachRolePolicy)</li>
+<li>Configuring rules for routing data (Amazon EC2 CreateSubnet)</li>
+<li>Setting up logging (AWS CloudTrail CreateTrail)</li>
+</ul>
+</li>
+<li>By default, trails are configured to log management events.</li>
+<li>Can separate Read Events (that don’t modify resources) from Write Events (that may modify resources)</li>
+</ul>
+</li>
+<li>Data Events:<!-- -->
+<ul>
+<li>By default, data events are not logged (because high volume operations)</li>
+<li>Amazon S3 object-level activity (ex: GetObject, DeleteObject, PutObject): can separate Read and Write Events</li>
+<li>AWS Lambda function execution activity (the Invoke API)</li>
+</ul>
+</li>
+<li>CloudTrail Insights Events to detect unusual activity in your account:<!-- -->
+<ul>
+<li>inaccurate resource provisioning</li>
+<li>hitting service limits</li>
+<li>Bursts of AWS IAM actions</li>
+<li>Gaps in periodic maintenance activity</li>
+</ul>
+</li>
+<li>CloudTrail Insights analyzes normal management events to create a baseline</li>
+<li>And then continuously analyzes write events to detect unusual patterns<!-- -->
+<ul>
+<li>Anomalies appear in the CloudTrail console</li>
+<li>Event is sent to Amazon S3</li>
+<li>An EventBridge event is generated (for automation needs)</li>
+</ul>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="cloudtrail-insights" src="/LearningCollection/assets/images/cloudtrail-insights-ad295eac9e27051c1ee48326715d993a.png" width="859" height="149" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="events-retention">Events Retention<a href="#events-retention" class="hash-link" aria-label="Direct link to Events Retention" title="Direct link to Events Retention">​</a></h3>
+<ul>
+<li>Events are stored for 90 days in CloudTrail</li>
+<li>To keep events beyond this period, log them to S3 and use Athena</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="cloudtrail-retention" src="/LearningCollection/assets/images/cloudtrail-retention-691f10a3403347b248bf5a17d1c438c3.png" width="801" height="187" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="examples">Examples<a href="#examples" class="hash-link" aria-label="Direct link to Examples" title="Direct link to Examples">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="eventbridge-examples" src="/LearningCollection/assets/images/eventbridge-examples-868aa57d6fb4b373f114b4cba8b15a73.png" width="606" height="701" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="cloudtrail-vs-cloudwatch-vs-x-ray">CloudTrail vs CloudWatch vs X-Ray<a href="#cloudtrail-vs-cloudwatch-vs-x-ray" class="hash-link" aria-label="Direct link to CloudTrail vs CloudWatch vs X-Ray" title="Direct link to CloudTrail vs CloudWatch vs X-Ray">​</a></h2>
+<ul>
+<li>CloudTrail:<!-- -->
+<ul>
+<li>Audit API calls made by users / services / AWS console</li>
+<li>Useful to detect unauthorized calls or root cause of changes</li>
+</ul>
+</li>
+<li>CloudWatch:<!-- -->
+<ul>
+<li>CloudWatch Metrics over time for monitoring</li>
+<li>CloudWatch Logs for storing application log</li>
+<li>CloudWatch Alarms to send notifications in case of unexpected metrics</li>
+</ul>
+</li>
+<li>X-Ray:<!-- -->
+<ul>
+<li>Automated Trace Analysis &amp; Central Service Map Visualization</li>
+<li>Latency, Errors and Fault analysis</li>
+<li>Request tracking across distributed systems</li>
+</ul>
+</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/RobinTTY/LearningCollection/tree/master/website/docs/cloud/aws/certified-developer-associate/monitoring-troubleshooting-audit.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/LearningCollection/cloud/aws/certified-developer-associate/integration-messaging"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Integration &amp; Messaging</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/LearningCollection/cloud/aws/certified-developer-associate/lambda"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Lambda</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#monitoring-in-aws" class="table-of-contents__link toc-highlight">Monitoring in AWS</a></li><li><a href="#cloudwatch-metrics" class="table-of-contents__link toc-highlight">CloudWatch Metrics</a><ul><li><a href="#ec2-detailed-monitoring" class="table-of-contents__link toc-highlight">EC2 Detailed monitoring</a></li><li><a href="#cloudwatch-custom-metrics" class="table-of-contents__link toc-highlight">CloudWatch Custom Metrics</a></li></ul></li><li><a href="#cloudwatch-logs" class="table-of-contents__link toc-highlight">CloudWatch Logs</a><ul><li><a href="#sources" class="table-of-contents__link toc-highlight">Sources</a></li><li><a href="#logs-insights" class="table-of-contents__link toc-highlight">Logs Insights</a></li><li><a href="#s3-export" class="table-of-contents__link toc-highlight">S3 Export</a></li><li><a href="#logs-subscriptions" class="table-of-contents__link toc-highlight">Logs Subscriptions</a></li><li><a href="#logs-for-ec2" class="table-of-contents__link toc-highlight">Logs for EC2</a></li><li><a href="#logs-agent--unified-agent" class="table-of-contents__link toc-highlight">Logs Agent &amp; Unified Agent</a></li><li><a href="#logs-metric-filter" class="table-of-contents__link toc-highlight">Logs Metric Filter</a></li><li><a href="#alarms" class="table-of-contents__link toc-highlight">Alarms</a></li><li><a href="#synthetics-canary" class="table-of-contents__link toc-highlight">Synthetics Canary</a></li><li><a href="#eventbridge-formerly-cloudwatch-events" class="table-of-contents__link toc-highlight">EventBridge (formerly CloudWatch Events)</a></li></ul></li><li><a href="#aws-x-ray" class="table-of-contents__link toc-highlight">AWS X-Ray</a><ul><li><a href="#compatibility" class="table-of-contents__link toc-highlight">Compatibility</a></li><li><a href="#tracing" class="table-of-contents__link toc-highlight">Tracing</a></li><li><a href="#enabling-x-ray" class="table-of-contents__link toc-highlight">Enabling X-Ray</a></li><li><a href="#x-ray-troubleshooting" class="table-of-contents__link toc-highlight">X-Ray Troubleshooting</a></li><li><a href="#x-ray-instrumentation-in-your-code" class="table-of-contents__link toc-highlight">X-Ray Instrumentation in your code</a></li><li><a href="#x-ray-concepts" class="table-of-contents__link toc-highlight">X-Ray Concepts</a></li><li><a href="#sampling-rules" class="table-of-contents__link toc-highlight">Sampling Rules</a></li><li><a href="#x-ray-write-apis-used-by-the-x-ray-daemon" class="table-of-contents__link toc-highlight">X-Ray Write APIs (used by the X-Ray daemon)</a></li><li><a href="#integrations" class="table-of-contents__link toc-highlight">Integrations</a></li><li><a href="#aws-distro-for-opentelemetry" class="table-of-contents__link toc-highlight">AWS Distro for OpenTelemetry</a></li></ul></li><li><a href="#aws-cloudtrail" class="table-of-contents__link toc-highlight">AWS CloudTrail</a><ul><li><a href="#events" class="table-of-contents__link toc-highlight">Events</a></li><li><a href="#events-retention" class="table-of-contents__link toc-highlight">Events Retention</a></li><li><a href="#examples" class="table-of-contents__link toc-highlight">Examples</a></li></ul></li><li><a href="#cloudtrail-vs-cloudwatch-vs-x-ray" class="table-of-contents__link toc-highlight">CloudTrail vs CloudWatch vs X-Ray</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">My other sites</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.robintty.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Website<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Socials</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/RobinTTY" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/in/robin-m%C3%BCller-574782170/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div></div></footer></div>
 </body>
 </html>
