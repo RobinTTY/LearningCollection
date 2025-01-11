@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.5.2">
 <title data-rh="true">Lambda | Learning Collection Knowledge Base</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/lambda"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Lambda | Learning Collection Knowledge Base"><meta data-rh="true" name="description" content="- Virtual functions – no servers to manage!"><meta data-rh="true" property="og:description" content="- Virtual functions – no servers to manage!"><link data-rh="true" rel="icon" href="/LearningCollection/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/lambda"><link data-rh="true" rel="alternate" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/lambda" hreflang="en"><link data-rh="true" rel="alternate" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/lambda" hreflang="x-default"><link rel="stylesheet" href="/LearningCollection/assets/css/styles.7d3675f6.css">
-<script src="/LearningCollection/assets/js/runtime~main.ab14e9ad.js" defer="defer"></script>
-<script src="/LearningCollection/assets/js/main.1847cfab.js" defer="defer"></script>
+<script src="/LearningCollection/assets/js/runtime~main.09a852f4.js" defer="defer"></script>
+<script src="/LearningCollection/assets/js/main.2081a407.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
-<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/LearningCollection/"><div class="navbar__logo"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Learning Collection</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/LearningCollection/">Docs</a><a class="navbar__item navbar__link" sidebarid="finance" href="/LearningCollection/finance/introduction">Finance</a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/">Introduction</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/apis/graphql/intro">General Concepts</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Cloud</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">aws</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">certified-developer-associate</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Cloud Overview</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/iam">Identity and Access Management (IAM)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ec2">Elastic Compute Cloud (EC2)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elb">Elastic Load Balancing (ELB)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/relational-databases">Relational Databases (RDS/Aurora)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elasti-cache">ElastiCache</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/route53">Route 53</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/vpc">Virtual Private Cloud (VPC)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/s3">S3</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cli-sdk-iam-roles-policies">AWS CLI, SDK, IAM Roles &amp; Policies</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudfront">Cloudfront</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ecs-ecr-fargate">ECS, ECR, Fargate</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elastic-beanstalk">Elastic Beanstalk</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudformation">CloudFormation</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/integration-messaging">Integration &amp; Messaging</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/monitoring-troubleshooting-audit">Monitoring, Troubleshooting &amp; Audit</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/lambda">Lambda</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/exam-scoring">Exam Scoring</a></li></ul></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/csharp/introduction">C#</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/web/html/doctype">Web</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/databases/sql">Databases</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/tools/git/tags">Tools</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/linux/commonlyUsedCommands">Linux</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/interesting-topics">Interesting Topics</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/LearningCollection/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Cloud</span><meta itemprop="position" content="1"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">aws</span><meta itemprop="position" content="2"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">certified-developer-associate</span><meta itemprop="position" content="3"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Lambda</span><meta itemprop="position" content="4"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Lambda</h1></header><ul>
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/LearningCollection/"><div class="navbar__logo"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Learning Collection</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/LearningCollection/">Docs</a><a class="navbar__item navbar__link" sidebarid="finance" href="/LearningCollection/finance/introduction">Finance</a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/">Introduction</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/apis/graphql/intro">General Concepts</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Cloud</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">AWS</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Certified Developer Associate</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Cloud Overview</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/iam">Identity and Access Management (IAM)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ec2">Elastic Compute Cloud (EC2)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elb">Elastic Load Balancing (ELB)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/relational-databases">Relational Databases (RDS/Aurora)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elasti-cache">ElastiCache</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/route53">Route 53</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/vpc">Virtual Private Cloud (VPC)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/s3">S3</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cli-sdk-iam-roles-policies">AWS CLI, SDK, IAM Roles &amp; Policies</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudfront">Cloudfront</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ecs-ecr-fargate">ECS, ECR, Fargate</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elastic-beanstalk">Elastic Beanstalk</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudformation">CloudFormation</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/integration-messaging">Integration &amp; Messaging</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/monitoring-troubleshooting-audit">Monitoring, Troubleshooting &amp; Audit</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/lambda">Lambda</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/dynamodb">DynamoDB</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/exam-scoring">Exam Scoring</a></li></ul></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/csharp/introduction">C#</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/web/html/doctype">Web</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/databases/sql">Databases</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/tools/git/tags">Tools</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/linux/commonlyUsedCommands">Linux</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/interesting-topics">Interesting Topics</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/LearningCollection/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Cloud</span><meta itemprop="position" content="1"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">AWS</span><meta itemprop="position" content="2"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Certified Developer Associate</span><meta itemprop="position" content="3"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Lambda</span><meta itemprop="position" content="4"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Lambda</h1></header><ul>
 <li>Virtual functions – no servers to manage!</li>
 <li>Limited by time - short executions</li>
 <li>Run on-demand</li>
@@ -64,13 +64,584 @@
 <li>The Lambda function must be registered in a target group</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="alb-to-lambda" src="/LearningCollection/assets/images/alb-to-lambda-2e6a95b93593b71ccce3f61485d30ff2.png" width="596" height="720" class="img_ev3q"></p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="alb-multi-header-values">ALB Multi-Header Values<a href="#alb-multi-header-values" class="hash-link" aria-label="Direct link to ALB Multi-Header Values" title="Direct link to ALB Multi-Header Values"> ​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="alb-multi-header-values">ALB Multi-Header Values<a href="#alb-multi-header-values" class="hash-link" aria-label="Direct link to ALB Multi-Header Values" title="Direct link to ALB Multi-Header Values">​</a></h4>
 <ul>
 <li>ALB can support multi header values (ALB setting)</li>
 <li>When you enable multi-value headers, HTTP headers and query string parameters that are sent with multiple values are shown as arrays within the AWS Lambda event and response objects</li>
 </ul>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="alb--lambda--permissios">ALB + Lambda – Permissios<a href="#alb--lambda--permissios" class="hash-link" aria-label="Direct link to ALB + Lambda – Permissios" title="Direct link to ALB + Lambda – Permissios">​</a></h4>
 <p><img decoding="async" loading="lazy" alt="alb-lambda-permissions" src="/LearningCollection/assets/images/alb-lambda-permissions-4e79523bafe573cd204950c28429ec0d.png" width="502" height="194" class="img_ev3q"></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="asynchronous-invocations">Asynchronous Invocations<a href="#asynchronous-invocations" class="hash-link" aria-label="Direct link to Asynchronous Invocations" title="Direct link to Asynchronous Invocations">​</a></h2></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/RobinTTY/LearningCollection/tree/master/website/docs/cloud/aws/certified-developer-associate/lambda.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/LearningCollection/cloud/aws/certified-developer-associate/monitoring-troubleshooting-audit"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Monitoring, Troubleshooting &amp; Audit</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/LearningCollection/cloud/aws/certified-developer-associate/exam-scoring"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Exam Scoring</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#benefits-of-aws-lambda" class="table-of-contents__link toc-highlight">Benefits of AWS Lambda</a></li><li><a href="#synchronous-invocations" class="table-of-contents__link toc-highlight">Synchronous Invocations</a><ul><li><a href="#lambda-integration-with-alb" class="table-of-contents__link toc-highlight">Lambda Integration with ALB</a></li></ul></li><li><a href="#asynchronous-invocations" class="table-of-contents__link toc-highlight">Asynchronous Invocations</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">My other sites</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.robintty.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Website<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Socials</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/RobinTTY" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/in/robin-m%C3%BCller-574782170/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div></div></footer></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="asynchronous-invocations">Asynchronous Invocations<a href="#asynchronous-invocations" class="hash-link" aria-label="Direct link to Asynchronous Invocations" title="Direct link to Asynchronous Invocations">​</a></h2>
+<ul>
+<li>S3, SNS, CloudWatch Events…</li>
+<li>The events are placed in an Event Queue</li>
+<li>Lambda attempts to retry on errors<!-- -->
+<ul>
+<li>3 tries total, 1 minute wait after first then 2 minute wait</li>
+</ul>
+</li>
+<li>Make sure the processing is idempotent (in case of retries)</li>
+<li>If the function is retried, you will see duplicate logs entries in CloudWatch Logs</li>
+<li>Can define a DLQ (dead-letter queue) – SNS or SQS – for failed processing (need correct IAM permissions)</li>
+<li>Asynchronous invocations allow you to speed up the processing if you don’t need to wait for the result (ex: you need 1000 files processed)</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="lambda-async" src="/LearningCollection/assets/images/lambda-async-3bc61fe5ad42424eb27c11cb0c10ab0a.png" width="877" height="784" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="services">Services<a href="#services" class="hash-link" aria-label="Direct link to Services" title="Direct link to Services">​</a></h3>
+<ul>
+<li><strong>Amazon Simple Storage Service (S3)</strong></li>
+<li><strong>Amazon Simple Notification Service (SNS)</strong></li>
+<li><strong>Amazon CloudWatch Events / EventBridge</strong></li>
+<li>AWS CodeCommit</li>
+<li>AWS CodePipeline</li>
+<li>and more</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cloudwatch-events--eventbridge">CloudWatch Events / EventBridge<a href="#cloudwatch-events--eventbridge" class="hash-link" aria-label="Direct link to CloudWatch Events / EventBridge" title="Direct link to CloudWatch Events / EventBridge">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="cloudwatch-events" src="/LearningCollection/assets/images/cloudwatch-events-daca11d05b8c123e64683b3226db3a18.png" width="1504" height="696" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="s3-events-notifications">S3 Events Notifications<a href="#s3-events-notifications" class="hash-link" aria-label="Direct link to S3 Events Notifications" title="Direct link to S3 Events Notifications">​</a></h3>
+<ul>
+<li>S3<!-- -->:ObjectCreated<!-- -->, S3<!-- -->:ObjectRemoved<!-- -->, S3<!-- -->:ObjectRestore<!-- -->, S3<!-- -->:Replication<!-- -->…</li>
+<li>Object name filtering possible (*.jpg)</li>
+<li>Use case: generate thumbnails of images uploaded to S3</li>
+<li>S3 event notifications typically deliver events in seconds but can sometimes take a minute or longer</li>
+<li>If two writes are made to a single non versioned object at the same time, it is possible that only a single event notification will be sent</li>
+<li>If you want to ensure that an event notification is sent for every successful write, you can enable versioning on your bucket.</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="lambda-event-notifications" src="/LearningCollection/assets/images/lambda-event-notifications-46a0a42fc554e205a1c906e2a1b28e90.png" width="853" height="904" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lambda--event-source-mapping">Lambda – Event Source Mapping<a href="#lambda--event-source-mapping" class="hash-link" aria-label="Direct link to Lambda – Event Source Mapping" title="Direct link to Lambda – Event Source Mapping">​</a></h2>
+<ul>
+<li>Kinesis Data Streams</li>
+<li>SQS &amp; SQS FIFO queue</li>
+<li>DynamoDB Streams</li>
+<li>Common denominator: records need to be polled from the source</li>
+<li>Your Lambda function is invoked synchronously</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="lambda-event-source" src="/LearningCollection/assets/images/lambda-event-source-3fb2157ec6242339d9ab0f6a10ab8fdb.png" width="865" height="783" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="event-source-mapping-sqs--sqs-fifo">Event Source Mapping SQS &amp; SQS FIFO<a href="#event-source-mapping-sqs--sqs-fifo" class="hash-link" aria-label="Direct link to Event Source Mapping SQS &amp; SQS FIFO" title="Direct link to Event Source Mapping SQS &amp; SQS FIFO">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="sqs-sqs-fifo" src="/LearningCollection/assets/images/sqs-sqs-fifo-e4980bd6230d708f86c575101ba3a604.png" width="1723" height="715" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="streams--lambda-kinesis--dynamodb">Streams &amp; Lambda (Kinesis &amp; DynamoDB)<a href="#streams--lambda-kinesis--dynamodb" class="hash-link" aria-label="Direct link to Streams &amp; Lambda (Kinesis &amp; DynamoDB)" title="Direct link to Streams &amp; Lambda (Kinesis &amp; DynamoDB)">​</a></h2>
+<ul>
+<li>An event source mapping creates an iterator for each shard, processes items in order</li>
+<li>Start with new items, from the beginning or from timestamp</li>
+<li>Processed items aren&#x27;t removed from the stream (other consumers can read them)</li>
+<li>Low traffic: use batch window to accumulate records before processing</li>
+<li>You can process multiple batches in parallel</li>
+<li>up to 10 batches per shard</li>
+<li>in-order processing is still guaranteed for each partition key</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="streams-lambda" src="/LearningCollection/assets/images/streams-lambda-905f444d5d32fb038fd7ea566d49edc4.png" width="1096" height="325" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="error-handling">Error Handling<a href="#error-handling" class="hash-link" aria-label="Direct link to Error Handling" title="Direct link to Error Handling">​</a></h3>
+<ul>
+<li>By default, if your function returns an error, the entire batch is reprocessed until the function succeeds, or the items in the batch expire</li>
+<li>To ensure in-order processing, processing for the affected shard is paused until the error is resolved</li>
+<li>You can configure the event source mapping to:<!-- -->
+<ul>
+<li>discard old events</li>
+<li>restrict the number of retries</li>
+<li>split the batch on error (to work around Lambda timeout issues)</li>
+</ul>
+</li>
+<li>Discarded events can go to a Destination</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="queues--lambda">Queues &amp; Lambda<a href="#queues--lambda" class="hash-link" aria-label="Direct link to Queues &amp; Lambda" title="Direct link to Queues &amp; Lambda">​</a></h2>
+<ul>
+<li>Lambda also supports in-order processing for FIFO (first-in, first-out) queues, scaling up to the number of active message groups.</li>
+<li>For standard queues, items aren&#x27;t necessarily processed in order.</li>
+<li>Lambda scales up to process a standard queue as quickly as possible.</li>
+<li>When an error occurs, batches are returned to the queue as individual items and might be processed in a different grouping than the original batch.</li>
+<li>Occasionally, the event source mapping might receive the same item from the queue twice, even if no function error occurred.</li>
+<li>Lambda deletes items from the queue after they&#x27;re processed successfully.</li>
+<li>You can configure the source queue to send items to a dead-letter queue if they can&#x27;t be processed.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="lambda-event-mapper-scaling">Lambda Event Mapper Scaling<a href="#lambda-event-mapper-scaling" class="hash-link" aria-label="Direct link to Lambda Event Mapper Scaling" title="Direct link to Lambda Event Mapper Scaling">​</a></h3>
+<p>Kinesis Data Streams &amp; DynamoDB Streams:</p>
+<ul>
+<li>One Lambda invocation per stream shard</li>
+<li>If you use parallelization, up to 10 batches processed per shard simultaneously</li>
+</ul>
+<p>SQS Standard:</p>
+<ul>
+<li>Lambda adds 60 more instances per minute to scale up</li>
+<li>Up to 1000 batches of messages processed simultaneously</li>
+</ul>
+<p>SQS FIFO:</p>
+<ul>
+<li>Messages with the same GroupID will be processed in order</li>
+<li>The Lambda function scales to the number of active message groups</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="event-and-context-objects">Event and Context Objects<a href="#event-and-context-objects" class="hash-link" aria-label="Direct link to Event and Context Objects" title="Direct link to Event and Context Objects">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="lambda-event-context" src="/LearningCollection/assets/images/lambda-event-context-98deaa5975b26c9e8795f22fd5c5c73a.png" width="1765" height="769" class="img_ev3q"></p>
+<ul>
+<li>Event Object<!-- -->
+<ul>
+<li>JSON-formatted document contains data for the function to process</li>
+<li>Contains information from the invoking service (e.g., EventBridge, custom, …)</li>
+<li>Lambda runtime converts the event to an object (e.g., dict type in Python)</li>
+<li>Example: input arguments, invoking service arguments, …</li>
+</ul>
+</li>
+<li>Context Object<!-- -->
+<ul>
+<li>Provides methods and properties that provide information about the invocation, function, and runtime environment</li>
+<li>Passed to your function by Lambda at runtime</li>
+<li>Example: aws_request_id, function_name, memory_limit_in_mb, …</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="destinations">Destinations<a href="#destinations" class="hash-link" aria-label="Direct link to Destinations" title="Direct link to Destinations">​</a></h2>
+<ul>
+<li>Nov 2019: Can configure to send result to a destination</li>
+<li>Asynchronous invocations - can define destinations for successful and failed event:<!-- -->
+<ul>
+<li>Amazon SQS</li>
+<li>Amazon SNS</li>
+<li>AWS Lambda</li>
+<li>Amazon EventBridge bus</li>
+</ul>
+</li>
+<li>Note: AWS recommends you use destinations instead of DLQ now (but both can be used at the same time)</li>
+<li>Event Source mapping: for discarded event batches<!-- -->
+<ul>
+<li>Amazon SQS</li>
+<li>Amazon SNS</li>
+</ul>
+</li>
+<li>Note: you can send events to a DLQ directly from SQS</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="lambda-destinations" src="/LearningCollection/assets/images/lambda-destinations-c8674bedaa4063ddd1b193b5a16c5c13.png" width="624" height="829" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lambda-execution-role-iam-role">Lambda Execution Role (IAM Role)<a href="#lambda-execution-role-iam-role" class="hash-link" aria-label="Direct link to Lambda Execution Role (IAM Role)" title="Direct link to Lambda Execution Role (IAM Role)">​</a></h2>
+<ul>
+<li>Grants the Lambda function permissions to AWS services / resources</li>
+<li>Sample managed policies for Lambda:<!-- -->
+<ul>
+<li>AWSLambdaBasicExecutionRole– Upload logs to CloudWatch.</li>
+<li>AWSLambdaKinesisExecutionRole– Read from Kinesis</li>
+<li>AWSLambdaDynamoDBExecutionRole– Read from DynamoDB Streams</li>
+<li>AWSLambdaSQSQueueExecutionRole– Read from SQS</li>
+<li>AWSLambdaVPCAccessExecutionRole– Deploy Lambda function in VPC</li>
+<li>AWSXRayDaemonWriteAccess– Upload trace data to X-Ray.</li>
+</ul>
+</li>
+<li>When you use an event source mapping to invoke your function, Lambda uses the execution role to read event data.</li>
+<li>Best practice: create one Lambda Execution Role per function</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="resource-based-policies">Resource Based Policies<a href="#resource-based-policies" class="hash-link" aria-label="Direct link to Resource Based Policies" title="Direct link to Resource Based Policies">​</a></h3>
+<ul>
+<li>Use resource-based policies to give other accounts and AWS services permission to use your Lambda resources</li>
+<li>Similar to S3 bucket policies for S3 bucket</li>
+<li>An IAM principal can access Lambda:<!-- -->
+<ul>
+<li>if the IAM policy attached to the principal authorizes it (e.g. user access)</li>
+<li>OR if the resource-based policy authorizes (e.g. service access)</li>
+<li>When an AWS service like Amazon S3 calls your Lambda function, the resource-based policy gives it access.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="environment-variables">Environment Variables<a href="#environment-variables" class="hash-link" aria-label="Direct link to Environment Variables" title="Direct link to Environment Variables">​</a></h2>
+<ul>
+<li>Environment variable = key / value pair in “String” form</li>
+<li>Adjust the function behavior without updating code</li>
+<li>The environment variables are available to your code</li>
+<li>Lambda Service adds its own system environment variables as well</li>
+<li>Helpful to store secrets (encrypted by KMS)</li>
+<li>Secrets can be encrypted by the Lambda service key, or your own CMK</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="logging--monitoring">Logging &amp; Monitoring<a href="#logging--monitoring" class="hash-link" aria-label="Direct link to Logging &amp; Monitoring" title="Direct link to Logging &amp; Monitoring">​</a></h2>
+<ul>
+<li>CloudWatch Logs:<!-- -->
+<ul>
+<li>AWS Lambda execution logs are stored in AWS CloudWatch Logs</li>
+<li>Make sure your AWS Lambda function has an execution role with an IAM policy that authorizes writes to CloudWatch Logs</li>
+</ul>
+</li>
+<li>CloudWatch Metrics:<!-- -->
+<ul>
+<li>AWS Lambda metrics are displayed in AWS CloudWatch Metrics</li>
+<li>Invocations, Durations, Concurrent Executions</li>
+<li>Error count, Success Rates, Throttles</li>
+<li>Async Delivery Failures</li>
+<li>Iterator Age (Kinesis &amp; DynamoDB Streams)</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="tracing-with-x-ray">Tracing with X-Ray<a href="#tracing-with-x-ray" class="hash-link" aria-label="Direct link to Tracing with X-Ray" title="Direct link to Tracing with X-Ray">​</a></h3>
+<ul>
+<li>Enable in Lambda configuration (Active Tracing)</li>
+<li>Runs the X-Ray daemon for you</li>
+<li>Use AWS X-Ray SDK in Code</li>
+<li>Ensure Lambda Function has a correct IAM Execution Role<!-- -->
+<ul>
+<li>The managed policy is called AWSXRayDaemonWriteAccess</li>
+</ul>
+</li>
+<li>Environment variables to communicate with X-Ray<!-- -->
+<ul>
+<li>_X_AMZN_TRACE_ID: contains the tracing header</li>
+<li>AWS_XRAY_CONTEXT_MISSING: by default, LOG_ERROR</li>
+<li>AWS_XRAY_DAEMON_ADDRESS: the X-Ray Daemon IP_ADDRESS<!-- -->:PORT</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="cloudfront-functions--lambdaedge">CloudFront Functions &amp; Lambda@Edge<a href="#cloudfront-functions--lambdaedge" class="hash-link" aria-label="Direct link to CloudFront Functions &amp; Lambda@Edge" title="Direct link to CloudFront Functions &amp; Lambda@Edge">​</a></h2>
+<ul>
+<li>Many modern applications execute some form of the logic at the edge</li>
+<li>Edge Function: A code that you write and attach to CloudFront distributions and runs close to your users to minimize latency</li>
+<li>CloudFront provides two types: CloudFront Functions &amp; Lambda@Edge</li>
+<li>You don’t have to manage any servers, deployed globally</li>
+<li>Use case: customize the CDN content</li>
+<li>Pay only for what you use</li>
+<li>Fully serverless</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cloudfront-functions">CloudFront Functions<a href="#cloudfront-functions" class="hash-link" aria-label="Direct link to CloudFront Functions" title="Direct link to CloudFront Functions">​</a></h3>
+<ul>
+<li>Lightweight functions written in JavaScript</li>
+<li>For high-scale, latency-sensitive CDN customizations</li>
+<li>Sub-ms startup times, millions of requests/second</li>
+<li>Used to change Viewer requests and responses:<!-- -->
+<ul>
+<li>Viewer Request: after CloudFront receives a request from a viewer</li>
+<li>Viewer Response: before CloudFront forwards the response to the viewer</li>
+</ul>
+</li>
+<li>Native feature of CloudFront (manage code entirely within CloudFront)</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="cloudfront-functions" src="/LearningCollection/assets/images/cloudfront-functions-45c7adbc3baa3b853bd1b77a2e04a231.png" width="402" height="903" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="lambdaedge">Lambda@Edge<a href="#lambdaedge" class="hash-link" aria-label="Direct link to Lambda@Edge" title="Direct link to Lambda@Edge">​</a></h3>
+<ul>
+<li>Lambda functions written in NodeJS or Python</li>
+<li>Scales to 1000s of requests/second</li>
+<li>Used to change CloudFront requests and responses:<!-- -->
+<ul>
+<li>Viewer Request – after CloudFront receives a request from a viewer</li>
+<li>Origin Request – before CloudFront forwards the request to the origin</li>
+<li>Origin Response – after CloudFront receives the response from the origin</li>
+<li>Viewer Response – before CloudFront forwards the response to the viewer</li>
+</ul>
+</li>
+<li>Author your functions in one AWS Region (us-east-1), then CloudFront replicates to its locations</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="lambda-at-edge" src="/LearningCollection/assets/images/lambda-at-edge-e79210d6448611f0bb8a6d2f3e6e0dcc.png" width="339" height="862" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cloudfront-functions-vs-lambdaedge">CloudFront Functions vs. Lambda@Edge<a href="#cloudfront-functions-vs-lambdaedge" class="hash-link" aria-label="Direct link to CloudFront Functions vs. Lambda@Edge" title="Direct link to CloudFront Functions vs. Lambda@Edge">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="cloudfront-vs-lambda-at-edge" src="/LearningCollection/assets/images/cloudfront-vs-lambda-at-edge-37d80c71dd989475b382a88bd42f8241.png" width="1681" height="729" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="use-cases">Use Cases<a href="#use-cases" class="hash-link" aria-label="Direct link to Use Cases" title="Direct link to Use Cases">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="cloudfront-vs-at-edge" src="/LearningCollection/assets/images/cloudfront-vs-at-edge-f9b97294528fd0d5f03f76229de73586.png" width="1684" height="699" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lambda-and-vpcs">Lambda and VPCs<a href="#lambda-and-vpcs" class="hash-link" aria-label="Direct link to Lambda and VPCs" title="Direct link to Lambda and VPCs">​</a></h2>
+<ul>
+<li>By default, your Lambda function is launched outside your own VPC (in an AWS-owned VPC)</li>
+<li>Therefore it cannot access resources in your VPC (RDS, ElastiCache, internal ELB…)</li>
+<li>Lambda in a VPC:<!-- -->
+<ul>
+<li>You must define the VPC ID, the Subnets and the Security Groups</li>
+<li>Lambda will create an ENI (Elastic Network Interface) in your subnets</li>
+<li>AWSLambdaVPCAccessExecutionRole necessary</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="internet-access">Internet Access<a href="#internet-access" class="hash-link" aria-label="Direct link to Internet Access" title="Direct link to Internet Access">​</a></h3>
+<ul>
+<li>A Lambda function in your VPC does not have internet access</li>
+<li>Deploying a Lambda function in a public subnet does not give it internet access or a public IP</li>
+<li>Deploying a Lambda function in a private subnet gives it internet access if you have a NAT Gateway / Instance</li>
+<li>You can use VPC endpoints to privately access AWS services without a NAT</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="lambda-vpc-internet" src="/LearningCollection/assets/images/lambda-vpc-internet-571e1ff8cee1393f953d57695273325c.png" width="912" height="901" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lambda-function-configuration">Lambda Function Configuration<a href="#lambda-function-configuration" class="hash-link" aria-label="Direct link to Lambda Function Configuration" title="Direct link to Lambda Function Configuration">​</a></h2>
+<ul>
+<li>RAM:<!-- -->
+<ul>
+<li>From 128MB to 10GB in 1MB increments</li>
+<li>The more RAM you add, the more vCPU credits you get</li>
+<li>At 1,792 MB, a function has the equivalent of one full vCPU</li>
+<li>After 1,792 MB, you get more than one CPU, and need to use multi-threading in your code to benefit from it (up to 6 vCPU)</li>
+</ul>
+</li>
+<li>If your application is CPU-bound (computation heavy), increase RAM</li>
+<li>Timeout: default 3 seconds, maximum is 900 seconds (15 minutes)</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lambda-execution-context">Lambda Execution Context<a href="#lambda-execution-context" class="hash-link" aria-label="Direct link to Lambda Execution Context" title="Direct link to Lambda Execution Context">​</a></h2>
+<ul>
+<li>The execution context is a temporary runtime environment that initializes any external dependencies of your lambda code</li>
+<li>Great for database connections, HTTP clients, SDK clients…</li>
+<li>The execution context is maintained for some time in anticipation of another Lambda function invocation</li>
+<li>The next function invocation can “re-use” the context to execution time and save time in initializing connections objects</li>
+<li>The execution context includes the /tmp directory</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="initialize-outside-the-handler">Initialize outside the handler<a href="#initialize-outside-the-handler" class="hash-link" aria-label="Direct link to Initialize outside the handler" title="Direct link to Initialize outside the handler">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="lambda-init" src="/LearningCollection/assets/images/lambda-init-06ee739ffa6e2ac68d58ae748652a9c3.png" width="1752" height="622" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="tmp-space">/tmp space<a href="#tmp-space" class="hash-link" aria-label="Direct link to /tmp space" title="Direct link to /tmp space">​</a></h3>
+<ul>
+<li>If your Lambda function needs to download a big file to work…</li>
+<li>If your Lambda function needs disk space to perform operations…</li>
+<li>You can use the /tmp directory</li>
+<li>Max size is 10GB</li>
+<li>The directory content remains when the execution context is frozen, providing transient cache that can be used for multiple invocations (helpful to checkpoint your work)</li>
+<li>For permanent persistence of object (non temporary), use S3</li>
+<li>To encr ypt content on /tmp, you must generate KMS Data Keys</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lambda-layers">Lambda Layers<a href="#lambda-layers" class="hash-link" aria-label="Direct link to Lambda Layers" title="Direct link to Lambda Layers">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="lambda-layers" src="/LearningCollection/assets/images/lambda-layers-66434b9722204bab771e8251cabf16b7.png" width="1738" height="783" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="file-systems-mounting">File Systems Mounting<a href="#file-systems-mounting" class="hash-link" aria-label="Direct link to File Systems Mounting" title="Direct link to File Systems Mounting">​</a></h2>
+<ul>
+<li>Lambda functions can access EFS file systems if they are running in a VPC</li>
+<li>Configure Lambda to mount EFS file systems to local directory during initialization</li>
+<li>Must leverage EFS Access Points</li>
+<li>Limitations: watch out for the EFS connection limits (one function instance = one connection) and connection burst limits</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="storage-options">Storage Options<a href="#storage-options" class="hash-link" aria-label="Direct link to Storage Options" title="Direct link to Storage Options">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="lambda-storage" src="/LearningCollection/assets/images/lambda-storage-f6d69f72872a6e2571d8cbb522bb25b4.png" width="1651" height="798" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="concurrency-and-throttling">Concurrency and Throttling<a href="#concurrency-and-throttling" class="hash-link" aria-label="Direct link to Concurrency and Throttling" title="Direct link to Concurrency and Throttling">​</a></h2>
+<ul>
+<li>Concurrency limit: up to 1000 concurrent executions</li>
+<li>Can set a “reserved concurrency” at the function level (=limit)</li>
+<li>Each invocation over the concurrency limit will trigger a “Throttle”</li>
+<li>Throttle behavior:<!-- -->
+<ul>
+<li>If synchronous invocation =&gt; return ThrottleError - 429</li>
+<li>If asynchronous invocation =&gt; retry automatically and then go to DLQ</li>
+</ul>
+</li>
+<li>If you need a higher limit, open a support ticket</li>
+<li>If you don’t reserve (=limit) concurrency one service e.g. application load balancer can take up all the concurrent executions and other services e.g. API Gateway and SDK/CLI are throttled</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="concurrency-and-asynchronous-invocations">Concurrency and Asynchronous Invocations<a href="#concurrency-and-asynchronous-invocations" class="hash-link" aria-label="Direct link to Concurrency and Asynchronous Invocations" title="Direct link to Concurrency and Asynchronous Invocations">​</a></h3>
+<ul>
+<li>If the function doesn&#x27;t have enough concurrency available to process all events, additional requests are throttled.</li>
+<li>For throttling errors (429) and system errors (500-series), Lambda returns the event to the queue and attempts to run the function again for up to 6 hours.</li>
+<li>The retry interval increases exponentially from 1 second after the first attempt to a maximum of 5 minutes.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="cold-starts--provisioned-concurrency">Cold Starts &amp; Provisioned Concurrency<a href="#cold-starts--provisioned-concurrency" class="hash-link" aria-label="Direct link to Cold Starts &amp; Provisioned Concurrency" title="Direct link to Cold Starts &amp; Provisioned Concurrency">​</a></h2>
+<ul>
+<li>Cold Start:<!-- -->
+<ul>
+<li>New instance =&gt; code is loaded and code outside the handler run (init)</li>
+<li>If the init is large (code, dependencies, SDK…) this process can take some time.</li>
+<li>First request served by new instances has higher latency than the rest</li>
+</ul>
+</li>
+<li>Provisioned Concurrency:<!-- -->
+<ul>
+<li>Concurrency is allocated before the function is invoked (in advance)</li>
+<li>So the cold start never happens and all invocations have low latency</li>
+<li>Application Auto Scaling can manage concurrency (schedule or target utilization)</li>
+</ul>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="reserved-provisioned-concurrency" src="/LearningCollection/assets/images/reserved-provisioned-concurrency-7eb2e7277cfa7b38c77adb95f5e4435b.png" width="1638" height="688" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="misc">Misc<a href="#misc" class="hash-link" aria-label="Direct link to Misc" title="Direct link to Misc">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="lambda-function-dependencies">Lambda Function Dependencies<a href="#lambda-function-dependencies" class="hash-link" aria-label="Direct link to Lambda Function Dependencies" title="Direct link to Lambda Function Dependencies">​</a></h3>
+<ul>
+<li>If your Lambda function depends on external libraries: for example AWS X-Ray SDK, Database Clients, etc…</li>
+<li>You need to install the packages alongside your code and zip it together<!-- -->
+<ul>
+<li>For Node.js, use npm &amp; “node_modules” directory</li>
+<li>For Python, use pip --target options</li>
+<li>For Java, include the relevant .jar files</li>
+</ul>
+</li>
+<li>Upload the zip straight to Lambda if less than 50MB, else to S3 first</li>
+<li>Native libraries work: they need to be compiled on Amazon Linux</li>
+<li>AWS SDK comes by default with every Lambda function</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="lambda-and-cloudformation--inline">Lambda and CloudFormation – inline<a href="#lambda-and-cloudformation--inline" class="hash-link" aria-label="Direct link to Lambda and CloudFormation – inline" title="Direct link to Lambda and CloudFormation – inline">​</a></h3>
+<ul>
+<li>Inline functions are very simple</li>
+<li>Use the Code.ZipFile property</li>
+<li>You cannot include function dependencies with inline functions</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="inline-lambda" src="/LearningCollection/assets/images/inline-lambda-eda9082cc4ffe26aad00e2aec3c81f6f.png" width="841" height="616" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="lambda-and-cloudformation--through-s3">Lambda and CloudFormation – through S3<a href="#lambda-and-cloudformation--through-s3" class="hash-link" aria-label="Direct link to Lambda and CloudFormation – through S3" title="Direct link to Lambda and CloudFormation – through S3">​</a></h3>
+<ul>
+<li>You must store the Lambda zip in S3</li>
+<li>You must refer the S3 zip location in the CloudFormation code<!-- -->
+<ul>
+<li>S3Bucket</li>
+<li>S3Key: full path to zip</li>
+<li>S3ObjectVersion: if versioned bucket</li>
+</ul>
+</li>
+<li>If you update the code in S3, but don’t update S3Bucket, S3Key or S3ObjectVersion, CloudFormation won’t update your function</li>
+</ul>
+<p>Multiple accounts:</p>
+<p><img decoding="async" loading="lazy" alt="lambda-s3" src="/LearningCollection/assets/images/lambda-s3-4fe749d95b90dfed39b3ea797e646b1d.png" width="1695" height="754" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lambda-container-images">Lambda Container Images<a href="#lambda-container-images" class="hash-link" aria-label="Direct link to Lambda Container Images" title="Direct link to Lambda Container Images">​</a></h2>
+<ul>
+<li>Deploy Lambda function as container images of up to 10GB from ECR</li>
+<li>Pack complex dependencies, large dependencies in a container</li>
+<li>Base images are available for Python, Node.js, Java, .NET, Go, Ruby</li>
+<li>Can create your own image as long as it implements the Lambda Runtime API</li>
+<li>Test the containers locally using the Lambda Runtime Interface Emulator</li>
+<li>Unified workflow to build apps</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="best-practices">Best Practices<a href="#best-practices" class="hash-link" aria-label="Direct link to Best Practices" title="Direct link to Best Practices">​</a></h3>
+<ul>
+<li>Strategies for optimizing container images:<!-- -->
+<ul>
+<li>Use AWS-provided Base Images<!-- -->
+<ul>
+<li>Stable, Built on Amazon Linux 2, cached by Lambda service</li>
+</ul>
+</li>
+<li>Use Multi-Stage Builds<!-- -->
+<ul>
+<li>Build your code in larger preliminary images, copy only the artifacts you need in your final container image, discard the preliminary steps</li>
+</ul>
+</li>
+<li>Build from Stable to Frequently Changing<!-- -->
+<ul>
+<li>Make your most frequently occurring changes as late in your Dockerfile as possible</li>
+</ul>
+</li>
+<li>Use a Single Repository for Functions with Large Layers<!-- -->
+<ul>
+<li>ECR compares each layer of a container image when it is pushed to avoid uploading and storing duplicates</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Use them to upload large Lambda Functions (up to 10 GB)</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="aws-lambda-versions--aliases">AWS Lambda Versions &amp; Aliases<a href="#aws-lambda-versions--aliases" class="hash-link" aria-label="Direct link to AWS Lambda Versions &amp; Aliases" title="Direct link to AWS Lambda Versions &amp; Aliases">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="versions">Versions<a href="#versions" class="hash-link" aria-label="Direct link to Versions" title="Direct link to Versions">​</a></h3>
+<ul>
+<li>When you work on a Lambda function, we work on $LATEST</li>
+<li>When we’re ready to publish a Lambda function, we create a version</li>
+<li>Versions are immutable</li>
+<li>Versions have increasing version numbers</li>
+<li>Versions get their own ARN (Amazon Resource Name)</li>
+<li>Version = code + configuration (nothing can be changed - immutable)</li>
+<li>Each version of the lambda function can be accessed</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="aliases">Aliases<a href="#aliases" class="hash-link" aria-label="Direct link to Aliases" title="Direct link to Aliases">​</a></h3>
+<ul>
+<li>Aliases are ”pointers” to Lambda function versions</li>
+<li>We can define a “dev”, ”test”, “prod” aliases and have them point at different lambda versions</li>
+<li>Aliases are mutable</li>
+<li>Aliases enable Canary deployment by assigning weights to lambda functions</li>
+<li>Aliases enable stable configuration of our event triggers / destinations</li>
+<li>Aliases have their own ARNs</li>
+<li>Aliases cannot reference aliases</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lambda--codedeploy">Lambda &amp; CodeDeploy<a href="#lambda--codedeploy" class="hash-link" aria-label="Direct link to Lambda &amp; CodeDeploy" title="Direct link to Lambda &amp; CodeDeploy">​</a></h2>
+<ul>
+<li>CodeDeploy can help you automate traffic shift for Lambda aliases</li>
+<li>Feature is integrated within the SAM framework</li>
+<li>Linear: grow traffic every N minutes until 100%<!-- -->
+<ul>
+<li>Linear10PercentEvery3Minutes</li>
+<li>Linear10PercentEvery10Minutes</li>
+</ul>
+</li>
+<li>Canary: try X percent then 100%<!-- -->
+<ul>
+<li>Canary10Percent5Minutes</li>
+<li>Canary10Percent30Minutes</li>
+</ul>
+</li>
+<li>AllAtOnce: immediate</li>
+<li>Can create Pre &amp; Post Traffic hooks to check the health of the Lambda function</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="appspecyml">AppSpec.yml<a href="#appspecyml" class="hash-link" aria-label="Direct link to AppSpec.yml" title="Direct link to AppSpec.yml">​</a></h3>
+<ul>
+<li>Name (required) – the name of the Lambda function to deploy</li>
+<li>Alias (required) – the name of the alias to the Lambda function</li>
+<li>CurrentVersion (required) – the version of the Lambda function traffic currently points to</li>
+<li>TargetVersion (required) – the version of the Lambda function traffic is shifted to</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="function-url">Function URL<a href="#function-url" class="hash-link" aria-label="Direct link to Function URL" title="Direct link to Function URL">​</a></h2>
+<ul>
+<li>Dedicated HTTP(S) endpoint for your Lambda function</li>
+<li>A unique URL endpoint is generated for you (never changes)</li>
+<li><code>https://&lt;url-id&gt;.lambda-url.&lt;region&gt;.on.aws</code> (dual-stack IPv4 &amp; IPv6)</li>
+<li>Invoke via a web browser, curl, Postman, or any HTTP client</li>
+<li>Access your function URL through the public Internet only</li>
+<li>Doesn’t support PrivateLink (Lambda functions do support)</li>
+<li>Supports Resource-based Policies &amp; CORS configurations</li>
+<li>Can be applied to any function alias or to $LATEST (can’t be applied to other function versions)</li>
+<li>Create and configure using AWS Console or AWS API</li>
+<li>Throttle your function by using Reserved Concurrency</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security">Security<a href="#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security">​</a></h3>
+<ul>
+<li>Resource-based Policy<!-- -->
+<ul>
+<li>Authorize other accounts / specific CIDR / IAM principals</li>
+</ul>
+</li>
+<li>Cross-Origin Resource Sharing (CORS)<!-- -->
+<ul>
+<li>If you call your Lambda function URL from a different domain</li>
+</ul>
+</li>
+<li>AuthType NONE – allow public and unauthenticated access<!-- -->
+<ul>
+<li>Resource-based Policy is always in effect (must grant public access)</li>
+</ul>
+</li>
+<li>AuthType AWS_IAM – IAM is used to authenticate and authorize requests<!-- -->
+<ul>
+<li>Both Principal’s Identity-based Policy &amp; Resource-based Policy are evaluated</li>
+<li>Principal must have lambda<!-- -->:InvokeFunctionUrl<!-- --> permissions</li>
+<li>Same account – Identity-based Policy OR Resource-based Policy as ALLOW</li>
+<li>Cross account – Identity-based Policy AND Resource Based Policy as ALLOW</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lambda-and-codeguru-profiling">Lambda and CodeGuru Profiling<a href="#lambda-and-codeguru-profiling" class="hash-link" aria-label="Direct link to Lambda and CodeGuru Profiling" title="Direct link to Lambda and CodeGuru Profiling">​</a></h2>
+<ul>
+<li>Gain insights into runtime performance of your Lambda functions using CodeGuru Profiler</li>
+<li>CodeGuru creates a Profiler Group for your Lambda function</li>
+<li>Supported for Java and Python runtimes</li>
+<li>Activate from AWS Lambda Console</li>
+<li>When activated, Lambda adds:<!-- -->
+<ul>
+<li>CodeGuru Profiler layer to your function</li>
+<li>Environment variables to your function</li>
+<li>AmazonCodeGuruProfilerAgentAccess policy to your function</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lambda-limits-to-know---per-region">Lambda Limits to Know - per region<a href="#lambda-limits-to-know---per-region" class="hash-link" aria-label="Direct link to Lambda Limits to Know - per region" title="Direct link to Lambda Limits to Know - per region">​</a></h2>
+<ul>
+<li>Execution:<!-- -->
+<ul>
+<li>Memory allocation: 128 MB – 10GB (1 MB increments)</li>
+<li>Maximum execution time: 900 seconds (15 minutes)</li>
+<li>Environment variables (4 KB)</li>
+<li>Disk capacity in the “function container” (in /tmp): 512 MB to 10GB</li>
+<li>Concurrency executions: 1000 (can be increased)</li>
+</ul>
+</li>
+<li>Deployment:<!-- -->
+<ul>
+<li>Lambda function deployment size (compressed .zip): 50 MB</li>
+<li>Size of uncompressed deployment (code + dependencies): 250 MB</li>
+<li>Can use the /tmp directory to load other files at startup</li>
+<li>Size of environment variables: 4 KB</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="aws-lambda-best-practices">AWS Lambda Best Practices<a href="#aws-lambda-best-practices" class="hash-link" aria-label="Direct link to AWS Lambda Best Practices" title="Direct link to AWS Lambda Best Practices">​</a></h2>
+<ul>
+<li>Perform heavy-duty work outside of your function handler<!-- -->
+<ul>
+<li>Connect to databases outside of your function handler</li>
+<li>Initialize the AWS SDK outside of your function handler</li>
+<li>Pull in dependencies or datasets outside of your function handler</li>
+</ul>
+</li>
+<li>Use environment variables for:<!-- -->
+<ul>
+<li>Database Connection Strings, S3 bucket, etc… don’t put these values in your code</li>
+<li>Passwords, sensitive values… they can be encrypted using KMS</li>
+</ul>
+</li>
+<li>Minimize your deployment package size to its runtime necessities.<!-- -->
+<ul>
+<li>Break down the function if need be</li>
+<li>Remember the AWS Lambda limits</li>
+<li>Use Layers where necessary</li>
+</ul>
+</li>
+<li>Avoid using recursive code, never have a Lambda function call itself</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/RobinTTY/LearningCollection/tree/master/website/docs/cloud/aws/certified-developer-associate/lambda.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/LearningCollection/cloud/aws/certified-developer-associate/monitoring-troubleshooting-audit"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Monitoring, Troubleshooting &amp; Audit</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/LearningCollection/cloud/aws/certified-developer-associate/dynamodb"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">DynamoDB</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#benefits-of-aws-lambda" class="table-of-contents__link toc-highlight">Benefits of AWS Lambda</a></li><li><a href="#synchronous-invocations" class="table-of-contents__link toc-highlight">Synchronous Invocations</a><ul><li><a href="#lambda-integration-with-alb" class="table-of-contents__link toc-highlight">Lambda Integration with ALB</a></li></ul></li><li><a href="#asynchronous-invocations" class="table-of-contents__link toc-highlight">Asynchronous Invocations</a><ul><li><a href="#services" class="table-of-contents__link toc-highlight">Services</a></li><li><a href="#cloudwatch-events--eventbridge" class="table-of-contents__link toc-highlight">CloudWatch Events / EventBridge</a></li><li><a href="#s3-events-notifications" class="table-of-contents__link toc-highlight">S3 Events Notifications</a></li></ul></li><li><a href="#lambda--event-source-mapping" class="table-of-contents__link toc-highlight">Lambda – Event Source Mapping</a><ul><li><a href="#event-source-mapping-sqs--sqs-fifo" class="table-of-contents__link toc-highlight">Event Source Mapping SQS &amp; SQS FIFO</a></li></ul></li><li><a href="#streams--lambda-kinesis--dynamodb" class="table-of-contents__link toc-highlight">Streams &amp; Lambda (Kinesis &amp; DynamoDB)</a><ul><li><a href="#error-handling" class="table-of-contents__link toc-highlight">Error Handling</a></li></ul></li><li><a href="#queues--lambda" class="table-of-contents__link toc-highlight">Queues &amp; Lambda</a><ul><li><a href="#lambda-event-mapper-scaling" class="table-of-contents__link toc-highlight">Lambda Event Mapper Scaling</a></li></ul></li><li><a href="#event-and-context-objects" class="table-of-contents__link toc-highlight">Event and Context Objects</a></li><li><a href="#destinations" class="table-of-contents__link toc-highlight">Destinations</a></li><li><a href="#lambda-execution-role-iam-role" class="table-of-contents__link toc-highlight">Lambda Execution Role (IAM Role)</a><ul><li><a href="#resource-based-policies" class="table-of-contents__link toc-highlight">Resource Based Policies</a></li></ul></li><li><a href="#environment-variables" class="table-of-contents__link toc-highlight">Environment Variables</a></li><li><a href="#logging--monitoring" class="table-of-contents__link toc-highlight">Logging &amp; Monitoring</a><ul><li><a href="#tracing-with-x-ray" class="table-of-contents__link toc-highlight">Tracing with X-Ray</a></li></ul></li><li><a href="#cloudfront-functions--lambdaedge" class="table-of-contents__link toc-highlight">CloudFront Functions &amp; Lambda@Edge</a><ul><li><a href="#cloudfront-functions" class="table-of-contents__link toc-highlight">CloudFront Functions</a></li><li><a href="#lambdaedge" class="table-of-contents__link toc-highlight">Lambda@Edge</a></li><li><a href="#cloudfront-functions-vs-lambdaedge" class="table-of-contents__link toc-highlight">CloudFront Functions vs. Lambda@Edge</a></li><li><a href="#use-cases" class="table-of-contents__link toc-highlight">Use Cases</a></li></ul></li><li><a href="#lambda-and-vpcs" class="table-of-contents__link toc-highlight">Lambda and VPCs</a><ul><li><a href="#internet-access" class="table-of-contents__link toc-highlight">Internet Access</a></li></ul></li><li><a href="#lambda-function-configuration" class="table-of-contents__link toc-highlight">Lambda Function Configuration</a></li><li><a href="#lambda-execution-context" class="table-of-contents__link toc-highlight">Lambda Execution Context</a><ul><li><a href="#initialize-outside-the-handler" class="table-of-contents__link toc-highlight">Initialize outside the handler</a></li><li><a href="#tmp-space" class="table-of-contents__link toc-highlight">/tmp space</a></li></ul></li><li><a href="#lambda-layers" class="table-of-contents__link toc-highlight">Lambda Layers</a></li><li><a href="#file-systems-mounting" class="table-of-contents__link toc-highlight">File Systems Mounting</a><ul><li><a href="#storage-options" class="table-of-contents__link toc-highlight">Storage Options</a></li></ul></li><li><a href="#concurrency-and-throttling" class="table-of-contents__link toc-highlight">Concurrency and Throttling</a><ul><li><a href="#concurrency-and-asynchronous-invocations" class="table-of-contents__link toc-highlight">Concurrency and Asynchronous Invocations</a></li></ul></li><li><a href="#cold-starts--provisioned-concurrency" class="table-of-contents__link toc-highlight">Cold Starts &amp; Provisioned Concurrency</a></li><li><a href="#misc" class="table-of-contents__link toc-highlight">Misc</a><ul><li><a href="#lambda-function-dependencies" class="table-of-contents__link toc-highlight">Lambda Function Dependencies</a></li><li><a href="#lambda-and-cloudformation--inline" class="table-of-contents__link toc-highlight">Lambda and CloudFormation – inline</a></li><li><a href="#lambda-and-cloudformation--through-s3" class="table-of-contents__link toc-highlight">Lambda and CloudFormation – through S3</a></li></ul></li><li><a href="#lambda-container-images" class="table-of-contents__link toc-highlight">Lambda Container Images</a><ul><li><a href="#best-practices" class="table-of-contents__link toc-highlight">Best Practices</a></li></ul></li><li><a href="#aws-lambda-versions--aliases" class="table-of-contents__link toc-highlight">AWS Lambda Versions &amp; Aliases</a><ul><li><a href="#versions" class="table-of-contents__link toc-highlight">Versions</a></li><li><a href="#aliases" class="table-of-contents__link toc-highlight">Aliases</a></li></ul></li><li><a href="#lambda--codedeploy" class="table-of-contents__link toc-highlight">Lambda &amp; CodeDeploy</a><ul><li><a href="#appspecyml" class="table-of-contents__link toc-highlight">AppSpec.yml</a></li></ul></li><li><a href="#function-url" class="table-of-contents__link toc-highlight">Function URL</a><ul><li><a href="#security" class="table-of-contents__link toc-highlight">Security</a></li></ul></li><li><a href="#lambda-and-codeguru-profiling" class="table-of-contents__link toc-highlight">Lambda and CodeGuru Profiling</a></li><li><a href="#lambda-limits-to-know---per-region" class="table-of-contents__link toc-highlight">Lambda Limits to Know - per region</a></li><li><a href="#aws-lambda-best-practices" class="table-of-contents__link toc-highlight">AWS Lambda Best Practices</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">My other sites</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.robintty.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Website<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Socials</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/RobinTTY" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/in/robin-m%C3%BCller-574782170/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div></div></footer></div>
 </body>
 </html>
