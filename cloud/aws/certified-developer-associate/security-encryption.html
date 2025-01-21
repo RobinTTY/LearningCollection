@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-cloud/aws/certified-developer-associate/security-encryption" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.5.2">
+<title data-rh="true">Security &amp; Encryption | Learning Collection Knowledge Base</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/security-encryption"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Security &amp; Encryption | Learning Collection Knowledge Base"><meta data-rh="true" name="description" content="AWS KMS (Key Management Service)"><meta data-rh="true" property="og:description" content="AWS KMS (Key Management Service)"><link data-rh="true" rel="icon" href="/LearningCollection/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/security-encryption"><link data-rh="true" rel="alternate" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/security-encryption" hreflang="en"><link data-rh="true" rel="alternate" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/security-encryption" hreflang="x-default"><link rel="stylesheet" href="/LearningCollection/assets/css/styles.7d3675f6.css">
+<script src="/LearningCollection/assets/js/runtime~main.fadb2ae1.js" defer="defer"></script>
+<script src="/LearningCollection/assets/js/main.3540ca46.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/LearningCollection/"><div class="navbar__logo"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Learning Collection</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/LearningCollection/">Docs</a><a class="navbar__item navbar__link" sidebarid="finance" href="/LearningCollection/finance/introduction">Finance</a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/">Introduction</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/apis/graphql/intro">General Concepts</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Cloud</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">AWS</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Certified Developer Associate</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Cloud Overview</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/iam">Identity and Access Management (IAM)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ec2">Elastic Compute Cloud (EC2)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elb">Elastic Load Balancing (ELB)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/relational-databases">Relational Databases (RDS/Aurora)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elasti-cache">ElastiCache</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/route53">Route 53</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/vpc">Virtual Private Cloud (VPC)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/s3">S3</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cli-sdk-iam-roles-policies">AWS CLI, SDK, IAM Roles &amp; Policies</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudfront">Cloudfront</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ecs-ecr-fargate">ECS, ECR, Fargate</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elastic-beanstalk">Elastic Beanstalk</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudformation">CloudFormation</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/integration-messaging">Integration &amp; Messaging</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/monitoring-troubleshooting-audit">Monitoring, Troubleshooting &amp; Audit</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/lambda">Lambda</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/dynamodb">DynamoDB</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/api-gateway">API Gateway</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ci-cd">CI/CD</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/sam">SAM</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-development-kit">Cloud Development Kit</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cognito">Cognito</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/misc-serverless">Miscellaneous Serverless</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/advanced-identity">Advanced Identity</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/security-encryption">Security &amp; Encryption</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/other-services">Other Services</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/exam-scoring">Exam Scoring</a></li></ul></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/csharp/introduction">C#</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/web/html/doctype">Web</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/databases/sql">Databases</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/tools/git/tags">Tools</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/linux/commonlyUsedCommands">Linux</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/interesting-topics">Interesting Topics</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/LearningCollection/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Cloud</span><meta itemprop="position" content="1"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">AWS</span><meta itemprop="position" content="2"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Certified Developer Associate</span><meta itemprop="position" content="3"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Security &amp; Encryption</span><meta itemprop="position" content="4"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Security &amp; Encryption</h1></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="aws-kms-key-management-service">AWS KMS (Key Management Service)<a href="#aws-kms-key-management-service" class="hash-link" aria-label="Direct link to AWS KMS (Key Management Service)" title="Direct link to AWS KMS (Key Management Service)">​</a></h2>
+<ul>
+<li>Anytime you hear “encryption” for an AWS service, it’s most likely KMS</li>
+<li>AWS manages encryption keys for us</li>
+<li>Fully integrated with IAM for authorization</li>
+<li>Easy way to control access to your data</li>
+<li>Able to audit KMS Key usage using CloudTrail</li>
+<li>Seamlessly integrated into most AWS services (EBS, S3, RDS, SSM…)</li>
+<li>Never ever store your secrets in plaintext, especially in your code!<!-- -->
+<ul>
+<li>KMS Key Encryption also available through API calls (SDK, CLI)</li>
+<li>Encrypted secrets can be stored in the code / environment variables</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="kms-keys-types">KMS Keys Types<a href="#kms-keys-types" class="hash-link" aria-label="Direct link to KMS Keys Types" title="Direct link to KMS Keys Types">​</a></h3>
+<ul>
+<li>KMS Keys is the new name of KMS Customer Master Key</li>
+<li>Symmetric (AES-256 keys)<!-- -->
+<ul>
+<li>Single encryption key that is used to Encrypt and Decrypt</li>
+<li>AWS services that are integrated with KMS use Symmetric CMKs</li>
+<li>You never get access to the KMS Key unencr ypted (must call KMS API to use)</li>
+</ul>
+</li>
+<li>Asymmetric (RSA &amp; ECC key pairs)<!-- -->
+<ul>
+<li>Public (Encrypt) and Private Key (Decrypt) pair</li>
+<li>Used for Encrypt/Decrypt, or Sign/Verify operations</li>
+<li>The public key is downloadable, but you can’t access the Private Key unencrypted</li>
+<li>Use case: encryption outside of AWS by users who can’t call the KMS API</li>
+</ul>
+</li>
+<li>Types of KMS Keys:<!-- -->
+<ul>
+<li>AWS Owned Keys (free): SSE-S3, SSE-SQS, SSE-DDB (default key)</li>
+<li>AWS Managed Key: free (aws/service-name, example: aws/rds or aws/ebs)</li>
+<li>Customer managed keys created in KMS: $1 / month</li>
+<li>Customer managed keys imported: $1 / month</li>
+<li>pay for API call to KMS ($0.03 / 10000 calls)</li>
+</ul>
+</li>
+<li>Automatic Key rotation:<!-- -->
+<ul>
+<li>AWS-managed KMS Key: automatic every 1 year</li>
+<li>Customer-managed KMS Key: (must be enabled) automatic &amp; on-demand</li>
+<li>Imported KMS Key: only manual rotation possible using alias</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="copying-snapshots-across-regions">Copying Snapshots across regions<a href="#copying-snapshots-across-regions" class="hash-link" aria-label="Direct link to Copying Snapshots across regions" title="Direct link to Copying Snapshots across regions">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="kms-copying-snapshots" src="/LearningCollection/assets/images/kms-copying-snapshots-9f42e5670821916e1f1d05d581710093.png" width="618" height="264" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="kms-key-policies">KMS Key Policies<a href="#kms-key-policies" class="hash-link" aria-label="Direct link to KMS Key Policies" title="Direct link to KMS Key Policies">​</a></h3>
+<ul>
+<li>Control access to KMS keys, “similar” to S3 bucket policies</li>
+<li>Difference: you cannot control access without them</li>
+<li>Default KMS Key Policy:<!-- -->
+<ul>
+<li>Created if you don’t provide a specific KMS Key Policy</li>
+<li>Complete access to the key to the root user = entire AWS account</li>
+</ul>
+</li>
+<li>Custom KMS Key Policy:<!-- -->
+<ul>
+<li>Define users, roles that can access the KMS key</li>
+<li>Define who can administer the key</li>
+<li>Useful for cross-account access of your KMS key</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="copying-snapshots-across-accounts">Copying Snapshots across accounts<a href="#copying-snapshots-across-accounts" class="hash-link" aria-label="Direct link to Copying Snapshots across accounts" title="Direct link to Copying Snapshots across accounts">​</a></h3>
+<ol>
+<li>Create a Snapshot, encrypted with your own KMS Key (Customer Managed Key)</li>
+<li>Attach a KMS Key Policy to authorize cross-account access</li>
+<li>Share the encrypted snapshot</li>
+<li>(in target) Create a copy of the Snapshot, encrypt it with a CMK in your account</li>
+<li>Create a volume from the snapshot</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="kms-api---encrypt-and-decrypt">KMS API - Encrypt and Decrypt<a href="#kms-api---encrypt-and-decrypt" class="hash-link" aria-label="Direct link to KMS API - Encrypt and Decrypt" title="Direct link to KMS API - Encrypt and Decrypt">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="kms-encrypt-decrypt" src="/LearningCollection/assets/images/kms-encrypt-decrypt-c093cd3f88d400c02b071a0516e7ce4e.png" width="610" height="265" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="envelope-encryption">Envelope Encryption<a href="#envelope-encryption" class="hash-link" aria-label="Direct link to Envelope Encryption" title="Direct link to Envelope Encryption">​</a></h3>
+<ul>
+<li>KMS Encrypt API call has a limit of 4 KB</li>
+<li>If you want to encrypt &gt;4 KB, we need to use Envelope Encryption</li>
+<li>The main API that will help us is the GenerateDataKey API</li>
+<li>For the exam: anything over 4 KB of data that needs to be encrypted must use the Envelope Encryption == GenerateDataKey API</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="generatedatakey-api">GenerateDataKey API<a href="#generatedatakey-api" class="hash-link" aria-label="Direct link to GenerateDataKey API" title="Direct link to GenerateDataKey API">​</a></h4>
+<p><img decoding="async" loading="lazy" alt="envelope-encryption" src="/LearningCollection/assets/images/envelope-encryption-490d0c2de79c8ea11f5b8603848a1b6b.png" width="647" height="253" class="img_ev3q"></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="decrypt-envelope-data">Decrypt envelope data<a href="#decrypt-envelope-data" class="hash-link" aria-label="Direct link to Decrypt envelope data" title="Direct link to Decrypt envelope data">​</a></h4>
+<p><img decoding="async" loading="lazy" alt="decrypt-envelope-data" src="/LearningCollection/assets/images/decrypt-envelope-data-cdbaabcb21c13d66af6ce6c925220797.png" width="649" height="275" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="encryption-sdk">Encryption SDK<a href="#encryption-sdk" class="hash-link" aria-label="Direct link to Encryption SDK" title="Direct link to Encryption SDK">​</a></h3>
+<ul>
+<li>The AWS Encryption SDK implemented Envelope Encryption for us</li>
+<li>The Encryption SDK also exists as a CLI tool we can install</li>
+<li>Implementations for Java, Python, C, JavaScript</li>
+<li>Feature - Data Key Caching:<!-- -->
+<ul>
+<li>re-use data keys instead of creating new ones for each encryption</li>
+<li>Helps with reducing the number of calls to KMS with a security trade-off</li>
+<li>Use LocalCryptoMaterialsCache (max age, max bytes, max number of messages)</li>
+</ul>
+</li>
+<li>The SDK encrypts the data encryption key and stores it (encrypted) as part of the returned ciphertext.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="kms-symmetric--api-summary">KMS Symmetric – API Summary<a href="#kms-symmetric--api-summary" class="hash-link" aria-label="Direct link to KMS Symmetric – API Summary" title="Direct link to KMS Symmetric – API Summary">​</a></h3>
+<ul>
+<li><strong>Encrypt:</strong> encrypt up to 4 KB of data through KMS</li>
+<li><strong>GenerateDataKey:</strong> generates a unique symmetric data key (DEK)<!-- -->
+<ul>
+<li>returns a plaintext copy of the data key</li>
+<li>AND a copy that is encrypted under the CMK that you specify</li>
+</ul>
+</li>
+<li><strong>GenerateDataKeyWithoutPlaintext:</strong>
+<ul>
+<li>Generate a DEK to use at some point (not immediately)</li>
+<li>DEK that is encrypted under the CMK that you specify (must use Decrypt later)</li>
+</ul>
+</li>
+<li><strong>Decrypt:</strong> decrypt up to 4 KB of data (including Data Encryption Keys)</li>
+<li><strong>GenerateRandom:</strong> Returns a random byte string</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="kms-request-quotas">KMS Request Quotas<a href="#kms-request-quotas" class="hash-link" aria-label="Direct link to KMS Request Quotas" title="Direct link to KMS Request Quotas">​</a></h3>
+<ul>
+<li>When you exceed a request quota, you get a ThrottlingException</li>
+<li>To respond, use exponential backoff (backoff and retry)</li>
+<li>For cryptographic operations, they share a quota</li>
+<li>This includes requests made by AWS on your behalf (ex: SSE-KMS)</li>
+<li>For GenerateDataKey, consider using DEK caching from the Encryption SDK</li>
+<li>You can request a Request Quotas increase through API or AWS support</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="kms-request-quotas" src="/LearningCollection/assets/images/kms-request-quotas-7617f89fef8a36398e54fa78e83375a2.png" width="599" height="278" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="s3-bucket-key-for-sse-kms-encryption">S3 Bucket Key for SSE-KMS encryption<a href="#s3-bucket-key-for-sse-kms-encryption" class="hash-link" aria-label="Direct link to S3 Bucket Key for SSE-KMS encryption" title="Direct link to S3 Bucket Key for SSE-KMS encryption">​</a></h3>
+<ul>
+<li>New setting to decrease…<!-- -->
+<ul>
+<li>Number of API calls made to KMS from S3 by 99%</li>
+<li>Costs of overall KMS encryption with Amazon S3 by 99%</li>
+</ul>
+</li>
+<li>This leverages data keys<!-- -->
+<ul>
+<li>A “S3 bucket key” is generated</li>
+<li>That key is used to encrypt KMS objects with new data keys</li>
+</ul>
+</li>
+<li>You will see less KMS CloudTrail events in CloudTrail</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="s3-bucket-key" src="/LearningCollection/assets/images/s3-bucket-key-0b3f6c3fbe0a3c48d34745550b886632.png" width="278" height="277" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="key-policy--examples">Key Policy – Examples<a href="#key-policy--examples" class="hash-link" aria-label="Direct link to Key Policy – Examples" title="Direct link to Key Policy – Examples">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="key-policy-example" src="/LearningCollection/assets/images/key-policy-example-4e9fa656b7af17c8b7367c115e96156d.png" width="600" height="243" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="principal-options-in-iam-policies">Principal Options in IAM Policies<a href="#principal-options-in-iam-policies" class="hash-link" aria-label="Direct link to Principal Options in IAM Policies" title="Direct link to Principal Options in IAM Policies">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="principal-options" src="/LearningCollection/assets/images/principal-options-ce3f62626422c1a8355c62b9d72e1b73.png" width="621" height="242" class="img_ev3q">
+<img decoding="async" loading="lazy" alt="principal-options2" src="/LearningCollection/assets/images/principal-options2-a083740a915e3372d89f4a9ac1057584.png" width="600" height="267" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="cloudhsm">CloudHSM<a href="#cloudhsm" class="hash-link" aria-label="Direct link to CloudHSM" title="Direct link to CloudHSM">​</a></h2>
+<ul>
+<li>KMS =&gt; AWS manages the software for encryption</li>
+<li>CloudHSM =&gt; AWS provisions encryption hardware</li>
+<li>Dedicated Hardware (HSM = Hardware Security Module)</li>
+<li>You manage your own encryption keys entirely (not AWS)</li>
+<li>HSM device is tamper resistant, FIPS 140-2 Level 3 compliance</li>
+<li>Supports both symmetric and asymmetric encryption (SSL/TLS keys)</li>
+<li>No free tier available</li>
+<li>Must use the CloudHSM Client Software</li>
+<li>Redshift supports CloudHSM for database encryption and key management</li>
+<li>Good option to use with SSE-C encryption</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="cloud-hsm" src="/LearningCollection/assets/images/cloud-hsm-2c8e9fd50b987d9b229b1982af2c7086.png" width="549" height="284" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="high-availability">High Availability<a href="#high-availability" class="hash-link" aria-label="Direct link to High Availability" title="Direct link to High Availability">​</a></h3>
+<ul>
+<li>CloudHSM clusters are spread across Multi AZ (HA)</li>
+<li>Great for availability and durability</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="integration-with-aws-services">Integration with AWS Services<a href="#integration-with-aws-services" class="hash-link" aria-label="Direct link to Integration with AWS Services" title="Direct link to Integration with AWS Services">​</a></h3>
+<ul>
+<li>Through integration with AWS KMS</li>
+<li>Configure KMS Custom Key Store with CloudHSM</li>
+<li>Example: EBS, S3, RDS …</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="cloudhsm-integration" src="/LearningCollection/assets/images/cloudhsm-integration-4d0bee6b2fb237e7cc13c63ab5102674.png" width="255" height="279" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cloudhsm-vs-kms">CloudHSM vs. KMS<a href="#cloudhsm-vs-kms" class="hash-link" aria-label="Direct link to CloudHSM vs. KMS" title="Direct link to CloudHSM vs. KMS">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="cloudhsm-vs-kms" src="/LearningCollection/assets/images/cloudhsm-vs-kms-c36dec1d81ff8d3c5d65aaa643352c3a.png" width="580" height="269" class="img_ev3q">
+<img decoding="async" loading="lazy" alt="cloudhsm-vs-kms2" src="/LearningCollection/assets/images/cloudhsm-vs-kms2-62c0fec34b2b85c056ff0b2b59add7c8.png" width="579" height="120" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ssm-parameter-store">SSM Parameter Store<a href="#ssm-parameter-store" class="hash-link" aria-label="Direct link to SSM Parameter Store" title="Direct link to SSM Parameter Store">​</a></h2>
+<ul>
+<li>Secure storage for configuration and secrets</li>
+<li>Optional Seamless Encryption using KMS</li>
+<li>Serverless, scalable, durable, easy SDK</li>
+<li>Version tracking of configurations / secrets</li>
+<li>Security through IAM</li>
+<li>Notifications with Amazon EventBridge</li>
+<li>Integration with CloudFormation</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="ssm-parameter-store" src="/LearningCollection/assets/images/ssm-parameter-store-6356932a4e178712b8b2f646ad6673a6.png" width="233" height="367" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="hierarchy">Hierarchy<a href="#hierarchy" class="hash-link" aria-label="Direct link to Hierarchy" title="Direct link to Hierarchy">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="ssm-hierarchy" src="/LearningCollection/assets/images/ssm-hierarchy-3fd24c1450e2b2af85f9465b1d9323dd.png" width="608" height="258" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="standard-and-advanced-parameter-tiers">Standard and advanced parameter tiers<a href="#standard-and-advanced-parameter-tiers" class="hash-link" aria-label="Direct link to Standard and advanced parameter tiers" title="Direct link to Standard and advanced parameter tiers">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="ssm-tiers" src="/LearningCollection/assets/images/ssm-tiers-d4d0ac002a794c86affb377e70b33ddb.png" width="610" height="212" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="parameters-policies-for-advanced-parameters">Parameters Policies (for advanced parameters)<a href="#parameters-policies-for-advanced-parameters" class="hash-link" aria-label="Direct link to Parameters Policies (for advanced parameters)" title="Direct link to Parameters Policies (for advanced parameters)">​</a></h3>
+<ul>
+<li>Allow to assign a TTL to a parameter (expiration date) to force updating or deleting sensitive data such as passwords</li>
+<li>Can assign multiple policies at a time</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="parameter-policies" src="/LearningCollection/assets/images/parameter-policies-3a1e80ac6434e02279fa594fb1dbf60a.png" width="633" height="116" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="aws-secrets-manager">AWS Secrets Manager<a href="#aws-secrets-manager" class="hash-link" aria-label="Direct link to AWS Secrets Manager" title="Direct link to AWS Secrets Manager">​</a></h2>
+<ul>
+<li>Newer service, meant for storing secrets</li>
+<li>Capability to force rotation of secrets every X days</li>
+<li>Automate generation of secrets on rotation (uses Lambda)</li>
+<li>Integration with Amazon RDS (MySQL, PostgreSQL, Aurora)</li>
+<li>Secrets are encrypted using KMS</li>
+<li>Mostly meant for RDS integration</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="multi-region-secrets">Multi-Region Secrets<a href="#multi-region-secrets" class="hash-link" aria-label="Direct link to Multi-Region Secrets" title="Direct link to Multi-Region Secrets">​</a></h3>
+<ul>
+<li>Replicate Secrets across multiple AWS Regions</li>
+<li>Secrets Manager keeps read replicas in sync with the primary Secret</li>
+<li>Ability to promote a read replica Secret to a standalone Secret</li>
+<li>Use cases: multi-region apps, disaster recovery strategies, multi-region DB…</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="multi-region-secrets" src="/LearningCollection/assets/images/multi-region-secrets-efd76d18fee699cddc51d85bda493056.png" width="549" height="144" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ssm-parameter-store-vs-secrets-manager">SSM Parameter Store vs Secrets Manager<a href="#ssm-parameter-store-vs-secrets-manager" class="hash-link" aria-label="Direct link to SSM Parameter Store vs Secrets Manager" title="Direct link to SSM Parameter Store vs Secrets Manager">​</a></h2>
+<ul>
+<li>Secrets Manager ($$$):<!-- -->
+<ul>
+<li>Automatic rotation of secrets with AWS Lambda</li>
+<li>Lambda function is provided for RDS, Redshift, DocumentDB</li>
+<li>KMS encryption is mandatory</li>
+<li>Can integration with CloudFormation</li>
+</ul>
+</li>
+<li>SSM Parameter Store ($):<!-- -->
+<ul>
+<li>Simple API</li>
+<li>No secret rotation (can enable rotation using Lambda triggered by EventBridge)</li>
+<li>KMS encryption is optional</li>
+<li>Can integration with CloudFormation</li>
+<li>Can pull a Secrets Manager secret using the SSM Parameter Store API</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="rotation">Rotation<a href="#rotation" class="hash-link" aria-label="Direct link to Rotation" title="Direct link to Rotation">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="ssm-vs-secret-manager" src="/LearningCollection/assets/images/ssm-vs-secret-manager-3ab88915a88d9685a24d340b13ede409.png" width="643" height="263" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="cloudformation--dynamic-references">CloudFormation – Dynamic References<a href="#cloudformation--dynamic-references" class="hash-link" aria-label="Direct link to CloudFormation – Dynamic References" title="Direct link to CloudFormation – Dynamic References">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="cloudformation-dynamic-references" src="/LearningCollection/assets/images/cloudformation-dynamic-references-05781f74d3e4dc1f6e41699ae7da46cf.png" width="627" height="310" class="img_ev3q">
+<img decoding="async" loading="lazy" alt="cloudformation-dynamic-references2" src="/LearningCollection/assets/images/cloudformation-dynamic-references2-bf373824aea64202a23cfdb64f907584.png" width="606" height="278" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="option-1--managemasteruserpassword">Option 1 – ManageMasterUserPassword<a href="#option-1--managemasteruserpassword" class="hash-link" aria-label="Direct link to Option 1 – ManageMasterUserPassword" title="Direct link to Option 1 – ManageMasterUserPassword">​</a></h3>
+<ul>
+<li>ManageMasterUserPassword – creates admin secret implicitly</li>
+<li>RDS, Aurora will manage the secret in Secrets Manager and its rotation</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="manage-master-passwords" src="/LearningCollection/assets/images/manage-master-passwords-fa6a7abcbabdda10abf9ac107defbd06.png" width="641" height="177" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="option-2--dynamic-reference">Option 2 – Dynamic Reference<a href="#option-2--dynamic-reference" class="hash-link" aria-label="Direct link to Option 2 – Dynamic Reference" title="Direct link to Option 2 – Dynamic Reference">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="dynamic-reference" src="/LearningCollection/assets/images/dynamic-reference-f199a0f4b273c578d5b09ea8fe110acf.png" width="648" height="259" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="cloudwatch-logs---encryption">CloudWatch Logs - Encryption<a href="#cloudwatch-logs---encryption" class="hash-link" aria-label="Direct link to CloudWatch Logs - Encryption" title="Direct link to CloudWatch Logs - Encryption">​</a></h2>
+<ul>
+<li>You can encrypt CloudWatch logs with KMS keys</li>
+<li>Encryption is enabled at the log group level, by associating a CMK with a log group, either when you create the log group or after it exists.</li>
+<li>You cannot associate a CMK with a log group using the CloudWatch console.</li>
+<li>You must use the CloudWatch Logs API:<!-- -->
+<ul>
+<li>associate-kms-key : if the log group already exists</li>
+<li>create-log-group: if the log group doesn’t exist yet</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="codebuild-security">CodeBuild Security<a href="#codebuild-security" class="hash-link" aria-label="Direct link to CodeBuild Security" title="Direct link to CodeBuild Security">​</a></h2>
+<ul>
+<li>To access resources in your VPC, make sure you specify a VPC configuration for your CodeBuild</li>
+<li>Secrets in CodeBuild:</li>
+<li>Don’t store them as plaintext in environment variables</li>
+<li>Instead…<!-- -->
+<ul>
+<li>Environment variables can reference parameter store parameters</li>
+<li>Environment variables can reference secrets manager secrets</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="aws-nitro-enclaves">AWS Nitro Enclaves<a href="#aws-nitro-enclaves" class="hash-link" aria-label="Direct link to AWS Nitro Enclaves" title="Direct link to AWS Nitro Enclaves">​</a></h2>
+<ul>
+<li>Process highly sensitive data in an isolated compute environment<!-- -->
+<ul>
+<li>Personally Identifiable Information (PII), healthcare, financial, …</li>
+</ul>
+</li>
+<li>Fully isolated virtual machines, hardened, and highly constrained<!-- -->
+<ul>
+<li>Not a container, not persistent storage, no interactive access, no external networking</li>
+</ul>
+</li>
+<li>Helps reduce the attack surface for sensitive data processing apps<!-- -->
+<ul>
+<li>Cryptographic Attestation – only authorized code can be running in your Enclave</li>
+<li>Only Enclaves can access sensitive data (integration with KMS)</li>
+</ul>
+</li>
+<li>Use cases: securing private keys, processing credit cards, secure multi-party
+computation…</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="aws-nitro-enclave" src="/LearningCollection/assets/images/aws-nitro-enclave-6c6738c61cc2cc041598ba1489d08ba9.png" width="600" height="283" class="img_ev3q"></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/RobinTTY/LearningCollection/tree/master/website/docs/cloud/aws/certified-developer-associate/security-encryption.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/LearningCollection/cloud/aws/certified-developer-associate/advanced-identity"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Advanced Identity</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/LearningCollection/cloud/aws/certified-developer-associate/other-services"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Other Services</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#aws-kms-key-management-service" class="table-of-contents__link toc-highlight">AWS KMS (Key Management Service)</a><ul><li><a href="#kms-keys-types" class="table-of-contents__link toc-highlight">KMS Keys Types</a></li><li><a href="#copying-snapshots-across-regions" class="table-of-contents__link toc-highlight">Copying Snapshots across regions</a></li><li><a href="#kms-key-policies" class="table-of-contents__link toc-highlight">KMS Key Policies</a></li><li><a href="#copying-snapshots-across-accounts" class="table-of-contents__link toc-highlight">Copying Snapshots across accounts</a></li><li><a href="#kms-api---encrypt-and-decrypt" class="table-of-contents__link toc-highlight">KMS API - Encrypt and Decrypt</a></li><li><a href="#envelope-encryption" class="table-of-contents__link toc-highlight">Envelope Encryption</a></li><li><a href="#encryption-sdk" class="table-of-contents__link toc-highlight">Encryption SDK</a></li><li><a href="#kms-symmetric--api-summary" class="table-of-contents__link toc-highlight">KMS Symmetric – API Summary</a></li><li><a href="#kms-request-quotas" class="table-of-contents__link toc-highlight">KMS Request Quotas</a></li><li><a href="#s3-bucket-key-for-sse-kms-encryption" class="table-of-contents__link toc-highlight">S3 Bucket Key for SSE-KMS encryption</a></li><li><a href="#key-policy--examples" class="table-of-contents__link toc-highlight">Key Policy – Examples</a></li><li><a href="#principal-options-in-iam-policies" class="table-of-contents__link toc-highlight">Principal Options in IAM Policies</a></li></ul></li><li><a href="#cloudhsm" class="table-of-contents__link toc-highlight">CloudHSM</a><ul><li><a href="#high-availability" class="table-of-contents__link toc-highlight">High Availability</a></li><li><a href="#integration-with-aws-services" class="table-of-contents__link toc-highlight">Integration with AWS Services</a></li><li><a href="#cloudhsm-vs-kms" class="table-of-contents__link toc-highlight">CloudHSM vs. KMS</a></li></ul></li><li><a href="#ssm-parameter-store" class="table-of-contents__link toc-highlight">SSM Parameter Store</a><ul><li><a href="#hierarchy" class="table-of-contents__link toc-highlight">Hierarchy</a></li><li><a href="#standard-and-advanced-parameter-tiers" class="table-of-contents__link toc-highlight">Standard and advanced parameter tiers</a></li><li><a href="#parameters-policies-for-advanced-parameters" class="table-of-contents__link toc-highlight">Parameters Policies (for advanced parameters)</a></li></ul></li><li><a href="#aws-secrets-manager" class="table-of-contents__link toc-highlight">AWS Secrets Manager</a><ul><li><a href="#multi-region-secrets" class="table-of-contents__link toc-highlight">Multi-Region Secrets</a></li></ul></li><li><a href="#ssm-parameter-store-vs-secrets-manager" class="table-of-contents__link toc-highlight">SSM Parameter Store vs Secrets Manager</a><ul><li><a href="#rotation" class="table-of-contents__link toc-highlight">Rotation</a></li></ul></li><li><a href="#cloudformation--dynamic-references" class="table-of-contents__link toc-highlight">CloudFormation – Dynamic References</a><ul><li><a href="#option-1--managemasteruserpassword" class="table-of-contents__link toc-highlight">Option 1 – ManageMasterUserPassword</a></li><li><a href="#option-2--dynamic-reference" class="table-of-contents__link toc-highlight">Option 2 – Dynamic Reference</a></li></ul></li><li><a href="#cloudwatch-logs---encryption" class="table-of-contents__link toc-highlight">CloudWatch Logs - Encryption</a></li><li><a href="#codebuild-security" class="table-of-contents__link toc-highlight">CodeBuild Security</a></li><li><a href="#aws-nitro-enclaves" class="table-of-contents__link toc-highlight">AWS Nitro Enclaves</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">My other sites</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.robintty.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Website<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Socials</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/RobinTTY" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/in/robin-m%C3%BCller-574782170/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div></div></footer></div>
+</body>
+</html>
