@@ -111,7 +111,7 @@ sidebar_position: 19
 - Custom Authorizer:
   - Great for 3rd party tokens
   - Very flexible in terms of what IAM policy is returned
-  - Handle Authentication verification + Authorization in the Lambda function
+  - Need to handle Authentication verification + Authorization in the Lambda function
   - Pay per Lambda invocation, results are cached
 - Cognito User Pool:
   - You manage your own user pool (can be backed by Facebook, Google login etc…)
@@ -242,7 +242,7 @@ sidebar_position: 19
 
 - Setup request validation by importing OpenAPI definitions file
 
-[openapi-request-validation](/img/docs/cloud/aws/openapi-request-validation.png)
+![openapi-request-validation](/img/docs/cloud/aws/openapi-request-validation.png)
 
 ## Caching API responses
 
@@ -345,6 +345,7 @@ Callers of the API must supply an assigned API key in the x-api-key header in re
 ## HTTP API vs REST API
 
 - HTTP APIs
+  - **very cheap**
   - low-latency, cost-effective AWS Lambda proxy, HTTP proxy APIs and private integration (no data mapping)
   - support OIDC and OAuth 2.0 authorization, and built-in support for CORS
   - No usage plans and API keys

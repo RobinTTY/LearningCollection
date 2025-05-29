@@ -46,6 +46,7 @@ This page contains the topics I still want to look into.
 
 - [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
 - [Named exports vs default exports](https://stackoverflow.com/questions/46913851/why-and-when-to-use-default-export-over-named-exports-in-es6-modules)
+- CORS/Preflight Requests
 
 ## Tooling
 
