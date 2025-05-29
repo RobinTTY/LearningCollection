@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.5.2">
 <title data-rh="true">API Gateway | Learning Collection Knowledge Base</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/api-gateway"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="API Gateway | Learning Collection Knowledge Base"><meta data-rh="true" name="description" content="- AWS Lambda + API Gateway: No infrastructure to manage"><meta data-rh="true" property="og:description" content="- AWS Lambda + API Gateway: No infrastructure to manage"><link data-rh="true" rel="icon" href="/LearningCollection/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/api-gateway"><link data-rh="true" rel="alternate" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/api-gateway" hreflang="en"><link data-rh="true" rel="alternate" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/api-gateway" hreflang="x-default"><link rel="stylesheet" href="/LearningCollection/assets/css/styles.7d3675f6.css">
-<script src="/LearningCollection/assets/js/runtime~main.fadb2ae1.js" defer="defer"></script>
+<script src="/LearningCollection/assets/js/runtime~main.80412c44.js" defer="defer"></script>
 <script src="/LearningCollection/assets/js/main.3540ca46.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -137,7 +137,7 @@
 <ul>
 <li>Great for 3rd party tokens</li>
 <li>Very flexible in terms of what IAM policy is returned</li>
-<li>Handle Authentication verification + Authorization in the Lambda function</li>
+<li>Need to handle Authentication verification + Authorization in the Lambda function</li>
 <li>Pay per Lambda invocation, results are cached</li>
 </ul>
 </li>
@@ -298,7 +298,7 @@
 <ul>
 <li>Setup request validation by importing OpenAPI definitions file</li>
 </ul>
-<p><a href="/LearningCollection/assets/files/openapi-request-validation-c5e82536c94ebf033e043ded629016fe.png" target="_blank">openapi-request-validation</a></p>
+<p><img decoding="async" loading="lazy" alt="openapi-request-validation" src="/LearningCollection/assets/images/openapi-request-validation-c5e82536c94ebf033e043ded629016fe.png" width="1716" height="676" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="caching-api-responses">Caching API responses<a href="#caching-api-responses" class="hash-link" aria-label="Direct link to Caching API responses" title="Direct link to Caching API responses">​</a></h2>
 <ul>
 <li>Caching reduces the number of calls made to the backend</li>
@@ -421,6 +421,7 @@
 <ul>
 <li>HTTP APIs<!-- -->
 <ul>
+<li><strong>very cheap</strong></li>
 <li>low-latency, cost-effective AWS Lambda proxy, HTTP proxy APIs and private integration (no data mapping)</li>
 <li>support OIDC and OAuth 2.0 authorization, and built-in support for CORS</li>
 <li>No usage plans and API keys</li>
