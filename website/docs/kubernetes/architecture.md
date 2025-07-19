@@ -77,13 +77,13 @@ This diagram shows the main components of a Kubernetes cluster:
 
 ## Worker Node Components
 
-### kubelet
+### Kubelet
 
 - Agent that runs on each node and ensures containers are running in a pod
 - Monitors nodes & pods and reports to the api-server
 - Registers the node with the cluster
 
-### kube-proxy
+### Kube Proxy
 
 - Network proxy that maintains network rules on nodes (to forward traffic to services)
 - Maps IP of service to IP of the right pod
@@ -91,4 +91,3 @@ This diagram shows the main components of a Kubernetes cluster:
 ### Container Runtime
 
 - Software responsible for running containers (e.g., Docker, containerd)
-
