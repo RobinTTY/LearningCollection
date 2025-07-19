@@ -14,6 +14,10 @@ module.exports = {
   organizationName: "RobinTTY",
   projectName: "LearningCollection",
   trailingSlash: false,
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
   themeConfig: {
     navbar: {
       title: "Learning Collection",
