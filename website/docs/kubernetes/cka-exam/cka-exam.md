@@ -75,3 +75,18 @@ If after adjusting resource quota a deployment still has not the wanted number o
 ### Enforce pod security standard
 
 Just follow the docs: [Kubernetes Docs](https://kubernetes.io/docs/tasks/configure-pod-container/enforce-standards-namespace-labels/)
+
+### Fix kubeconfig
+
+To test a kubeconfig file, use the command:
+
+```bash
+k get node --kubeconfig <kubeconfig-file>
+```
+
+This will help you verify if the kubeconfig is set up correctly and can communicate with the cluster.
+
+### Edit controlplane pod
+
+To edit a control plane pod, 
+you have to edit the static pod manifest file located in `/etc/kubernetes/manifests/`.
