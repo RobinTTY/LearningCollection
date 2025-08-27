@@ -742,6 +742,91 @@ To get the values of the Helm chart (hopefully they will be provided):
 helm show values traefik/traefik # grep is your friend if there is too much output
 ```
 
+## Kustomize
+
+You have base manifests for an app in /home/student/kustomize/base.
+Use Kustomize to deploy a production variant of this app:
+
+• The production variant should add the label environment: production to all resources.
+• It should prefix resource names with `prod-`
+• It should use Nginx image tag 1.21 instead of the base's 1.19
+
+https://www.youtube.com/watch?v=eGv6iPWQKyo&t=2112s
+
+## Gateway API ("guaranteed task")
+
+Your cluster uses the Gateway API for ingress traffic.
+A service named web-service is running in the default namespace on port 80.
+A Gateway API-compatible controller is already installed, and a
+GatewayClass named example-gw-class is available in the cluster.
+
+Objective:
+Use Gateway API resources to expose web-service externally on HTTP port 80, routed via the hostname web.example.com.
+
+```yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: web-gateway
+spec:
+  gatewayClassName: example-gw-class
+  listeners:
+    - name: http
+      protocol: HTTP
+      port: 80
+      hostname: web.example.com
+      allowedRoutes:
+        namespaces:
+          from: same
+```
+
+```yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: web-http-route
+spec:
+  parentRefs:
+    - name: web-gateway
+      sectionName: http
+  hostnames:
+    - web.example.com
+  rules:
+    - matches:
+        - path:
+            type: Prefix
+            value: /
+      backendRefs:
+        - name: web-service
+          port: 80
+```
+
+## Pod Admission / Limit Ranges
+
+In the namespace limit-test, enforce default resource limits and requests for containers:
+
+- If a container has no CPU/memory requests/limits, assign a default request of 100m CPU and 50Mi memory, and a default limit of 200m CPU and 100Mi memory.
+- Prevent any container in this namespace from requesting more than 500Mi memory.
+
+```yaml
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: limit-range
+  namespace: limit-test
+spec:
+  limits:
+    - type: Container
+      default:
+        cpu: 200m
+        memory: 100Mi
+      defaultRequest:
+        cpu: 100m
+        memory: 50Mi
+      max:
+        memory: 500Mi
+```
+
 # Important Notes
 
 - https://www.reddit.com/r/devops/comments/1m1xj7q/comment/n3kpl0u/?share_id=luomAHCKTKEnrucnwBA0d&utm_medium=android_app&utm_name=androidcss&utm_source=share&utm_term=1
