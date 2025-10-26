@@ -843,3 +843,123 @@ spec:
   - I also highly recommend this resource: CKA Guide Q&A (Just one note: When installing Argo with HELM, you shouldn't use --skip-crds. Instead, set the appropriate Helm chart values.)
 - Concerning strategy - I tackled the easier tasks first and flagged the difficult ones (troubleshooting) for later.
 - Personally I recommend coming up with a list of docs pages you reference frequently when practicing and when you start the exam just open those pages up in the browser so you can quickly reference them if you need to. Example: for me, when I was studying I would frequently reference the K8s Documentation Pods page, the K8s API Reference Pods page, and the K8s Documentation Persistent Volume Page so when I started the exam the first thing I did was click the link to open up the K8s Documentation then duplicated that tab (right click tab -> duplicate) a couple times, then searched the docs for the appropriate pages in each one and had them open the whole exam. Its a small thing but it definitely helped knowing where they were and having them open so I didn't need to wait for loading or anything.
+
+
+## If ApiServer doesn't come up
+
+Check logs, probably wrong configuration:
+
+- Check `/var/log/kube-apiserver.log`
+- Check `watch crictl ps -a` | `crictl logs <container-id>` | Check `/var/log/pods`
+- Check `var/log/syslog`
+- Edit `/etc/kubernetes/manifests/kube-apiserver.yaml`
+
+## If Kubelet has problems
+
+- Check `/var/log/syslog` or `journalctl`
+- Check `journalctl -u kubelet | grep kubelet`
+
+## If pods are pending and no errors
+
+- Check if deployment specifies a specific node => remove it
+
+## Set node as unavailable for scheduling
+
+Set the node named `ek8s-node-0` as unavailable and reschedule all the pods running on it.
+
+```bash
+kubectl drain ek8s-node-0 --ignore-daemonsets --delete-emptydir-data # No need to remember --delete-emptydir-data flag (it will be mentioned by the CLI if necessary and not included)
+```
+
+## Upgrade Control Plane Node
+
+Given an existing Kubernetes cluster running version 1.22.1, upgrade all of the Kubernetes control plane and node components on the master node only to version 1.22.2.
+Be sure to drain the master node before upgrading it and uncordon it after the upgrade.
+
+![upgrade-control-plane-node](/img/docs/kubernetes/cka-exam/upgrade-control-plane-node.png)
+![upgrade-control-plane-node-2](/img/docs/kubernetes/cka-exam/upgrade-control-plane-node-2.png)
+
+## Network Policy
+
+Create a new NetworkPolicy named allow-port-from-namespace in the existing namespace fubar.
+Ensure that the new NetworkPolicy allows Pods in namespace internal to connect to port 9000 of Pods in namespace fubar.
+
+Further ensure that the new NetworkPolicy:
+
+- does not allow access to Pods, which don't listen on port 9000
+- does not allow access from Pods, which are not in namespace internal
+
+![network-policy1](/img/docs/kubernetes/cka-exam/network-policy1.png)
+![network-policy2](/img/docs/kubernetes/cka-exam/network-policy2.png)
+
+## Reconfigure Deployment (add port)
+
+- Reconfigure the existing deployment front-end and add a port specification named http exposing port 80/tcp of the existing container nginx.
+- Create a new service named front-end-svc exposing the container port http.
+- Configure the new service to also expose the individual Pods via a NodePort on the nodes on which they are scheduled.
+
+![add-port1](/img/docs/kubernetes/cka-exam/add-port1.png)
+![add-port2](/img/docs/kubernetes/cka-exam/add-port2.png)
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nodeport-service
+spec:
+  type: NodePort      # Specifies that this is a NodePort service
+  ports:
+    - port: 80        # Port exposed internally in the cluster
+      targetPort: 80  # Port your application is listening on in the Pod
+      nodePort: 30007 # Port exposed on each Node (must be between 30000-32767)
+  selector:
+    app: my-app       # Must match the labels of the Pods you want to expose
+```
+
+## Schedule a pod
+
+Schedule a pod as follows:
+
+- Name: nginx-kusc00401
+- Image: nginx
+- Node selector: disk=ssd
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-kusc00401
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+  nodeSelector:
+    disk: ssd
+```
+
+## PKI Essentials (kubeadm)
+
+Directory: /etc/kubernetes/pki
+
+- ca.crt: The public certificate for the cluster's Certificate Authority (CA).
+- ca.key: The private key for the cluster's Certificate Authority (CA).
+- apiserver.crt: The public certificate for the Kubernetes API server.
+- apiserver.key: The private key for the Kubernetes API server.
+- apiserver-kubelet-client.crt: The public certificate used by the API server to authenticate to kubelets.
+- apiserver-kubelet-client.key: The private key used by the API server to authenticate to kubelets.
+- front-proxy-ca.crt: The public certificate for the front proxy's Certificate Authority.
+- front-proxy-ca.key: The private key for the front proxy's Certificate Authority.
+- front-proxy-client.crt: The public certificate for the front proxy client.
+- front-proxy-client.key: The private key for the front proxy client.
+- etcd/ca.crt: The public certificate for the etcd cluster's Certificate Authority.
+- etcd/ca.key: The private key for the etcd cluster's Certificate Authority.
+- sa.pub: The public key for service account tokens.
+- sa.key: The private key for service account tokens.
+- apiserver-etcd-client.crt: The public certificate for the API server to communicate with etcd.
+- etcd/server.crt: The public certificate for the etcd server.
+- etcd/server.key: The private key for the etcd server.
+- etcd/peer.crt: The public certificate for etcd peer communication.
+- etcd/peer.key: The private key for etcd peer communication.
+- etcd/healthcheck-client.crt: The public certificate for etcd health checks.
+- etcd/healthcheck-client.key: The private key for etcd health checks.
+
