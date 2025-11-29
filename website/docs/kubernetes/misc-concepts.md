@@ -123,3 +123,30 @@ spec:
 - There are different preemption policies:
   - `PreemptLowerPriority`: Default, preempts lower priority pods
   - `Never`: Does not preempt any pods
+
+### PriorityClass
+
+If you want to ensure that your apps running in Kubernetes stay running, even when the cluster is under heavy load, you can create a custom `PriorityClass` for them to use.
+
+Assigning them a higher priority ensures they get scheduled first, and lower-priority pods get evicted before them if the node is full.
+
+```bash
+kubectl create priorityclass high-priority --value=1000000
+```
+
+If no priority class is set in the pod spec, the pod gets a priority value of `0` by default. This means, it's the first to be evicted if the node is under memory or CPU pressure.
+
+### High priority Pods
+
+You may have apps that must always stay running, such as:
+
+- Logging/monitoring agents
+- Control-plane components (in self-managed clusters)
+- Payment gateways
+- Message queues
+
+Assigning them higher priority ensures they get scheduled first, and they don't get evicted before the lower priority pods.
+
+### Preemption
+
+Preemption is the process of evicting pods with lower priority when the node(s) experiences CPU or memory stress.
