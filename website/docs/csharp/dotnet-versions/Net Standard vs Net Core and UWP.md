@@ -1,29 +1,22 @@
 ---
 id: netstandardVsNetcoreVsUwp
-title: .Net Core vs .Net Standard vs UWP
+title: .Net Core vs .Net Standard vs .NET Framework
 sidebar_position: 1
 ---
 
 ## Major Frameworks
 
-- There are currently four major Frameworks, all of which are currently owned by Microsoft:
-  - The .NET Framework:
-    - consists of the CLR plus a vast set of libraries
-    - The libraries consist of core libraries and applied libraries, which depend on the core libraries
-  - Universal Windows Platform (UWP):
-    - For writing Windows 10 Store Apps and for targeting Windows 10 devices
-    - Your app runs in a sandbox to lessen the threat of malware, prohibiting operations such as reading or writing arbitrary files
-  - .NET Core with ASP.NET Core:
-    - An open source framework (originally based on a cut-down version of the .NET Framework) for writing easily deployable Internet apps and microservices that **run on Windows, macOS, and Linux**
-    - Unlike the .NET Framework, .NET Core can be packaged with the web application and xcopydeployed (self-contained deployment)
-  - Xamarin:
-    - For writing mobile apps that target iOS, Android, and Windows Mobile
+- .NET/ASP.NET:
+  - An open source framework (originally based on a cut-down version of the .NET Framework) for writing easily deployable Internet apps and microservices that **run on Windows, macOS, and Linux**
+  - Recommended for new applications and services
+- .NET Framework
+  - Original implementation of .NET. It supports running websites, services, desktop apps, and more on **Windows only**
+  - Superseded by the cross-platform .NET project
+  - Still widely used in legacy enterprise applications
 
-The four major frameworks differ in the platforms they support, the libraries that sit on top, and their intended uses. However, it’s fair to say that as of the release of .NET Core 2.0, they all expose a similar core framework (BCL). It is even possible to directly leverage this commonality by writing class libraries that work across all four frameworks (see ".NET Standard 2.0" on page 215 in Chapter 5).
+It is possible to write class libraries that work across all frameworks with .NET Standard.
 
-Note: A nuance not shown in Table 1-1 is that UWP uses .NET Core under the covers, so technically .NET Core does run on Windows 10 devices (albeit not for the purpose of providing a framework for ASP.NET Core). It’s likely that we’ll see more uses for .NET Core 2 in the future.
-
-Overview of the .Net Framework:
+Overview of the .NET Framework:
 
 ![NetFramework](/img/docs/csharp/NetFramework.PNG)
 
@@ -39,7 +32,11 @@ The different frameworks are layered like this:
 
 ![platform_overview](/img/docs/csharp/platform_overview.png)
 
-With the [introduction of .NET 5](https://devblogs.microsoft.com/dotnet/announcing-net-5-0/) Microsoft wants to unify all aspects of development into a single platform:
+:::note
+Xamarin has reached end of life. It was replaced by .NET MAUI for cross-platform mobile and desktop application development (which surely won't be discontinued in the future).
+:::
+
+With the [introduction of .NET 5](https://devblogs.microsoft.com/dotnet/announcing-net-5-0/) Microsoft wanted to unify all aspects of development into a single platform:
 
 ![dotnet5_platform](/img/docs/csharp/dotnet5_platform.png)
 
@@ -54,6 +51,7 @@ The following frameworks are still available to support older platforms:
 - .NET Core 1.x (the predecessor to .NET Core 2.0, with significantly reduced functionality)
 - The .NET Micro Framework is for running .NET code on highly resource constrained embedded devices (under 1 MB)
 - Mono, the open source framework upon which Xamarin sits, also has libraries to develop cross-platform desktop applications on Linux, macOS, and Windows. Not all features are supported, or work fully
+- UWP itself is still supported but is also not widely used and seems a bit dead-ended
 
 ## Windows Runtime
 
