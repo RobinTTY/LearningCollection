@@ -2,12 +2,41 @@
 title: Introduction
 ---
 
-Entity Framework (EF) Core is a lightweight, extensible, [open source](https://github.com/dotnet/efcore) and cross-platform version of the Entity Framework data access technology. EF Core can serve as an object-relational mapper (O/RM), which:
+Entity Framework (EF) Core is a lightweight, extensible, [open source](https://github.com/dotnet/efcore) and cross-platform version of the Entity Framework data access technology. EF Core can serve as an object-relational mapper (ORM), which:
 
 - Enables .NET developers to work with a database using .NET objects.
 - Eliminates the need for most of the data-access code that typically needs to be written.
 
 EF Core supports many database engines, see [Database Providers](https://learn.microsoft.com/en-us/ef/core/providers/) for details.
+
+## Concept Mapping
+
+This diagram illustrates how C# code constructs map to relational database concepts in Entity Framework Core (EF Core):
+
+| C# / .NET         | EF Core Model  | SQL Database |
+| ----------------- | -------------- | ------------ |
+| Class             | Model          | Table        |
+| Object            | Data           | Row          |
+| Function / Method | Operation      | SQL (SIUD)   |
+
+SIUD = Select, Insert, Update, Delete
+
+### Usual Flow (Code First)
+
+```
+C# Class  ───────▶  EF Core Model  ───────▶  SQL Table
+C# Object ───────▶  Model Instance ───────▶  Row
+C# Method ───────▶  EF Operation   ───────▶  SQL (Select, Insert, Update, Delete)
+```
+
+### CRUD Mapping
+
+| C# Operation               | SQL Equivalent |
+| -------------------------- | -------------- |
+| Add(entity)                | INSERT         |
+| Find(id), First(), Where() | SELECT         |
+| Update(entity)             | UPDATE         |
+| Remove(entity)             | DELETE         |
 
 ## The model
 
@@ -16,7 +45,7 @@ With EF Core, data access is performed using a model. A model is made up of enti
 EF supports the following model development approaches:
 
 - Generate a model from an existing database.
-- Hand code a model to match the database.
+- Code a model to match the database.
 - Once a model is created, use [EF Migrations](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/) to create a database from the model. Migrations allow evolving the database as the model changes.
 
 ```csharp
@@ -32,8 +61,7 @@ public class BloggingContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(
-            @"Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True");
+        optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True");
     }
 }
 

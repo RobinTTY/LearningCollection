@@ -1,6 +1,6 @@
 ---
-id: netstandardVsNetcoreVsUwp
-title: .Net Core vs .Net Standard vs .NET Framework
+id: dotnet-frameworks
+title: Available .NET Frameworks
 sidebar_position: 1
 ---
 
