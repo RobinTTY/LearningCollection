@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunklearning_knowledge_base=globalThis.webpackChunklearning_knowledge_base||[]).push([[3405],{47572:e=>{e.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"finance"}')}}]);

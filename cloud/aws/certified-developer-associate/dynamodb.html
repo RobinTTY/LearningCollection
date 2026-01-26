@@ -2,586 +2,586 @@
 <html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-cloud/aws/certified-developer-associate/dynamodb" data-has-hydrated="false">
 <head>
 <meta charset="UTF-8">
-<meta name="generator" content="Docusaurus v3.8.1">
-<title data-rh="true">DynamoDB | Learning Collection Knowledge Base</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/dynamodb"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="DynamoDB | Learning Collection Knowledge Base"><meta data-rh="true" name="description" content="- Fully managed, highly available with replication across multiple AZs"><meta data-rh="true" property="og:description" content="- Fully managed, highly available with replication across multiple AZs"><link data-rh="true" rel="icon" href="/LearningCollection/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/dynamodb"><link data-rh="true" rel="alternate" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/dynamodb" hreflang="en"><link data-rh="true" rel="alternate" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/dynamodb" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"DynamoDB","item":"https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/dynamodb"}]}</script><link rel="stylesheet" href="/LearningCollection/assets/css/styles.619a2ab9.css">
-<script src="/LearningCollection/assets/js/runtime~main.bf2dc5f4.js" defer="defer"></script>
-<script src="/LearningCollection/assets/js/main.5de9a8af.js" defer="defer"></script>
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">DynamoDB | Learning Collection Knowledge Base</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/dynamodb"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="DynamoDB | Learning Collection Knowledge Base"><meta data-rh="true" name="description" content="- Fully managed, highly available with replication across multiple AZs"><meta data-rh="true" property="og:description" content="- Fully managed, highly available with replication across multiple AZs"><link data-rh="true" rel="icon" href="/LearningCollection/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/dynamodb"><link data-rh="true" rel="alternate" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/dynamodb" hreflang="en"><link data-rh="true" rel="alternate" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/dynamodb" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"DynamoDB","item":"https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/dynamodb"}]}</script><link rel="stylesheet" href="/LearningCollection/assets/css/styles.04390029.css">
+<script src="/LearningCollection/assets/js/runtime~main.60aadb0d.js" defer="defer"></script>
+<script src="/LearningCollection/assets/js/main.7934f853.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<svg style="display: none;"><defs>
 <symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
 </defs></svg>
-<script>!function(){var t="light";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/LearningCollection/"><div class="navbar__logo"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Learning Collection</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/LearningCollection/">Docs</a><a class="navbar__item navbar__link" sidebarid="finance" href="/LearningCollection/finance/introduction">Finance</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/">Introduction</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/general-concepts/callStack">General Concepts</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Cloud</a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">AWS</a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Certified Developer Associate</a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Cloud Overview</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/iam">Identity and Access Management (IAM)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ec2">Elastic Compute Cloud (EC2)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elb">Elastic Load Balancing (ELB)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/relational-databases">Relational Databases (RDS/Aurora)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elasti-cache">ElastiCache</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/route53">Route 53</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/vpc">Virtual Private Cloud (VPC)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/s3">S3</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cli-sdk-iam-roles-policies">AWS CLI, SDK, IAM Roles &amp; Policies</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudfront">Cloudfront</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ecs-ecr-fargate">ECS, ECR, Fargate</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elastic-beanstalk">Elastic Beanstalk</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudformation">CloudFormation</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/integration-messaging">Integration &amp; Messaging</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/monitoring-troubleshooting-audit">Monitoring, Troubleshooting &amp; Audit</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/lambda">Lambda</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/dynamodb">DynamoDB</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/api-gateway">API Gateway</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ci-cd">CI/CD</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/sam">SAM</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-development-kit">Cloud Development Kit</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cognito">Cognito</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/misc-serverless">Miscellaneous Serverless</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/advanced-identity">Advanced Identity</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/security-encryption">Security &amp; Encryption</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/other-services">Other Services</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/exam-scoring">Exam Scoring</a></li></ul></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/csharp/introduction">C#</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/web/html/doctype">Web</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/databases/sql">Databases</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/kubernetes/architecture">Kubernetes</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/graphql/intro">GraphQL</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/tools/git/tags">Tools</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/linux/commonlyUsedCommands">Linux</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/interesting-topics">Interesting Topics</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/LearningCollection/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Cloud</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">AWS</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Certified Developer Associate</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">DynamoDB</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>DynamoDB</h1></header><ul>
-<li>Fully managed, highly available with replication across multiple AZs</li>
-<li>NoSQL database - not a relational database</li>
-<li>Scales to massive workloads, distributed database</li>
-<li>Millions of requests per seconds, trillions of row, 100s of TB of storage</li>
-<li>Fast and consistent in performance (low latency on retrieval)</li>
-<li>Integrated with IAM for security, authorization and administration</li>
-<li>Enables event driven programming with DynamoDB Streams</li>
-<li>Low cost and auto-scaling capabilities</li>
-<li>Standard &amp; Infrequent Access (IA) Table Class</li>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/LearningCollection/"><div class="navbar__logo"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Learning Collection</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/LearningCollection/">Docs</a><a class="navbar__item navbar__link" sidebarid="finance" href="/LearningCollection/finance/introduction">Finance</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/"><span title="Introduction" class="linkLabel_WmDU">Introduction</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/general-concepts/callStack"><span title="General Concepts" class="categoryLinkLabel_W154">General Concepts</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview"><span title="Cloud" class="categoryLinkLabel_W154">Cloud</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview"><span title="AWS" class="categoryLinkLabel_W154">AWS</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview"><span title="Certified Developer Associate" class="categoryLinkLabel_W154">Certified Developer Associate</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview"><span title="Cloud Overview" class="linkLabel_WmDU">Cloud Overview</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/iam"><span title="Identity and Access Management (IAM)" class="linkLabel_WmDU">Identity and Access Management (IAM)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ec2"><span title="Elastic Compute Cloud (EC2)" class="linkLabel_WmDU">Elastic Compute Cloud (EC2)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elb"><span title="Elastic Load Balancing (ELB)" class="linkLabel_WmDU">Elastic Load Balancing (ELB)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/relational-databases"><span title="Relational Databases (RDS/Aurora)" class="linkLabel_WmDU">Relational Databases (RDS/Aurora)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elasti-cache"><span title="ElastiCache" class="linkLabel_WmDU">ElastiCache</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/route53"><span title="Route 53" class="linkLabel_WmDU">Route 53</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/vpc"><span title="Virtual Private Cloud (VPC)" class="linkLabel_WmDU">Virtual Private Cloud (VPC)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/s3"><span title="S3" class="linkLabel_WmDU">S3</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cli-sdk-iam-roles-policies"><span title="AWS CLI, SDK, IAM Roles &amp; Policies" class="linkLabel_WmDU">AWS CLI, SDK, IAM Roles &amp; Policies</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudfront"><span title="Cloudfront" class="linkLabel_WmDU">Cloudfront</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ecs-ecr-fargate"><span title="ECS, ECR, Fargate" class="linkLabel_WmDU">ECS, ECR, Fargate</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elastic-beanstalk"><span title="Elastic Beanstalk" class="linkLabel_WmDU">Elastic Beanstalk</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudformation"><span title="CloudFormation" class="linkLabel_WmDU">CloudFormation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/integration-messaging"><span title="Integration &amp; Messaging" class="linkLabel_WmDU">Integration &amp; Messaging</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/monitoring-troubleshooting-audit"><span title="Monitoring, Troubleshooting &amp; Audit" class="linkLabel_WmDU">Monitoring, Troubleshooting &amp; Audit</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/lambda"><span title="Lambda" class="linkLabel_WmDU">Lambda</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/dynamodb"><span title="DynamoDB" class="linkLabel_WmDU">DynamoDB</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/api-gateway"><span title="API Gateway" class="linkLabel_WmDU">API Gateway</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ci-cd"><span title="CI/CD" class="linkLabel_WmDU">CI/CD</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/sam"><span title="SAM" class="linkLabel_WmDU">SAM</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-development-kit"><span title="Cloud Development Kit" class="linkLabel_WmDU">Cloud Development Kit</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cognito"><span title="Cognito" class="linkLabel_WmDU">Cognito</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/misc-serverless"><span title="Miscellaneous Serverless" class="linkLabel_WmDU">Miscellaneous Serverless</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/advanced-identity"><span title="Advanced Identity" class="linkLabel_WmDU">Advanced Identity</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/security-encryption"><span title="Security &amp; Encryption" class="linkLabel_WmDU">Security &amp; Encryption</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/other-services"><span title="Other Services" class="linkLabel_WmDU">Other Services</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/exam-scoring"><span title="Exam Scoring" class="linkLabel_WmDU">Exam Scoring</span></a></li></ul></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/csharp/introduction"><span title="C#" class="categoryLinkLabel_W154">C#</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/web/html/doctype"><span title="Web" class="categoryLinkLabel_W154">Web</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/databases/sql"><span title="Databases" class="categoryLinkLabel_W154">Databases</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/kubernetes/architecture"><span title="Kubernetes" class="categoryLinkLabel_W154">Kubernetes</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/graphql/intro"><span title="GraphQL" class="categoryLinkLabel_W154">GraphQL</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/tools/git/tags"><span title="Tools" class="categoryLinkLabel_W154">Tools</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/linux/commonlyUsedCommands"><span title="Linux" class="categoryLinkLabel_W154">Linux</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/interesting-topics"><span title="Interesting Topics" class="linkLabel_WmDU">Interesting Topics</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/LearningCollection/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Cloud</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">AWS</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Certified Developer Associate</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">DynamoDB</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>DynamoDB</h1></header><ul>
+<li class="">Fully managed, highly available with replication across multiple AZs</li>
+<li class="">NoSQL database - not a relational database</li>
+<li class="">Scales to massive workloads, distributed database</li>
+<li class="">Millions of requests per seconds, trillions of row, 100s of TB of storage</li>
+<li class="">Fast and consistent in performance (low latency on retrieval)</li>
+<li class="">Integrated with IAM for security, authorization and administration</li>
+<li class="">Enables event driven programming with DynamoDB Streams</li>
+<li class="">Low cost and auto-scaling capabilities</li>
+<li class="">Standard &amp; Infrequent Access (IA) Table Class</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="basics">Basics<a href="#basics" class="hash-link" aria-label="Direct link to Basics" title="Direct link to Basics">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="basics">Basics<a href="#basics" class="hash-link" aria-label="Direct link to Basics" title="Direct link to Basics" translate="no">​</a></h2>
 <ul>
-<li>DynamoDB is made of Tables</li>
-<li>Each table has a Primary Key (must be decided at creation time)</li>
-<li>Each table can have an infinite number of items (= rows)</li>
-<li>Each item has attributes (can be added over time – can be null)</li>
-<li>Maximum size of an item is 400KB</li>
-<li>Data types supported are:<!-- -->
+<li class="">DynamoDB is made of Tables</li>
+<li class="">Each table has a Primary Key (must be decided at creation time)</li>
+<li class="">Each table can have an infinite number of items (= rows)</li>
+<li class="">Each item has attributes (can be added over time – can be null)</li>
+<li class="">Maximum size of an item is 400KB</li>
+<li class="">Data types supported are:<!-- -->
 <ul>
-<li>Scalar Types – String, Number, Binary, Boolean, Null</li>
-<li>Document Types – List, Map</li>
-<li>Set Types – String Set, Number Set, Binary Set</li>
+<li class="">Scalar Types – String, Number, Binary, Boolean, Null</li>
+<li class="">Document Types – List, Map</li>
+<li class="">Set Types – String Set, Number Set, Binary Set</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="primary-keys">Primary Keys<a href="#primary-keys" class="hash-link" aria-label="Direct link to Primary Keys" title="Direct link to Primary Keys">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="primary-keys">Primary Keys<a href="#primary-keys" class="hash-link" aria-label="Direct link to Primary Keys" title="Direct link to Primary Keys" translate="no">​</a></h3>
 <ul>
-<li>Option 1: Partition Key (HASH)<!-- -->
+<li class="">Option 1: Partition Key (HASH)<!-- -->
 <ul>
-<li>Partition key must be unique for each item</li>
-<li>Partition key must be “diverse” so that the data is distributed</li>
-<li>Example: “User_ID” for a users table</li>
+<li class="">Partition key must be unique for each item</li>
+<li class="">Partition key must be “diverse” so that the data is distributed</li>
+<li class="">Example: “User_ID” for a users table</li>
 </ul>
 </li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="dynamo-primary-hash" src="/LearningCollection/assets/images/dynamo-primary-hash-808615a08c97a9545c2df322519f4d41.png" width="1063" height="447" class="img_ev3q"></p>
 <ul>
-<li>Option 2: Partition Key + Sort Key (HASH + RANGE)<!-- -->
+<li class="">Option 2: Partition Key + Sort Key (HASH + RANGE)<!-- -->
 <ul>
-<li>The combination must be unique for each item</li>
-<li>Data is grouped by partition key (key with highest cardinality is a good candidate)</li>
-<li>Example: users-games table, “User_ID” for Partition Key and “Game_ID” for Sort Key</li>
+<li class="">The combination must be unique for each item</li>
+<li class="">Data is grouped by partition key (key with highest cardinality is a good candidate)</li>
+<li class="">Example: users-games table, “User_ID” for Partition Key and “Game_ID” for Sort Key</li>
 </ul>
 </li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="dynamo-primary-range" src="/LearningCollection/assets/images/dynamo-primary-range-c39113fed1528dab863d19051da0477a.png" width="1384" height="423" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="writing-data">Writing Data<a href="#writing-data" class="hash-link" aria-label="Direct link to Writing Data" title="Direct link to Writing Data">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="writing-data">Writing Data<a href="#writing-data" class="hash-link" aria-label="Direct link to Writing Data" title="Direct link to Writing Data" translate="no">​</a></h3>
 <ul>
-<li>PutItem<!-- -->
+<li class="">PutItem<!-- -->
 <ul>
-<li>Creates a new item or fully replace an old item (same Primary Key)</li>
-<li>Consumes WCUs</li>
+<li class="">Creates a new item or fully replace an old item (same Primary Key)</li>
+<li class="">Consumes WCUs</li>
 </ul>
 </li>
-<li>UpdateItem<!-- -->
+<li class="">UpdateItem<!-- -->
 <ul>
-<li>Edits an existing item’s attributes or adds a new item if it doesn’t exist</li>
-<li>Can be used to implement Atomic Counters – a numeric attribute that’s unconditionally incremented</li>
+<li class="">Edits an existing item’s attributes or adds a new item if it doesn’t exist</li>
+<li class="">Can be used to implement Atomic Counters – a numeric attribute that’s unconditionally incremented</li>
 </ul>
 </li>
-<li>Conditional Writes<!-- -->
+<li class="">Conditional Writes<!-- -->
 <ul>
-<li>Accept a write/update/delete only if conditions are met, otherwise returns an error</li>
-<li>Helps with concurrent access to items</li>
-<li>No performance impact</li>
+<li class="">Accept a write/update/delete only if conditions are met, otherwise returns an error</li>
+<li class="">Helps with concurrent access to items</li>
+<li class="">No performance impact</li>
 </ul>
 </li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="dynamo-write-types" src="/LearningCollection/assets/images/dynamo-write-types-21457160c69c0722a463aa8eac42b8d9.png" width="1810" height="781" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="reading-data">Reading Data<a href="#reading-data" class="hash-link" aria-label="Direct link to Reading Data" title="Direct link to Reading Data">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="reading-data">Reading Data<a href="#reading-data" class="hash-link" aria-label="Direct link to Reading Data" title="Direct link to Reading Data" translate="no">​</a></h3>
 <ul>
-<li>GetItem<!-- -->
+<li class="">GetItem<!-- -->
 <ul>
-<li>Read based on Primary key</li>
-<li>Primary Key can be HASH or HASH+RANGE</li>
-<li>Eventually Consistent Read (default)</li>
-<li>Option to use Strongly Consistent Reads (more RCU - might take longer)</li>
-<li>ProjectionExpression can be specified to retrieve only certain attributes</li>
+<li class="">Read based on Primary key</li>
+<li class="">Primary Key can be HASH or HASH+RANGE</li>
+<li class="">Eventually Consistent Read (default)</li>
+<li class="">Option to use Strongly Consistent Reads (more RCU - might take longer)</li>
+<li class="">ProjectionExpression can be specified to retrieve only certain attributes</li>
 </ul>
 </li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="query">Query<a href="#query" class="hash-link" aria-label="Direct link to Query" title="Direct link to Query">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="query">Query<a href="#query" class="hash-link" aria-label="Direct link to Query" title="Direct link to Query" translate="no">​</a></h4>
 <ul>
-<li>Query returns items based on:<!-- -->
+<li class="">Query returns items based on:<!-- -->
 <ul>
-<li>KeyConditionExpression<!-- -->
+<li class="">KeyConditionExpression<!-- -->
 <ul>
-<li>Partition Key value (must be = operator) - required</li>
-<li>Sort Key value (=, &lt;, &lt;=, &gt;, &gt;=, Between, Begins with) - optional</li>
+<li class="">Partition Key value (must be = operator) - required</li>
+<li class="">Sort Key value (=, &lt;, &lt;=, &gt;, &gt;=, Between, Begins with) - optional</li>
 </ul>
 </li>
-<li>FilterExpression<!-- -->
+<li class="">FilterExpression<!-- -->
 <ul>
-<li>Additional filtering after the Query operation (before data returned to you)</li>
-<li>Use only with non-key attributes (does not allow HASH or RANGE attributes)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Returns:<!-- -->
-<ul>
-<li>The number of items specified in Limit</li>
-<li>Or up to 1 MB of data</li>
-</ul>
-</li>
-<li>Ability to do pagination on the results</li>
-<li>Can query table, a Local Secondary Index, or a Global Secondary Index</li>
-</ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="scan">Scan<a href="#scan" class="hash-link" aria-label="Direct link to Scan" title="Direct link to Scan">​</a></h4>
-<ul>
-<li>Scan the entire table and then filter out data (inefficient)</li>
-<li>Returns up to 1 MB of data – use pagination to keep on reading</li>
-<li>Consumes a lot of RCU</li>
-<li>Limit impact using Limit or reduce the size of the result and pause</li>
-<li>For faster performance, use Parallel Scan<!-- -->
-<ul>
-<li>Multiple workers scan multiple data segments at the same time</li>
-<li>Increases the throughput and RCU consumed</li>
-<li>Limit the impact of parallel scans just like you would for Scans</li>
-</ul>
-</li>
-<li>Can use ProjectionExpression &amp; FilterExpression (no changes to RCU)</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="deleting-data">Deleting Data<a href="#deleting-data" class="hash-link" aria-label="Direct link to Deleting Data" title="Direct link to Deleting Data">​</a></h3>
-<ul>
-<li>DeleteItem<!-- -->
-<ul>
-<li>Delete an individual item</li>
-<li>Ability to perform a conditional delete</li>
-</ul>
-</li>
-<li>DeleteTable<!-- -->
-<ul>
-<li>Delete a whole table and all its items</li>
-<li>Much quicker deletion than calling DeleteItem on all items</li>
+<li class="">Additional filtering after the Query operation (before data returned to you)</li>
+<li class="">Use only with non-key attributes (does not allow HASH or RANGE attributes)</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="batch-operations">Batch Operations<a href="#batch-operations" class="hash-link" aria-label="Direct link to Batch Operations" title="Direct link to Batch Operations">​</a></h3>
+</li>
+<li class="">Returns:<!-- -->
 <ul>
-<li>Allows you to save in latency by reducing the number of API calls</li>
-<li>Operations are done in parallel for better efficiency</li>
-<li>Part of a batch can fail; in which case we need to try again for the failed items</li>
-<li>BatchWriteItem<!-- -->
-<ul>
-<li>Up to 25 PutItem and/or DeleteItem in one call</li>
-<li>Up to 16 MB of data written, up to 400 KB of data per item</li>
-<li>Can’t update items (use UpdateItem)</li>
-<li>UnprocessedItems for failed write operations (exponential backoff or add WCU)</li>
+<li class="">The number of items specified in Limit</li>
+<li class="">Or up to 1 MB of data</li>
 </ul>
 </li>
-<li>BatchGetItem<!-- -->
+<li class="">Ability to do pagination on the results</li>
+<li class="">Can query table, a Local Secondary Index, or a Global Secondary Index</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="scan">Scan<a href="#scan" class="hash-link" aria-label="Direct link to Scan" title="Direct link to Scan" translate="no">​</a></h4>
 <ul>
-<li>Return items from one or more tables</li>
-<li>Up to 100 items, up to 16 MB of data</li>
-<li>Items are retrieved in parallel to minimize latency</li>
-<li>UnprocessedKeys for failed read operations (exponential backoff or add RCU)</li>
+<li class="">Scan the entire table and then filter out data (inefficient)</li>
+<li class="">Returns up to 1 MB of data – use pagination to keep on reading</li>
+<li class="">Consumes a lot of RCU</li>
+<li class="">Limit impact using Limit or reduce the size of the result and pause</li>
+<li class="">For faster performance, use Parallel Scan<!-- -->
+<ul>
+<li class="">Multiple workers scan multiple data segments at the same time</li>
+<li class="">Increases the throughput and RCU consumed</li>
+<li class="">Limit the impact of parallel scans just like you would for Scans</li>
+</ul>
+</li>
+<li class="">Can use ProjectionExpression &amp; FilterExpression (no changes to RCU)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="deleting-data">Deleting Data<a href="#deleting-data" class="hash-link" aria-label="Direct link to Deleting Data" title="Direct link to Deleting Data" translate="no">​</a></h3>
+<ul>
+<li class="">DeleteItem<!-- -->
+<ul>
+<li class="">Delete an individual item</li>
+<li class="">Ability to perform a conditional delete</li>
+</ul>
+</li>
+<li class="">DeleteTable<!-- -->
+<ul>
+<li class="">Delete a whole table and all its items</li>
+<li class="">Much quicker deletion than calling DeleteItem on all items</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="time-to-live-ttl">Time To Live (TTL)<a href="#time-to-live-ttl" class="hash-link" aria-label="Direct link to Time To Live (TTL)" title="Direct link to Time To Live (TTL)">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="batch-operations">Batch Operations<a href="#batch-operations" class="hash-link" aria-label="Direct link to Batch Operations" title="Direct link to Batch Operations" translate="no">​</a></h3>
 <ul>
-<li>Automatically delete items after an expiry timestamp</li>
-<li>Doesn’t consume any WCUs (i.e., no extra cost)</li>
-<li>The TTL attribute must be a “Number” data type with “Unix Epoch timestamp” value</li>
-<li>Expired items deleted within 48 hours of expiration</li>
-<li>Expired items, that haven’t been deleted, appears in reads/queries/scans (if you don’t want them, filter them out)</li>
-<li>Expired items are deleted from both LSIs and GSIs</li>
-<li>A delete operation for each expired item enters the DynamoDB Streams (can help recover expired items)</li>
-<li>Use cases: reduce stored data by keeping only current items, adhere to regulatory obligations, …</li>
+<li class="">Allows you to save in latency by reducing the number of API calls</li>
+<li class="">Operations are done in parallel for better efficiency</li>
+<li class="">Part of a batch can fail; in which case we need to try again for the failed items</li>
+<li class="">BatchWriteItem<!-- -->
+<ul>
+<li class="">Up to 25 PutItem and/or DeleteItem in one call</li>
+<li class="">Up to 16 MB of data written, up to 400 KB of data per item</li>
+<li class="">Can’t update items (use UpdateItem)</li>
+<li class="">UnprocessedItems for failed write operations (exponential backoff or add WCU)</li>
+</ul>
+</li>
+<li class="">BatchGetItem<!-- -->
+<ul>
+<li class="">Return items from one or more tables</li>
+<li class="">Up to 100 items, up to 16 MB of data</li>
+<li class="">Items are retrieved in parallel to minimize latency</li>
+<li class="">UnprocessedKeys for failed read operations (exponential backoff or add RCU)</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="time-to-live-ttl">Time To Live (TTL)<a href="#time-to-live-ttl" class="hash-link" aria-label="Direct link to Time To Live (TTL)" title="Direct link to Time To Live (TTL)" translate="no">​</a></h3>
+<ul>
+<li class="">Automatically delete items after an expiry timestamp</li>
+<li class="">Doesn’t consume any WCUs (i.e., no extra cost)</li>
+<li class="">The TTL attribute must be a “Number” data type with “Unix Epoch timestamp” value</li>
+<li class="">Expired items deleted within 48 hours of expiration</li>
+<li class="">Expired items, that haven’t been deleted, appears in reads/queries/scans (if you don’t want them, filter them out)</li>
+<li class="">Expired items are deleted from both LSIs and GSIs</li>
+<li class="">A delete operation for each expired item enters the DynamoDB Streams (can help recover expired items)</li>
+<li class="">Use cases: reduce stored data by keeping only current items, adhere to regulatory obligations, …</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="dynamo-ttl" src="/LearningCollection/assets/images/dynamo-ttl-fa6120152a1f938869a773907035203c.png" width="682" height="877" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="transactions">Transactions<a href="#transactions" class="hash-link" aria-label="Direct link to Transactions" title="Direct link to Transactions">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="transactions">Transactions<a href="#transactions" class="hash-link" aria-label="Direct link to Transactions" title="Direct link to Transactions" translate="no">​</a></h3>
 <ul>
-<li>Coordinated, all-or-nothing operations (add/update/delete) to multiple items across one or more tables</li>
-<li>Provides Atomicity, Consistency, Isolation, and Durability (ACID)</li>
-<li>Read Modes – Eventual Consistency, Strong Consistency, Transactional</li>
-<li>Write Modes – Standard, Transactional</li>
-<li>Consumes 2x WCUs &amp; RCUs<!-- -->
+<li class="">Coordinated, all-or-nothing operations (add/update/delete) to multiple items across one or more tables</li>
+<li class="">Provides Atomicity, Consistency, Isolation, and Durability (ACID)</li>
+<li class="">Read Modes – Eventual Consistency, Strong Consistency, Transactional</li>
+<li class="">Write Modes – Standard, Transactional</li>
+<li class="">Consumes 2x WCUs &amp; RCUs<!-- -->
 <ul>
-<li>DynamoDB performs 2 operations for every item (prepare &amp; commit)</li>
+<li class="">DynamoDB performs 2 operations for every item (prepare &amp; commit)</li>
 </ul>
 </li>
-<li>Two operations:<!-- -->
+<li class="">Two operations:<!-- -->
 <ul>
-<li>TransactGetItems – one or more GetItem operations</li>
-<li>TransactWriteItems – one or more PutItem, UpdateItem, and DeleteItem operations</li>
+<li class="">TransactGetItems – one or more GetItem operations</li>
+<li class="">TransactWriteItems – one or more PutItem, UpdateItem, and DeleteItem operations</li>
 </ul>
 </li>
-<li>Use cases: financial transactions, managing orders, multiplayer games, …</li>
+<li class="">Use cases: financial transactions, managing orders, multiplayer games, …</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="dynamo-transaction" src="/LearningCollection/assets/images/dynamo-transaction-c7c10111ac624ce34990add73939d187.png" width="1735" height="757" class="img_ev3q"></p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="capacity-computations">Capacity Computations<a href="#capacity-computations" class="hash-link" aria-label="Direct link to Capacity Computations" title="Direct link to Capacity Computations">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="capacity-computations">Capacity Computations<a href="#capacity-computations" class="hash-link" aria-label="Direct link to Capacity Computations" title="Direct link to Capacity Computations" translate="no">​</a></h4>
 <div class="theme-admonition theme-admonition-danger admonition_xJq3 alert alert--danger"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"></path></svg></span>Important</div><div class="admonitionContent_BuS1"><p>This is important for the exam</p></div></div>
 <p><img decoding="async" loading="lazy" alt="dynamo-transaction-capacity" src="/LearningCollection/assets/images/dynamo-transaction-capacity-422d19ce8c96275cba4711c3cdb9c830.png" width="1498" height="490" class="img_ev3q"></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="readwrite-capacity-modes">Read/Write Capacity Modes<a href="#readwrite-capacity-modes" class="hash-link" aria-label="Direct link to Read/Write Capacity Modes" title="Direct link to Read/Write Capacity Modes">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="readwrite-capacity-modes">Read/Write Capacity Modes<a href="#readwrite-capacity-modes" class="hash-link" aria-label="Direct link to Read/Write Capacity Modes" title="Direct link to Read/Write Capacity Modes" translate="no">​</a></h2>
 <ul>
-<li>Control how you manage your table’s capacity (read/write throughput)</li>
-<li>Provisioned Mode (default)<!-- -->
+<li class="">Control how you manage your table’s capacity (read/write throughput)</li>
+<li class="">Provisioned Mode (default)<!-- -->
 <ul>
-<li>You specify the number of reads/writes per second</li>
-<li>You need to plan capacity beforehand</li>
-<li>Pay for provisioned</li>
+<li class="">You specify the number of reads/writes per second</li>
+<li class="">You need to plan capacity beforehand</li>
+<li class="">Pay for provisioned</li>
 </ul>
 </li>
-<li>On-Demand Mode read &amp; write capacity units<!-- -->
+<li class="">On-Demand Mode read &amp; write capacity units<!-- -->
 <ul>
-<li>Read/writes automatically scale up/down with your workloads</li>
-<li>No capacity planning needed</li>
-<li>Pay for what you use, more expensive ($$$)</li>
+<li class="">Read/writes automatically scale up/down with your workloads</li>
+<li class="">No capacity planning needed</li>
+<li class="">Pay for what you use, more expensive ($$$)</li>
 </ul>
 </li>
-<li>You can switch between different modes once every 24 hours</li>
+<li class="">You can switch between different modes once every 24 hours</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="rw-capacity-modes--provisioned">R/W Capacity Modes – Provisioned<a href="#rw-capacity-modes--provisioned" class="hash-link" aria-label="Direct link to R/W Capacity Modes – Provisioned" title="Direct link to R/W Capacity Modes – Provisioned">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rw-capacity-modes--provisioned">R/W Capacity Modes – Provisioned<a href="#rw-capacity-modes--provisioned" class="hash-link" aria-label="Direct link to R/W Capacity Modes – Provisioned" title="Direct link to R/W Capacity Modes – Provisioned" translate="no">​</a></h3>
 <ul>
-<li>Table must have provisioned read and write capacity units</li>
-<li>Read Capacity Units (RCU) – throughput for reads</li>
-<li>Write Capacity Units (WCU) – throughput for writes</li>
-<li>Option to setup auto-scaling of throughput to meet demand</li>
-<li>Throughput can be exceeded temporarily using “Burst Capacity”</li>
-<li>If Burst Capacity has been consumed, you’ll get a “ProvisionedThroughputExceededException”</li>
-<li>It’s then advised to do an exponential backoff retry</li>
+<li class="">Table must have provisioned read and write capacity units</li>
+<li class="">Read Capacity Units (RCU) – throughput for reads</li>
+<li class="">Write Capacity Units (WCU) – throughput for writes</li>
+<li class="">Option to setup auto-scaling of throughput to meet demand</li>
+<li class="">Throughput can be exceeded temporarily using “Burst Capacity”</li>
+<li class="">If Burst Capacity has been consumed, you’ll get a “ProvisionedThroughputExceededException”</li>
+<li class="">It’s then advised to do an exponential backoff retry</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="write-capacity-units-wcu">Write Capacity Units (WCU)<a href="#write-capacity-units-wcu" class="hash-link" aria-label="Direct link to Write Capacity Units (WCU)" title="Direct link to Write Capacity Units (WCU)">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="write-capacity-units-wcu">Write Capacity Units (WCU)<a href="#write-capacity-units-wcu" class="hash-link" aria-label="Direct link to Write Capacity Units (WCU)" title="Direct link to Write Capacity Units (WCU)" translate="no">​</a></h3>
 <ul>
-<li>One Write Capacity Unit (WCU) represents one write per second for an item up to 1 KB in size</li>
-<li>If the items are larger than 1 KB, more WCUs are consumed</li>
+<li class="">One Write Capacity Unit (WCU) represents one write per second for an item up to 1 KB in size</li>
+<li class="">If the items are larger than 1 KB, more WCUs are consumed</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="wcu-examples" src="/LearningCollection/assets/images/wcu-examples-b499d254b813973ba8b688612eb19797.png" width="1446" height="448" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="strongly-consistent-read-vs-eventually-consistent-read">Strongly Consistent Read vs. Eventually Consistent Read<a href="#strongly-consistent-read-vs-eventually-consistent-read" class="hash-link" aria-label="Direct link to Strongly Consistent Read vs. Eventually Consistent Read" title="Direct link to Strongly Consistent Read vs. Eventually Consistent Read">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="strongly-consistent-read-vs-eventually-consistent-read">Strongly Consistent Read vs. Eventually Consistent Read<a href="#strongly-consistent-read-vs-eventually-consistent-read" class="hash-link" aria-label="Direct link to Strongly Consistent Read vs. Eventually Consistent Read" title="Direct link to Strongly Consistent Read vs. Eventually Consistent Read" translate="no">​</a></h3>
 <ul>
-<li>Eventually Consistent Read (default)<!-- -->
+<li class="">Eventually Consistent Read (default)<!-- -->
 <ul>
-<li>If we read just after a write, it’s possible we’ll get some stale data because of replication</li>
+<li class="">If we read just after a write, it’s possible we’ll get some stale data because of replication</li>
 </ul>
 </li>
-<li>Strongly Consistent Read<!-- -->
+<li class="">Strongly Consistent Read<!-- -->
 <ul>
-<li>If we read just after a write, we will get the correct data</li>
-<li>Set “ConsistentRead” parameter to True in API calls (GetItem, BatchGetItem, Query, Scan)</li>
-<li>Consumes twice the RCU</li>
+<li class="">If we read just after a write, we will get the correct data</li>
+<li class="">Set “ConsistentRead” parameter to True in API calls (GetItem, BatchGetItem, Query, Scan)</li>
+<li class="">Consumes twice the RCU</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="read-capacity-units-rcu">Read Capacity Units (RCU)<a href="#read-capacity-units-rcu" class="hash-link" aria-label="Direct link to Read Capacity Units (RCU)" title="Direct link to Read Capacity Units (RCU)">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="read-capacity-units-rcu">Read Capacity Units (RCU)<a href="#read-capacity-units-rcu" class="hash-link" aria-label="Direct link to Read Capacity Units (RCU)" title="Direct link to Read Capacity Units (RCU)" translate="no">​</a></h3>
 <ul>
-<li>One Read Capacity Unit (RCU) represents one Strongly Consistent Read per second, or two Eventually Consistent Reads per second, for an item up to 4 KB in size</li>
-<li>If the items are larger than 4 KB, more RCUs are consumed</li>
+<li class="">One Read Capacity Unit (RCU) represents one Strongly Consistent Read per second, or two Eventually Consistent Reads per second, for an item up to 4 KB in size</li>
+<li class="">If the items are larger than 4 KB, more RCUs are consumed</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="rcu-examples" src="/LearningCollection/assets/images/rcu-examples-6fd7af97a7446e051844c7b5bb75301a.png" width="1621" height="412" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="partitions-internal">Partitions Internal<a href="#partitions-internal" class="hash-link" aria-label="Direct link to Partitions Internal" title="Direct link to Partitions Internal">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="partitions-internal">Partitions Internal<a href="#partitions-internal" class="hash-link" aria-label="Direct link to Partitions Internal" title="Direct link to Partitions Internal" translate="no">​</a></h3>
 <p><img decoding="async" loading="lazy" alt="partition-internal" src="/LearningCollection/assets/images/partition-internal-de697017d446f8c6bdf41ba323dad5fb.png" width="1702" height="874" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="throttling">Throttling<a href="#throttling" class="hash-link" aria-label="Direct link to Throttling" title="Direct link to Throttling">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="throttling">Throttling<a href="#throttling" class="hash-link" aria-label="Direct link to Throttling" title="Direct link to Throttling" translate="no">​</a></h3>
 <ul>
-<li>If we exceed provisioned RCUs or WCUs, we get “ProvisionedThroughputExceededException”</li>
-<li>Reasons:<!-- -->
+<li class="">If we exceed provisioned RCUs or WCUs, we get “ProvisionedThroughputExceededException”</li>
+<li class="">Reasons:<!-- -->
 <ul>
-<li>Hot Keys – one partition key is being read too many times (e.g., popular item)</li>
-<li>Hot Partitions</li>
-<li>Very large items, remember RCU and WCU depends on size of items</li>
+<li class="">Hot Keys – one partition key is being read too many times (e.g., popular item)</li>
+<li class="">Hot Partitions</li>
+<li class="">Very large items, remember RCU and WCU depends on size of items</li>
 </ul>
 </li>
-<li>Solutions:<!-- -->
+<li class="">Solutions:<!-- -->
 <ul>
-<li>Exponential backoff when exception is encountered (already in SDK)</li>
-<li>Distribute partition keys as much as possible</li>
-<li>If RCU issue, we can use DynamoDB Accelerator (DAX)</li>
+<li class="">Exponential backoff when exception is encountered (already in SDK)</li>
+<li class="">Distribute partition keys as much as possible</li>
+<li class="">If RCU issue, we can use DynamoDB Accelerator (DAX)</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="rw-capacity-modes--on-demand">R/W Capacity Modes – On-Demand<a href="#rw-capacity-modes--on-demand" class="hash-link" aria-label="Direct link to R/W Capacity Modes – On-Demand" title="Direct link to R/W Capacity Modes – On-Demand">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rw-capacity-modes--on-demand">R/W Capacity Modes – On-Demand<a href="#rw-capacity-modes--on-demand" class="hash-link" aria-label="Direct link to R/W Capacity Modes – On-Demand" title="Direct link to R/W Capacity Modes – On-Demand" translate="no">​</a></h3>
 <ul>
-<li>Read/writes automatically scale up/down with your workloads</li>
-<li>No capacity planning needed (WCU / RCU)</li>
-<li>Unlimited WCU &amp; RCU, no throttle, more expensive</li>
-<li>You’re charged for reads/writes that you use in terms of RRU and WRU</li>
-<li>Read Request Units (RRU) – throughput for reads (same as RCU)</li>
-<li>Write Request Units (WRU) – throughput for writes (same as WCU)</li>
-<li>2.5x more expensive than provisioned capacity (use with care)</li>
-<li>Use cases: unknown workloads, unpredictable application traffic, …</li>
+<li class="">Read/writes automatically scale up/down with your workloads</li>
+<li class="">No capacity planning needed (WCU / RCU)</li>
+<li class="">Unlimited WCU &amp; RCU, no throttle, more expensive</li>
+<li class="">You’re charged for reads/writes that you use in terms of RRU and WRU</li>
+<li class="">Read Request Units (RRU) – throughput for reads (same as RCU)</li>
+<li class="">Write Request Units (WRU) – throughput for writes (same as WCU)</li>
+<li class="">2.5x more expensive than provisioned capacity (use with care)</li>
+<li class="">Use cases: unknown workloads, unpredictable application traffic, …</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="partiql">PartiQL<a href="#partiql" class="hash-link" aria-label="Direct link to PartiQL" title="Direct link to PartiQL">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="partiql">PartiQL<a href="#partiql" class="hash-link" aria-label="Direct link to PartiQL" title="Direct link to PartiQL" translate="no">​</a></h2>
 <ul>
-<li>SQL-compatible query language for DynamoDB</li>
-<li>Allows you to select, insert, update, and delete data in DynamoDB using SQL</li>
-<li>Run queries across multiple DynamoDB tables</li>
-<li>Run PartiQL queries from:<!-- -->
+<li class="">SQL-compatible query language for DynamoDB</li>
+<li class="">Allows you to select, insert, update, and delete data in DynamoDB using SQL</li>
+<li class="">Run queries across multiple DynamoDB tables</li>
+<li class="">Run PartiQL queries from:<!-- -->
 <ul>
-<li>AWS Management Console</li>
-<li>NoSQL Workbench for DynamoDB</li>
-<li>DynamoDB APIs</li>
-<li>AWS CLI</li>
-<li>AWS SDK</li>
-</ul>
-</li>
-<li>Supports some (but not all) statements:<!-- -->
-<ul>
-<li>INSERT</li>
-<li>UPDATE</li>
-<li>SELECT</li>
-<li>DELETE</li>
+<li class="">AWS Management Console</li>
+<li class="">NoSQL Workbench for DynamoDB</li>
+<li class="">DynamoDB APIs</li>
+<li class="">AWS CLI</li>
+<li class="">AWS SDK</li>
 </ul>
 </li>
-<li>It supports Batch operation</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="conditional-writes">Conditional Writes<a href="#conditional-writes" class="hash-link" aria-label="Direct link to Conditional Writes" title="Direct link to Conditional Writes">​</a></h2>
+<li class="">Supports some (but not all) statements:<!-- -->
 <ul>
-<li>DynamoDB has a feature called “Conditional Writes” (Optimistic Locking)</li>
-<li>A strategy to ensure an item hasn’t changed before you update/delete it</li>
-<li>Each item has an attribute that acts as a version number</li>
+<li class="">INSERT</li>
+<li class="">UPDATE</li>
+<li class="">SELECT</li>
+<li class="">DELETE</li>
+</ul>
+</li>
+<li class="">It supports Batch operation</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="conditional-writes">Conditional Writes<a href="#conditional-writes" class="hash-link" aria-label="Direct link to Conditional Writes" title="Direct link to Conditional Writes" translate="no">​</a></h2>
+<ul>
+<li class="">DynamoDB has a feature called “Conditional Writes” (Optimistic Locking)</li>
+<li class="">A strategy to ensure an item hasn’t changed before you update/delete it</li>
+<li class="">Each item has an attribute that acts as a version number</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="dynamo-optimistic-locking" src="/LearningCollection/assets/images/dynamo-optimistic-locking-090daa8dfaa9eee995ff8740bb856634.png" width="1500" height="474" class="img_ev3q"></p>
 <ul>
-<li>For PutItem, UpdateItem, DeleteItem, and BatchWriteItem</li>
-<li>You can specify a Condition expression to determine which items should be modified:<!-- -->
+<li class="">For PutItem, UpdateItem, DeleteItem, and BatchWriteItem</li>
+<li class="">You can specify a Condition expression to determine which items should be modified:<!-- -->
 <ul>
-<li>attribute_exists</li>
-<li>attribute_not_exists</li>
-<li>attribute_type</li>
-<li>contains (for string)</li>
-<li>begins_with (for string)</li>
-<li>ProductCategory IN (<!-- -->:cat1<!-- -->, <!-- -->:cat2<!-- -->) and Price between <!-- -->:low<!-- --> and <!-- -->:high</li>
-<li>size (string length)</li>
+<li class="">attribute_exists</li>
+<li class="">attribute_not_exists</li>
+<li class="">attribute_type</li>
+<li class="">contains (for string)</li>
+<li class="">begins_with (for string)</li>
+<li class="">ProductCategory IN (<!-- -->:cat1<!-- -->, <!-- -->:cat2<!-- -->) and Price between <!-- -->:low<!-- --> and <!-- -->:high</li>
+<li class="">size (string length)</li>
 </ul>
 </li>
-<li>Note: Filter Expression filters the results of read queries, while Condition Expressions are for write operations</li>
+<li class="">Note: Filter Expression filters the results of read queries, while Condition Expressions are for write operations</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="example-on-update-item">Example on Update Item<a href="#example-on-update-item" class="hash-link" aria-label="Direct link to Example on Update Item" title="Direct link to Example on Update Item">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="example-on-update-item">Example on Update Item<a href="#example-on-update-item" class="hash-link" aria-label="Direct link to Example on Update Item" title="Direct link to Example on Update Item" translate="no">​</a></h3>
 <p><img decoding="async" loading="lazy" alt="dynamo-conditional-update" src="/LearningCollection/assets/images/dynamo-conditional-update-8384a9ef5d1ce28b266c31f534410620.png" width="1615" height="781" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="example-on-delete-item">Example on Delete Item<a href="#example-on-delete-item" class="hash-link" aria-label="Direct link to Example on Delete Item" title="Direct link to Example on Delete Item">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="example-on-delete-item">Example on Delete Item<a href="#example-on-delete-item" class="hash-link" aria-label="Direct link to Example on Delete Item" title="Direct link to Example on Delete Item" translate="no">​</a></h3>
 <p><img decoding="async" loading="lazy" alt="dynamo-delete" src="/LearningCollection/assets/images/dynamo-delete-47b93b72d5176a3390ee6b4d98c4a626.png" width="1651" height="762" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="do-not-overwrite-elements">Do Not Overwrite Elements<a href="#do-not-overwrite-elements" class="hash-link" aria-label="Direct link to Do Not Overwrite Elements" title="Direct link to Do Not Overwrite Elements">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="do-not-overwrite-elements">Do Not Overwrite Elements<a href="#do-not-overwrite-elements" class="hash-link" aria-label="Direct link to Do Not Overwrite Elements" title="Direct link to Do Not Overwrite Elements" translate="no">​</a></h3>
 <ul>
-<li>attribute_not_exists(partition_key)<!-- -->
+<li class="">attribute_not_exists(partition_key)<!-- -->
 <ul>
-<li>Make sure the item isn’t overwritten</li>
+<li class="">Make sure the item isn’t overwritten</li>
 </ul>
 </li>
-<li>attribute_not_exists(partition_key) and attribute_not_exists(sort_key)<!-- -->
+<li class="">attribute_not_exists(partition_key) and attribute_not_exists(sort_key)<!-- -->
 <ul>
-<li>Make sure the partition / sort key combination is not overwritten</li>
+<li class="">Make sure the partition / sort key combination is not overwritten</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="example-complex-condition">Example Complex Condition<a href="#example-complex-condition" class="hash-link" aria-label="Direct link to Example Complex Condition" title="Direct link to Example Complex Condition">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="example-complex-condition">Example Complex Condition<a href="#example-complex-condition" class="hash-link" aria-label="Direct link to Example Complex Condition" title="Direct link to Example Complex Condition" translate="no">​</a></h3>
 <p><img decoding="async" loading="lazy" alt="dynamo-complex-condition" src="/LearningCollection/assets/images/dynamo-complex-condition-487f74ff31dfa1331d24f83a4264675a.png" width="1638" height="670" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="example-of-string-comparisons">Example of String Comparisons<a href="#example-of-string-comparisons" class="hash-link" aria-label="Direct link to Example of String Comparisons" title="Direct link to Example of String Comparisons">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="example-of-string-comparisons">Example of String Comparisons<a href="#example-of-string-comparisons" class="hash-link" aria-label="Direct link to Example of String Comparisons" title="Direct link to Example of String Comparisons" translate="no">​</a></h3>
 <ul>
-<li>begins_with – check if prefix matches</li>
-<li>contains – check if string is contained in another string</li>
+<li class="">begins_with – check if prefix matches</li>
+<li class="">contains – check if string is contained in another string</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="dynamo-string-comparisons" src="/LearningCollection/assets/images/dynamo-string-comparisons-d3a891aeff3f6048c03162ceaa300d5e.png" width="1230" height="517" class="img_ev3q"></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="secondary-indexes">Secondary Indexes<a href="#secondary-indexes" class="hash-link" aria-label="Direct link to Secondary Indexes" title="Direct link to Secondary Indexes">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="local-secondary-index-lsi">Local Secondary Index (LSI)<a href="#local-secondary-index-lsi" class="hash-link" aria-label="Direct link to Local Secondary Index (LSI)" title="Direct link to Local Secondary Index (LSI)">​</a></h3>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="secondary-indexes">Secondary Indexes<a href="#secondary-indexes" class="hash-link" aria-label="Direct link to Secondary Indexes" title="Direct link to Secondary Indexes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="local-secondary-index-lsi">Local Secondary Index (LSI)<a href="#local-secondary-index-lsi" class="hash-link" aria-label="Direct link to Local Secondary Index (LSI)" title="Direct link to Local Secondary Index (LSI)" translate="no">​</a></h3>
 <ul>
-<li>Alternative Sort Key for your table (same Partition Key as that of base table)</li>
-<li>The Sort Key consists of one scalar attribute (String, Number, or Binary)</li>
-<li>Up to 5 Local Secondary Indexes per table</li>
-<li>Must be defined at table creation time</li>
-<li>Attribute Projections – can contain some or all the attributes of the base table (KEYS_ONLY, INCLUDE, ALL)</li>
+<li class="">Alternative Sort Key for your table (same Partition Key as that of base table)</li>
+<li class="">The Sort Key consists of one scalar attribute (String, Number, or Binary)</li>
+<li class="">Up to 5 Local Secondary Indexes per table</li>
+<li class="">Must be defined at table creation time</li>
+<li class="">Attribute Projections – can contain some or all the attributes of the base table (KEYS_ONLY, INCLUDE, ALL)</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="local-secondary-index" src="/LearningCollection/assets/images/local-secondary-index-9365cbf4d967dc5a8ea248271ae4bc3d.png" width="1303" height="423" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="global-secondary-index-gsi">Global Secondary Index (GSI)<a href="#global-secondary-index-gsi" class="hash-link" aria-label="Direct link to Global Secondary Index (GSI)" title="Direct link to Global Secondary Index (GSI)">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="global-secondary-index-gsi">Global Secondary Index (GSI)<a href="#global-secondary-index-gsi" class="hash-link" aria-label="Direct link to Global Secondary Index (GSI)" title="Direct link to Global Secondary Index (GSI)" translate="no">​</a></h3>
 <ul>
-<li>Alternative Primary Key (HASH or HASH+RANGE) from the base table</li>
-<li>Speed up queries on non-key attributes</li>
-<li>The Index Key consists of scalar attributes (String, Number, or Binary)</li>
-<li>Attribute Projections – some or all the attributes of the base table (KEYS_ONLY, INCLUDE, ALL)</li>
-<li>Must provision RCUs &amp; WCUs for the index</li>
-<li>Can be added/modified after table creation</li>
+<li class="">Alternative Primary Key (HASH or HASH+RANGE) from the base table</li>
+<li class="">Speed up queries on non-key attributes</li>
+<li class="">The Index Key consists of scalar attributes (String, Number, or Binary)</li>
+<li class="">Attribute Projections – some or all the attributes of the base table (KEYS_ONLY, INCLUDE, ALL)</li>
+<li class="">Must provision RCUs &amp; WCUs for the index</li>
+<li class="">Can be added/modified after table creation</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="global-secondary-index" src="/LearningCollection/assets/images/global-secondary-index-68b190463406a2b4a06194914ecc3c1e.png" width="1695" height="396" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="indexes-and-throttling">Indexes and Throttling<a href="#indexes-and-throttling" class="hash-link" aria-label="Direct link to Indexes and Throttling" title="Direct link to Indexes and Throttling">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="indexes-and-throttling">Indexes and Throttling<a href="#indexes-and-throttling" class="hash-link" aria-label="Direct link to Indexes and Throttling" title="Direct link to Indexes and Throttling" translate="no">​</a></h3>
 <ul>
-<li>Global Secondary Index (GSI):<!-- -->
+<li class="">Global Secondary Index (GSI):<!-- -->
 <ul>
-<li>If the writes are throttled on the GSI, then the main table will be throttled!</li>
-<li>Even if the WCU on the main tables are fine</li>
-<li>Choose your GSI partition key carefully!</li>
-<li>Assign your WCU capacity carefully!</li>
+<li class="">If the writes are throttled on the GSI, then the main table will be throttled!</li>
+<li class="">Even if the WCU on the main tables are fine</li>
+<li class="">Choose your GSI partition key carefully!</li>
+<li class="">Assign your WCU capacity carefully!</li>
 </ul>
 </li>
-<li>Local Secondary Index (LSI):<!-- -->
+<li class="">Local Secondary Index (LSI):<!-- -->
 <ul>
-<li>Uses the WCUs and RCUs of the main table</li>
-<li>No special throttling considerations</li>
+<li class="">Uses the WCUs and RCUs of the main table</li>
+<li class="">No special throttling considerations</li>
 </ul>
 </li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="dynamodb-accelerator-dax">DynamoDB Accelerator (DAX)<a href="#dynamodb-accelerator-dax" class="hash-link" aria-label="Direct link to DynamoDB Accelerator (DAX)" title="Direct link to DynamoDB Accelerator (DAX)">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="dynamodb-accelerator-dax">DynamoDB Accelerator (DAX)<a href="#dynamodb-accelerator-dax" class="hash-link" aria-label="Direct link to DynamoDB Accelerator (DAX)" title="Direct link to DynamoDB Accelerator (DAX)" translate="no">​</a></h2>
 <ul>
-<li>Fully-managed, highly available, seamless in-memory cache for DynamoDB</li>
-<li>Microseconds latency for cached reads &amp; queries</li>
-<li>Doesn’t require application logic modification (compatible with existing DynamoDB APIs)</li>
-<li>Solves the “Hot Key” problem (too many reads)</li>
-<li>5 minutes TTL for cache (default)</li>
-<li>Up to 10 nodes in the cluster</li>
-<li>Multi-AZ (3 nodes minimum recommended for production)</li>
-<li>Secure (Encryption at rest with KMS, VPC, IAM, CloudTrail, …)</li>
+<li class="">Fully-managed, highly available, seamless in-memory cache for DynamoDB</li>
+<li class="">Microseconds latency for cached reads &amp; queries</li>
+<li class="">Doesn’t require application logic modification (compatible with existing DynamoDB APIs)</li>
+<li class="">Solves the “Hot Key” problem (too many reads)</li>
+<li class="">5 minutes TTL for cache (default)</li>
+<li class="">Up to 10 nodes in the cluster</li>
+<li class="">Multi-AZ (3 nodes minimum recommended for production)</li>
+<li class="">Secure (Encryption at rest with KMS, VPC, IAM, CloudTrail, …)</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="dynamodb-accelerator" src="/LearningCollection/assets/images/dynamodb-accelerator-90b1a15cffd252a520126b169d310df9.png" width="514" height="813" class="img_ev3q"></p>
 <p>DynamoDB Accelerator (DAX) vs. ElastiCache:</p>
 <p><img decoding="async" loading="lazy" alt="dynamodb-vs-elasticache" src="/LearningCollection/assets/images/dynamodb-vs-elasticache-dae4abaf509c4807125c8e49d49c9a86.png" width="1276" height="649" class="img_ev3q"></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="dynamodb-streams">DynamoDB Streams<a href="#dynamodb-streams" class="hash-link" aria-label="Direct link to DynamoDB Streams" title="Direct link to DynamoDB Streams">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="dynamodb-streams">DynamoDB Streams<a href="#dynamodb-streams" class="hash-link" aria-label="Direct link to DynamoDB Streams" title="Direct link to DynamoDB Streams" translate="no">​</a></h2>
 <ul>
-<li>Ordered stream of item-level modifications (create/update/delete) in a table</li>
-<li>Stream records can be:<!-- -->
+<li class="">Ordered stream of item-level modifications (create/update/delete) in a table</li>
+<li class="">Stream records can be:<!-- -->
 <ul>
-<li>Sent to Kinesis Data Streams</li>
-<li>Read by AWS Lambda</li>
-<li>Read by Kinesis Client Library applications</li>
+<li class="">Sent to Kinesis Data Streams</li>
+<li class="">Read by AWS Lambda</li>
+<li class="">Read by Kinesis Client Library applications</li>
 </ul>
 </li>
-<li>Data Retention for up to 24 hours</li>
-<li>Use cases:<!-- -->
+<li class="">Data Retention for up to 24 hours</li>
+<li class="">Use cases:<!-- -->
 <ul>
-<li>react to changes in real-time (welcome email to users)</li>
-<li>Analytics</li>
-<li>Insert into derivative tables</li>
-<li>Insert into OpenSearch Service</li>
-<li>Implement cross-region replication</li>
+<li class="">react to changes in real-time (welcome email to users)</li>
+<li class="">Analytics</li>
+<li class="">Insert into derivative tables</li>
+<li class="">Insert into OpenSearch Service</li>
+<li class="">Implement cross-region replication</li>
 </ul>
 </li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="dynamodb-streams" src="/LearningCollection/assets/images/dynamodb-streams-d740f92b0c4019e3192310110ab4de62.png" width="1830" height="865" class="img_ev3q"></p>
 <ul>
-<li>Ability to choose the information that will be written to the stream:<!-- -->
+<li class="">Ability to choose the information that will be written to the stream:<!-- -->
 <ul>
-<li><strong>KEYS_ONLY</strong> – only the key attributes of the modified item</li>
-<li><strong>NEW_IMAGE</strong> – the entire item, as it appears after it was modified</li>
-<li><strong>OLD_IMAGE</strong> – the entire item, as it appeared before it was modified</li>
-<li><strong>NEW_AND_OLD_IMAGES</strong> – both the new and the old images of the item</li>
+<li class=""><strong>KEYS_ONLY</strong> – only the key attributes of the modified item</li>
+<li class=""><strong>NEW_IMAGE</strong> – the entire item, as it appears after it was modified</li>
+<li class=""><strong>OLD_IMAGE</strong> – the entire item, as it appeared before it was modified</li>
+<li class=""><strong>NEW_AND_OLD_IMAGES</strong> – both the new and the old images of the item</li>
 </ul>
 </li>
-<li>DynamoDB Streams are made of shards, just like Kinesis Data Streams</li>
-<li>You don’t provision shards, this is automated by AWS</li>
-<li>Records are not retroactively populated in a stream after enabling it</li>
+<li class="">DynamoDB Streams are made of shards, just like Kinesis Data Streams</li>
+<li class="">You don’t provision shards, this is automated by AWS</li>
+<li class="">Records are not retroactively populated in a stream after enabling it</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="dynamodb-streams--aws-lambda">DynamoDB Streams &amp; AWS Lambda<a href="#dynamodb-streams--aws-lambda" class="hash-link" aria-label="Direct link to DynamoDB Streams &amp; AWS Lambda" title="Direct link to DynamoDB Streams &amp; AWS Lambda">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dynamodb-streams--aws-lambda">DynamoDB Streams &amp; AWS Lambda<a href="#dynamodb-streams--aws-lambda" class="hash-link" aria-label="Direct link to DynamoDB Streams &amp; AWS Lambda" title="Direct link to DynamoDB Streams &amp; AWS Lambda" translate="no">​</a></h3>
 <ul>
-<li>You need to define an Event Source Mapping to read from a DynamoDB Streams</li>
-<li>You need to ensure the Lambda function has the appropriate permissions</li>
-<li>Your Lambda function is invoked synchronously</li>
+<li class="">You need to define an Event Source Mapping to read from a DynamoDB Streams</li>
+<li class="">You need to ensure the Lambda function has the appropriate permissions</li>
+<li class="">Your Lambda function is invoked synchronously</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="dynamo-streams-and-lambda" src="/LearningCollection/assets/images/dynamo-streams-and-lambda-53b51021ba13804cd234bc129739d032.png" width="574" height="841" class="img_ev3q"></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="misc">Misc<a href="#misc" class="hash-link" aria-label="Direct link to Misc" title="Direct link to Misc">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="dynamodb-cli">DynamoDB CLI<a href="#dynamodb-cli" class="hash-link" aria-label="Direct link to DynamoDB CLI" title="Direct link to DynamoDB CLI">​</a></h3>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="misc">Misc<a href="#misc" class="hash-link" aria-label="Direct link to Misc" title="Direct link to Misc" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dynamodb-cli">DynamoDB CLI<a href="#dynamodb-cli" class="hash-link" aria-label="Direct link to DynamoDB CLI" title="Direct link to DynamoDB CLI" translate="no">​</a></h3>
 <ul>
-<li><code>--projection-expression</code>: one or more attributes to retrieve</li>
-<li><code>--filter-expression</code>: filter items before returned to you</li>
-<li>General AWS CLI Pagination options (e.g., DynamoDB, S3, …)<!-- -->
+<li class=""><code>--projection-expression</code>: one or more attributes to retrieve</li>
+<li class=""><code>--filter-expression</code>: filter items before returned to you</li>
+<li class="">General AWS CLI Pagination options (e.g., DynamoDB, S3, …)<!-- -->
 <ul>
-<li><code>--page-size</code>: specify that AWS CLI retrieves the full list of items but with a larger number of API calls instead of one API call (default: 1000 items)</li>
-<li><code>--max-items</code>: max. number of items to show in the CLI (returns NextToken)</li>
-<li><code>--starting-token</code>: specify the last NextToken to retrieve the next set of items</li>
+<li class=""><code>--page-size</code>: specify that AWS CLI retrieves the full list of items but with a larger number of API calls instead of one API call (default: 1000 items)</li>
+<li class=""><code>--max-items</code>: max. number of items to show in the CLI (returns NextToken)</li>
+<li class=""><code>--starting-token</code>: specify the last NextToken to retrieve the next set of items</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="dynamodb-as-session-state-cache">DynamoDB as Session State Cache<a href="#dynamodb-as-session-state-cache" class="hash-link" aria-label="Direct link to DynamoDB as Session State Cache" title="Direct link to DynamoDB as Session State Cache">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dynamodb-as-session-state-cache">DynamoDB as Session State Cache<a href="#dynamodb-as-session-state-cache" class="hash-link" aria-label="Direct link to DynamoDB as Session State Cache" title="Direct link to DynamoDB as Session State Cache" translate="no">​</a></h3>
 <ul>
-<li>It’s common to use DynamoDB to store session states</li>
-<li>vs. ElastiCache<!-- -->
+<li class="">It’s common to use DynamoDB to store session states</li>
+<li class="">vs. ElastiCache<!-- -->
 <ul>
-<li>ElastiCache is in-memory, but DynamoDB is serverless</li>
-<li>Both are key/value stores</li>
+<li class="">ElastiCache is in-memory, but DynamoDB is serverless</li>
+<li class="">Both are key/value stores</li>
 </ul>
 </li>
-<li>vs. EFS<!-- -->
+<li class="">vs. EFS<!-- -->
 <ul>
-<li>EFS must be attached to EC2 instances as a network drive</li>
+<li class="">EFS must be attached to EC2 instances as a network drive</li>
 </ul>
 </li>
-<li>vs. EBS &amp; Instance Store<!-- -->
+<li class="">vs. EBS &amp; Instance Store<!-- -->
 <ul>
-<li>EBS &amp; Instance Store can only be used for local caching, not shared caching</li>
+<li class="">EBS &amp; Instance Store can only be used for local caching, not shared caching</li>
 </ul>
 </li>
-<li>vs. S3<!-- -->
+<li class="">vs. S3<!-- -->
 <ul>
-<li>S3 is higher latency, and not meant for small objects</li>
+<li class="">S3 is higher latency, and not meant for small objects</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="write-sharding">Write Sharding<a href="#write-sharding" class="hash-link" aria-label="Direct link to Write Sharding" title="Direct link to Write Sharding">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="write-sharding">Write Sharding<a href="#write-sharding" class="hash-link" aria-label="Direct link to Write Sharding" title="Direct link to Write Sharding" translate="no">​</a></h3>
 <ul>
-<li>Imagine we have a voting application with two candidates, candidate A and candidate B</li>
-<li>If Partition Key is “Candidate_ID”, this results into two partitions, which will generate issues (e.g., Hot Partition)</li>
-<li>A strategy that allows better distribution of items evenly across partitions</li>
-<li>Add a suffix to Partition Key value</li>
-<li>Two methods:<!-- -->
+<li class="">Imagine we have a voting application with two candidates, candidate A and candidate B</li>
+<li class="">If Partition Key is “Candidate_ID”, this results into two partitions, which will generate issues (e.g., Hot Partition)</li>
+<li class="">A strategy that allows better distribution of items evenly across partitions</li>
+<li class="">Add a suffix to Partition Key value</li>
+<li class="">Two methods:<!-- -->
 <ul>
-<li>Sharding Using Random Suffix</li>
-<li>Sharding Using Calculated Suffix</li>
+<li class="">Sharding Using Random Suffix</li>
+<li class="">Sharding Using Calculated Suffix</li>
 </ul>
 </li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="dynamo-write-sharding" src="/LearningCollection/assets/images/dynamo-write-sharding-3fb3beb2cc17acb3b9fde75320f9aeca.png" width="733" height="511" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="large-objects-pattern">Large Objects Pattern<a href="#large-objects-pattern" class="hash-link" aria-label="Direct link to Large Objects Pattern" title="Direct link to Large Objects Pattern">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="large-objects-pattern">Large Objects Pattern<a href="#large-objects-pattern" class="hash-link" aria-label="Direct link to Large Objects Pattern" title="Direct link to Large Objects Pattern" translate="no">​</a></h3>
 <p><img decoding="async" loading="lazy" alt="dynamo-large-objects" src="/LearningCollection/assets/images/dynamo-large-objects-66b3df6affe7f77e37e3dc72805ffff9.png" width="1744" height="703" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="indexing-s3-objects-metadata">Indexing S3 Objects Metadata<a href="#indexing-s3-objects-metadata" class="hash-link" aria-label="Direct link to Indexing S3 Objects Metadata" title="Direct link to Indexing S3 Objects Metadata">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="indexing-s3-objects-metadata">Indexing S3 Objects Metadata<a href="#indexing-s3-objects-metadata" class="hash-link" aria-label="Direct link to Indexing S3 Objects Metadata" title="Direct link to Indexing S3 Objects Metadata" translate="no">​</a></h3>
 <p><img decoding="async" loading="lazy" alt="dynamo-indexing-metadata" src="/LearningCollection/assets/images/dynamo-indexing-metadata-a21c7033b3ecd9e30dd7844e92f4b9ba.png" width="1494" height="694" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="operations">Operations<a href="#operations" class="hash-link" aria-label="Direct link to Operations" title="Direct link to Operations">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="operations">Operations<a href="#operations" class="hash-link" aria-label="Direct link to Operations" title="Direct link to Operations" translate="no">​</a></h3>
 <ul>
-<li>Table Cleanup<!-- -->
+<li class="">Table Cleanup<!-- -->
 <ul>
-<li>Option 1: Scan + DeleteItem<!-- -->
+<li class="">Option 1: Scan + DeleteItem<!-- -->
 <ul>
-<li>Very slow, consumes RCU &amp; WCU, expensive</li>
+<li class="">Very slow, consumes RCU &amp; WCU, expensive</li>
 </ul>
 </li>
-<li>Option 2: Drop Table + Recreate table<!-- -->
+<li class="">Option 2: Drop Table + Recreate table<!-- -->
 <ul>
-<li>Fast, efficient, cheap</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Copying a DynamoDB Table<!-- -->
-<ul>
-<li>Option 1: Using AWS Data Pipeline</li>
-<li>Option 2: Backup and restore into a new table<!-- -->
-<ul>
-<li>Takes some time</li>
-</ul>
-</li>
-<li>Option 3: Scan + PutItem or BatchWriteItem<!-- -->
-<ul>
-<li>Write your own code</li>
+<li class="">Fast, efficient, cheap</li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="security--other-features">Security &amp; Other Features<a href="#security--other-features" class="hash-link" aria-label="Direct link to Security &amp; Other Features" title="Direct link to Security &amp; Other Features">​</a></h2>
+<li class="">Copying a DynamoDB Table<!-- -->
 <ul>
-<li>Security<!-- -->
+<li class="">Option 1: Using AWS Data Pipeline</li>
+<li class="">Option 2: Backup and restore into a new table<!-- -->
 <ul>
-<li>VPC Endpoints available to access DynamoDB without using the Internet</li>
-<li>Access fully controlled by IAM</li>
-<li>Encryption at rest using AWS KMS and in-transit using SSL/TLS</li>
+<li class="">Takes some time</li>
 </ul>
 </li>
-<li>Backup and Restore feature available<!-- -->
+<li class="">Option 3: Scan + PutItem or BatchWriteItem<!-- -->
 <ul>
-<li>Point-in-time Recovery (PITR) like RDS</li>
-<li>No performance impact</li>
+<li class="">Write your own code</li>
 </ul>
 </li>
-<li>Global Tables<!-- -->
-<ul>
-<li>Multi-region, multi-active, fully replicated, high performance</li>
 </ul>
 </li>
-<li>DynamoDB Local<!-- -->
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="security--other-features">Security &amp; Other Features<a href="#security--other-features" class="hash-link" aria-label="Direct link to Security &amp; Other Features" title="Direct link to Security &amp; Other Features" translate="no">​</a></h2>
 <ul>
-<li>Develop and test apps locally without accessing the DynamoDB web service (without Internet)</li>
+<li class="">Security<!-- -->
+<ul>
+<li class="">VPC Endpoints available to access DynamoDB without using the Internet</li>
+<li class="">Access fully controlled by IAM</li>
+<li class="">Encryption at rest using AWS KMS and in-transit using SSL/TLS</li>
 </ul>
 </li>
-<li>AWS Database Migration Service (AWS DMS) can be used to migrate to DynamoDB (from MongoDB, Oracle, MySQL, S3, …)</li>
+<li class="">Backup and Restore feature available<!-- -->
+<ul>
+<li class="">Point-in-time Recovery (PITR) like RDS</li>
+<li class="">No performance impact</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="users-interact-with-dynamodb-directly">Users Interact with DynamoDB Directly<a href="#users-interact-with-dynamodb-directly" class="hash-link" aria-label="Direct link to Users Interact with DynamoDB Directly" title="Direct link to Users Interact with DynamoDB Directly">​</a></h3>
+</li>
+<li class="">Global Tables<!-- -->
+<ul>
+<li class="">Multi-region, multi-active, fully replicated, high performance</li>
+</ul>
+</li>
+<li class="">DynamoDB Local<!-- -->
+<ul>
+<li class="">Develop and test apps locally without accessing the DynamoDB web service (without Internet)</li>
+</ul>
+</li>
+<li class="">AWS Database Migration Service (AWS DMS) can be used to migrate to DynamoDB (from MongoDB, Oracle, MySQL, S3, …)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="users-interact-with-dynamodb-directly">Users Interact with DynamoDB Directly<a href="#users-interact-with-dynamodb-directly" class="hash-link" aria-label="Direct link to Users Interact with DynamoDB Directly" title="Direct link to Users Interact with DynamoDB Directly" translate="no">​</a></h3>
 <p><img decoding="async" loading="lazy" alt="dynamo-users" src="/LearningCollection/assets/images/dynamo-users-b8b6a831ccdc5aaa4a7c49d102cf292a.png" width="1354" height="754" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fine-grained-access-control">Fine-Grained Access Control<a href="#fine-grained-access-control" class="hash-link" aria-label="Direct link to Fine-Grained Access Control" title="Direct link to Fine-Grained Access Control">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fine-grained-access-control">Fine-Grained Access Control<a href="#fine-grained-access-control" class="hash-link" aria-label="Direct link to Fine-Grained Access Control" title="Direct link to Fine-Grained Access Control" translate="no">​</a></h3>
 <ul>
-<li>Using Web Identity Federation or Cognito Identity Pools, each user gets AWS credentials</li>
-<li>You can assign an IAM Role to these users with a Condition to limit their API access to DynamoDB</li>
-<li>LeadingKeys – limit row-level access for users on the Key Primary</li>
-<li>Attributes – limit specific attributes the user can see</li>
+<li class="">Using Web Identity Federation or Cognito Identity Pools, each user gets AWS credentials</li>
+<li class="">You can assign an IAM Role to these users with a Condition to limit their API access to DynamoDB</li>
+<li class="">LeadingKeys – limit row-level access for users on the Key Primary</li>
+<li class="">Attributes – limit specific attributes the user can see</li>
 </ul>
-<p><img decoding="async" loading="lazy" alt="dynamo-access-control" src="/LearningCollection/assets/images/dynamo-access-control-541b3f88031a1d85dce215b022a6d906.png" width="973" height="568" class="img_ev3q"></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/RobinTTY/LearningCollection/tree/master/website/docs/cloud/aws/certified-developer-associate/dynamodb.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/LearningCollection/cloud/aws/certified-developer-associate/lambda"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Lambda</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/LearningCollection/cloud/aws/certified-developer-associate/api-gateway"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">API Gateway</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#basics" class="table-of-contents__link toc-highlight">Basics</a><ul><li><a href="#primary-keys" class="table-of-contents__link toc-highlight">Primary Keys</a></li><li><a href="#writing-data" class="table-of-contents__link toc-highlight">Writing Data</a></li><li><a href="#reading-data" class="table-of-contents__link toc-highlight">Reading Data</a></li><li><a href="#deleting-data" class="table-of-contents__link toc-highlight">Deleting Data</a></li><li><a href="#batch-operations" class="table-of-contents__link toc-highlight">Batch Operations</a></li><li><a href="#time-to-live-ttl" class="table-of-contents__link toc-highlight">Time To Live (TTL)</a></li><li><a href="#transactions" class="table-of-contents__link toc-highlight">Transactions</a></li></ul></li><li><a href="#readwrite-capacity-modes" class="table-of-contents__link toc-highlight">Read/Write Capacity Modes</a><ul><li><a href="#rw-capacity-modes--provisioned" class="table-of-contents__link toc-highlight">R/W Capacity Modes – Provisioned</a></li><li><a href="#write-capacity-units-wcu" class="table-of-contents__link toc-highlight">Write Capacity Units (WCU)</a></li><li><a href="#strongly-consistent-read-vs-eventually-consistent-read" class="table-of-contents__link toc-highlight">Strongly Consistent Read vs. Eventually Consistent Read</a></li><li><a href="#read-capacity-units-rcu" class="table-of-contents__link toc-highlight">Read Capacity Units (RCU)</a></li><li><a href="#partitions-internal" class="table-of-contents__link toc-highlight">Partitions Internal</a></li><li><a href="#throttling" class="table-of-contents__link toc-highlight">Throttling</a></li><li><a href="#rw-capacity-modes--on-demand" class="table-of-contents__link toc-highlight">R/W Capacity Modes – On-Demand</a></li></ul></li><li><a href="#partiql" class="table-of-contents__link toc-highlight">PartiQL</a></li><li><a href="#conditional-writes" class="table-of-contents__link toc-highlight">Conditional Writes</a><ul><li><a href="#example-on-update-item" class="table-of-contents__link toc-highlight">Example on Update Item</a></li><li><a href="#example-on-delete-item" class="table-of-contents__link toc-highlight">Example on Delete Item</a></li><li><a href="#do-not-overwrite-elements" class="table-of-contents__link toc-highlight">Do Not Overwrite Elements</a></li><li><a href="#example-complex-condition" class="table-of-contents__link toc-highlight">Example Complex Condition</a></li><li><a href="#example-of-string-comparisons" class="table-of-contents__link toc-highlight">Example of String Comparisons</a></li></ul></li><li><a href="#secondary-indexes" class="table-of-contents__link toc-highlight">Secondary Indexes</a><ul><li><a href="#local-secondary-index-lsi" class="table-of-contents__link toc-highlight">Local Secondary Index (LSI)</a></li><li><a href="#global-secondary-index-gsi" class="table-of-contents__link toc-highlight">Global Secondary Index (GSI)</a></li><li><a href="#indexes-and-throttling" class="table-of-contents__link toc-highlight">Indexes and Throttling</a></li></ul></li><li><a href="#dynamodb-accelerator-dax" class="table-of-contents__link toc-highlight">DynamoDB Accelerator (DAX)</a></li><li><a href="#dynamodb-streams" class="table-of-contents__link toc-highlight">DynamoDB Streams</a><ul><li><a href="#dynamodb-streams--aws-lambda" class="table-of-contents__link toc-highlight">DynamoDB Streams &amp; AWS Lambda</a></li></ul></li><li><a href="#misc" class="table-of-contents__link toc-highlight">Misc</a><ul><li><a href="#dynamodb-cli" class="table-of-contents__link toc-highlight">DynamoDB CLI</a></li><li><a href="#dynamodb-as-session-state-cache" class="table-of-contents__link toc-highlight">DynamoDB as Session State Cache</a></li><li><a href="#write-sharding" class="table-of-contents__link toc-highlight">Write Sharding</a></li><li><a href="#large-objects-pattern" class="table-of-contents__link toc-highlight">Large Objects Pattern</a></li><li><a href="#indexing-s3-objects-metadata" class="table-of-contents__link toc-highlight">Indexing S3 Objects Metadata</a></li><li><a href="#operations" class="table-of-contents__link toc-highlight">Operations</a></li></ul></li><li><a href="#security--other-features" class="table-of-contents__link toc-highlight">Security &amp; Other Features</a><ul><li><a href="#users-interact-with-dynamodb-directly" class="table-of-contents__link toc-highlight">Users Interact with DynamoDB Directly</a></li><li><a href="#fine-grained-access-control" class="table-of-contents__link toc-highlight">Fine-Grained Access Control</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">My other sites</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.robintty.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Website<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Socials</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/RobinTTY" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/in/robin-m%C3%BCller-574782170/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div></div></footer></div>
+<p><img decoding="async" loading="lazy" alt="dynamo-access-control" src="/LearningCollection/assets/images/dynamo-access-control-541b3f88031a1d85dce215b022a6d906.png" width="973" height="568" class="img_ev3q"></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/RobinTTY/LearningCollection/tree/master/website/docs/cloud/aws/certified-developer-associate/dynamodb.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/LearningCollection/cloud/aws/certified-developer-associate/lambda"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Lambda</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/LearningCollection/cloud/aws/certified-developer-associate/api-gateway"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">API Gateway</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#basics" class="table-of-contents__link toc-highlight">Basics</a><ul><li><a href="#primary-keys" class="table-of-contents__link toc-highlight">Primary Keys</a></li><li><a href="#writing-data" class="table-of-contents__link toc-highlight">Writing Data</a></li><li><a href="#reading-data" class="table-of-contents__link toc-highlight">Reading Data</a></li><li><a href="#deleting-data" class="table-of-contents__link toc-highlight">Deleting Data</a></li><li><a href="#batch-operations" class="table-of-contents__link toc-highlight">Batch Operations</a></li><li><a href="#time-to-live-ttl" class="table-of-contents__link toc-highlight">Time To Live (TTL)</a></li><li><a href="#transactions" class="table-of-contents__link toc-highlight">Transactions</a></li></ul></li><li><a href="#readwrite-capacity-modes" class="table-of-contents__link toc-highlight">Read/Write Capacity Modes</a><ul><li><a href="#rw-capacity-modes--provisioned" class="table-of-contents__link toc-highlight">R/W Capacity Modes – Provisioned</a></li><li><a href="#write-capacity-units-wcu" class="table-of-contents__link toc-highlight">Write Capacity Units (WCU)</a></li><li><a href="#strongly-consistent-read-vs-eventually-consistent-read" class="table-of-contents__link toc-highlight">Strongly Consistent Read vs. Eventually Consistent Read</a></li><li><a href="#read-capacity-units-rcu" class="table-of-contents__link toc-highlight">Read Capacity Units (RCU)</a></li><li><a href="#partitions-internal" class="table-of-contents__link toc-highlight">Partitions Internal</a></li><li><a href="#throttling" class="table-of-contents__link toc-highlight">Throttling</a></li><li><a href="#rw-capacity-modes--on-demand" class="table-of-contents__link toc-highlight">R/W Capacity Modes – On-Demand</a></li></ul></li><li><a href="#partiql" class="table-of-contents__link toc-highlight">PartiQL</a></li><li><a href="#conditional-writes" class="table-of-contents__link toc-highlight">Conditional Writes</a><ul><li><a href="#example-on-update-item" class="table-of-contents__link toc-highlight">Example on Update Item</a></li><li><a href="#example-on-delete-item" class="table-of-contents__link toc-highlight">Example on Delete Item</a></li><li><a href="#do-not-overwrite-elements" class="table-of-contents__link toc-highlight">Do Not Overwrite Elements</a></li><li><a href="#example-complex-condition" class="table-of-contents__link toc-highlight">Example Complex Condition</a></li><li><a href="#example-of-string-comparisons" class="table-of-contents__link toc-highlight">Example of String Comparisons</a></li></ul></li><li><a href="#secondary-indexes" class="table-of-contents__link toc-highlight">Secondary Indexes</a><ul><li><a href="#local-secondary-index-lsi" class="table-of-contents__link toc-highlight">Local Secondary Index (LSI)</a></li><li><a href="#global-secondary-index-gsi" class="table-of-contents__link toc-highlight">Global Secondary Index (GSI)</a></li><li><a href="#indexes-and-throttling" class="table-of-contents__link toc-highlight">Indexes and Throttling</a></li></ul></li><li><a href="#dynamodb-accelerator-dax" class="table-of-contents__link toc-highlight">DynamoDB Accelerator (DAX)</a></li><li><a href="#dynamodb-streams" class="table-of-contents__link toc-highlight">DynamoDB Streams</a><ul><li><a href="#dynamodb-streams--aws-lambda" class="table-of-contents__link toc-highlight">DynamoDB Streams &amp; AWS Lambda</a></li></ul></li><li><a href="#misc" class="table-of-contents__link toc-highlight">Misc</a><ul><li><a href="#dynamodb-cli" class="table-of-contents__link toc-highlight">DynamoDB CLI</a></li><li><a href="#dynamodb-as-session-state-cache" class="table-of-contents__link toc-highlight">DynamoDB as Session State Cache</a></li><li><a href="#write-sharding" class="table-of-contents__link toc-highlight">Write Sharding</a></li><li><a href="#large-objects-pattern" class="table-of-contents__link toc-highlight">Large Objects Pattern</a></li><li><a href="#indexing-s3-objects-metadata" class="table-of-contents__link toc-highlight">Indexing S3 Objects Metadata</a></li><li><a href="#operations" class="table-of-contents__link toc-highlight">Operations</a></li></ul></li><li><a href="#security--other-features" class="table-of-contents__link toc-highlight">Security &amp; Other Features</a><ul><li><a href="#users-interact-with-dynamodb-directly" class="table-of-contents__link toc-highlight">Users Interact with DynamoDB Directly</a></li><li><a href="#fine-grained-access-control" class="table-of-contents__link toc-highlight">Fine-Grained Access Control</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">My other sites</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.robintty.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Website<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Socials</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/RobinTTY" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/in/robin-m%C3%BCller-574782170/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div></div></footer></div>
 </body>
 </html>

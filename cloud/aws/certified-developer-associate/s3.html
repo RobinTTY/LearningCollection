@@ -2,574 +2,574 @@
 <html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-cloud/aws/certified-developer-associate/s3" data-has-hydrated="false">
 <head>
 <meta charset="UTF-8">
-<meta name="generator" content="Docusaurus v3.8.1">
-<title data-rh="true">S3 | Learning Collection Knowledge Base</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/s3"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="S3 | Learning Collection Knowledge Base"><meta data-rh="true" name="description" content="- Amazon S3 is one of the main building blocks of AWS"><meta data-rh="true" property="og:description" content="- Amazon S3 is one of the main building blocks of AWS"><link data-rh="true" rel="icon" href="/LearningCollection/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/s3"><link data-rh="true" rel="alternate" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/s3" hreflang="en"><link data-rh="true" rel="alternate" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/s3" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"S3","item":"https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/s3"}]}</script><link rel="stylesheet" href="/LearningCollection/assets/css/styles.619a2ab9.css">
-<script src="/LearningCollection/assets/js/runtime~main.bf2dc5f4.js" defer="defer"></script>
-<script src="/LearningCollection/assets/js/main.5de9a8af.js" defer="defer"></script>
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">S3 | Learning Collection Knowledge Base</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/s3"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="S3 | Learning Collection Knowledge Base"><meta data-rh="true" name="description" content="- Amazon S3 is one of the main building blocks of AWS"><meta data-rh="true" property="og:description" content="- Amazon S3 is one of the main building blocks of AWS"><link data-rh="true" rel="icon" href="/LearningCollection/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/s3"><link data-rh="true" rel="alternate" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/s3" hreflang="en"><link data-rh="true" rel="alternate" href="https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/s3" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"S3","item":"https://RobinTTY.github.io/LearningCollection/cloud/aws/certified-developer-associate/s3"}]}</script><link rel="stylesheet" href="/LearningCollection/assets/css/styles.04390029.css">
+<script src="/LearningCollection/assets/js/runtime~main.60aadb0d.js" defer="defer"></script>
+<script src="/LearningCollection/assets/js/main.7934f853.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<svg style="display: none;"><defs>
 <symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
 </defs></svg>
-<script>!function(){var t="light";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/LearningCollection/"><div class="navbar__logo"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Learning Collection</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/LearningCollection/">Docs</a><a class="navbar__item navbar__link" sidebarid="finance" href="/LearningCollection/finance/introduction">Finance</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/">Introduction</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/general-concepts/callStack">General Concepts</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Cloud</a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">AWS</a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Certified Developer Associate</a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview">Cloud Overview</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/iam">Identity and Access Management (IAM)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ec2">Elastic Compute Cloud (EC2)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elb">Elastic Load Balancing (ELB)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/relational-databases">Relational Databases (RDS/Aurora)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elasti-cache">ElastiCache</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/route53">Route 53</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/vpc">Virtual Private Cloud (VPC)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/s3">S3</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cli-sdk-iam-roles-policies">AWS CLI, SDK, IAM Roles &amp; Policies</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudfront">Cloudfront</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ecs-ecr-fargate">ECS, ECR, Fargate</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elastic-beanstalk">Elastic Beanstalk</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudformation">CloudFormation</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/integration-messaging">Integration &amp; Messaging</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/monitoring-troubleshooting-audit">Monitoring, Troubleshooting &amp; Audit</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/lambda">Lambda</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/dynamodb">DynamoDB</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/api-gateway">API Gateway</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ci-cd">CI/CD</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/sam">SAM</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-development-kit">Cloud Development Kit</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cognito">Cognito</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/misc-serverless">Miscellaneous Serverless</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/advanced-identity">Advanced Identity</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/security-encryption">Security &amp; Encryption</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/other-services">Other Services</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/exam-scoring">Exam Scoring</a></li></ul></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/csharp/introduction">C#</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/web/html/doctype">Web</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/databases/sql">Databases</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/kubernetes/architecture">Kubernetes</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/graphql/intro">GraphQL</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/tools/git/tags">Tools</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/linux/commonlyUsedCommands">Linux</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/interesting-topics">Interesting Topics</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/LearningCollection/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Cloud</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">AWS</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Certified Developer Associate</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">S3</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>S3</h1></header><ul>
-<li>Amazon S3 is one of the main building blocks of AWS</li>
-<li>It’s advertised as ”infinitely scaling” storage</li>
-<li>Many websites use Amazon S3 as a backbone</li>
-<li>Many AWS services use Amazon S3 as an integration as well</li>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/LearningCollection/"><div class="navbar__logo"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/LearningCollection/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Learning Collection</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/LearningCollection/">Docs</a><a class="navbar__item navbar__link" sidebarid="finance" href="/LearningCollection/finance/introduction">Finance</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/"><span title="Introduction" class="linkLabel_WmDU">Introduction</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/general-concepts/callStack"><span title="General Concepts" class="categoryLinkLabel_W154">General Concepts</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview"><span title="Cloud" class="categoryLinkLabel_W154">Cloud</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview"><span title="AWS" class="categoryLinkLabel_W154">AWS</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview"><span title="Certified Developer Associate" class="categoryLinkLabel_W154">Certified Developer Associate</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-overview"><span title="Cloud Overview" class="linkLabel_WmDU">Cloud Overview</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/iam"><span title="Identity and Access Management (IAM)" class="linkLabel_WmDU">Identity and Access Management (IAM)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ec2"><span title="Elastic Compute Cloud (EC2)" class="linkLabel_WmDU">Elastic Compute Cloud (EC2)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elb"><span title="Elastic Load Balancing (ELB)" class="linkLabel_WmDU">Elastic Load Balancing (ELB)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/relational-databases"><span title="Relational Databases (RDS/Aurora)" class="linkLabel_WmDU">Relational Databases (RDS/Aurora)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elasti-cache"><span title="ElastiCache" class="linkLabel_WmDU">ElastiCache</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/route53"><span title="Route 53" class="linkLabel_WmDU">Route 53</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/vpc"><span title="Virtual Private Cloud (VPC)" class="linkLabel_WmDU">Virtual Private Cloud (VPC)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/s3"><span title="S3" class="linkLabel_WmDU">S3</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cli-sdk-iam-roles-policies"><span title="AWS CLI, SDK, IAM Roles &amp; Policies" class="linkLabel_WmDU">AWS CLI, SDK, IAM Roles &amp; Policies</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudfront"><span title="Cloudfront" class="linkLabel_WmDU">Cloudfront</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ecs-ecr-fargate"><span title="ECS, ECR, Fargate" class="linkLabel_WmDU">ECS, ECR, Fargate</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/elastic-beanstalk"><span title="Elastic Beanstalk" class="linkLabel_WmDU">Elastic Beanstalk</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloudformation"><span title="CloudFormation" class="linkLabel_WmDU">CloudFormation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/integration-messaging"><span title="Integration &amp; Messaging" class="linkLabel_WmDU">Integration &amp; Messaging</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/monitoring-troubleshooting-audit"><span title="Monitoring, Troubleshooting &amp; Audit" class="linkLabel_WmDU">Monitoring, Troubleshooting &amp; Audit</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/lambda"><span title="Lambda" class="linkLabel_WmDU">Lambda</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/dynamodb"><span title="DynamoDB" class="linkLabel_WmDU">DynamoDB</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/api-gateway"><span title="API Gateway" class="linkLabel_WmDU">API Gateway</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/ci-cd"><span title="CI/CD" class="linkLabel_WmDU">CI/CD</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/sam"><span title="SAM" class="linkLabel_WmDU">SAM</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cloud-development-kit"><span title="Cloud Development Kit" class="linkLabel_WmDU">Cloud Development Kit</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/cognito"><span title="Cognito" class="linkLabel_WmDU">Cognito</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/misc-serverless"><span title="Miscellaneous Serverless" class="linkLabel_WmDU">Miscellaneous Serverless</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/advanced-identity"><span title="Advanced Identity" class="linkLabel_WmDU">Advanced Identity</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/security-encryption"><span title="Security &amp; Encryption" class="linkLabel_WmDU">Security &amp; Encryption</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/other-services"><span title="Other Services" class="linkLabel_WmDU">Other Services</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/LearningCollection/cloud/aws/certified-developer-associate/exam-scoring"><span title="Exam Scoring" class="linkLabel_WmDU">Exam Scoring</span></a></li></ul></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/csharp/introduction"><span title="C#" class="categoryLinkLabel_W154">C#</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/web/html/doctype"><span title="Web" class="categoryLinkLabel_W154">Web</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/databases/sql"><span title="Databases" class="categoryLinkLabel_W154">Databases</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/kubernetes/architecture"><span title="Kubernetes" class="categoryLinkLabel_W154">Kubernetes</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/graphql/intro"><span title="GraphQL" class="categoryLinkLabel_W154">GraphQL</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/tools/git/tags"><span title="Tools" class="categoryLinkLabel_W154">Tools</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/LearningCollection/linux/commonlyUsedCommands"><span title="Linux" class="categoryLinkLabel_W154">Linux</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/LearningCollection/interesting-topics"><span title="Interesting Topics" class="linkLabel_WmDU">Interesting Topics</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/LearningCollection/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Cloud</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">AWS</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Certified Developer Associate</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">S3</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>S3</h1></header><ul>
+<li class="">Amazon S3 is one of the main building blocks of AWS</li>
+<li class="">It’s advertised as ”infinitely scaling” storage</li>
+<li class="">Many websites use Amazon S3 as a backbone</li>
+<li class="">Many AWS services use Amazon S3 as an integration as well</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="use-cases">Use cases<a href="#use-cases" class="hash-link" aria-label="Direct link to Use cases" title="Direct link to Use cases">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="use-cases">Use cases<a href="#use-cases" class="hash-link" aria-label="Direct link to Use cases" title="Direct link to Use cases" translate="no">​</a></h2>
 <ul>
-<li>Backup and storage</li>
-<li>Disaster Recovery</li>
-<li>Archive</li>
-<li>Hybrid Cloud storage</li>
-<li>Application hosting</li>
-<li>Media hosting</li>
-<li>Data lakes &amp; big data analytics</li>
-<li>Software delivery</li>
-<li>Static website</li>
+<li class="">Backup and storage</li>
+<li class="">Disaster Recovery</li>
+<li class="">Archive</li>
+<li class="">Hybrid Cloud storage</li>
+<li class="">Application hosting</li>
+<li class="">Media hosting</li>
+<li class="">Data lakes &amp; big data analytics</li>
+<li class="">Software delivery</li>
+<li class="">Static website</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="buckets">Buckets<a href="#buckets" class="hash-link" aria-label="Direct link to Buckets" title="Direct link to Buckets">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="buckets">Buckets<a href="#buckets" class="hash-link" aria-label="Direct link to Buckets" title="Direct link to Buckets" translate="no">​</a></h2>
 <ul>
-<li>Amazon S3 allows people to store objects (files) in “buckets” (directories)</li>
-<li>Buckets must have a globally unique name (across all regions all accounts)</li>
-<li>Buckets are defined at the region level</li>
-<li>S3 looks like a global service but buckets are created in a region</li>
-<li>Naming convention<!-- -->
+<li class="">Amazon S3 allows people to store objects (files) in “buckets” (directories)</li>
+<li class="">Buckets must have a globally unique name (across all regions all accounts)</li>
+<li class="">Buckets are defined at the region level</li>
+<li class="">S3 looks like a global service but buckets are created in a region</li>
+<li class="">Naming convention<!-- -->
 <ul>
-<li>No uppercase, No underscore</li>
-<li>3-63 characters long</li>
-<li>Not an IP</li>
-<li>Must start with lowercase letter or number</li>
-<li>Must NOT start with the prefix xn-</li>
-<li>Must NOT end with the suffix -s3alias</li>
+<li class="">No uppercase, No underscore</li>
+<li class="">3-63 characters long</li>
+<li class="">Not an IP</li>
+<li class="">Must start with lowercase letter or number</li>
+<li class="">Must NOT start with the prefix xn-</li>
+<li class="">Must NOT end with the suffix -s3alias</li>
 </ul>
 </li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="objects">Objects<a href="#objects" class="hash-link" aria-label="Direct link to Objects" title="Direct link to Objects">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="objects">Objects<a href="#objects" class="hash-link" aria-label="Direct link to Objects" title="Direct link to Objects" translate="no">​</a></h2>
 <ul>
-<li>Objects (files) have a Key</li>
-<li>The key is the FULL path:<!-- -->
+<li class="">Objects (files) have a Key</li>
+<li class="">The key is the FULL path:<!-- -->
 <ul>
-<li>s3://my-bucket/my_file.txt</li>
-<li>s3://my-bucket/my_folder1/another_folder/my_file.txt</li>
+<li class="">s3://my-bucket/my_file.txt</li>
+<li class="">s3://my-bucket/my_folder1/another_folder/my_file.txt</li>
 </ul>
 </li>
-<li>The key is composed of prefix + object name<!-- -->
+<li class="">The key is composed of prefix + object name<!-- -->
 <ul>
-<li>s3://my-bucket/my_folder1/another_folder/my_file.txt</li>
+<li class="">s3://my-bucket/my_folder1/another_folder/my_file.txt</li>
 </ul>
 </li>
-<li>There’s no concept of “directories” within buckets (although the UI will trick you to think otherwise)</li>
-<li>Just keys with very long names that contain slashes (“/”)</li>
-<li>Object values are the content of the body:<!-- -->
+<li class="">There’s no concept of “directories” within buckets (although the UI will trick you to think otherwise)</li>
+<li class="">Just keys with very long names that contain slashes (“/”)</li>
+<li class="">Object values are the content of the body:<!-- -->
 <ul>
-<li>Max. Object Size is 5TB (5000GB)</li>
-<li>If uploading more than 5GB, must use “multi-part upload”</li>
+<li class="">Max. Object Size is 5TB (5000GB)</li>
+<li class="">If uploading more than 5GB, must use “multi-part upload”</li>
 </ul>
 </li>
-<li>Metadata (list of text key / value pairs – system or user metadata)</li>
-<li>Tags (Unicode key / value pair – up to 10) – useful for security / lifecycle</li>
-<li>Version ID (if versioning is enabled)</li>
+<li class="">Metadata (list of text key / value pairs – system or user metadata)</li>
+<li class="">Tags (Unicode key / value pair – up to 10) – useful for security / lifecycle</li>
+<li class="">Version ID (if versioning is enabled)</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="amazon-s3--security">Amazon S3 – Security<a href="#amazon-s3--security" class="hash-link" aria-label="Direct link to Amazon S3 – Security" title="Direct link to Amazon S3 – Security">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="amazon-s3--security">Amazon S3 – Security<a href="#amazon-s3--security" class="hash-link" aria-label="Direct link to Amazon S3 – Security" title="Direct link to Amazon S3 – Security" translate="no">​</a></h2>
 <ul>
-<li>User-Based<!-- -->
+<li class="">User-Based<!-- -->
 <ul>
-<li>IAM Policies – which API calls should be allowed for a specific user from IAM</li>
+<li class="">IAM Policies – which API calls should be allowed for a specific user from IAM</li>
 </ul>
 </li>
-<li>Resource-Based<!-- -->
+<li class="">Resource-Based<!-- -->
 <ul>
-<li>Bucket Policies – bucket wide rules from the S3 console - allows cross account</li>
-<li>Object Access Control List (ACL) – finer grain (can be disabled)</li>
-<li>Bucket Access Control List (ACL) – less common (can be disabled)</li>
+<li class="">Bucket Policies – bucket wide rules from the S3 console - allows cross account</li>
+<li class="">Object Access Control List (ACL) – finer grain (can be disabled)</li>
+<li class="">Bucket Access Control List (ACL) – less common (can be disabled)</li>
 </ul>
 </li>
-<li>Note: an IAM principal can access an S3 object if<!-- -->
+<li class="">Note: an IAM principal can access an S3 object if<!-- -->
 <ul>
-<li>The user IAM permissions ALLOW it OR</li>
-<li>AND there’s no explicit DENY</li>
+<li class="">The user IAM permissions ALLOW it OR</li>
+<li class="">AND there’s no explicit DENY</li>
 </ul>
 </li>
-<li>Encryption: encrypt objects in Amazon S3 using encryption keys</li>
+<li class="">Encryption: encrypt objects in Amazon S3 using encryption keys</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bucket-policies">Bucket Policies<a href="#bucket-policies" class="hash-link" aria-label="Direct link to Bucket Policies" title="Direct link to Bucket Policies">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bucket-policies">Bucket Policies<a href="#bucket-policies" class="hash-link" aria-label="Direct link to Bucket Policies" title="Direct link to Bucket Policies" translate="no">​</a></h3>
 <ul>
-<li>JSON based policies<!-- -->
+<li class="">JSON based policies<!-- -->
 <ul>
-<li>Resources: buckets and objects</li>
-<li>Effect: Allow / Deny</li>
-<li>Actions: Set of API to Allow or Deny</li>
-<li>Principal: The account or user to apply the policy to</li>
+<li class="">Resources: buckets and objects</li>
+<li class="">Effect: Allow / Deny</li>
+<li class="">Actions: Set of API to Allow or Deny</li>
+<li class="">Principal: The account or user to apply the policy to</li>
 </ul>
 </li>
-<li>Use S3 bucket for policy to:<!-- -->
+<li class="">Use S3 bucket for policy to:<!-- -->
 <ul>
-<li>Grant public access to the bucket</li>
-<li>Force objects to be encrypted at upload</li>
-<li>Grant access to another account (Cross Account)</li>
+<li class="">Grant public access to the bucket</li>
+<li class="">Force objects to be encrypted at upload</li>
+<li class="">Grant access to another account (Cross Account)</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bucket-settings-for-block-public-access">Bucket settings for Block Public Access<a href="#bucket-settings-for-block-public-access" class="hash-link" aria-label="Direct link to Bucket settings for Block Public Access" title="Direct link to Bucket settings for Block Public Access">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bucket-settings-for-block-public-access">Bucket settings for Block Public Access<a href="#bucket-settings-for-block-public-access" class="hash-link" aria-label="Direct link to Bucket settings for Block Public Access" title="Direct link to Bucket settings for Block Public Access" translate="no">​</a></h3>
 <p><img decoding="async" loading="lazy" alt="default-bucket-policy" src="/LearningCollection/assets/images/default-bucket-policy-7fc1305a98eeb1cb8100abfb7b6fc67b.png" width="1213" height="418" class="img_ev3q"></p>
 <ul>
-<li>These settings were created to prevent company data leaks</li>
-<li>If you know your bucket should never be public, leave these on</li>
-<li>Can be set at the account level</li>
+<li class="">These settings were created to prevent company data leaks</li>
+<li class="">If you know your bucket should never be public, leave these on</li>
+<li class="">Can be set at the account level</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="object-encryption">Object Encryption<a href="#object-encryption" class="hash-link" aria-label="Direct link to Object Encryption" title="Direct link to Object Encryption">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="object-encryption">Object Encryption<a href="#object-encryption" class="hash-link" aria-label="Direct link to Object Encryption" title="Direct link to Object Encryption" translate="no">​</a></h3>
 <ul>
-<li>You can encrypt objects in S3 buckets using one of 4 methods</li>
-<li>Server-Side Encryption (SSE)<!-- -->
+<li class="">You can encrypt objects in S3 buckets using one of 4 methods</li>
+<li class="">Server-Side Encryption (SSE)<!-- -->
 <ul>
-<li>Server-Side Encryption with Amazon S3-Managed Keys (SSE-S3) - Enabled by default<!-- -->
+<li class="">Server-Side Encryption with Amazon S3-Managed Keys (SSE-S3) - Enabled by default<!-- -->
 <ul>
-<li>Encrypts S3 objects using keys handled, managed, and owned by AWS</li>
-</ul>
-</li>
-<li>Server-Side Encryption with KMS Keys stored in AWS KMS (SSE-KMS)<!-- -->
-<ul>
-<li>Leverage AWS Key Management Service (AWS KMS) to manage encryption keys</li>
+<li class="">Encrypts S3 objects using keys handled, managed, and owned by AWS</li>
 </ul>
 </li>
-<li>Server-Side Encryption with Customer-Provided Keys (SSE-C)<!-- -->
+<li class="">Server-Side Encryption with KMS Keys stored in AWS KMS (SSE-KMS)<!-- -->
 <ul>
-<li>When you want to manage your own encryption keys</li>
+<li class="">Leverage AWS Key Management Service (AWS KMS) to manage encryption keys</li>
+</ul>
+</li>
+<li class="">Server-Side Encryption with Customer-Provided Keys (SSE-C)<!-- -->
+<ul>
+<li class="">When you want to manage your own encryption keys</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Client-Side Encryption</li>
+<li class="">Client-Side Encryption</li>
 </ul>
 <p>It’s important to understand which ones are for which situation for the exam.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="s3-encryption--sse-s3">S3 Encryption – SSE-S3<a href="#s3-encryption--sse-s3" class="hash-link" aria-label="Direct link to S3 Encryption – SSE-S3" title="Direct link to S3 Encryption – SSE-S3">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-encryption--sse-s3">S3 Encryption – SSE-S3<a href="#s3-encryption--sse-s3" class="hash-link" aria-label="Direct link to S3 Encryption – SSE-S3" title="Direct link to S3 Encryption – SSE-S3" translate="no">​</a></h4>
 <ul>
-<li>Encryption using keys handled, managed, and owned by AWS</li>
-<li>Object is encrypted server-side</li>
-<li>Encryption type is AES-256</li>
-<li>Must set header &quot;x-amz-server-side-encryption&quot;: &quot;AES256&quot;</li>
-<li>Enabled by default for new buckets &amp; new objects</li>
+<li class="">Encryption using keys handled, managed, and owned by AWS</li>
+<li class="">Object is encrypted server-side</li>
+<li class="">Encryption type is AES-256</li>
+<li class="">Must set header &quot;x-amz-server-side-encryption&quot;: &quot;AES256&quot;</li>
+<li class="">Enabled by default for new buckets &amp; new objects</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="s3-encryption--sse-kms">S3 Encryption – SSE-KMS<a href="#s3-encryption--sse-kms" class="hash-link" aria-label="Direct link to S3 Encryption – SSE-KMS" title="Direct link to S3 Encryption – SSE-KMS">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-encryption--sse-kms">S3 Encryption – SSE-KMS<a href="#s3-encryption--sse-kms" class="hash-link" aria-label="Direct link to S3 Encryption – SSE-KMS" title="Direct link to S3 Encryption – SSE-KMS" translate="no">​</a></h4>
 <ul>
-<li>Encryption using keys handled and managed by AWS KMS (Key Management Service)</li>
-<li>KMS advantages: user control + audit key usage using CloudTrail</li>
-<li>Object is encrypted server side</li>
-<li>Must set header &quot;x-amz-server-side-encryption&quot;: &quot;aws<!-- -->:kms<!-- -->&quot;</li>
+<li class="">Encryption using keys handled and managed by AWS KMS (Key Management Service)</li>
+<li class="">KMS advantages: user control + audit key usage using CloudTrail</li>
+<li class="">Object is encrypted server side</li>
+<li class="">Must set header &quot;x-amz-server-side-encryption&quot;: &quot;aws<!-- -->:kms<!-- -->&quot;</li>
 </ul>
-<h5 class="anchor anchorWithStickyNavbar_LWe7" id="sse-kms-limitation">SSE-KMS Limitation<a href="#sse-kms-limitation" class="hash-link" aria-label="Direct link to SSE-KMS Limitation" title="Direct link to SSE-KMS Limitation">​</a></h5>
+<h5 class="anchor anchorTargetStickyNavbar_Vzrq" id="sse-kms-limitation">SSE-KMS Limitation<a href="#sse-kms-limitation" class="hash-link" aria-label="Direct link to SSE-KMS Limitation" title="Direct link to SSE-KMS Limitation" translate="no">​</a></h5>
 <ul>
-<li>If you use SSE-KMS, you may be impacted by the KMS limits</li>
-<li>When you upload, it calls the GenerateDataKey KMS API</li>
-<li>When you download, it calls the Decrypt KMS API</li>
-<li>Count towards the KMS quota per second (5500, 10000, 30000 req/s based on region)</li>
-<li>You can request a quota increase using the Service Quotas Console</li>
+<li class="">If you use SSE-KMS, you may be impacted by the KMS limits</li>
+<li class="">When you upload, it calls the GenerateDataKey KMS API</li>
+<li class="">When you download, it calls the Decrypt KMS API</li>
+<li class="">Count towards the KMS quota per second (5500, 10000, 30000 req/s based on region)</li>
+<li class="">You can request a quota increase using the Service Quotas Console</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="s3-encryption--sse-c">S3 Encryption – SSE-C<a href="#s3-encryption--sse-c" class="hash-link" aria-label="Direct link to S3 Encryption – SSE-C" title="Direct link to S3 Encryption – SSE-C">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-encryption--sse-c">S3 Encryption – SSE-C<a href="#s3-encryption--sse-c" class="hash-link" aria-label="Direct link to S3 Encryption – SSE-C" title="Direct link to S3 Encryption – SSE-C" translate="no">​</a></h4>
 <ul>
-<li>Server-Side Encryption using keys fully managed by the customer outside of AWS</li>
-<li>Amazon S3 does NOT store the encryption key you provide</li>
-<li>HTTPS must be used</li>
-<li>Encryption key must provided in HTTP headers, for every HTTP request made</li>
+<li class="">Server-Side Encryption using keys fully managed by the customer outside of AWS</li>
+<li class="">Amazon S3 does NOT store the encryption key you provide</li>
+<li class="">HTTPS must be used</li>
+<li class="">Encryption key must provided in HTTP headers, for every HTTP request made</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="s3-encryption--client-side-encryption">S3 Encryption – Client-Side Encryption<a href="#s3-encryption--client-side-encryption" class="hash-link" aria-label="Direct link to S3 Encryption – Client-Side Encryption" title="Direct link to S3 Encryption – Client-Side Encryption">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-encryption--client-side-encryption">S3 Encryption – Client-Side Encryption<a href="#s3-encryption--client-side-encryption" class="hash-link" aria-label="Direct link to S3 Encryption – Client-Side Encryption" title="Direct link to S3 Encryption – Client-Side Encryption" translate="no">​</a></h4>
 <ul>
-<li>Use client libraries such as Amazon S3 Client-Side Encryption Library</li>
-<li>Clients must encrypt data themselves before sending to Amazon S3</li>
-<li>Clients must decrypt data themselves when retrieving from Amazon S3</li>
-<li>Customer fully manages the keys and encryption cycle</li>
+<li class="">Use client libraries such as Amazon S3 Client-Side Encryption Library</li>
+<li class="">Clients must encrypt data themselves before sending to Amazon S3</li>
+<li class="">Clients must decrypt data themselves when retrieving from Amazon S3</li>
+<li class="">Customer fully manages the keys and encryption cycle</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="s3--encryption-in-transit-ssltls">S3 – Encryption in transit (SSL/TLS)<a href="#s3--encryption-in-transit-ssltls" class="hash-link" aria-label="Direct link to S3 – Encryption in transit (SSL/TLS)" title="Direct link to S3 – Encryption in transit (SSL/TLS)">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3--encryption-in-transit-ssltls">S3 – Encryption in transit (SSL/TLS)<a href="#s3--encryption-in-transit-ssltls" class="hash-link" aria-label="Direct link to S3 – Encryption in transit (SSL/TLS)" title="Direct link to S3 – Encryption in transit (SSL/TLS)" translate="no">​</a></h4>
 <ul>
-<li>Encryption in flight is also called SSL/TLS</li>
-<li>Amazon S3 exposes two endpoints:<!-- -->
+<li class="">Encryption in flight is also called SSL/TLS</li>
+<li class="">Amazon S3 exposes two endpoints:<!-- -->
 <ul>
-<li>HTTP Endpoint – non encrypted</li>
-<li>HTTPS Endpoint – encryption in flight</li>
+<li class="">HTTP Endpoint – non encrypted</li>
+<li class="">HTTPS Endpoint – encryption in flight</li>
 </ul>
 </li>
-<li>HTTPS is recommended</li>
-<li>HTTPS is mandatory for SSE-C</li>
-<li>Most clients would use the HTTPS endpoint by default</li>
+<li class="">HTTPS is recommended</li>
+<li class="">HTTPS is mandatory for SSE-C</li>
+<li class="">Most clients would use the HTTPS endpoint by default</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="force-encryption-in-transit">Force Encryption in Transit<a href="#force-encryption-in-transit" class="hash-link" aria-label="Direct link to Force Encryption in Transit" title="Direct link to Force Encryption in Transit">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="force-encryption-in-transit">Force Encryption in Transit<a href="#force-encryption-in-transit" class="hash-link" aria-label="Direct link to Force Encryption in Transit" title="Direct link to Force Encryption in Transit" translate="no">​</a></h4>
 <p><img decoding="async" loading="lazy" alt="aws-secure-transport" src="/LearningCollection/assets/images/aws-secure-transport-7c466dd905f3fb1cc4b19a0472392681.png" width="681" height="783" class="img_ev3q"></p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="default-encryption-vs-bucket-policies">Default Encryption vs. Bucket Policies<a href="#default-encryption-vs-bucket-policies" class="hash-link" aria-label="Direct link to Default Encryption vs. Bucket Policies" title="Direct link to Default Encryption vs. Bucket Policies">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="default-encryption-vs-bucket-policies">Default Encryption vs. Bucket Policies<a href="#default-encryption-vs-bucket-policies" class="hash-link" aria-label="Direct link to Default Encryption vs. Bucket Policies" title="Direct link to Default Encryption vs. Bucket Policies" translate="no">​</a></h4>
 <ul>
-<li>SSE-S3 encryption is automatically applied to new objects stored in S3 bucket</li>
-<li>Optionally, you can “force encryption” using a bucket policy and refuse any API call to PUT an S3 object without encryption headers (SSE-KMS or SSE-C)</li>
+<li class="">SSE-S3 encryption is automatically applied to new objects stored in S3 bucket</li>
+<li class="">Optionally, you can “force encryption” using a bucket policy and refuse any API call to PUT an S3 object without encryption headers (SSE-KMS or SSE-C)</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="default-encryption" src="/LearningCollection/assets/images/default-encryption-348f784c3b534f3ae7b4978bb468147f.png" width="1617" height="453" class="img_ev3q"></p>
 <p>Note: Bucket Policies are evaluated before “Default Encryption”</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cors">CORS<a href="#cors" class="hash-link" aria-label="Direct link to CORS" title="Direct link to CORS">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cors">CORS<a href="#cors" class="hash-link" aria-label="Direct link to CORS" title="Direct link to CORS" translate="no">​</a></h3>
 <ul>
-<li>Origin = scheme (protocol) + host (domain) + port<!-- -->
+<li class="">Origin = scheme (protocol) + host (domain) + port<!-- -->
 <ul>
-<li>Web Browser based mechanism to allow requests to other origins while visiting the main origin</li>
-<li>Same origin: <a href="http://example.com/app1" target="_blank" rel="noopener noreferrer">http://example.com/app1</a> &amp; <a href="http://example.com/app2" target="_blank" rel="noopener noreferrer">http://example.com/app2</a></li>
-<li>Different origins: <a href="http://www.example.com" target="_blank" rel="noopener noreferrer">http://www.example.com</a> &amp; <a href="http://other.example.com" target="_blank" rel="noopener noreferrer">http://other.example.com</a></li>
-<li>The requests won’t be fulfilled unless the other origin allows for the requests, using CORS Headers (example: Access-Control-Allow-Origin)</li>
+<li class="">Web Browser based mechanism to allow requests to other origins while visiting the main origin</li>
+<li class="">Same origin: <a href="http://example.com/app1" target="_blank" rel="noopener noreferrer" class="">http://example.com/app1</a> &amp; <a href="http://example.com/app2" target="_blank" rel="noopener noreferrer" class="">http://example.com/app2</a></li>
+<li class="">Different origins: <a href="http://www.example.com" target="_blank" rel="noopener noreferrer" class="">http://www.example.com</a> &amp; <a href="http://other.example.com" target="_blank" rel="noopener noreferrer" class="">http://other.example.com</a></li>
+<li class="">The requests won’t be fulfilled unless the other origin allows for the requests, using CORS Headers (example: Access-Control-Allow-Origin)</li>
 </ul>
 </li>
-<li>If a client makes a cross-origin request on our S3 bucket, we need to enable the correct CORS headers</li>
-<li>It’s a popular exam question</li>
-<li>You can allow for a specific origin or for * (all origins)</li>
+<li class="">If a client makes a cross-origin request on our S3 bucket, we need to enable the correct CORS headers</li>
+<li class="">It’s a popular exam question</li>
+<li class="">You can allow for a specific origin or for * (all origins)</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="cors-s3" src="/LearningCollection/assets/images/cors-s3-09beb29ed24a6f6f9e970dd94d611100.png" width="1756" height="481" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="mfa-delete">MFA Delete<a href="#mfa-delete" class="hash-link" aria-label="Direct link to MFA Delete" title="Direct link to MFA Delete">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mfa-delete">MFA Delete<a href="#mfa-delete" class="hash-link" aria-label="Direct link to MFA Delete" title="Direct link to MFA Delete" translate="no">​</a></h3>
 <ul>
-<li>MFA (Multi-Factor Authentication) – force users to generate a code on a device (usually a mobile phone or hardware) before doing important operations on S3</li>
-<li>MFA will be required to:<!-- -->
+<li class="">MFA (Multi-Factor Authentication) – force users to generate a code on a device (usually a mobile phone or hardware) before doing important operations on S3</li>
+<li class="">MFA will be required to:<!-- -->
 <ul>
-<li>Permanently delete an object version</li>
-<li>Suspend Versioning on the bucket</li>
+<li class="">Permanently delete an object version</li>
+<li class="">Suspend Versioning on the bucket</li>
 </ul>
 </li>
-<li>MFA won’t be required to:<!-- -->
+<li class="">MFA won’t be required to:<!-- -->
 <ul>
-<li>Enable Versioning</li>
-<li>List deleted versions</li>
+<li class="">Enable Versioning</li>
+<li class="">List deleted versions</li>
 </ul>
 </li>
-<li>To use MFA Delete, Versioning must be enabled on the bucket</li>
-<li>Only the bucket owner (root account) can enable/disable MFA Delete</li>
+<li class="">To use MFA Delete, Versioning must be enabled on the bucket</li>
+<li class="">Only the bucket owner (root account) can enable/disable MFA Delete</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="access-logs">Access Logs<a href="#access-logs" class="hash-link" aria-label="Direct link to Access Logs" title="Direct link to Access Logs">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="access-logs">Access Logs<a href="#access-logs" class="hash-link" aria-label="Direct link to Access Logs" title="Direct link to Access Logs" translate="no">​</a></h3>
 <ul>
-<li>For audit purpose, you may want to log all access to S3 buckets</li>
-<li>Any request made to S3, from any account, authorized or denied, will be logged into another S3 bucket</li>
-<li>That data can be analyzed using data analysis tools…</li>
-<li>The target logging bucket must be in the same AWS region</li>
-<li>Do not set your logging bucket to be the monitored bucket<!-- -->
+<li class="">For audit purpose, you may want to log all access to S3 buckets</li>
+<li class="">Any request made to S3, from any account, authorized or denied, will be logged into another S3 bucket</li>
+<li class="">That data can be analyzed using data analysis tools…</li>
+<li class="">The target logging bucket must be in the same AWS region</li>
+<li class="">Do not set your logging bucket to be the monitored bucket<!-- -->
 <ul>
-<li>It will create a logging loop, and your bucket will grow exponentially</li>
-</ul>
-</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="pre-signed-urls">Pre-Signed URLs<a href="#pre-signed-urls" class="hash-link" aria-label="Direct link to Pre-Signed URLs" title="Direct link to Pre-Signed URLs">​</a></h3>
-<ul>
-<li>Generate pre-signed URLs using the S3 Console, AWS CLI or SDK</li>
-<li>URL Expiration<!-- -->
-<ul>
-<li>S3 Console – 1 min up to 720 mins (12 hours)</li>
-<li>AWS CLI – configure expiration with --expires-in parameter in seconds (default 3600 secs, max. 604800 secs ~ 168 hours)</li>
+<li class="">It will create a logging loop, and your bucket will grow exponentially</li>
 </ul>
 </li>
-<li>Users given a pre-signed URL inherit the permissions of the user that generated the URL for GET / PUT</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="pre-signed-urls">Pre-Signed URLs<a href="#pre-signed-urls" class="hash-link" aria-label="Direct link to Pre-Signed URLs" title="Direct link to Pre-Signed URLs" translate="no">​</a></h3>
+<ul>
+<li class="">Generate pre-signed URLs using the S3 Console, AWS CLI or SDK</li>
+<li class="">URL Expiration<!-- -->
+<ul>
+<li class="">S3 Console – 1 min up to 720 mins (12 hours)</li>
+<li class="">AWS CLI – configure expiration with --expires-in parameter in seconds (default 3600 secs, max. 604800 secs ~ 168 hours)</li>
+</ul>
+</li>
+<li class="">Users given a pre-signed URL inherit the permissions of the user that generated the URL for GET / PUT</li>
 </ul>
 <p>Examples:</p>
 <ul>
-<li>Allow only logged-in users to download a premium video from your S3 bucket</li>
-<li>Allow an ever-changing list of users to download files by generating URLs dynamically</li>
-<li>Allow temporarily a user to upload a file to a precise location in your S3 bucket</li>
+<li class="">Allow only logged-in users to download a premium video from your S3 bucket</li>
+<li class="">Allow an ever-changing list of users to download files by generating URLs dynamically</li>
+<li class="">Allow temporarily a user to upload a file to a precise location in your S3 bucket</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="presigned-urls" src="/LearningCollection/assets/images/presigned-urls-0e795a33abe5b6de9cb91711c9d1749f.png" width="346" height="892" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="access-points">Access Points<a href="#access-points" class="hash-link" aria-label="Direct link to Access Points" title="Direct link to Access Points">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="access-points">Access Points<a href="#access-points" class="hash-link" aria-label="Direct link to Access Points" title="Direct link to Access Points" translate="no">​</a></h3>
 <ul>
-<li>Access Points simplify security management for S3 Buckets</li>
-<li>Each Access Point has:<!-- -->
+<li class="">Access Points simplify security management for S3 Buckets</li>
+<li class="">Each Access Point has:<!-- -->
 <ul>
-<li>its own DNS name (Internet Origin or VPC Origin)</li>
-<li>an access point policy (similar to bucket policy) – manage security at scale</li>
+<li class="">its own DNS name (Internet Origin or VPC Origin)</li>
+<li class="">an access point policy (similar to bucket policy) – manage security at scale</li>
 </ul>
 </li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="s3-access-points" src="/LearningCollection/assets/images/s3-access-points-f7a7368f57855b1949f2ab1a20c7aff4.png" width="1488" height="436" class="img_ev3q"></p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="vpc-origin">VPC Origin<a href="#vpc-origin" class="hash-link" aria-label="Direct link to VPC Origin" title="Direct link to VPC Origin">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="vpc-origin">VPC Origin<a href="#vpc-origin" class="hash-link" aria-label="Direct link to VPC Origin" title="Direct link to VPC Origin" translate="no">​</a></h4>
 <ul>
-<li>We can define the access point to be accessible only from within the VPC</li>
-<li>You must create a VPC Endpoint to access the Access Point (Gateway or Interface Endpoint)</li>
-<li>The VPC Endpoint Policy must allow access to the target bucket and Access Point</li>
+<li class="">We can define the access point to be accessible only from within the VPC</li>
+<li class="">You must create a VPC Endpoint to access the Access Point (Gateway or Interface Endpoint)</li>
+<li class="">The VPC Endpoint Policy must allow access to the target bucket and Access Point</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="s3-object-lambda">S3 Object Lambda<a href="#s3-object-lambda" class="hash-link" aria-label="Direct link to S3 Object Lambda" title="Direct link to S3 Object Lambda">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-object-lambda">S3 Object Lambda<a href="#s3-object-lambda" class="hash-link" aria-label="Direct link to S3 Object Lambda" title="Direct link to S3 Object Lambda" translate="no">​</a></h3>
 <ul>
-<li>Use AWS Lambda Functions to change the object before it is retrieved by the caller application</li>
-<li>Only one S3 bucket is needed, on top of which we create S3 Access Point and S3 Object Lambda Access Points</li>
-<li>Use Cases:<!-- -->
+<li class="">Use AWS Lambda Functions to change the object before it is retrieved by the caller application</li>
+<li class="">Only one S3 bucket is needed, on top of which we create S3 Access Point and S3 Object Lambda Access Points</li>
+<li class="">Use Cases:<!-- -->
 <ul>
-<li>Redacting personally identifiable information for analytics or non-production environments</li>
-<li>Converting across data formats, such as converting XML to JSON</li>
-<li>Resizing and watermarking images on the fly using caller-specific details, such as the user who requested the object</li>
-</ul>
-</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="static-website-hosting">Static Website Hosting<a href="#static-website-hosting" class="hash-link" aria-label="Direct link to Static Website Hosting" title="Direct link to Static Website Hosting">​</a></h2>
-<ul>
-<li>S3 can host static websites and have them accessible on the Internet</li>
-<li>The website URL will be (depending on the region)<!-- -->
-<ul>
-<li><a href="http://bucket-name.s3-website-aws-region.amazonaws.com/" target="_blank" rel="noopener noreferrer">http://bucket-name.s3-website-aws-region.amazonaws.com/</a></li>
-<li><a href="http://bucket-name.s3-website.aws-region.amazonaws.com/" target="_blank" rel="noopener noreferrer">http://bucket-name.s3-website.aws-region.amazonaws.com/</a></li>
-</ul>
-</li>
-<li>If you get a 403 Forbidden error, make sure the bucket policy allows public reads!</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="versioning">Versioning<a href="#versioning" class="hash-link" aria-label="Direct link to Versioning" title="Direct link to Versioning">​</a></h2>
-<ul>
-<li>You can version your files in Amazon S3</li>
-<li>It is enabled at the bucket level</li>
-<li>Same key overwrite will change the “version”: 1, 2, 3….</li>
-<li>It is best practice to version your buckets<!-- -->
-<ul>
-<li>Protect against unintended deletes (ability to restore a version)</li>
-<li>Easy roll back to previous version</li>
-</ul>
-</li>
-<li>Notes:<!-- -->
-<ul>
-<li>Any file that is not versioned prior to enabling versioning will have version “null”</li>
-<li>Suspending versioning does not delete the previous versions</li>
+<li class="">Redacting personally identifiable information for analytics or non-production environments</li>
+<li class="">Converting across data formats, such as converting XML to JSON</li>
+<li class="">Resizing and watermarking images on the fly using caller-specific details, such as the user who requested the object</li>
 </ul>
 </li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="replication-crr--srr">Replication (CRR &amp; SRR)<a href="#replication-crr--srr" class="hash-link" aria-label="Direct link to Replication (CRR &amp; SRR)" title="Direct link to Replication (CRR &amp; SRR)">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="static-website-hosting">Static Website Hosting<a href="#static-website-hosting" class="hash-link" aria-label="Direct link to Static Website Hosting" title="Direct link to Static Website Hosting" translate="no">​</a></h2>
 <ul>
-<li>Must enable Versioning in source and destination buckets</li>
-<li>Cross-Region Replication (CRR)</li>
-<li>Same-Region Replication (SRR)</li>
-<li>Buckets can be in different AWS accounts</li>
-<li>Copying is asynchronous</li>
-<li>Must give proper IAM permissions to S3</li>
+<li class="">S3 can host static websites and have them accessible on the Internet</li>
+<li class="">The website URL will be (depending on the region)<!-- -->
+<ul>
+<li class=""><a href="http://bucket-name.s3-website-aws-region.amazonaws.com/" target="_blank" rel="noopener noreferrer" class="">http://bucket-name.s3-website-aws-region.amazonaws.com/</a></li>
+<li class=""><a href="http://bucket-name.s3-website.aws-region.amazonaws.com/" target="_blank" rel="noopener noreferrer" class="">http://bucket-name.s3-website.aws-region.amazonaws.com/</a></li>
+</ul>
+</li>
+<li class="">If you get a 403 Forbidden error, make sure the bucket policy allows public reads!</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="versioning">Versioning<a href="#versioning" class="hash-link" aria-label="Direct link to Versioning" title="Direct link to Versioning" translate="no">​</a></h2>
+<ul>
+<li class="">You can version your files in Amazon S3</li>
+<li class="">It is enabled at the bucket level</li>
+<li class="">Same key overwrite will change the “version”: 1, 2, 3….</li>
+<li class="">It is best practice to version your buckets<!-- -->
+<ul>
+<li class="">Protect against unintended deletes (ability to restore a version)</li>
+<li class="">Easy roll back to previous version</li>
+</ul>
+</li>
+<li class="">Notes:<!-- -->
+<ul>
+<li class="">Any file that is not versioned prior to enabling versioning will have version “null”</li>
+<li class="">Suspending versioning does not delete the previous versions</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="replication-crr--srr">Replication (CRR &amp; SRR)<a href="#replication-crr--srr" class="hash-link" aria-label="Direct link to Replication (CRR &amp; SRR)" title="Direct link to Replication (CRR &amp; SRR)" translate="no">​</a></h2>
+<ul>
+<li class="">Must enable Versioning in source and destination buckets</li>
+<li class="">Cross-Region Replication (CRR)</li>
+<li class="">Same-Region Replication (SRR)</li>
+<li class="">Buckets can be in different AWS accounts</li>
+<li class="">Copying is asynchronous</li>
+<li class="">Must give proper IAM permissions to S3</li>
 </ul>
 <p>Use cases:</p>
 <ul>
-<li><strong>CRR</strong> – compliance, lower latency access, replication across accounts</li>
-<li><strong>SRR</strong> – log aggregation, live replication between production and test accounts</li>
+<li class=""><strong>CRR</strong> – compliance, lower latency access, replication across accounts</li>
+<li class=""><strong>SRR</strong> – log aggregation, live replication between production and test accounts</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="details">Details<a href="#details" class="hash-link" aria-label="Direct link to Details" title="Direct link to Details">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="details">Details<a href="#details" class="hash-link" aria-label="Direct link to Details" title="Direct link to Details" translate="no">​</a></h3>
 <ul>
-<li>After you enable Replication, only new objects are replicated</li>
-<li>Optionally, you can replicate existing objects using S3 Batch Replication<!-- -->
+<li class="">After you enable Replication, only new objects are replicated</li>
+<li class="">Optionally, you can replicate existing objects using S3 Batch Replication<!-- -->
 <ul>
-<li>Replicates existing objects and objects that failed replication</li>
-</ul>
-</li>
-<li>For DELETE operations<!-- -->
-<ul>
-<li>Can replicate delete markers from source to target (optional setting)</li>
-<li>Deletions with a version ID are not replicated (to avoid malicious deletes)</li>
+<li class="">Replicates existing objects and objects that failed replication</li>
 </ul>
 </li>
-<li>There is no “chaining” of replication<!-- -->
+<li class="">For DELETE operations<!-- -->
 <ul>
-<li>If bucket 1 has replication into bucket 2, which has replication into bucket 3</li>
-<li>Then objects created in bucket 1 are not replicated to bucket 3</li>
+<li class="">Can replicate delete markers from source to target (optional setting)</li>
+<li class="">Deletions with a version ID are not replicated (to avoid malicious deletes)</li>
+</ul>
+</li>
+<li class="">There is no “chaining” of replication<!-- -->
+<ul>
+<li class="">If bucket 1 has replication into bucket 2, which has replication into bucket 3</li>
+<li class="">Then objects created in bucket 1 are not replicated to bucket 3</li>
 </ul>
 </li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="storage-classes">Storage Classes<a href="#storage-classes" class="hash-link" aria-label="Direct link to Storage Classes" title="Direct link to Storage Classes">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="storage-classes">Storage Classes<a href="#storage-classes" class="hash-link" aria-label="Direct link to Storage Classes" title="Direct link to Storage Classes" translate="no">​</a></h2>
 <ul>
-<li>Amazon S3 Standard - General Purpose</li>
-<li>Amazon S3 Standard-Infrequent Access (IA)</li>
-<li>Amazon S3 One Zone-Infrequent Access</li>
-<li>Amazon S3 Glacier Instant Retrieval</li>
-<li>Amazon S3 Glacier Flexible Retrieval</li>
-<li>Amazon S3 Glacier Deep Archive</li>
-<li>Amazon S3 Intelligent Tiering</li>
+<li class="">Amazon S3 Standard - General Purpose</li>
+<li class="">Amazon S3 Standard-Infrequent Access (IA)</li>
+<li class="">Amazon S3 One Zone-Infrequent Access</li>
+<li class="">Amazon S3 Glacier Instant Retrieval</li>
+<li class="">Amazon S3 Glacier Flexible Retrieval</li>
+<li class="">Amazon S3 Glacier Deep Archive</li>
+<li class="">Amazon S3 Intelligent Tiering</li>
 </ul>
 <p>Can move between classes manually or using S3 Lifecycle configurations</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="durability-and-availability">Durability and Availability<a href="#durability-and-availability" class="hash-link" aria-label="Direct link to Durability and Availability" title="Direct link to Durability and Availability">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="durability-and-availability">Durability and Availability<a href="#durability-and-availability" class="hash-link" aria-label="Direct link to Durability and Availability" title="Direct link to Durability and Availability" translate="no">​</a></h2>
 <ul>
-<li>Durability<!-- -->
+<li class="">Durability<!-- -->
 <ul>
-<li>High durability (99.999999999%) of objects across multiple AZ</li>
-<li>If you store 10,000,000 objects with Amazon S3, you can on average expect to incur a loss of a single object once every 10,000 years</li>
-<li>Same for all storage classes</li>
+<li class="">High durability (99.999999999%) of objects across multiple AZ</li>
+<li class="">If you store 10,000,000 objects with Amazon S3, you can on average expect to incur a loss of a single object once every 10,000 years</li>
+<li class="">Same for all storage classes</li>
 </ul>
 </li>
-<li>Availability<!-- -->
+<li class="">Availability<!-- -->
 <ul>
-<li>Measures how readily available a service is</li>
-<li>Varies depending on storage class</li>
-<li>Example: S3 standard has 99.99% availability = not available 53 minutes a year</li>
-</ul>
-</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="s3-standard--general-purpose">S3 Standard – General Purpose<a href="#s3-standard--general-purpose" class="hash-link" aria-label="Direct link to S3 Standard – General Purpose" title="Direct link to S3 Standard – General Purpose">​</a></h3>
-<ul>
-<li>99.99% Availability</li>
-<li>Used for frequently accessed data</li>
-<li>Low latency and high throughput</li>
-<li>Sustain 2 concurrent facility failures</li>
-<li>Use Cases: Big Data analytics, mobile &amp; gaming applications, content distribution…</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="s3-storage-classes--infrequent-access">S3 Storage Classes – Infrequent Access<a href="#s3-storage-classes--infrequent-access" class="hash-link" aria-label="Direct link to S3 Storage Classes – Infrequent Access" title="Direct link to S3 Storage Classes – Infrequent Access">​</a></h3>
-<ul>
-<li>For data that is less frequently accessed, but requires rapid access when needed</li>
-<li>Lower cost than S3 Standard</li>
-<li>Amazon S3 Standard-Infrequent Access (S3 Standard-IA)<!-- -->
-<ul>
-<li>99.9% Availability</li>
-<li>Use cases: Disaster Recovery, backups</li>
-</ul>
-</li>
-<li>Amazon S3 One Zone-Infrequent Access (S3 One Zone-IA)<!-- -->
-<ul>
-<li>High durability (99.999999999%) in a single AZ; data lost when AZ is destroyed</li>
-<li>99.5% Availability</li>
-<li>Use Cases: Storing secondary backup copies of on-premises data, or data you can recreate</li>
+<li class="">Measures how readily available a service is</li>
+<li class="">Varies depending on storage class</li>
+<li class="">Example: S3 standard has 99.99% availability = not available 53 minutes a year</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="s3-glacier-storage-classes">S3 Glacier Storage Classes<a href="#s3-glacier-storage-classes" class="hash-link" aria-label="Direct link to S3 Glacier Storage Classes" title="Direct link to S3 Glacier Storage Classes">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-standard--general-purpose">S3 Standard – General Purpose<a href="#s3-standard--general-purpose" class="hash-link" aria-label="Direct link to S3 Standard – General Purpose" title="Direct link to S3 Standard – General Purpose" translate="no">​</a></h3>
 <ul>
-<li>Low-cost object storage meant for archiving / backup</li>
-<li>Pricing: price for storage + object retrieval cost</li>
+<li class="">99.99% Availability</li>
+<li class="">Used for frequently accessed data</li>
+<li class="">Low latency and high throughput</li>
+<li class="">Sustain 2 concurrent facility failures</li>
+<li class="">Use Cases: Big Data analytics, mobile &amp; gaming applications, content distribution…</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="amazon-s3-glacier-instant-retrieval">Amazon S3 Glacier Instant Retrieval<a href="#amazon-s3-glacier-instant-retrieval" class="hash-link" aria-label="Direct link to Amazon S3 Glacier Instant Retrieval" title="Direct link to Amazon S3 Glacier Instant Retrieval">​</a></h4>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-storage-classes--infrequent-access">S3 Storage Classes – Infrequent Access<a href="#s3-storage-classes--infrequent-access" class="hash-link" aria-label="Direct link to S3 Storage Classes – Infrequent Access" title="Direct link to S3 Storage Classes – Infrequent Access" translate="no">​</a></h3>
 <ul>
-<li>Millisecond retrieval, great for data accessed once a quarter</li>
-<li>Minimum storage duration of 90 days</li>
+<li class="">For data that is less frequently accessed, but requires rapid access when needed</li>
+<li class="">Lower cost than S3 Standard</li>
+<li class="">Amazon S3 Standard-Infrequent Access (S3 Standard-IA)<!-- -->
+<ul>
+<li class="">99.9% Availability</li>
+<li class="">Use cases: Disaster Recovery, backups</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="amazon-s3-glacier-flexible-retrieval">Amazon S3 Glacier Flexible Retrieval<a href="#amazon-s3-glacier-flexible-retrieval" class="hash-link" aria-label="Direct link to Amazon S3 Glacier Flexible Retrieval" title="Direct link to Amazon S3 Glacier Flexible Retrieval">​</a></h4>
+</li>
+<li class="">Amazon S3 One Zone-Infrequent Access (S3 One Zone-IA)<!-- -->
 <ul>
-<li>Expedited (1 to 5 minutes), Standard (3 to 5 hours), Bulk (5 to 12 hours) – free</li>
-<li>Minimum storage duration of 90 days</li>
+<li class="">High durability (99.999999999%) in a single AZ; data lost when AZ is destroyed</li>
+<li class="">99.5% Availability</li>
+<li class="">Use Cases: Storing secondary backup copies of on-premises data, or data you can recreate</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="amazon-s3-glacier-deep-archive">Amazon S3 Glacier Deep Archive<a href="#amazon-s3-glacier-deep-archive" class="hash-link" aria-label="Direct link to Amazon S3 Glacier Deep Archive" title="Direct link to Amazon S3 Glacier Deep Archive">​</a></h4>
-<ul>
-<li>Standard (12 hours), Bulk (48 hours)</li>
-<li>Minimum storage duration of 180 days</li>
+</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="s3-intelligent-tiering">S3 Intelligent-Tiering<a href="#s3-intelligent-tiering" class="hash-link" aria-label="Direct link to S3 Intelligent-Tiering" title="Direct link to S3 Intelligent-Tiering">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-glacier-storage-classes">S3 Glacier Storage Classes<a href="#s3-glacier-storage-classes" class="hash-link" aria-label="Direct link to S3 Glacier Storage Classes" title="Direct link to S3 Glacier Storage Classes" translate="no">​</a></h3>
 <ul>
-<li>Small monthly monitoring and auto-tiering fee</li>
-<li>Moves objects automatically between Access Tiers based on usage</li>
-<li>There are no retrieval charges in S3 Intelligent-Tiering</li>
+<li class="">Low-cost object storage meant for archiving / backup</li>
+<li class="">Pricing: price for storage + object retrieval cost</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="amazon-s3-glacier-instant-retrieval">Amazon S3 Glacier Instant Retrieval<a href="#amazon-s3-glacier-instant-retrieval" class="hash-link" aria-label="Direct link to Amazon S3 Glacier Instant Retrieval" title="Direct link to Amazon S3 Glacier Instant Retrieval" translate="no">​</a></h4>
+<ul>
+<li class="">Millisecond retrieval, great for data accessed once a quarter</li>
+<li class="">Minimum storage duration of 90 days</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="amazon-s3-glacier-flexible-retrieval">Amazon S3 Glacier Flexible Retrieval<a href="#amazon-s3-glacier-flexible-retrieval" class="hash-link" aria-label="Direct link to Amazon S3 Glacier Flexible Retrieval" title="Direct link to Amazon S3 Glacier Flexible Retrieval" translate="no">​</a></h4>
+<ul>
+<li class="">Expedited (1 to 5 minutes), Standard (3 to 5 hours), Bulk (5 to 12 hours) – free</li>
+<li class="">Minimum storage duration of 90 days</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="amazon-s3-glacier-deep-archive">Amazon S3 Glacier Deep Archive<a href="#amazon-s3-glacier-deep-archive" class="hash-link" aria-label="Direct link to Amazon S3 Glacier Deep Archive" title="Direct link to Amazon S3 Glacier Deep Archive" translate="no">​</a></h4>
+<ul>
+<li class="">Standard (12 hours), Bulk (48 hours)</li>
+<li class="">Minimum storage duration of 180 days</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-intelligent-tiering">S3 Intelligent-Tiering<a href="#s3-intelligent-tiering" class="hash-link" aria-label="Direct link to S3 Intelligent-Tiering" title="Direct link to S3 Intelligent-Tiering" translate="no">​</a></h3>
+<ul>
+<li class="">Small monthly monitoring and auto-tiering fee</li>
+<li class="">Moves objects automatically between Access Tiers based on usage</li>
+<li class="">There are no retrieval charges in S3 Intelligent-Tiering</li>
 </ul>
 <p>Tiers:</p>
 <ul>
-<li>Frequent Access tier (automatic): default tier</li>
-<li>Infrequent Access tier (automatic): objects not accessed for 30 days</li>
-<li>Archive Instant Access tier (automatic): objects not accessed for 90 days</li>
-<li>Archive Access tier (optional): configurable from 90 days to 700+ days</li>
-<li>Deep Archive Access tier (optional): config. from 180 days to 700+ days</li>
+<li class="">Frequent Access tier (automatic): default tier</li>
+<li class="">Infrequent Access tier (automatic): objects not accessed for 30 days</li>
+<li class="">Archive Instant Access tier (automatic): objects not accessed for 90 days</li>
+<li class="">Archive Access tier (optional): configurable from 90 days to 700+ days</li>
+<li class="">Deep Archive Access tier (optional): config. from 180 days to 700+ days</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="storage-classes-comparison">Storage Classes Comparison<a href="#storage-classes-comparison" class="hash-link" aria-label="Direct link to Storage Classes Comparison" title="Direct link to Storage Classes Comparison">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="storage-classes-comparison">Storage Classes Comparison<a href="#storage-classes-comparison" class="hash-link" aria-label="Direct link to Storage Classes Comparison" title="Direct link to Storage Classes Comparison" translate="no">​</a></h3>
 <p><img decoding="async" loading="lazy" alt="storage-classes" src="/LearningCollection/assets/images/storage-classes-388db5bd9345cc9c8790adcef758362b.png" width="1185" height="472" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="moving-between-storage-classes">Moving between Storage Classes<a href="#moving-between-storage-classes" class="hash-link" aria-label="Direct link to Moving between Storage Classes" title="Direct link to Moving between Storage Classes">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="moving-between-storage-classes">Moving between Storage Classes<a href="#moving-between-storage-classes" class="hash-link" aria-label="Direct link to Moving between Storage Classes" title="Direct link to Moving between Storage Classes" translate="no">​</a></h3>
 <ul>
-<li>You can transition objects between storage classes</li>
-<li>For infrequently accessed object, move them to Standard IA</li>
-<li>For archive objects that you don’t need fast access to, move them to Glacier or Glacier Deep Archive</li>
-<li>Moving objects can be automated using a Lifecycle Rules</li>
+<li class="">You can transition objects between storage classes</li>
+<li class="">For infrequently accessed object, move them to Standard IA</li>
+<li class="">For archive objects that you don’t need fast access to, move them to Glacier or Glacier Deep Archive</li>
+<li class="">Moving objects can be automated using a Lifecycle Rules</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="storage-class-lifecycle" src="/LearningCollection/assets/images/storage-class-lifecycle-cb267e0360de11f9c11fb26a7e6b5c01.png" width="607" height="423" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="lifecycle-rules">Lifecycle Rules<a href="#lifecycle-rules" class="hash-link" aria-label="Direct link to Lifecycle Rules" title="Direct link to Lifecycle Rules">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="lifecycle-rules">Lifecycle Rules<a href="#lifecycle-rules" class="hash-link" aria-label="Direct link to Lifecycle Rules" title="Direct link to Lifecycle Rules" translate="no">​</a></h3>
 <ul>
-<li>Transition Actions – configure objects to transition to another storage class<!-- -->
+<li class="">Transition Actions – configure objects to transition to another storage class<!-- -->
 <ul>
-<li>Move objects to Standard IA class 60 days after creation</li>
-<li>Move to Glacier for archiving after 6 months</li>
+<li class="">Move objects to Standard IA class 60 days after creation</li>
+<li class="">Move to Glacier for archiving after 6 months</li>
 </ul>
 </li>
-<li>Expiration actions – configure objects to expire (delete) after some time<!-- -->
+<li class="">Expiration actions – configure objects to expire (delete) after some time<!-- -->
 <ul>
-<li>Access log files can be set to delete after a 365 days</li>
-<li>Can be used to delete old versions of files (if versioning is enabled)</li>
-<li>Can be used to delete incomplete Multi-Part uploads</li>
+<li class="">Access log files can be set to delete after a 365 days</li>
+<li class="">Can be used to delete old versions of files (if versioning is enabled)</li>
+<li class="">Can be used to delete incomplete Multi-Part uploads</li>
 </ul>
 </li>
-<li>Rules can be created for a certain prefix (example: s3://mybucket/mp3/*)</li>
-<li>Rules can be created for certain objects Tags (example: Department: Finance)</li>
+<li class="">Rules can be created for a certain prefix (example: s3://mybucket/mp3/*)</li>
+<li class="">Rules can be created for certain objects Tags (example: Department: Finance)</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="lifecycle-rules-scenario-1">Lifecycle Rules (Scenario 1)<a href="#lifecycle-rules-scenario-1" class="hash-link" aria-label="Direct link to Lifecycle Rules (Scenario 1)" title="Direct link to Lifecycle Rules (Scenario 1)">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="lifecycle-rules-scenario-1">Lifecycle Rules (Scenario 1)<a href="#lifecycle-rules-scenario-1" class="hash-link" aria-label="Direct link to Lifecycle Rules (Scenario 1)" title="Direct link to Lifecycle Rules (Scenario 1)" translate="no">​</a></h4>
 <p><strong>Your application on EC2 creates images thumbnails after profile photos are uploaded to Amazon S3. These thumbnails can be easily recreated, and only need to be kept for 60 days. The source images should be able to be immediately retrieved for these 60 days, and afterwards, the user can wait up to 6 hours. How would you design this?</strong></p>
 <ul>
-<li>S3 source images can be on Standard, with a lifecycle configuration to transition them to Glacier after 60 days</li>
-<li>S3 thumbnails can be on One-Zone IA, with a lifecycle configuration to expire them (delete them) after 60 days</li>
+<li class="">S3 source images can be on Standard, with a lifecycle configuration to transition them to Glacier after 60 days</li>
+<li class="">S3 thumbnails can be on One-Zone IA, with a lifecycle configuration to expire them (delete them) after 60 days</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="amazon-s3--lifecycle-rules-scenario-2">Amazon S3 – Lifecycle Rules (Scenario 2)<a href="#amazon-s3--lifecycle-rules-scenario-2" class="hash-link" aria-label="Direct link to Amazon S3 – Lifecycle Rules (Scenario 2)" title="Direct link to Amazon S3 – Lifecycle Rules (Scenario 2)">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="amazon-s3--lifecycle-rules-scenario-2">Amazon S3 – Lifecycle Rules (Scenario 2)<a href="#amazon-s3--lifecycle-rules-scenario-2" class="hash-link" aria-label="Direct link to Amazon S3 – Lifecycle Rules (Scenario 2)" title="Direct link to Amazon S3 – Lifecycle Rules (Scenario 2)" translate="no">​</a></h4>
 <p><strong>A rule in your company states that you should be able to recover your deleted S3 objects immediately for 30 days, although this may happen rarely. After this time, and for up to 365 days, deleted objects should be recoverable within 48 hours.</strong></p>
 <ul>
-<li>Enable S3 Versioning in order to have object versions, so that “deleted objects” are in fact hidden by a “delete marker” and can be recovered</li>
-<li>Transition the “noncurrent versions” of the object to Standard IA</li>
-<li>Transition afterwards the “noncurrent versions” to Glacier Deep Archive</li>
+<li class="">Enable S3 Versioning in order to have object versions, so that “deleted objects” are in fact hidden by a “delete marker” and can be recovered</li>
+<li class="">Transition the “noncurrent versions” of the object to Standard IA</li>
+<li class="">Transition afterwards the “noncurrent versions” to Glacier Deep Archive</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="s3-analytics--storage-class-analysis">S3 Analytics – Storage Class Analysis<a href="#s3-analytics--storage-class-analysis" class="hash-link" aria-label="Direct link to S3 Analytics – Storage Class Analysis" title="Direct link to S3 Analytics – Storage Class Analysis">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-analytics--storage-class-analysis">S3 Analytics – Storage Class Analysis<a href="#s3-analytics--storage-class-analysis" class="hash-link" aria-label="Direct link to S3 Analytics – Storage Class Analysis" title="Direct link to S3 Analytics – Storage Class Analysis" translate="no">​</a></h2>
 <ul>
-<li>Help you decide when to transition objects to the right storage class</li>
-<li>Recommendations for Standard and Standard IA<!-- -->
+<li class="">Help you decide when to transition objects to the right storage class</li>
+<li class="">Recommendations for Standard and Standard IA<!-- -->
 <ul>
-<li>Does NOT work for One-Zone IA or Glacier</li>
+<li class="">Does NOT work for One-Zone IA or Glacier</li>
 </ul>
 </li>
-<li>Report is updated daily</li>
-<li>24 to 48 hours to start seeing data analysis</li>
-<li>Good first step to put together Lifecycle Rules (or improve them)!</li>
+<li class="">Report is updated daily</li>
+<li class="">24 to 48 hours to start seeing data analysis</li>
+<li class="">Good first step to put together Lifecycle Rules (or improve them)!</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="storage-class-analysis" src="/LearningCollection/assets/images/storage-class-analysis-428d68292ffb44136ce15fc6d3a4d7d2.png" width="553" height="781" class="img_ev3q"></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="s3-event-notifications">S3 Event Notifications<a href="#s3-event-notifications" class="hash-link" aria-label="Direct link to S3 Event Notifications" title="Direct link to S3 Event Notifications">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-event-notifications">S3 Event Notifications<a href="#s3-event-notifications" class="hash-link" aria-label="Direct link to S3 Event Notifications" title="Direct link to S3 Event Notifications" translate="no">​</a></h2>
 <ul>
-<li>S3<!-- -->:ObjectCreated<!-- -->, S3<!-- -->:ObjectRemoved<!-- -->, S3<!-- -->:ObjectRestore<!-- -->, S3<!-- -->:Replication<!-- -->…</li>
-<li>Object name filtering possible (*.jpg)</li>
-<li>Use case: generate thumbnails of images uploaded to S3</li>
-<li>Can create as many “S3 events” as desired</li>
-<li>S3 event notifications typically deliver events in seconds but can sometimes take a minute or longer</li>
+<li class="">S3<!-- -->:ObjectCreated<!-- -->, S3<!-- -->:ObjectRemoved<!-- -->, S3<!-- -->:ObjectRestore<!-- -->, S3<!-- -->:Replication<!-- -->…</li>
+<li class="">Object name filtering possible (*.jpg)</li>
+<li class="">Use case: generate thumbnails of images uploaded to S3</li>
+<li class="">Can create as many “S3 events” as desired</li>
+<li class="">S3 event notifications typically deliver events in seconds but can sometimes take a minute or longer</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="event-notifications--iam-permissions">Event Notifications – IAM Permissions<a href="#event-notifications--iam-permissions" class="hash-link" aria-label="Direct link to Event Notifications – IAM Permissions" title="Direct link to Event Notifications – IAM Permissions">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="event-notifications--iam-permissions">Event Notifications – IAM Permissions<a href="#event-notifications--iam-permissions" class="hash-link" aria-label="Direct link to Event Notifications – IAM Permissions" title="Direct link to Event Notifications – IAM Permissions" translate="no">​</a></h3>
 <p><img decoding="async" loading="lazy" alt="event-notification" src="/LearningCollection/assets/images/event-notification-3a69596687213638cd76d43b7f7bc80b.png" width="1813" height="825" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="event-notifications-with-amazon-eventbridge">Event Notifications with Amazon EventBridge<a href="#event-notifications-with-amazon-eventbridge" class="hash-link" aria-label="Direct link to Event Notifications with Amazon EventBridge" title="Direct link to Event Notifications with Amazon EventBridge">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="event-notifications-with-amazon-eventbridge">Event Notifications with Amazon EventBridge<a href="#event-notifications-with-amazon-eventbridge" class="hash-link" aria-label="Direct link to Event Notifications with Amazon EventBridge" title="Direct link to Event Notifications with Amazon EventBridge" translate="no">​</a></h3>
 <p><img decoding="async" loading="lazy" alt="eventBridge" src="/LearningCollection/assets/images/eventBridge-c8f8bbc89d364e5ca7e09e2534da5ddf.png" width="1192" height="238" class="img_ev3q"></p>
 <ul>
-<li>Advanced filtering options with JSON rules (metadata, object size, name...)</li>
-<li>Multiple Destinations – ex Step Functions, Kinesis Streams / Firehose…</li>
-<li>EventBridge Capabilities – Archive, Replay Events, Reliable delivery</li>
+<li class="">Advanced filtering options with JSON rules (metadata, object size, name...)</li>
+<li class="">Multiple Destinations – ex Step Functions, Kinesis Streams / Firehose…</li>
+<li class="">EventBridge Capabilities – Archive, Replay Events, Reliable delivery</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="s3-baseline-performance">S3 Baseline Performance<a href="#s3-baseline-performance" class="hash-link" aria-label="Direct link to S3 Baseline Performance" title="Direct link to S3 Baseline Performance">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-baseline-performance">S3 Baseline Performance<a href="#s3-baseline-performance" class="hash-link" aria-label="Direct link to S3 Baseline Performance" title="Direct link to S3 Baseline Performance" translate="no">​</a></h2>
 <ul>
-<li>Amazon S3 automatically scales to high request rates, latency 100-200 ms</li>
-<li>Your application can achieve at least 3,500 PUT/COPY/POST/DELETE or 5,500 GET/HEAD requests per second per prefix in a bucket<!-- -->
+<li class="">Amazon S3 automatically scales to high request rates, latency 100-200 ms</li>
+<li class="">Your application can achieve at least 3,500 PUT/COPY/POST/DELETE or 5,500 GET/HEAD requests per second per prefix in a bucket<!-- -->
 <ul>
-<li>There are no limits to the number of prefixes in a bucket</li>
-<li>Example (object path =&gt; prefix):<!-- -->
+<li class="">There are no limits to the number of prefixes in a bucket</li>
+<li class="">Example (object path =&gt; prefix):<!-- -->
 <ul>
-<li>bucket/folder1/sub1/file =&gt; /folder1/sub1/</li>
-<li>bucket/folder1/sub2/file =&gt; /folder1/sub2/</li>
-<li>bucket/1/file =&gt; /1/</li>
-<li>bucket/2/file =&gt; /2/</li>
-</ul>
-</li>
-<li>If you spread reads across all four prefixes evenly, you can achieve 22,000 requests per second for GET and HEAD</li>
+<li class="">bucket/folder1/sub1/file =&gt; /folder1/sub1/</li>
+<li class="">bucket/folder1/sub2/file =&gt; /folder1/sub2/</li>
+<li class="">bucket/1/file =&gt; /1/</li>
+<li class="">bucket/2/file =&gt; /2/</li>
 </ul>
 </li>
+<li class="">If you spread reads across all four prefixes evenly, you can achieve 22,000 requests per second for GET and HEAD</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="multi-part-upload">Multi-Part upload<a href="#multi-part-upload" class="hash-link" aria-label="Direct link to Multi-Part upload" title="Direct link to Multi-Part upload">​</a></h3>
-<ul>
-<li>recommended for files &gt; 100MB, must use for files &gt; 5GB</li>
-<li>Can help parallelize uploads (speed up transfers)</li>
+</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="s3-transfer-acceleration">S3 Transfer Acceleration<a href="#s3-transfer-acceleration" class="hash-link" aria-label="Direct link to S3 Transfer Acceleration" title="Direct link to S3 Transfer Acceleration">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="multi-part-upload">Multi-Part upload<a href="#multi-part-upload" class="hash-link" aria-label="Direct link to Multi-Part upload" title="Direct link to Multi-Part upload" translate="no">​</a></h3>
 <ul>
-<li>Increase transfer speed by transferring file to an AWS edge location which will forward the data to the S3 bucket in he
+<li class="">recommended for files &gt; 100MB, must use for files &gt; 5GB</li>
+<li class="">Can help parallelize uploads (speed up transfers)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-transfer-acceleration">S3 Transfer Acceleration<a href="#s3-transfer-acceleration" class="hash-link" aria-label="Direct link to S3 Transfer Acceleration" title="Direct link to S3 Transfer Acceleration" translate="no">​</a></h3>
+<ul>
+<li class="">Increase transfer speed by transferring file to an AWS edge location which will forward the data to the S3 bucket in he
 target region</li>
-<li>Compatible with multi-part upload</li>
+<li class="">Compatible with multi-part upload</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="s3-byte-range-fetches">S3 Byte-Range Fetches<a href="#s3-byte-range-fetches" class="hash-link" aria-label="Direct link to S3 Byte-Range Fetches" title="Direct link to S3 Byte-Range Fetches">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-byte-range-fetches">S3 Byte-Range Fetches<a href="#s3-byte-range-fetches" class="hash-link" aria-label="Direct link to S3 Byte-Range Fetches" title="Direct link to S3 Byte-Range Fetches" translate="no">​</a></h3>
 <ul>
-<li>Parallelize GETs by requesting specific byte ranges</li>
-<li>Better resilience in case of failures</li>
+<li class="">Parallelize GETs by requesting specific byte ranges</li>
+<li class="">Better resilience in case of failures</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="byte-range-fetch" src="/LearningCollection/assets/images/byte-range-fetch-8e1c1eec012334a8cf6aaccb4d1d58c8.png" width="1720" height="472" class="img_ev3q"></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="s3-user-defined-object-metadata--s3-object-tags">S3 User-Defined Object Metadata &amp; S3 Object Tags<a href="#s3-user-defined-object-metadata--s3-object-tags" class="hash-link" aria-label="Direct link to S3 User-Defined Object Metadata &amp; S3 Object Tags" title="Direct link to S3 User-Defined Object Metadata &amp; S3 Object Tags">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="s3-user-defined-object-metadata">S3 User-Defined Object Metadata<a href="#s3-user-defined-object-metadata" class="hash-link" aria-label="Direct link to S3 User-Defined Object Metadata" title="Direct link to S3 User-Defined Object Metadata">​</a></h3>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-user-defined-object-metadata--s3-object-tags">S3 User-Defined Object Metadata &amp; S3 Object Tags<a href="#s3-user-defined-object-metadata--s3-object-tags" class="hash-link" aria-label="Direct link to S3 User-Defined Object Metadata &amp; S3 Object Tags" title="Direct link to S3 User-Defined Object Metadata &amp; S3 Object Tags" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-user-defined-object-metadata">S3 User-Defined Object Metadata<a href="#s3-user-defined-object-metadata" class="hash-link" aria-label="Direct link to S3 User-Defined Object Metadata" title="Direct link to S3 User-Defined Object Metadata" translate="no">​</a></h3>
 <ul>
-<li>When uploading an object, you can also assign metadata</li>
-<li>Name-value (key-value) pairs</li>
-<li>User-defined metadata names must begin with &quot;x-amz-meta-”</li>
-<li>Amazon S3 stores user-defined metadata keys in lowercase</li>
-<li>Metadata can be retrieved while retrieving the object</li>
+<li class="">When uploading an object, you can also assign metadata</li>
+<li class="">Name-value (key-value) pairs</li>
+<li class="">User-defined metadata names must begin with &quot;x-amz-meta-”</li>
+<li class="">Amazon S3 stores user-defined metadata keys in lowercase</li>
+<li class="">Metadata can be retrieved while retrieving the object</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="s3-object-tags">S3 Object Tags<a href="#s3-object-tags" class="hash-link" aria-label="Direct link to S3 Object Tags" title="Direct link to S3 Object Tags">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="s3-object-tags">S3 Object Tags<a href="#s3-object-tags" class="hash-link" aria-label="Direct link to S3 Object Tags" title="Direct link to S3 Object Tags" translate="no">​</a></h3>
 <ul>
-<li>Key-value pairs for objects in Amazon S3</li>
-<li>Useful for fine-grained permissions (only access specific objects with specific tags)</li>
-<li>Useful for analytics purposes (using S3 Analytics to group by tags)</li>
-<li><strong>You cannot search the object metadata or object tags</strong></li>
-<li>Instead, you must use an external DB as a search index such as DynamoDB</li>
+<li class="">Key-value pairs for objects in Amazon S3</li>
+<li class="">Useful for fine-grained permissions (only access specific objects with specific tags)</li>
+<li class="">Useful for analytics purposes (using S3 Analytics to group by tags)</li>
+<li class=""><strong>You cannot search the object metadata or object tags</strong></li>
+<li class="">Instead, you must use an external DB as a search index such as DynamoDB</li>
 </ul>
-<p><img decoding="async" loading="lazy" alt="s3-metadata-tags" src="/LearningCollection/assets/images/s3-metadata-tags-7c466dd905f3fb1cc4b19a0472392681.png" width="681" height="783" class="img_ev3q"></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/RobinTTY/LearningCollection/tree/master/website/docs/cloud/aws/certified-developer-associate/s3.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/LearningCollection/cloud/aws/certified-developer-associate/vpc"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Virtual Private Cloud (VPC)</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/LearningCollection/cloud/aws/certified-developer-associate/cli-sdk-iam-roles-policies"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">AWS CLI, SDK, IAM Roles &amp; Policies</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#use-cases" class="table-of-contents__link toc-highlight">Use cases</a></li><li><a href="#buckets" class="table-of-contents__link toc-highlight">Buckets</a></li><li><a href="#objects" class="table-of-contents__link toc-highlight">Objects</a></li><li><a href="#amazon-s3--security" class="table-of-contents__link toc-highlight">Amazon S3 – Security</a><ul><li><a href="#bucket-policies" class="table-of-contents__link toc-highlight">Bucket Policies</a></li><li><a href="#bucket-settings-for-block-public-access" class="table-of-contents__link toc-highlight">Bucket settings for Block Public Access</a></li><li><a href="#object-encryption" class="table-of-contents__link toc-highlight">Object Encryption</a></li><li><a href="#cors" class="table-of-contents__link toc-highlight">CORS</a></li><li><a href="#mfa-delete" class="table-of-contents__link toc-highlight">MFA Delete</a></li><li><a href="#access-logs" class="table-of-contents__link toc-highlight">Access Logs</a></li><li><a href="#pre-signed-urls" class="table-of-contents__link toc-highlight">Pre-Signed URLs</a></li><li><a href="#access-points" class="table-of-contents__link toc-highlight">Access Points</a></li><li><a href="#s3-object-lambda" class="table-of-contents__link toc-highlight">S3 Object Lambda</a></li></ul></li><li><a href="#static-website-hosting" class="table-of-contents__link toc-highlight">Static Website Hosting</a></li><li><a href="#versioning" class="table-of-contents__link toc-highlight">Versioning</a></li><li><a href="#replication-crr--srr" class="table-of-contents__link toc-highlight">Replication (CRR &amp; SRR)</a><ul><li><a href="#details" class="table-of-contents__link toc-highlight">Details</a></li></ul></li><li><a href="#storage-classes" class="table-of-contents__link toc-highlight">Storage Classes</a></li><li><a href="#durability-and-availability" class="table-of-contents__link toc-highlight">Durability and Availability</a><ul><li><a href="#s3-standard--general-purpose" class="table-of-contents__link toc-highlight">S3 Standard – General Purpose</a></li><li><a href="#s3-storage-classes--infrequent-access" class="table-of-contents__link toc-highlight">S3 Storage Classes – Infrequent Access</a></li><li><a href="#s3-glacier-storage-classes" class="table-of-contents__link toc-highlight">S3 Glacier Storage Classes</a></li><li><a href="#s3-intelligent-tiering" class="table-of-contents__link toc-highlight">S3 Intelligent-Tiering</a></li><li><a href="#storage-classes-comparison" class="table-of-contents__link toc-highlight">Storage Classes Comparison</a></li><li><a href="#moving-between-storage-classes" class="table-of-contents__link toc-highlight">Moving between Storage Classes</a></li><li><a href="#lifecycle-rules" class="table-of-contents__link toc-highlight">Lifecycle Rules</a></li></ul></li><li><a href="#s3-analytics--storage-class-analysis" class="table-of-contents__link toc-highlight">S3 Analytics – Storage Class Analysis</a></li><li><a href="#s3-event-notifications" class="table-of-contents__link toc-highlight">S3 Event Notifications</a><ul><li><a href="#event-notifications--iam-permissions" class="table-of-contents__link toc-highlight">Event Notifications – IAM Permissions</a></li><li><a href="#event-notifications-with-amazon-eventbridge" class="table-of-contents__link toc-highlight">Event Notifications with Amazon EventBridge</a></li></ul></li><li><a href="#s3-baseline-performance" class="table-of-contents__link toc-highlight">S3 Baseline Performance</a><ul><li><a href="#multi-part-upload" class="table-of-contents__link toc-highlight">Multi-Part upload</a></li><li><a href="#s3-transfer-acceleration" class="table-of-contents__link toc-highlight">S3 Transfer Acceleration</a></li><li><a href="#s3-byte-range-fetches" class="table-of-contents__link toc-highlight">S3 Byte-Range Fetches</a></li></ul></li><li><a href="#s3-user-defined-object-metadata--s3-object-tags" class="table-of-contents__link toc-highlight">S3 User-Defined Object Metadata &amp; S3 Object Tags</a><ul><li><a href="#s3-user-defined-object-metadata" class="table-of-contents__link toc-highlight">S3 User-Defined Object Metadata</a></li><li><a href="#s3-object-tags" class="table-of-contents__link toc-highlight">S3 Object Tags</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">My other sites</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.robintty.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Website<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Socials</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/RobinTTY" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/in/robin-m%C3%BCller-574782170/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div></div></footer></div>
+<p><img decoding="async" loading="lazy" alt="s3-metadata-tags" src="/LearningCollection/assets/images/s3-metadata-tags-7c466dd905f3fb1cc4b19a0472392681.png" width="681" height="783" class="img_ev3q"></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/RobinTTY/LearningCollection/tree/master/website/docs/cloud/aws/certified-developer-associate/s3.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/LearningCollection/cloud/aws/certified-developer-associate/vpc"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Virtual Private Cloud (VPC)</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/LearningCollection/cloud/aws/certified-developer-associate/cli-sdk-iam-roles-policies"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">AWS CLI, SDK, IAM Roles &amp; Policies</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#use-cases" class="table-of-contents__link toc-highlight">Use cases</a></li><li><a href="#buckets" class="table-of-contents__link toc-highlight">Buckets</a></li><li><a href="#objects" class="table-of-contents__link toc-highlight">Objects</a></li><li><a href="#amazon-s3--security" class="table-of-contents__link toc-highlight">Amazon S3 – Security</a><ul><li><a href="#bucket-policies" class="table-of-contents__link toc-highlight">Bucket Policies</a></li><li><a href="#bucket-settings-for-block-public-access" class="table-of-contents__link toc-highlight">Bucket settings for Block Public Access</a></li><li><a href="#object-encryption" class="table-of-contents__link toc-highlight">Object Encryption</a></li><li><a href="#cors" class="table-of-contents__link toc-highlight">CORS</a></li><li><a href="#mfa-delete" class="table-of-contents__link toc-highlight">MFA Delete</a></li><li><a href="#access-logs" class="table-of-contents__link toc-highlight">Access Logs</a></li><li><a href="#pre-signed-urls" class="table-of-contents__link toc-highlight">Pre-Signed URLs</a></li><li><a href="#access-points" class="table-of-contents__link toc-highlight">Access Points</a></li><li><a href="#s3-object-lambda" class="table-of-contents__link toc-highlight">S3 Object Lambda</a></li></ul></li><li><a href="#static-website-hosting" class="table-of-contents__link toc-highlight">Static Website Hosting</a></li><li><a href="#versioning" class="table-of-contents__link toc-highlight">Versioning</a></li><li><a href="#replication-crr--srr" class="table-of-contents__link toc-highlight">Replication (CRR &amp; SRR)</a><ul><li><a href="#details" class="table-of-contents__link toc-highlight">Details</a></li></ul></li><li><a href="#storage-classes" class="table-of-contents__link toc-highlight">Storage Classes</a></li><li><a href="#durability-and-availability" class="table-of-contents__link toc-highlight">Durability and Availability</a><ul><li><a href="#s3-standard--general-purpose" class="table-of-contents__link toc-highlight">S3 Standard – General Purpose</a></li><li><a href="#s3-storage-classes--infrequent-access" class="table-of-contents__link toc-highlight">S3 Storage Classes – Infrequent Access</a></li><li><a href="#s3-glacier-storage-classes" class="table-of-contents__link toc-highlight">S3 Glacier Storage Classes</a></li><li><a href="#s3-intelligent-tiering" class="table-of-contents__link toc-highlight">S3 Intelligent-Tiering</a></li><li><a href="#storage-classes-comparison" class="table-of-contents__link toc-highlight">Storage Classes Comparison</a></li><li><a href="#moving-between-storage-classes" class="table-of-contents__link toc-highlight">Moving between Storage Classes</a></li><li><a href="#lifecycle-rules" class="table-of-contents__link toc-highlight">Lifecycle Rules</a></li></ul></li><li><a href="#s3-analytics--storage-class-analysis" class="table-of-contents__link toc-highlight">S3 Analytics – Storage Class Analysis</a></li><li><a href="#s3-event-notifications" class="table-of-contents__link toc-highlight">S3 Event Notifications</a><ul><li><a href="#event-notifications--iam-permissions" class="table-of-contents__link toc-highlight">Event Notifications – IAM Permissions</a></li><li><a href="#event-notifications-with-amazon-eventbridge" class="table-of-contents__link toc-highlight">Event Notifications with Amazon EventBridge</a></li></ul></li><li><a href="#s3-baseline-performance" class="table-of-contents__link toc-highlight">S3 Baseline Performance</a><ul><li><a href="#multi-part-upload" class="table-of-contents__link toc-highlight">Multi-Part upload</a></li><li><a href="#s3-transfer-acceleration" class="table-of-contents__link toc-highlight">S3 Transfer Acceleration</a></li><li><a href="#s3-byte-range-fetches" class="table-of-contents__link toc-highlight">S3 Byte-Range Fetches</a></li></ul></li><li><a href="#s3-user-defined-object-metadata--s3-object-tags" class="table-of-contents__link toc-highlight">S3 User-Defined Object Metadata &amp; S3 Object Tags</a><ul><li><a href="#s3-user-defined-object-metadata" class="table-of-contents__link toc-highlight">S3 User-Defined Object Metadata</a></li><li><a href="#s3-object-tags" class="table-of-contents__link toc-highlight">S3 Object Tags</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">My other sites</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.robintty.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Website<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Socials</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/RobinTTY" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/in/robin-m%C3%BCller-574782170/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div></div></footer></div>
 </body>
 </html>
