@@ -21,29 +21,52 @@ public class MoviesController(MoviesContext context) : Controller
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Get([FromRoute] int id)
     {
-        throw new NotImplementedException();
+        // var movie = await context.Movies.SingleOrDefaultAsync(movie => movie.Id == id);
+        // Serves match from memory if already fetched, otherwise queries DB. Can serve stale data.
+        var movie = await context.Movies.FindAsync(id);
+        return movie == null ? NotFound() : Ok(movie);
     }
-    
+
     [HttpPost]
     [ProducesResponseType(typeof(Movie), StatusCodes.Status201Created)]
     public async Task<IActionResult> Create([FromBody] Movie movie)
     {
-        throw new NotImplementedException();
+        await context.Movies.AddAsync(movie);
+        await context.SaveChangesAsync();
+
+        return CreatedAtAction(nameof(Get), new { id = movie.Id }, movie);
     }
-    
+
     [HttpPut("{id:int}")]
     [ProducesResponseType(typeof(Movie), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Update([FromRoute] int id, [FromBody] Movie movie)
     {
-        throw new NotImplementedException();
+        var existingMovie = await context.Movies.FindAsync(id);
+        if (existingMovie is null)
+            return NotFound();
+
+        existingMovie.Title = movie.Title;
+        existingMovie.ReleaseDate = movie.ReleaseDate;
+        existingMovie.Synopsis = movie.Synopsis;
+
+        await context.SaveChangesAsync();
+
+        return Ok(existingMovie);
     }
-    
+
     [HttpDelete("{id:int}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Remove([FromRoute] int id)
     {
-        throw new NotImplementedException();
+        var existingMovie = await context.Movies.FindAsync(id);
+        if (existingMovie is null)
+            return NotFound();
+
+        context.Movies.Remove(existingMovie);
+        await context.SaveChangesAsync();
+
+        return Ok();
     }
 }
