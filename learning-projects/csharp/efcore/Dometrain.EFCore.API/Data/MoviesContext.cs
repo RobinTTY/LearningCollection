@@ -1,3 +1,4 @@
+using System.Reflection;
 using Dometrain.EFCore.API.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,5 +14,11 @@ public class MoviesContext : DbContext
             "Data Source=localhost;Initial Catalog=MoviesDB;User Id=sa;Password=MySaPassword123;TrustServerCertificate=True");
         optionsBuilder.LogTo(Console.WriteLine);
         base.OnConfiguring(optionsBuilder);
+    }
+
+    // This will apply all IEntityTypeConfigurations from the current assembly
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(MoviesContext).Assembly);
     }
 }

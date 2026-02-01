@@ -40,7 +40,7 @@ public class MoviesController(MoviesContext context) : Controller
         var filteredMovies = await allMovies
             .Where(m => m.ReleaseDate.Year == year)
             // Project to new class with less data, EF will only query the necessary data
-            .Select(movie => new MovieTitle { Id = movie.Id, Title = movie.Title })
+            .Select(movie => new MovieTitle { Id = movie.Identifier, Title = movie.Title })
             .ToListAsync();
         
         // Query:
@@ -59,7 +59,7 @@ public class MoviesController(MoviesContext context) : Controller
         await context.Movies.AddAsync(movie);
         await context.SaveChangesAsync();
 
-        return CreatedAtAction(nameof(Get), new { id = movie.Id }, movie);
+        return CreatedAtAction(nameof(Get), new { id = movie.Identifier }, movie);
     }
 
     [HttpPut("{id:int}")]
