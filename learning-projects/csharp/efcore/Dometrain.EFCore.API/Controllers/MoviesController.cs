@@ -21,9 +21,9 @@ public class MoviesController(MoviesContext context) : Controller
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Get([FromRoute] int id)
     {
-        // var movie = await context.Movies.SingleOrDefaultAsync(movie => movie.Id == id);
-        // Serves match from memory if already fetched, otherwise queries DB. Can serve stale data.
-        var movie = await context.Movies.FindAsync(id);
+        var movie = await context.Movies.Include(m => m.Genre)
+            .SingleOrDefaultAsync(movie => movie.Identifier == id);
+        
         return movie == null ? NotFound() : Ok(movie);
     }
 
@@ -42,7 +42,7 @@ public class MoviesController(MoviesContext context) : Controller
             // Project to new class with less data, EF will only query the necessary data
             .Select(movie => new MovieTitle { Id = movie.Identifier, Title = movie.Title })
             .ToListAsync();
-        
+
         // Query:
         // SELECT [m].[Id], [m].[Title]
         // FROM [Movies] AS [m]

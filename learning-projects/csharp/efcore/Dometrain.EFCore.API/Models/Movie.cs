@@ -6,6 +6,11 @@ public class Movie
     public string? Title { get; set; }    
     public DateTime ReleaseDate { get; set; }
     public string? Synopsis { get; set; }
+    
+    // Navigation property
+    public Genre Genre { get; set; }
+    // The id of the Genre will automatically be mapped here
+    public int GenreId { get; set; }
 }
 
 public class MovieTitle

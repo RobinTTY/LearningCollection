@@ -18,6 +18,7 @@ In a one-to-one relationship, the primary key acts additionally as a foreign key
 
 ### One-to-Many
 
+One-to-many relationships are used when a single entity is associated with any number of other entities. For example, a `Blog` can have many associated `Posts`, but each `Post` is associated with only one `Blog`.
 In a one-to-many relationship, the foreign key is defined on the table that represents the many end of the relationship.
 
 ### Many-to-Many
@@ -57,13 +58,19 @@ public class Author
 
 The child doesn't need to reference the parent. So properties exist in the data model but not in the entity class. This is also called "Shadow Properties". But it can also be explicitly added in the code:
 
-```csharp {5}
+```csharp {5,6}
 public class Book
 {
   public int Id { get; set; }
   public string Title { get; set; }
   public Author Author { get; set; }
+  public int AuthorId { get; set; }
 }
 ```
 
-Adding it explicitly allows us to navigate from the child object to the parent object.
+Adding it explicitly allows us to navigate from the child object to the parent object. Here we also added the foreign key property `AuthorId`. The uses of having the foreign key property in the class are:
+
+- It can be set without loading the parent entity
+- It can be used for queries and updates without loading the parent entity
+
+But usually it's not necessary to add the foreign key property in the class.
