@@ -223,6 +223,10 @@ const sidebars = {
               type: "doc",
               id: "csharp/entity-framework/migrations",
             },
+            { 
+              type: "doc",
+              id: "csharp/entity-framework/data-seeding",
+            },
             {
               type: "category",
               label: "Creating a Model",
