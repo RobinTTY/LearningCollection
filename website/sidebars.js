@@ -243,6 +243,10 @@ const sidebars = {
                   type: "doc",
                   id: "csharp/entity-framework/creating-a-model/relationships",
                 },
+                {
+                  type: "doc",
+                  id: "csharp/entity-framework/creating-a-model/value-converters",
+                },
               ],
             },
             {

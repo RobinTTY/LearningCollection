@@ -1,4 +1,5 @@
 using Dometrain.EFCore.API.Models;
+using Dometrain.EFCore.API.ValueConverters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -18,7 +19,8 @@ public class MovieMapping : IEntityTypeConfiguration<Movie>
             .IsRequired();
 
         builder.Property(movie => movie.ReleaseDate)
-            .HasColumnType("date");
+            .HasColumnType("char(8)")
+            .HasConversion<DateTimeToChar8Converter>();
 
         builder.Property(movie => movie.Synopsis)
             .HasColumnType("varchar(max)")
