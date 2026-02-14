@@ -1,6 +1,6 @@
 ---
-id: cka-exam
-title: CKA Exam notes
+id: exam-material
+title: Exam Material
 ---
 
 - Don't forget to set context before each task
@@ -239,7 +239,6 @@ A StatefulSet runs a group of Pods, and maintains a sticky identity for each of 
 
 This creates a headless Service, `nginx`, to publish the IP addresses of Pods in the StatefulSet, `web`:
 
-
 ```yaml
 apiVersion: v1
 kind: Service
@@ -249,8 +248,8 @@ metadata:
     app: nginx
 spec:
   ports:
-  - port: 80
-    name: web
+    - port: 80
+      name: web
   clusterIP: None
   selector:
     app: nginx
@@ -271,22 +270,22 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx
-        image: registry.k8s.io/nginx-slim:0.21
-        ports:
-        - containerPort: 80
-          name: web
-        volumeMounts:
-        - name: www
-          mountPath: /usr/share/nginx/html
+        - name: nginx
+          image: registry.k8s.io/nginx-slim:0.21
+          ports:
+            - containerPort: 80
+              name: web
+          volumeMounts:
+            - name: www
+              mountPath: /usr/share/nginx/html
   volumeClaimTemplates:
-  - metadata:
-      name: www
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 1Gi
+    - metadata:
+        name: www
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
 ```
 
 #### PVCs
@@ -327,8 +326,8 @@ metadata:
 spec:
   priorityClassName: high-priority
   containers:
-  - name: my-container
-    image: my-image
+    - name: my-container
+      image: my-image
 ```
 
 ### Gateway API
@@ -363,12 +362,12 @@ metadata:
 spec:
   gatewayClassName: my-gateway-class
   listeners:
-  - name: http
-    protocol: HTTP
-    port: 80
-    allowedRoutes: # optional
-      namespaces:
-        from: All|Selector|Same
+    - name: http
+      protocol: HTTP
+      port: 80
+      allowedRoutes: # optional
+        namespaces:
+          from: All|Selector|Same
 ```
 
 #### HTTPRoute
@@ -380,17 +379,17 @@ metadata:
   name: my-http-route
 spec:
   parentRefs:
-  - name: my-gateway
+    - name: my-gateway
   hostnames:
-  - "example.com"
+    - "example.com"
   rules:
-  - matches:
-    - path:
-        type: PathPrefix
-        value: /api
-    backendRefs:
-    - name: api-service
-      port: 8080 # Points to the service port
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /api
+      backendRefs:
+        - name: api-service
+          port: 8080 # Points to the service port
 ```
 
 #### Possible Exam Task: Convert Ingress to Gateway API
@@ -413,20 +412,20 @@ metadata:
 spec:
   ingressClassName: nginx
   tls:
-  - hosts:
-    - gateway.web.k8s.local
-    secretName: web-tls-secret
+    - hosts:
+        - gateway.web.k8s.local
+      secretName: web-tls-secret
   rules:
-  - host: gateway.web.k8s.local
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: web-service
-            port:
-              number: 80
+    - host: gateway.web.k8s.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: web-service
+                port:
+                  number: 80
 ```
 
 Converted to Gateway API:
@@ -447,26 +446,26 @@ metadata:
 spec:
   gatewayClassName: nginx # Use the gateway class that matches your controller
   listeners:
-  - name: https
-    port: 443
-    protocol: HTTPS
-    hostname: gateway.web.k8s.local
-    tls:
-      mode: Terminate
-      certificateRefs:
-      - kind: Secret
-        name: web-tls-secret
-        namespace: web-app
-    allowedRoutes:
-      namespaces:
-        from: All
-  - name: http
-    port: 80
-    protocol: HTTP
-    hostname: gateway.web.k8s.local
-    allowedRoutes:
-      namespaces:
-        from: All
+    - name: https
+      port: 443
+      protocol: HTTPS
+      hostname: gateway.web.k8s.local
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - kind: Secret
+            name: web-tls-secret
+            namespace: web-app
+      allowedRoutes:
+        namespaces:
+          from: All
+    - name: http
+      port: 80
+      protocol: HTTP
+      hostname: gateway.web.k8s.local
+      allowedRoutes:
+        namespaces:
+          from: All
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
@@ -475,20 +474,20 @@ metadata:
   namespace: web-app
 spec:
   parentRefs:
-  - name: nginx-gateway
-    kind: Gateway
-    namespace: nginx-gateway
-    sectionName: http # <-- HTTP
+    - name: nginx-gateway
+      kind: Gateway
+      namespace: nginx-gateway
+      sectionName: http # <-- HTTP
   hostnames:
-  - gateway.web.k8s.local
+    - gateway.web.k8s.local
   rules:
-  - matches:
-    - path:
-        type: PathPrefix
-        value: /
-    backendRefs:
-    - name: web-service
-      port: 80
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: web-service
+          port: 80
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
@@ -497,20 +496,20 @@ metadata:
   namespace: web-app
 spec:
   parentRefs:
-  - name: nginx-gateway
-    kind: Gateway
-    namespace: nginx-gateway
-    sectionName: https # <-- HTTPs
+    - name: nginx-gateway
+      kind: Gateway
+      namespace: nginx-gateway
+      sectionName: https # <-- HTTPs
   hostnames:
-  - gateway.web.k8s.local
+    - gateway.web.k8s.local
   rules:
-  - matches:
-    - path:
-        type: PathPrefix
-        value: /
-    backendRefs:
-    - name: web-service
-      port: 80
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: web-service
+          port: 80
 ```
 
 Commands:
@@ -533,13 +532,13 @@ metadata:
   namespace: web-app # This ReferenceGrant must be in the namespace of the Secret
 spec:
   from:
-  - group: gateway.networking.k8s.io
-    kind: Gateway
-    namespace: nginx-gateway
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      namespace: nginx-gateway
   to:
-  - group: "" # Core API group for Secrets
-    kind: Secret
-    name: web-tls-secret # Optionally, restrict to specific secret name (or omit to allow all)
+    - group: "" # Core API group for Secrets
+      kind: Secret
+      name: web-tls-secret # Optionally, restrict to specific secret name (or omit to allow all)
 ```
 
 ### Custom Resource Definitions (CRDs)
@@ -556,29 +555,29 @@ metadata:
 spec:
   group: example.com
   versions:
-  - name: v1
-    served: true
-    storage: true
-    schema:
-      openAPIV3Schema:
-        type: object
-        properties:
-          spec:
-            type: object
-            properties:
-              foo:
-                type: string
-              bar:
-                type: integer
-                minimum: 0
-                maximum: 100
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                foo:
+                  type: string
+                bar:
+                  type: integer
+                  minimum: 0
+                  maximum: 100
   scope: Namespaced
   names:
     plural: myresources
     singular: myresource
     kind: MyResource
     shortNames:
-    - mr
+      - mr
 ```
 
 Any custom resource (CR) created will be validated against the schema defined in the CRD.
@@ -648,10 +647,10 @@ Add `NamespaceAutoProvision` to the list of enabled admission controllers in the
 ```yaml
 spec:
   containers:
-  - name: kube-apiserver
-    command:
-    - kube-apiserver
-    - --enable-admission-plugins=NamespaceAutoProvision,...
+    - name: kube-apiserver
+      command:
+        - kube-apiserver
+        - --enable-admission-plugins=NamespaceAutoProvision,...
 ```
 
 ### Dynamic Volume Provisioning
@@ -705,7 +704,7 @@ Comment from CKA Exam subreddit:
 > you just do sudo dpkg -i \<paste url\>
 > After which you need to enable and start the service with systemctl.
 > then you'll set the parameters they give you in sysctl directory
-:::
+> :::
 
 1. Download the latest CRI-Dockerd Debian package from the official GitHub releases:
 
@@ -801,14 +800,14 @@ spec:
     seccompProfile:
       type: RuntimeDefault
   containers:
-  - name: app
-    image: nginx:alpine
-    securityContext:
-      allowPrivilegeEscalation: false
-      runAsNonRoot: true
-      runAsUser: 1000
-      capabilities:
-        drop: ["ALL"]
+    - name: app
+      image: nginx:alpine
+      securityContext:
+        allowPrivilegeEscalation: false
+        runAsNonRoot: true
+        runAsUser: 1000
+        capabilities:
+          drop: ["ALL"]
 ```
 
 ## Things to remember
@@ -829,7 +828,7 @@ spec:
             fieldRef:
               fieldPath: spec.nodeName
 ```
-			  
+
 ### Install a local package
 
 `apt install ./cri-docker_0.3.16.3-0.debian.deb` or `dpkg -i ./cri-docker_0.3.16.3-0.debian.deb`
@@ -869,7 +868,7 @@ This will help you verify if the kubeconfig is set up correctly and can communic
 
 ### Edit control-plane pod
 
-To edit a control plane pod, 
+To edit a control plane pod,
 you have to edit the static pod manifest file located in `/etc/kubernetes/manifests/`.
 
 ### Gateway API

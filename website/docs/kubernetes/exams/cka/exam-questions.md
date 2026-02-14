@@ -1,6 +1,6 @@
 ---
 id: questions
-title: CKA Exam Questions
+title: Exam Questions
 ---
 
 ## Scale a deployment
@@ -30,7 +30,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-   path: /data/my-pv
+    path: /data/my-pv
 ```
 
 ## Creating an Ingress resource
@@ -52,7 +52,7 @@ spec:
               service:
                 name: aloha
                 port:
-                  number: 54321    
+                  number: 54321
 ```
 
 ## Monitor cluster and application resources
@@ -87,8 +87,9 @@ spec:
 ## Multicontainer Pod
 
 1. Create a pod named multicontainer that has two containers:
-  - A container running the redis:6.2.6 image
-  - A container running the nginx:1.21.6 image
+
+- A container running the redis:6.2.6 image
+- A container running the nginx:1.21.6 image
 
 ```yaml
 apiVersion: v1
@@ -120,7 +121,12 @@ spec:
   containers:
     - name: loggingpod
       image: busybox
-      args: [/bin/sh, -c, "i=0; while true; do echo '$i: $(date)' >> /var/log/log01.log; i=$((i+1)); sleep 10; done"]
+      args:
+        [
+          /bin/sh,
+          -c,
+          "i=0; while true; do echo '$i: $(date)' >> /var/log/log01.log; i=$((i+1)); sleep 10; done",
+        ]
       volumeMounts:
         - name: logz
           mountPath: /var/log
@@ -141,7 +147,6 @@ spec:
 1. Create a ClusterRole named app-creator that allows create permissions for Deployments, StatefulSets, and DaemonSets
 2. Create a ServiceAccount named app-dev
 3. Bind the ServiceAccount app-dev to the ClusterRole app-creator using a ClusterRoleBinding
-
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -292,13 +297,13 @@ spec:
     matchLabels:
       app: pit
   policyTypes:
-  - Ingress
-  - Egress
+    - Ingress
+    - Egress
   egress:
-  - to:
-    - podSelector:
-        matchLabels:
-          app: stem
+    - to:
+        - podSelector:
+            matchLabels:
+              app: stem
 ```
 
 ## Use Helm to install cluster components
@@ -377,7 +382,7 @@ metadata:
   name: my-pvc
 spec:
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   resources:
     requests:
       storage: 100Mi
@@ -391,15 +396,15 @@ metadata:
   name: my-pod
 spec:
   containers:
-  - name: my-container
-    image: my-image
-    volumeMounts:
-    - mountPath: /data
-      name: my-pvc
+    - name: my-container
+      image: my-image
+      volumeMounts:
+        - mountPath: /data
+          name: my-pvc
   volumes:
-  - name: my-pvc
-    persistentVolumeClaim:
-      claimName: my-pvc
+    - name: my-pvc
+      persistentVolumeClaim:
+        claimName: my-pvc
 ```
 
 ## Storage II
@@ -437,7 +442,7 @@ spec:
   capacity:
     storage: 100Mi
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   storageClassName: fast-storage
   claimRef:
     namespace: default
@@ -445,11 +450,11 @@ spec:
   nodeAffinity:
     required:
       nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - my-node
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - my-node
 ```
 
 ```yaml
@@ -459,7 +464,7 @@ metadata:
   name: my-pvc
 spec:
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   resources:
     requests:
       storage: 100Mi
@@ -488,18 +493,18 @@ spec:
   capacity:
     storage: 200Mi
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   hostPath:
     path: /mnt/data
   nodeAffinity:
     required:
       nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - node-1
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - node-1
 ```
 
 Node affinity docs: https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes-using-node-affinity/
@@ -511,7 +516,7 @@ metadata:
   name: static-pvc-example
 spec:
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   resources:
     requests:
       storage: 200Mi
@@ -538,12 +543,12 @@ spec:
   minReplicas: 1
   maxReplicas: 5
   metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 50
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50
 ```
 
 ## Node Affinity
@@ -560,14 +565,14 @@ spec:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
-        - matchExpressions:
-          - key: disktype
-            operator: In
-            values:
-            - ssd
+          - matchExpressions:
+              - key: disktype
+                operator: In
+                values:
+                  - ssd
   containers:
-  - name: my-container
-    image: my-image
+    - name: my-container
+      image: my-image
 ```
 
 ## Pod Security
@@ -608,13 +613,13 @@ spec:
   nodeSelector:
     kubernetes.io/hostname: node-1
   tolerations:
-  - key: "key"
-    operator: "Equal"
-    value: "value"
-    effect: "NoSchedule"
+    - key: "key"
+      operator: "Equal"
+      value: "value"
+      effect: "NoSchedule"
   containers:
-  - name: my-container
-    image: my-image
+    - name: my-container
+      image: my-image
 ```
 
 ## StatefulSets and Headless Services
@@ -636,8 +641,8 @@ spec:
   selector:
     app: web # Select pods with the label app=web
   ports:
-  - name: http
-    port: 80
+    - name: http
+      port: 80
 ```
 
 ```yaml
@@ -657,20 +662,20 @@ spec:
         app: web
     spec:
       containers:
-      - name: nginx
-        image: nginx
-        ports:
-        - containerPort: 80
-        volumeMounts:
-        - name: www # Must match the volumeClaimTemplates name
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: www # Must match the volumeClaimTemplates name
   volumeClaimTemplates: # Define a PVC template
-  - metadata:
-      name: www # Must match the volumeMount name
-    spec:
-      accessModes: ["ReadWriteOnce"]
-      resources:
-        requests:
-          storage: 1Gi
+    - metadata:
+        name: www # Must match the volumeMount name
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
 ```
 
 ## CoreDNS Troubleshooting
@@ -844,7 +849,6 @@ spec:
 - Concerning strategy - I tackled the easier tasks first and flagged the difficult ones (troubleshooting) for later.
 - Personally I recommend coming up with a list of docs pages you reference frequently when practicing and when you start the exam just open those pages up in the browser so you can quickly reference them if you need to. Example: for me, when I was studying I would frequently reference the K8s Documentation Pods page, the K8s API Reference Pods page, and the K8s Documentation Persistent Volume Page so when I started the exam the first thing I did was click the link to open up the K8s Documentation then duplicated that tab (right click tab -> duplicate) a couple times, then searched the docs for the appropriate pages in each one and had them open the whole exam. Its a small thing but it definitely helped knowing where they were and having them open so I didn't need to wait for loading or anything.
 
-
 ## If ApiServer doesn't come up
 
 Check logs, probably wrong configuration:
@@ -907,13 +911,13 @@ kind: Service
 metadata:
   name: my-nodeport-service
 spec:
-  type: NodePort      # Specifies that this is a NodePort service
+  type: NodePort # Specifies that this is a NodePort service
   ports:
-    - port: 80        # Port exposed internally in the cluster
-      targetPort: 80  # Port your application is listening on in the Pod
+    - port: 80 # Port exposed internally in the cluster
+      targetPort: 80 # Port your application is listening on in the Pod
       nodePort: 30007 # Port exposed on each Node (must be between 30000-32767)
   selector:
-    app: my-app       # Must match the labels of the Pods you want to expose
+    app: my-app # Must match the labels of the Pods you want to expose
 ```
 
 ## Schedule a pod
@@ -962,4 +966,3 @@ Directory: /etc/kubernetes/pki
 - etcd/peer.key: The private key for etcd peer communication.
 - etcd/healthcheck-client.crt: The public certificate for etcd health checks.
 - etcd/healthcheck-client.key: The private key for etcd health checks.
-
