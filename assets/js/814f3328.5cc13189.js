@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunklearning_knowledge_base=globalThis.webpackChunklearning_knowledge_base||[]).push([[7472],{55513(e){e.exports=JSON.parse('{"title":"Recent posts","items":[]}')}}]);

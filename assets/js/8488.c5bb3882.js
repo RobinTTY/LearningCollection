@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunklearning_knowledge_base=globalThis.webpackChunklearning_knowledge_base||[]).push([[8488],{8488(e,a,l){l.d(a,{createArchitectureServices:()=>n.S});var n=l(89221);l(51400)}}]);

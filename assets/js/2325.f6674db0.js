@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunklearning_knowledge_base=globalThis.webpackChunklearning_knowledge_base||[]).push([[2325],{2325:(e,a,l)=>{l.d(a,{createPacketServices:()=>n.$});var n=l(73858);l(87960)}}]);
