@@ -26,13 +26,23 @@ public class MovieMapping : IEntityTypeConfiguration<Movie>
             .HasColumnType("varchar(max)")
             .HasColumnName("Plot");
 
+        // Complex type
+        // builder.ComplexProperty(movie => movie.Director);
+
+        // Owned Type
+        builder.OwnsOne(movie => movie.Director);
+
+        builder.OwnsMany(movie => movie.Actors)
+            .ToTable("Movie_Actors");
+
         // This is already defined by convention, just added as an example
         builder
             .HasOne(movie => movie.Genre)
             .WithMany(genre => genre.Movies)
             .HasPrincipalKey(genre => genre.Id)
-            .HasForeignKey(movie => movie.GenreId);
-        
+            .HasForeignKey(movie => movie.GenreId)
+            .HasPrincipalKey(movie => movie.Name);
+
         // Seed - data that needs to be created always
         builder.HasData(new Movie
         {
@@ -40,8 +50,16 @@ public class MovieMapping : IEntityTypeConfiguration<Movie>
             Title = "Fight Club",
             ReleaseDate = new DateTime(1999, 9, 10),
             Synopsis = "Ed Norton and Brad Pitt have a couple of fist fights with each other.",
-            GenreId = 1
+            GenreId = 1,
+            AgeRating = AgeRating.Adolescent
         });
 
+        builder.OwnsOne(movie => movie.Director)
+            .HasData(new { MovieIdentifier = 1, FirstName = "David", LastName = "Fincher" });
+
+        builder.OwnsMany(movie => movie.Actors)
+            .HasData(
+                new { Id = 1, MovieIdentifier = 1, FirstName = "Edward", LastName = "Norton" },
+                new { Id = 2, MovieIdentifier = 1, FirstName = "Brad", LastName = "Pit" });
     }
 }

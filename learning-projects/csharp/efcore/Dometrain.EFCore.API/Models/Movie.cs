@@ -6,6 +6,10 @@ public class Movie
     public string? Title { get; set; }    
     public DateTime ReleaseDate { get; set; }
     public string? Synopsis { get; set; }
+    public AgeRating AgeRating { get; set; }
+    
+    public Person Director { get; set; }
+    public ICollection<Person> Actors { get; set; } 
     
     // Navigation property
     public Genre Genre { get; set; }
