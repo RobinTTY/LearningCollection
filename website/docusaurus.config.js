@@ -9,13 +9,15 @@ module.exports = {
   url: "https://RobinTTY.github.io",
   baseUrl: "/LearningCollection/",
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
   organizationName: "RobinTTY",
   projectName: "LearningCollection",
   trailingSlash: false,
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    }
   },
   themes: ['@docusaurus/theme-mermaid'],
   themeConfig: {

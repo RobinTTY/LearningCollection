@@ -40,4 +40,4 @@ A many-to-many relationship occurs when multiple records in one table can be rel
 
 This type of relationship is usually implemented using a third table, often called a "join table", "junction table" or "link table". This table contains the `primary key` of each of the tables it's joining together:
 
-![link-table](/img/docs/Databases/sql/link-table.svg)
+![link-table](/img/docs/Databases/sql/link-table.png)

@@ -173,3 +173,98 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 With this configuration migrations will not create the `AspNetUsers` table, but `IdentityUser` is still included in the model and can be used normally.
 
 If you need to start managing the table using migrations again then a new migration should be created where `AspNetUsers` is not excluded. The next migration will now contain any changes made to the table.
+
+## Complex and Owned Types
+
+### Owned Types
+
+EF Core allows you to model entity types that can only ever appear on navigation properties of other entity types. These are called owned entity types. The entity containing an owned entity type is its owner.
+
+Owned entities are essentially a part of the owner and cannot exist without it, they are conceptually similar to [aggregates](https://martinfowler.com/bliki/DDD_Aggregate.html). This means that the owned entity is by definition on the dependent side of the relationship with the owner.
+
+#### Example
+
+```csharp
+public class StreetAddress
+{
+    public string Street { get; set; }
+    public string City { get; set; }
+}
+
+public class Order
+{
+    public int Id { get; set; }
+    public StreetAddress ShippingAddress { get; set; }
+}
+
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Order>(b =>
+    {
+        b.OwnsOne(o => o.ShippingAddress)
+            .ToTable("Addresses");
+    });
+}
+```
+
+Event if the owned type is stored in a separate table, it is still considered as part of the owner entity. This means that when the owner entity is deleted, the owned entity is also deleted. When querying for the owner entity, the owned entity is also loaded by default (no include necessary).
+
+### Complex Types
+
+Objects saved to the database can be split into three broad categories:
+
+- Objects that are unstructured and hold a single value. For example, `int`, `Guid`, `string`, `IPAddress`. These are (somewhat loosely) called “primitive types”.
+- Objects that are structured to hold multiple values, and where the identity of the object is defined by a key value. For example, `Blog`, `Post`, `Customer`. These are called “entity types”.
+- Objects that are structured to hold multiple values, but the object has no key defining identity. For example, `Address`, `Coordinate`
+
+Prior to EF8, there was no good way to map the third type of object. EF8 added support for “Complex Types” to cover this third type of object. Complex type objects:
+
+- Are not identified or tracked by key value.
+- Must be defined as part of an entity type. (In other words, you cannot have a DbSet of a complex type.)
+- Can be either .NET value types or reference types.
+- Can share the same instance across multiple properties.
+
+#### Example
+
+One of the most straightforward examples is an `Order` with a `ShippingAddress` and a `BillingAddress`. Instead of repeating all address properties twice in the `Order`, we create a complex type `Address` and use it in the `Order`:
+
+```csharp
+public class Order
+{
+    public int OrderId { get; set; }
+    public DateTime OrderDate { get; set; }
+    public Address ShippingAddress { get; set; }
+    public Address BillingAddress { get; set; }
+}
+
+public class Address
+{
+    public string Street { get; set; }
+    public string City { get; set; }
+    public string State { get; set; }
+    public string Country { get; set; }
+    public string PostalCode { get; set; }
+}
+
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+	modelBuilder.Entity<Order>(x => {
+		   x.ComplexProperty(y => y.ShippingAddress, y => { y.IsRequired(); });
+		   x.ComplexProperty(y => y.BillingAddress, y => { y.IsRequired(); });
+	 });
+	base.OnModelCreating(modelBuilder);
+}
+
+var shippingAddress = new Address() { Street = "Saint-Hubert", City = "Laval", State = "Quebec", Country = "Canada", PostalCode = "H7G 2Y2"};
+var billingAddress = new Address() { Street = "Saint-Hubert", City = "Laval", State = "Quebec", Country = "Canada", PostalCode = "H7G 2Y2"};
+var order = new Order() { OrderDate = DateTime.Now, ShippingAddress = shippingAddress, BillingAddress = billingAddress };
+```
+
+### Differences
+
+- Owned types can be stored in a separate table
+- Owned types are considered as an Entity Type
+- Complex types can be reused within the same entity or other entity
+- Complex types have no identity / is not tracked
+
+With EF Core 8 re-introducing complex types, they just filled a gap they had with EF6 by allowing them to share an instance of an object that is not tracked.
