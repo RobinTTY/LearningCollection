@@ -3,6 +3,8 @@ id: architecture
 title: Architecture
 ---
 
+This diagram shows the main components of a Kubernetes cluster:
+
 ```mermaid
 graph TB
     subgraph "Master Node"
@@ -10,17 +12,17 @@ graph TB
         CM[kube-controller-manager]
         SCHED[kube-scheduler]
         ETCD[(etcd)]
-        
+
         ETCD --> API
         API --> CM
         API --> SCHED
     end
-    
+
     subgraph "Worker Node"
         KUBELET[kubelet]
         PROXY[kube-proxy]
         CONTAINER[Container Runtime]
-        
+
         KUBELET --> API
         PROXY --> API
         KUBELET --> CONTAINER
@@ -33,8 +35,6 @@ graph TB
     style KUBELET fill:#fbbc04,stroke:#000,color:#fff
     style PROXY fill:#fa7b17,stroke:#000,color:#fff
 ```
-
-This diagram shows the main components of a Kubernetes cluster:
 
 ## Master Node Components
 
